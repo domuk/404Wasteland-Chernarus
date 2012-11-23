@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Wasteland">
+	<Package name="General">
+		<Key ID="STR_WL_Gen_TeamWEST">
+			<English>BLUFOR</English>
+		</Key>
+	</Package>
+	<Package name="Loading">
+		<Key ID="STR_WL_Loading_Teamkiller">
+			<English>You are considered teamkiller and not allowed in BLUFOR or OPFOR teams. Please go back into lobby and join Independent where killing anyone is allowed.</English>
+		</Key>
+	</Package>
+	<Package name="Gameplay">
+		<Key ID="STR_WL_Action_Refuel_DriverSeat">
+			<English>Please enter driver seat before refueling</English>
+		</Key>
+	</Package>
+	<Package name="WelcomeMessage">
+		<Key ID="STR_WL_WelcomeToWasteland">
+			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Welcome to 404Games - Wasteland Server&lt;t color='#FFFFFF' size='1' &gt;</English>
+		</Key>
+	</Package>
+	<Package name="TeamkillMessage">
+		<Key ID="STR_WL_TeamkillMessage">
+			<English>&lt;t size='2.5' color='#ff0000'&gt;Teamkilling is forbidden under any reason!&lt;/t&gt;&lt;br/&gt;You have killed your teammate which is against rules. If this was a mistake then &lt;t color='#8888ff'&gt;you must explain yourself and say sorry&lt;/t&gt;, otherwise they will mark you as teamkiller and you will get kicked. Teamkilling is forbidden under any reason, no matter what somebody said or did, teamkiller is always guilty and teamkilling will get you permabanned on our servers!</English>
+		</Key>
+	</Package>
+	<Package name="Shop">
+		<Key ID="STR_WL_Shop_Marker_GunStore">
+			<English>Gun store</English>
+		</Key>
+	</Package>
+	<Package name="Dialogs">
+		<Key ID="STR_WL_Dlg_PlayerMenuServerTime">
+			<English>Mission uptime: %1</English>
+		</Key>
+	</Package>
+	<Package name="Actions">
+		<Key ID="STR_WL_Acts_PlayerMenu">
+			<English>Player Menu</English>
+		</Key>
+	</Package>
+</Project>
