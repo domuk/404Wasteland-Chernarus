@@ -15,12 +15,14 @@ _iteminv = _dialog displayCtrl genstore_iteminventory;
 _cartlist = _dialog displayCtrl genstore_cart;
 _itemlist = _dialog displayCtrl genstore_item_list;
 _totalText = _dialog displayCtrl genstore_total;
+_itemInfo = _dialog displayCtrl genstore_item_Info;
 
 //Clear old data
 genStoreCart = 0;
-_totalText CtrlsetText format["Total: $%1", genStoreCart];
 lbClear _cartlist;
 lbClear _itemlist;
+_totalText CtrlsetText format["Total: $%1", genStoreCart];
+_itemInfo ctrlSetStructuredText parseText "";
 
 //Check which state we want to be in.
 _switchText = Ctrltext _switch;

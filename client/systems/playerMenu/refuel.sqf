@@ -17,8 +17,8 @@ switch true do {
 	case (_vehicle isKindOf "ATV_Base_EP1"): {_fuel = 1;};
 };
 
-player setVariable["fuelFull",false,false];
-player setVariable["fuelEmpty",true,false];
+player setVariable["fuelFull",0,true];
+player setVariable["fuelEmpty",1,true];
 
 titleText [format["Refueling %1", _veh_type], "PLAIN"];
 player switchMove "AinvPknlMstpSlayWrflDnon_medic";

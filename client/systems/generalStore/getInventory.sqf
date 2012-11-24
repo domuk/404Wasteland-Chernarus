@@ -15,6 +15,7 @@ _totalText = _dialog displayCtrl genstore_total;
 _itempicture = _dialog displayCtrl genstore_item_pic;
 _itemlist = _dialog displayCtrl genstore_item_list;
 _cartlist = _dialog displayCtrl genstore_cart;
+_itemInfo = _dialog displayCtrl genstore_item_Info;
 
 //Clear the list
 genStoreCart = 0;
@@ -24,6 +25,7 @@ _itemlist lbSetCurSel -1;
 _itempicture ctrlSettext "";
 _itemlisttext ctrlSettext "";
 _totalText CtrlsetText format["Total: $%1", genStoreCart];
+_itemInfo ctrlSetStructuredText parseText "";
 
 playerInventory = [];
 
@@ -55,6 +57,20 @@ _amount = (player getVariable "repairkits");
 for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 {
 	playerInventory set [_index, "Repair Kit"];
+	_index = _index + 1;
+};
+
+_amount = (player getVariable "fuelFull");
+for [{_x=1},{_x<=_amount},{_x=_x+1}] do
+{
+	playerInventory set [_index, "Jerry Can (Full)"];
+	_index = _index + 1;
+};
+
+_amount = (player getVariable "fuelEmpty");
+for [{_x=1},{_x<=_amount},{_x=_x+1}] do
+{
+	playerInventory set [_index, "Jerry Can (Empty)"];
 	_index = _index + 1;
 };
 

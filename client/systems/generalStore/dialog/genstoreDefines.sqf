@@ -9,3 +9,4 @@
 #define genstore_switch 2017
 #define genstore_buysell 2018
 #define genstore_iteminventory 2019
+#define genstore_item_Info 2022

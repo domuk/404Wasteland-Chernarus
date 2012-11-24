@@ -8,6 +8,7 @@ disableChannels[]={2};
 
 //Dialog includes
 #include "client\systems\common.hpp"
+#include "client\systems\dialogParentClasses.hpp"
 #include "client\systems\playerMenu\dialog\player_settings.hpp"
 #include "client\systems\gunStore\dialog\gunshop_settings.hpp"
 #include "client\systems\generalStore\dialog\genstore_settings.hpp"

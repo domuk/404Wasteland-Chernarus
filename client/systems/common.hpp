@@ -330,7 +330,7 @@ class w_RscButton : w_RscButtonBase {
 	};
 };
 
-class RscButton
+class a_RscButton
 {
 
     type                      = CT_BUTTON;

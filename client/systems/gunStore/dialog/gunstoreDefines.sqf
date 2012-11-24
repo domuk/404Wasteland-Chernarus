@@ -6,3 +6,5 @@
 #define gunshop_gun_info 2006
 #define gunshop_cart 2007
 #define gunshop_total 2008
+#define gunshop_buysell 2020
+#define gunshop_gun_Info 2021

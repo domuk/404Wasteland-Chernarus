@@ -5,6 +5,6 @@
 //	@file Created: 23/11/2012 13:51
 //	@file Args:
 
-player setVariable ["fuelFull",true,false]; 
-player setVariable["fuelEmpty",false,false];
+player setVariable ["fuelFull",1,false]; 
+player setVariable["fuelEmpty",0,false];
 hint "Your jerry can is now full";

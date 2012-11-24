@@ -5,174 +5,230 @@ class gunshopd {
 	idd = gunshop_DIALOG;
 	movingEnable = true;
 	enableSimulation = true;
-	//onLoad = "[] execVM 'client\systems\gunStore\gunStoreInit.sqf'";
+	onLoad = "[0] execVM 'client\systems\gunStore\populateGunStore.sqf'";
 
 	class controlsBackground {
 		
-		class MainBG : w_RscPicture {
-		
+		class MainBackground: RscPicture
+		{
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
-			
-			moving = true;
-			
-			x = 0.325; y = 0.1;
-			w = 1.0; h = 0.65;
+
+			x = 0.1875 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.837499 * safezoneW;
+			h = 0.661111 * safezoneH;
 		};
 		
-		class MainTitle : w_RscText {
-		
+		class ItemSelectedPicture: RscPicture
+		{
+			idc = gunshop_gun_pic;
+			text = "";
+
+			x = 0.502604 * safezoneW + safezoneX;
+			y = 0.236111 * safezoneH + safezoneY;
+			w = 0.0891668 * safezoneW;
+			h = 0.0753702 * safezoneH;
+		};
+
+		class ItemSelectedInfo: RscStructuredText
+		{
+			idc = gunshop_gun_Info;
+			text = "";
+
+			x = 0.440104 * safezoneW + safezoneX;
+			y = 0.50463 * safezoneH + safezoneY;
+			w = 0.214166 * safezoneW;
+			h = 0.192963 * safezoneH;
+		};
+
+		class ItemSelectedPrice: RscStructuredText
+		{
+			idc = gunshop_gun_TEXT;
+			text = "";
+
+			x = 0.502604 * safezoneW + safezoneX;
+			y = 0.317594 * safezoneH + safezoneY;
+			w = 0.0891667 * safezoneW;
+			h = 0.068889 * safezoneH;
+		};
+
+		class DialogTitleText: RscText
+		{
 			idc = -1;
 			text = "Gun Store Menu";
-			
-			x = 0.35; y = 0.109;
-			w = 0.4; h = 0.07;
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.175 * safezoneH + safezoneY;
+			w = 0.0844792 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
 
-		class PlayerMoney : w_RscText {
-		
+		class PlayerMoneyText: RscText
+		{
 			idc = gunshop_money;
-			
-			text = "";
-			sizeEx = 0.025;
-		
-			x = 0.89; y = 0.109;
-			w = 0.4; h = 0.07;
+			text = "Cash:";
+
+			x = 0.6875 * safezoneW + safezoneX;
+			y = 0.175 * safezoneH + safezoneY;
+			w = 0.0844792 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
 
-		class TotalInCart : w_RscText {
-		
+		class CartTotalText: RscText
+		{
 			idc = gunshop_total;
-			
 			text = "Total: $0";
-			sizeEx = 0.025;
-		
-			x = 0.89; y = 0.600;
-			w = 0.4; h = 0.07;
-		};
 
-		class GunPrice: w_RscText {
-		
-			idc = gunshop_gun_TEXT;
-			
-			text = "";
-			sizeEx = 0.025;
-		
-			x = 0.732; y = 0.300;
-			w = 0.125; h = 0.05;
-		};
-
-		class gunPicture : w_RscPicture {
-			
-			idc = gunshop_gun_pic;
-		
-            text = "";
-            sizeEx = 0.025;
-		
-            x = 0.675; y = 0.2;
-            w = 0.200; h = 0.110;
+			x = 0.6875 * safezoneW + safezoneX;
+			y = 0.65 * safezoneH + safezoneY;
+			w = 0.0844792 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
 	};
 	
 	class controls {
 		
-		class CurrentItems : w_Rsclist {
-		
+		class SelectionList: RscListbox
+		{
 			idc = gunshop_gun_list;
 			onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
-		
-			x = 0.50; y = 0.200;
-			w = 0.150; h = 0.400;
+
+			x = 0.3125 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.0916666 * safezoneW;
+			h = 0.422222 * safezoneH;
 		};
 
-		class PlayerCart : w_Rsclist {
-		
+		class CartList: RscListbox
+		{
 			idc = gunshop_cart;
-		
-			x = 0.90; y = 0.200;
-			w = 0.150; h = 0.400;
+			onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
+
+			x = 0.690104 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.0916666 * safezoneW;
+			h = 0.422222 * safezoneH;
 		};
 
-		class BuyGuns : w_RscButton {
-			
-			text = "Guns";
-			onButtonClick = "[0] execVM 'client\systems\gunStore\populateGunStore.sqf'";
-			
-			x = 0.35; y = 0.200;
-			w = 0.125; h = 0.05;
-		};
-
-		class BuyAmmo : w_RscButton {
-			
-			text = "Ammo";
-			onButtonClick = "[1] execVM 'client\systems\gunStore\populateGunStore.sqf'";
-			
-			x = 0.35; y = 0.250;
-			w = 0.125; h = 0.05;
-		};
-
-		class BuyAccessories : w_RscButton {
-			
-			text = "Accessories";
-			onButtonClick = "[2] execVM 'client\systems\gunStore\populateGunStore.sqf'";
-			
-			x = 0.35; y = 0.300;
-			w = 0.125; h = 0.05;
-		};
-
-		class AddToCart : w_RscButton {
-			
-			text = "Add";
+		class AddToCart: RscButton
+		{
+			idc = -1;
 			onButtonClick = "[] execVM 'client\systems\gunStore\addToCart.sqf'";
-			
-			x = 0.720; y = 0.375;
-			w = 0.125; h = 0.05;
+			text = "Add";
+
+			x = 0.515625 * safezoneW + safezoneX;
+			y = 0.375 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+
 		};
 
-		class RemoveFromCart : w_RscButton {
-			
-			text = "Remove";
+		class RemoveFromCart: RscButton
+		{
+			idc = -1;
 			onButtonClick = "[] execVM 'client\systems\gunStore\removeFromCart.sqf'";
-			
-			x = 0.720; y = 0.425;
-			w = 0.125; h = 0.05;
+			text = "Remove";
+
+			x = 0.515625 * safezoneW + safezoneX;
+			y = 0.425 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+
 		};
 
-		class CancelButton : w_RscButton {
-			
-			text = "Cancel";
-			onButtonClick = "closeDialog 0;";
-			
-			x = 0.35; y = 0.685;
-			w = 0.125; h = 0.05;
-		};
-
-		class SellCurrentWeapon : w_RscButton {
-			
-			text = "Sell Current Weapon";
-			onButtonClick = "[] execVM 'client\systems\gunStore\sellWeapon.sqf'";
-			
-			x = 0.625; y = 0.685;
-			w = 0.125; h = 0.05;
-		};
-
-		class BuyToPlayer : w_RscButton {
-			
-			text = "Buy to Player";
+		class BuyToCrate: RscButton
+		{
+			idc = -1;
 			onButtonClick = "[0] execVM 'client\systems\gunStore\buyGuns.sqf'";
-			
-			x = 0.775; y = 0.685;
-			w = 0.125; h = 0.05;
-		};
-
-		class BuyToCrate : w_RscButton {
-			
 			text = "Buy to Crate";
-			onButtonClick = "[1] execVM 'client\systems\gunStore\buyGuns.sqf'";
-			
-			x = 0.925; y = 0.685;
-			w = 0.125; h = 0.05;
+
+			x = 0.609375 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.1,0.95,0.1,1};
+
 		};
 
+		class BuyToPlayer: RscButton
+		{
+			idc = -1;
+			onButtonClick = "[1] execVM 'client\systems\gunStore\buyGuns.sqf'";
+			text = "Buy to Player";
+
+			x = 0.703125 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.1,0.95,0.1,1};
+
+		};
+
+		class BuySellEquipment: RscButton
+		{
+			idc = -1;
+			onButtonClick = "[] execVM 'client\systems\gunStore\sellWeapon.sqf'";
+			text = "Sell Current Weapon";
+
+			x = 0.40625 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.096 * safezoneW;
+			h = 0.040 * safezoneH;
+
+		};
+
+		class CancelButton: RscButton
+		{
+			idc = -1;
+			onButtonClick = "closeDialog 0;";
+			text = "Cancel";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.072 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.95,0.1,0.1,1};
+
+		};
+
+		class StoreButton0: RscButton
+		{
+			idc = -1;
+			onButtonClick = "[0] execVM 'client\systems\gunStore\populateGunStore.sqf'";
+			text = "Weapons";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+	
+		};
+
+		class StoreButton1: RscButton
+		{
+			idc = -1;
+			onButtonClick = "[1] execVM 'client\systems\gunStore\populateGunStore.sqf'";
+			text = "Ammunition";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.275 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+
+		};
+
+		class StoreButton2: RscButton
+		{
+			idc = -1;
+			onButtonClick = "[2] execVM 'client\systems\gunStore\populateGunStore.sqf'";
+			text = "Equipment";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.325 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+
+		};
 	};
 };

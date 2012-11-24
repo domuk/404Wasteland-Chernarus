@@ -6,13 +6,15 @@ class Mission
 		"cacharacters2",
 		"ibr_jade",
 		"cacharacters_e",
-		"cacharacters_pmc"
+		"cacharacters_pmc",
+		"ca_modules_functions"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters2",
 		"cacharacters_e",
 		"cacharacters_pmc",
+		"ca_modules_functions",
 		"ibr_jade"
 	};
 	randomSeed=4994204;
@@ -31,7 +33,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=60;
+		items=61;
 		class Item0
 		{
 			side="WEST";
@@ -1171,6 +1173,59 @@ class Mission
 					skill=0.60000002;
 					text="blufor2";
 				};
+			};
+		};
+		class Item60
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3917.9966,13.432731,4365.4487};
+					id=60;
+					side="LOGIC";
+					vehicle="FunctionsManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+	};
+	class Sensors
+	{
+		items=2;
+		class Item0
+		{
+			position[]={3888.9175,13.329193,4366.5557};
+			a=0;
+			b=0;
+			activationBy="ALPHA";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="Hello World";
+			expActiv="0 = createdialog ""RscDisplayTest""";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={3890.0249,14.050372,4357.9766};
+			a=0;
+			b=0;
+			activationBy="BRAVO";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="GUI Editor";
+			expCond="this && !isnil ""bis_fnc_init""";
+			expActiv="[] call BIS_fnc_GUIeditor";
+			class Effects
+			{
 			};
 		};
 	};

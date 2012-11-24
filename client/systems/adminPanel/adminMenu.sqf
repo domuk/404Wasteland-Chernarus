@@ -11,6 +11,8 @@ _start = createDialog "AdminMenu";
 thingsAvailable = [
 "Player Menu",
 "Vehicle Management",
+"Gun Store",
+"General Store",
 "Test Function"
 ];
 

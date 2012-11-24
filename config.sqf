@@ -41,7 +41,7 @@ weaponsArray = [
     ["M4A1","M4A1",50],
     ["M4A1 CCO","M4A1_Aim",100],
     ["M1014","M1014",50],
-    ["Saiga 12K","Saiga 12K",100],
+    ["Saiga 12K","Saiga12K",100],
     ["M249","M249_EP1",250],
     ["Mk_48 Mod","Mk_48",250],
     ["M240","M240",250],
@@ -82,11 +82,12 @@ accessoriesArray = [
 
 //Display Name, Class Name, Description, Buy Price, Sell Price.
 generalStore = [
-	["Water","water","",30,15],
-	["Canned Food","canfood","",30,15],
-	["Repair Kit","repairkits","",1000,500],
-	["Medical Kit","medkits","",400,200]
-	//["Jerry Can","fuelFull","",150,75]
+	["Water","water","404 Inc Premium Spring Water. This water comes to you fresh from a toilet cistern and is treated with only the highest quality urinal cakes. Notice: 404 Inc have tried their best to remove all remnants of urinal cake but some may still remain.","client\icons\water.paa",30,15],
+	["Canned Food","canfood","BestCo Value Cat-food. Heat treated and sealed in a 100% steel can for extra long shelf life. Warning: contents may contain organs.","client\icons\cannedfood.paa",30,15],
+	["Repair Kit","repairkits","This magic box will repair any mechanical device to its former glory. Warning: Does not work on wives/spouses/partners.","client\icons\briefcase.paa",1000,500],
+	["Medical Kit","medkits","Restore your health back to full. Disclaimer: This product was tested on animals and at least 5 bunnies died as a result.","client\icons\medkit.paa",400,200],
+	["Jerry Can (Full)","fuelFull","Top quality imported Russian petroleum, now with 10% less communism!","client\icons\jerrycan.paa",150,75],
+    ["Jerry Can (Empty)","fuelEmpty","Stolen from a US military base, possibly. On sale now, 50% off!","client\icons\jerrycan.paa",50,25]
 ];
 
 //Vehicle Config

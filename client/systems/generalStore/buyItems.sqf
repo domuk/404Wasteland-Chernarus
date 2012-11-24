@@ -33,7 +33,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
                 player setVariable["water",(player getVariable "water") + 1,true];	
             } else {
                 _price = 0;
-                {if(_x select 0 == "Water") then{_price = _x select 3;};}forEach generalStore;
+                {if(_x select 0 == "Water") then{_price = _x select 4;};}forEach generalStore;
             	genStoreCart = genStoreCart - _price;    
             };
         };
@@ -43,7 +43,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
                 player setVariable["canfood",(player getVariable "canfood") + 1,true];
             } else {
             	_price = 0;
-                {if(_x select 0 == "Canned Food") then{_price = _x select 3;};}forEach generalStore;
+                {if(_x select 0 == "Canned Food") then{_price = _x select 4;};}forEach generalStore;
             	genStoreCart = genStoreCart - _price;    
             };
         };
@@ -53,7 +53,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
                 player setVariable["medkits",(player getVariable "medkits") + 1,true];
             } else {
             	_price = 0;
-                {if(_x select 0 == "Medical Kit") then{_price = _x select 3;};}forEach generalStore;
+                {if(_x select 0 == "Medical Kit") then{_price = _x select 4;};}forEach generalStore;
             	genStoreCart = genStoreCart - _price;    
             };
         };
@@ -63,7 +63,27 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
                 player setVariable["repairkits",(player getVariable "repairkits") + 1,true];
             } else {
             	_price = 0;
-                {if(_x select 0 == "Repair Kit") then{_price = _x select 3;};}forEach generalStore;
+                {if(_x select 0 == "Repair Kit") then{_price = _x select 4;};}forEach generalStore;
+            	genStoreCart = genStoreCart - _price;    
+            };
+        };
+        
+        case "Jerry Can (Full)": {
+            if(((player getVariable "fuelFull") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
+                player setVariable["fuelFull",(player getVariable "fuelFull") + 1,true];
+            } else {
+            	_price = 0;
+                {if(_x select 0 == "Jerry Can (Full)") then{_price = _x select 4;};}forEach generalStore;
+            	genStoreCart = genStoreCart - _price;    
+            };
+        };
+        
+        case "Jerry Can (Empty)": {
+            if(((player getVariable "fuelEmpty") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
+                player setVariable["fuelEmpty",(player getVariable "fuelEmpty") + 1,true];
+            } else {
+            	_price = 0;
+                {if(_x select 0 == "Jerry Can (Empty)") then{_price = _x select 4;};}forEach generalStore;
             	genStoreCart = genStoreCart - _price;    
             };
         };

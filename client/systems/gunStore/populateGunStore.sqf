@@ -14,7 +14,8 @@ _switch = _this select 0;
 _dialog = findDisplay gunshop_DIALOG;
 _gunlisttext = _dialog displayCtrl gunshop_gun_TEXT;
 _gunpicture = _dialog displayCtrl gunshop_gun_pic;
-_gunlist = _dialog displayCtrl gunshop_gun_list;
+_gunlist = _dialog displayCtrl gunshop_gun_list;								
+_gunInfo = _dialog displayCtrl gunshop_gun_Info;
 
 switch(_switch) do 
 {
@@ -25,6 +26,7 @@ switch(_switch) do
 		_gunlist lbSetCurSel -1;
 		_gunpicture ctrlSettext "";
 		_gunlisttext ctrlSettext "";
+        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
@@ -39,6 +41,7 @@ switch(_switch) do
 		_gunlist lbSetCurSel -1;
 		_gunpicture ctrlSettext "";
 		_gunlisttext ctrlSettext "";
+        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
@@ -53,6 +56,7 @@ switch(_switch) do
 		_gunlist lbSetCurSel -1;
 		_gunpicture ctrlSettext "";
 		_gunlisttext ctrlSettext "";
+        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{

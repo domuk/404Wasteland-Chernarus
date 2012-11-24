@@ -9,151 +9,182 @@ class genstored {
 
 	class controlsBackground {
 		
-		class MainBG : w_RscPicture {
-		
+		class MainBackground: RscPicture
+		{
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
-			
-			moving = true;
-			
-			x = 0.325; y = 0.1;
-			w = 1.0; h = 0.65;
+
+			x = 0.1875 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.837499 * safezoneW;
+			h = 0.661111 * safezoneH;
 		};
 		
-		class MainTitle : w_RscText {
-		
+		class ItemSelectedPicture: RscPicture
+		{
+			idc = genstore_item_pic;
+			text = "";
+
+			x = 0.5325 * safezoneW + safezoneX;
+			y = 0.250 * safezoneH + safezoneY;
+			w = 0.030 * safezoneW;
+			h = 0.055 * safezoneH;
+		};
+
+		class ItemSelectedInfo: RscStructuredText
+		{
+			idc = genstore_item_Info;
+			text = "";
+
+			x = 0.440104 * safezoneW + safezoneX;
+			y = 0.50463 * safezoneH + safezoneY;
+			w = 0.214166 * safezoneW;
+			h = 0.192963 * safezoneH;
+		};
+
+		class ItemSelectedPrice: RscStructuredText
+		{
+			idc = genstore_item_TEXT;
+			text = "";
+
+			x = 0.502604 * safezoneW + safezoneX;
+			y = 0.317594 * safezoneH + safezoneY;
+			w = 0.0891667 * safezoneW;
+			h = 0.068889 * safezoneH;
+		};
+
+		class DialogTitleText: RscText
+		{
 			idc = -1;
 			text = "General Store Menu";
-			
-			x = 0.35; y = 0.109;
-			w = 0.4; h = 0.07;
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.175 * safezoneH + safezoneY;
+			w = 0.0880 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
 
-		class PlayerMoney : w_RscText {
-		
+		class PlayerMoneyText: RscText
+		{
 			idc = genstore_money;
-			
-			text = "";
-			sizeEx = 0.025;
-		
-			x = 0.89; y = 0.109;
-			w = 0.4; h = 0.07;
+			text = "Cash:";
+
+			x = 0.6875 * safezoneW + safezoneX;
+			y = 0.175 * safezoneH + safezoneY;
+			w = 0.0844792 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
 
-		class TotalInCart : w_RscText {
-		
+		class CartTotalText: RscText
+		{
 			idc = genstore_total;
-			
 			text = "Total: $0";
-			sizeEx = 0.025;
-		
-			x = 0.89; y = 0.600;
-			w = 0.4; h = 0.07;
-		};
 
-		class ItemPrice: w_RscText {
-		
-			idc = genstore_item_TEXT;
-			
-			text = "";
-			sizeEx = 0.025;
-		
-			x = 0.732; y = 0.300;
-			w = 0.125; h = 0.05;
+			x = 0.6875 * safezoneW + safezoneX;
+			y = 0.65 * safezoneH + safezoneY;
+			w = 0.0844792 * safezoneW;
+			h = 0.0448148 * safezoneH;
 		};
-
-		class ItemPicture : w_RscPicture {
-			
-			idc = genstore_item_pic;
 		
-            text = "";
-            sizeEx = 0.025;
-		
-            x = 0.675; y = 0.2;
-            w = 0.200; h = 0.110;
-		};
 	};
 	
 	class controls {
 		
-		class CurrentItems : w_Rsclist {
-		
+		class SelectionList: RscListbox
+		{
 			idc = genstore_item_list;
 			onLBSelChanged = "[] execvm 'client\systems\generalStore\itemInfo.sqf'";
-		
-			x = 0.50; y = 0.200;
-			w = 0.150; h = 0.400;
+
+			x = 0.3125 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.0916666 * safezoneW;
+			h = 0.422222 * safezoneH;
 		};
 
-		class PlayerCart : w_Rsclist {
-		
+		class CartList: RscListbox
+		{
 			idc = genstore_cart;
-		
-			x = 0.90; y = 0.200;
-			w = 0.150; h = 0.400;
+			onLBSelChanged = "[] execvm 'client\systems\generalStore\itemInfo.sqf'";
+
+			x = 0.690104 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.0916666 * safezoneW;
+			h = 0.422222 * safezoneH;
 		};
 
-		class LoadItems : w_RscButton {
-			
+		class StoreButton0: RscButton
+		{	
 			idc = genstore_iteminventory;
 
 			text = "Items";
 			onButtonClick = "[] execVM 'client\systems\generalStore\populateSwitch.sqf'";
 			
-			x = 0.35; y = 0.200;
-			w = 0.125; h = 0.05;
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
 		};
 
-		class AddToCart : w_RscButton {
+		class AddToCart : RscButton {
 			
 			text = "Add";
 			onButtonClick = "[] execVM 'client\systems\generalStore\addToCart.sqf'";
 			
-			x = 0.720; y = 0.375;
-			w = 0.125; h = 0.05;
+			x = 0.515625 * safezoneW + safezoneX;
+			y = 0.375 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
 		};
 
-		class RemoveFromCart : w_RscButton {
+		class RemoveFromCart : RscButton {
 
 			text = "Remove";
 			onButtonClick = "[] execVM 'client\systems\generalStore\removeFromCart.sqf'";
-			
-			x = 0.720; y = 0.425;
-			w = 0.125; h = 0.05;
+
+			x = 0.515625 * safezoneW + safezoneX;
+			y = 0.425 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
 		};
 
-		class CancelButton : w_RscButton {
+		class CancelButton : RscButton {
 			
+			idc = -1;
 			text = "Cancel";
 			onButtonClick = "closeDialog 0;";
-			
-			color[] = {0.95, 0.10, 0.10, 1};
-			x = 0.350; y = 0.685;
-			w = 0.125; h = 0.05;
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.072 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.95,0.1,0.1,1};
 		};
 
-		class SaleBuy : w_RscButton {
+		class SaleBuy : RscButton {
 			
 			idc = genstore_switch;
 
 			text = "Sell Items";
 			onButtonClick = "[] execVM 'client\systems\generalStore\switchMode.sqf'";
 
-			x = 0.635; y = 0.685;
-			w = 0.125; h = 0.05;
+			x = 0.450 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.096 * safezoneW;
+			h = 0.040 * safezoneH;
 		};
 
-		class BuyToPlayer : w_RscButton {
+		class BuyToPlayer : RscButton {
 			
 			idc = genstore_buysell;
 
 			text = "Buy";
 			onButtonClick = "[0] execVM 'client\systems\generalStore\buysellSwitch.sqf'";
 
-			color[] = {0.10, 0.95, 0.10, 1};
-			x = 0.920; y = 0.685;
-			w = 0.125; h = 0.05;
+			x = 0.703125 * safezoneW + safezoneX;
+			y = 0.750 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.1,0.95,0.1,1};
 		};
-
 	};
 };

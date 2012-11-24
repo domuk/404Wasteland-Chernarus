@@ -27,8 +27,8 @@ _player setVariable["medkits",0,false];
 _player setVariable["water",2,false];
 _player setVariable["fuel",0,false];
 _player setVariable["repairkits",0,false];
-_player setVariable["fuelFull", false, false];
-_player setVariable["fuelEmpty", true, false];
+_player setVariable["fuelFull", 0, false];
+_player setVariable["fuelEmpty", 1, false];
 _player setVariable["bombs",false,false];
 
 [] execVM "client\functions\playerActions.sqf";

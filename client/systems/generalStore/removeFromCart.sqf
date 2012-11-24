@@ -34,14 +34,14 @@ if (local player) then {
 		{
         	if(_x select 0 == _itemText) then
             {
-                _price = _x select 3;
+                _price = _x select 4;
             };    
         }forEach generalStore;
 	} else {
 		{
         	if(_x select 0 == _itemText) then
             {
-                _price = _x select 4;
+                _price = _x select 5;
             };    
         }forEach generalStore;
 		_itemlistIndex = _itemlist lbAdd format["%1",_itemText];

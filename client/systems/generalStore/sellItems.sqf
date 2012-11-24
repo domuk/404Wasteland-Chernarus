@@ -26,6 +26,8 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
 	if(_itemText == "Canned Food") then {player setVariable["canfood",(player getVariable "canfood") - 1,false];};
 	if(_itemText == "Medical Kit") then {player setVariable["medkits",(player getVariable "medkits") - 1,false];};
 	if(_itemText == "Repair Kit") then {player setVariable["repairkits",(player getVariable "repairkits") - 1,false];};
+    if(_itemText == "Jerry Can (Full)") then {player setVariable["fuelFull",(player getVariable "fuelFull") - 1,false];};
+    if(_itemText == "Jerry Can (Empty)") then {player setVariable["fuelEmpty",(player getVariable "fuelEmpty") - 1,false];};
 };
 
 player setVariable["cmoney",_playerMoney + genStoreCart,false];
