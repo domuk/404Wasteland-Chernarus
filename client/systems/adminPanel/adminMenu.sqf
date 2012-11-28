@@ -13,7 +13,8 @@ thingsAvailable = [
 "Vehicle Management",
 "Gun Store",
 "General Store",
-"Test Function"
+"Test Function",
+"Respawn Dialog"
 ];
 
 {

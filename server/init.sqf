@@ -9,16 +9,32 @@
 if(!X_Server) exitWith {};
 
 //Execute Server Side Scripts.
-[] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\serverVars.sqf";
+[] execVM "server\functions\serverCompile.sqf";
+[] execVM "server\functions\currentTime.sqf";
 [] execVM "server\functions\relations.sqf";
+
+waitUntil{serverCompiledScripts};
+diag_log format["WASTELAND SERVER - Server Complie Finished"];
 
 //Execute Server Spawning.
 if (serverSpawning == 1) then {
-		
+    diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
+    vehicleSpawnComplete = false;
+    objectSpawnComplete = false;
+    ammoCrateSpawnComplete = false;
+	[] execVM "server\functions\vehicleSpawning.sqf";
+    [] execVM "server\functions\objectsSpawning.sqf";
+    [] execVM "server\functions\boxSpawning.sqf";	
+};
+
+//Start Vehicle Respawn Script.
+if(vehicleRespawn == 1) then {
+    diag_log format["WASTELAND SERVER - Initilizing Vehicle Respawning"];
+    [] execVM "server\functions\vehicleRespawn.sqf";
 };
 
 //Execute Server Missions.
 if (sideMissions == 1) then {
-	
+	diag_log format["WASTELAND SERVER - Initilizing Side Missions"];
 };

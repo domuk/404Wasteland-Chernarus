@@ -7,7 +7,7 @@
 
 
 _objPos = _this select 0;
-_Objtype = objectList call BIS_fnc_selectRandom;
+_Objtype = objectList select (random (count objectList - 1));
 _obj = createVehicle [_Objtype,_objPos,[], 50,"None"]; 
 
 if(_Objtype == "Land_Barrel_water") then 

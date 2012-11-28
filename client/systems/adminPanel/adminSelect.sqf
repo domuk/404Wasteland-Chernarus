@@ -47,11 +47,28 @@ switch (AdminSelect) do
     };
     case 4: //Test Function
     {
-        //icon
-        _className = "Fuel_can";
-        _item = (configFile >> "CfgVehicles" >>  _className);
-        //hint format ["Item %1", _item];
-        _picture = getText(_item >> "icon");
-        hint format ["Pic URL = %1", _picture]; 
+        _rad = 20000;
+        _cnps = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+		//_flatArea = nearestLocations [_cnps, ["NameLocal"], _rad];
+        _flatArea = nearestObjects [_cnps, ["House"], _rad];
+        
+        _count = count _flatArea;
+        hint format["Houses = %1", _count];
+        /*
+        {
+            _markerName = format["marker%1",_forEachIndex];
+	    	_marker = createMarker [_markerName, getPos _x];
+			_marker setMarkerType "mil_destroy";
+			_marker setMarkerSize [1.25, 1.25];
+			_marker setMarkerText "Point";
+			_marker setMarkerColor "ColorRed";
+        }forEach _flatArea;
+        */
+    };
+    case 5: //Respawn Dialog
+    {
+    	_respawnDialog = createDialog "respawnDialog";
+        
+        _Dialog = findDisplay respawn_Dialog;
     };
 };

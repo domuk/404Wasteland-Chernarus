@@ -5,8 +5,9 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-compareTime = compile preprocessFile "server\functions\compareTime.sqf";
+diag_log format["WASTELAND SERVER - Initilizing Server Complie"];
 
+compareTime = compile preprocessFileLineNumbers "server\functions\compareTime.sqf";
 randomWeapons = compile preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";
 vehicleCreation = compile preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
 objectCreation = compile preprocessFileLineNumbers "server\spawning\objectCreation.sqf";

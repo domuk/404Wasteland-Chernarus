@@ -5,6 +5,7 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+diag_log format["WASTELAND SERVER - Initilizing Server Relations"];
 
 EAST setFriend [WEST, 0];
 EAST setFriend [EAST, 1];

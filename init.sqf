@@ -8,6 +8,8 @@
 
 
 "Arma2Net.Unmanaged" callExtension "Activate";
+if (isnil "RE") then {[] execVM "\ca\Modules\MP\data\scripts\MPframework.sqf"};
+
 StartProgress = false;
 enableSaving[false,false];
 
@@ -20,7 +22,7 @@ versionName = "v0.1";
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
 if(isNull player) then {X_JIP = true;};
-if(X_JIP) then {[] execVM "core\onJIP.sqf";};
+//if(X_JIP) then {[] execVM "core\onJIP.sqf";};
 
 //init Wasteland Core
 [] execVM "config.sqf";
@@ -31,6 +33,7 @@ if(X_Client) then {
 };
 
 if(X_Server) then {
+    diag_log format["WASTELAND SERVER - Initilizing Server"];
 	[] execVM "server\init.sqf";
 };
 

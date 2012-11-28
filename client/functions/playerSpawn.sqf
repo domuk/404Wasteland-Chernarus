@@ -5,8 +5,11 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-inPlayerSpawn = true;
+playerSpawning = true;
 playerUID = getPlayerUID(player);
+
+townSearch = 0;
+beaconSearch = 0;
 
 //Check if team killer
 
@@ -39,4 +42,4 @@ while {respawnDialogActive} do {
 sleep 0.1;
 
 titleText ["", "BLACK IN", 0.00001];
-inPlayerSpawn = false;
+playerSpawning = false;

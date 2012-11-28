@@ -140,7 +140,7 @@ class gunshopd {
 		class BuyToCrate: RscButton
 		{
 			idc = -1;
-			onButtonClick = "[0] execVM 'client\systems\gunStore\buyGuns.sqf'";
+			onButtonClick = "[1] execVM 'client\systems\gunStore\buyGuns.sqf'";
 			text = "Buy to Crate";
 
 			x = 0.609375 * safezoneW + safezoneX;
@@ -154,7 +154,7 @@ class gunshopd {
 		class BuyToPlayer: RscButton
 		{
 			idc = -1;
-			onButtonClick = "[1] execVM 'client\systems\gunStore\buyGuns.sqf'";
+			onButtonClick = "[0] execVM 'client\systems\gunStore\buyGuns.sqf'";
 			text = "Buy to Player";
 
 			x = 0.703125 * safezoneW + safezoneX;

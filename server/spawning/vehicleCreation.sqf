@@ -12,7 +12,7 @@ _pos = _this select 0;
 //Create Civilian Vehicle
 if (_type == 0) then {
 	//Car Initilization, Pick Car Type.
-    _cartype = civilianVehicles call BIS_fnc_selectRandom;
+    _cartype = civilianVehicles select (random (count civilianVehicles - 1));
     _car = createVehicle [_cartype,_pos,[], 20,"None"];
     _car setpos [getpos _car select 0,getpos _car select 1,0];
 
@@ -29,12 +29,13 @@ if (_type == 0) then {
 	//Set original posistion then add to vehicle array
 	_car setVariable["origPos",_pos,false];
 	currentVehicles set [count currentVehicles, [_car]];
+    publicVariable "currentVehicles";
 };
 
 //Create Military Vehicle
 if (_type == 1) then {
 	//Car Initilization, Pick Car Type.
-    _cartype = militaryVehicles call BIS_fnc_selectRandom;
+    _cartype = militaryVehicles select (random (count militaryVehicles - 1));
     _car = createVehicle [_cartype,_pos, [], 30, "None"];
     _car setpos [getpos _car select 0,getpos _car select 1,0];
 
@@ -51,12 +52,13 @@ if (_type == 1) then {
 	//Set original posistion then add to vehicle array
 	_car setVariable["origPos",_pos,false];
 	currentVehicles set [count currentVehicles, [_car]];
+    publicVariable "currentVehicles";
 };
 
 //Create Armed Military Vehicle
 if (_type == 2) then {
 	//Car Initilization, Pick Car Type.
-    _cartype = armedMilitaryVehicles call BIS_fnc_selectRandom;
+    _cartype = armedMilitaryVehicles select (random (count armedMilitaryVehicles - 1));
     _car = createVehicle [_cartype,_pos, [], 30, "None"];
     _car setpos [getpos _car select 0,getpos _car select 1,0];
 
@@ -74,4 +76,5 @@ if (_type == 2) then {
 	//Set original posistion then add to vehicle array
 	_car setVariable["origPos",_pos,false];
 	currentVehicles set [count currentVehicles, [_car]];
+    publicVariable "currentVehicles";
 };
