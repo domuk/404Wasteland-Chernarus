@@ -13,14 +13,14 @@ _house = nearestObjects [_cnps, ["House"], _rad];
     {
     	_type = 0;
 		_pos = getPos _x;
-	    _secondRad = 600;
+	    _secondRad = 1000;
 	    _vehicles = nearestObjects [_pos, ["Car"], _secondRad];
 	    
 	    //Check to see if there are not to many cars in area.
-	    if((count _vehicles) <= 9) then
+	    if((count _vehicles) <= 19) then
 	    { 
-	        _thirdRad = 50;
-	    	_vehicles = nearestObjects [_pos, ["Car"], _thirdRad];
+	        _thirdRad = 100;
+	    	_vehicles = nearestObjects [_pos, ["Car","Truck","Tank","Motorcycle"], _thirdRad];
 	        
 	        //Check that there isn't a car right next to it.
 	        if((count _vehicles == 0)) then 
@@ -39,8 +39,8 @@ _house = nearestObjects [_cnps, ["House"], _rad];
 				_marker setMarkerType "mil_destroy";
 				_marker setMarkerSize [1.25, 1.25];
 				_marker setMarkerText "Vehicle";
-				_marker setMarkerColor "ColorRed";
-                */           
+				_marker setMarkerColor "ColorRed"; 
+                */        
 	        };   
 	    };    
     };

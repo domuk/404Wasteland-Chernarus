@@ -17,7 +17,7 @@ _run = true;
 while {_run} do
 {
     _currTime = currentTime;
-    _result = [_currTime, _startTime, 2] call compareTime;
+    _result = [_currTime, _startTime, 15] call compareTime;
     
     if(_result == 1) then
     {

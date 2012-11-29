@@ -6,10 +6,9 @@
 //	@file Args:
 
 #include "dialog\genstoreDefines.sqf";
+disableSerialization;
 
 _genshopDialog = createDialog "genstored";
-
-disableSerialization;
 genStoreCart = 0;
 
 _Dialog = findDisplay genstore_DIALOG;

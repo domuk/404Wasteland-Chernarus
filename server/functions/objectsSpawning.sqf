@@ -15,7 +15,7 @@ waitUntil{vehicleSpawnComplete};
     if((typeOf _x) in blacklist) then {} else
     {
         _pos = getPos _x;
-	    _secondRad = 500;
+	    _secondRad = 200;
 	    _objects = nearestObjects [_pos, ["Land_Barrel_water",
 					"Land_stand_small_EP1",
 					"Base_WarfareBBarrier10xTall",
@@ -43,9 +43,9 @@ waitUntil{vehicleSpawnComplete};
 					"Land_ConcreteBlock"], _secondRad];
 	    
 	    //Check to see if there are not to many cars in area.
-	    if((count _objects) <= 11) then
+	    if((count _objects) <= 15) then
 	    { 
-	        _thirdRad = 50;
+	        _thirdRad = 75;
 	    	_objects = nearestObjects [_pos, ["Land_Barrel_water",
 					"Land_stand_small_EP1",
 					"Base_WarfareBBarrier10xTall",
@@ -78,7 +78,16 @@ waitUntil{vehicleSpawnComplete};
 	            _hint = "Objects Spawning";
 	            [nil,nil,rHINT,_hint] call RE;
 				[_pos] call objectCreation;
-	            _count = _count + 1;       
+	            _count = _count + 1;
+                
+                /*
+                _markerName = format["marker%1",_forEachIndex];
+			    _marker = createMarker [_markerName, _pos];
+				_marker setMarkerType "mil_destroy";
+				_marker setMarkerSize [1.25, 1.25];
+				_marker setMarkerText "Object";
+				_marker setMarkerColor "ColorRed";
+                */      
 	        };   
 	    };
     };

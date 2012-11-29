@@ -5,14 +5,24 @@ class Mission
 	{
 		"cacharacters2",
 		"cacharacters_e",
+		"ca_modules_functions",
 		"cacharacters_pmc",
-		"chernarus"
+		"chernarus",
+		"camisc3",
+		"caweapons_ammoboxes",
+		"cabuildings",
+		"cacharacters_baf"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters2",
 		"cacharacters_e",
 		"cacharacters_pmc",
+		"ca_modules_functions",
+		"cacharacters_baf",
+		"camisc3",
+		"caweapons_ammoboxes",
+		"cabuildings",
 		"chernarus"
 	};
 	randomSeed=10079095;
@@ -31,7 +41,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=60;
+		items=71;
 		class Item0
 		{
 			side="WEST";
@@ -1047,7 +1057,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={13660.193,44.758987,2902.1707};
+					position[]={13660.637,44.788307,2901.6057};
 					special="NONE";
 					id=0;
 					side="WEST";
@@ -1173,14 +1183,856 @@ class Mission
 				};
 			};
 		};
+		class Item60
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={-3321.4297,406.94556,14877.778};
+					id=60;
+					side="LOGIC";
+					vehicle="FunctionsManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item61
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={-3061.6243,425.41513,14884.774};
+					id=61;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="playerSpawn = compile preprocessFileLineNumbers ""client\functions\playerSpawn.sqf""; _nul = [] spawn {waitUntil {player == player}; true spawn playerSpawn;};";
+				};
+			};
+		};
+		class Item62
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8335.5176,25.712814,3333.0967};
+					azimut=328.64401;
+					id=62;
+					side="LOGIC";
+					vehicle="CIV_Contractor1_BAF";
+					leader=1;
+					skill=0.60000002;
+					text="gs1";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs1']; this attachTo[fp1,[-1.5,0,0]];";
+				};
+			};
+		};
+		class Item63
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8431.4355,164.74019,12007.203};
+					azimut=151.632;
+					id=71;
+					side="LOGIC";
+					vehicle="CIV_Contractor1_BAF";
+					leader=1;
+					skill=0.60000002;
+					text="gs4";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs4']; this attachTo[fp3,[3.5,2.5,0.08]];";
+				};
+			};
+		};
+		class Item64
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8398.9824,360.44235,6676.6982};
+					azimut=168.57201;
+					id=77;
+					side="LOGIC";
+					vehicle="CIV_Contractor1_BAF";
+					leader=1;
+					skill=0.60000002;
+					text="gs3";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"", 'gs3']; this attachTo[fp4,[4,-0.6,-0.04]];";
+				};
+			};
+		};
+		class Item65
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3326.5308,185.95369,3921.1165};
+					azimut=358.6969;
+					id=81;
+					side="LOGIC";
+					vehicle="CIV_Contractor1_BAF";
+					leader=1;
+					skill=0.60000002;
+					text="gs2";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs2']; this attachTo[fp2, [3.5,-1,0]];";
+				};
+			};
+		};
+		class Item66
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={10427.027,10.748408,2366.4006};
+					azimut=328.64359;
+					id=91;
+					side="LOGIC";
+					vehicle="TK_CIV_Takistani04_EP1";
+					leader=1;
+					skill=0.60000002;
+					text="generalStore1";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp5,[0,-3,0]];";
+				};
+			};
+		};
+		class Item67
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6016.0107,305.79456,7815.5566};
+					azimut=328.64359;
+					id=92;
+					side="LOGIC";
+					vehicle="TK_CIV_Takistani04_EP1";
+					leader=1;
+					skill=0.60000002;
+					text="generalStore2";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp6,[0,-3,0]];";
+				};
+			};
+		};
+		class Item68
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2586.0693,198.74002,5063.9194};
+					azimut=328.64359;
+					id=93;
+					side="LOGIC";
+					vehicle="TK_CIV_Takistani04_EP1";
+					leader=1;
+					skill=0.60000002;
+					text="generalStore3";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp7,[0,-3,0]];";
+				};
+			};
+		};
+		class Item69
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={11249.045,194.08,12208.52};
+					azimut=328.64359;
+					id=94;
+					side="LOGIC";
+					vehicle="TK_CIV_Takistani04_EP1";
+					leader=1;
+					skill=0.60000002;
+					text="generalStore4";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp8,[0,-3,0]];";
+				};
+			};
+		};
+		class Item70
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={10634.965,215.50311,8020.8521};
+					azimut=328.64359;
+					id=95;
+					side="LOGIC";
+					vehicle="TK_CIV_Takistani04_EP1";
+					leader=1;
+					skill=0.60000002;
+					text="generalStore5";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp9,[0,-3,0]];";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=25;
+		class Item0
+		{
+			position[]={8343.0654,26.779518,3340.9795};
+			azimut=-53.868065;
+			special="NONE";
+			id=63;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp1";
+			init="this setVariable [""R3F_LOG_disabled"", true]; this setVectorUp [0,-0.1,1];";
+		};
+		class Item1
+		{
+			position[]={8342.5723,27.014231,3343.8252};
+			azimut=53.277405;
+			id=64;
+			side="EMPTY";
+			vehicle="USBasicAmmunitionBox";
+			skill=0.60000002;
+			text="g_ammo_1";
+			init="clearWeaponCargo this; clearMagazineCargo this; this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item2
+		{
+			position[]={8340.9434,26.566187,3340.2039};
+			azimut=401.82047;
+			id=65;
+			side="EMPTY";
+			vehicle="Land_sara_hasic_zbroj";
+			skill=0.60000002;
+			text="gs1_hangar";
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item3
+		{
+			position[]={8326.4502,25.459555,3335.7229};
+			azimut=-38.823055;
+			id=66;
+			side="EMPTY";
+			vehicle="Land_CncBlock";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item4
+		{
+			position[]={8331.1016,26.018587,3340.7898};
+			azimut=-66.159485;
+			id=67;
+			side="EMPTY";
+			vehicle="Land_HBarrier_large";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item5
+		{
+			position[]={8323.9404,25.153147,3332.5264};
+			azimut=-243.02342;
+			id=68;
+			side="EMPTY";
+			vehicle="Land_CncBlock";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item6
+		{
+			position[]={8341.6865,27.785107,3351.8079};
+			azimut=338.70856;
+			id=69;
+			side="EMPTY";
+			vehicle="Land_HBarrier_large";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item7
+		{
+			position[]={8331.1016,26.018587,3340.7898};
+			azimut=-66.159485;
+			id=70;
+			side="EMPTY";
+			vehicle="Land_HBarrier_large";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item8
+		{
+			position[]={8432.0771,164.48849,12012.323};
+			azimut=140;
+			special="NONE";
+			id=72;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp3";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
+		};
+		class Item9
+		{
+			position[]={8429.292,164.87874,12004.027};
+			azimut=45;
+			id=73;
+			side="EMPTY";
+			vehicle="USBasicAmmunitionBox";
+			skill=0.60000002;
+			text="g_ammo_4";
+			init="clearWeaponCargo this; clearMagazineCargo this; this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item10
+		{
+			position[]={8437.1826,164.11607,12016.169};
+			azimut=195.45775;
+			id=74;
+			side="EMPTY";
+			vehicle="Land_CncBlock";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item11
+		{
+			position[]={8431.8555,164.79347,12006.722};
+			azimut=278;
+			id=76;
+			side="EMPTY";
+			vehicle="Land_bouda2_vnitrek";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item12
+		{
+			position[]={8431.2041,164.23901,12016.341};
+			azimut=6.1187;
+			id=75;
+			side="EMPTY";
+			vehicle="Land_HBarrier_large";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item13
+		{
+			position[]={8403.0615,360.47531,6675.2549};
+			azimut=180;
+			special="NONE";
+			id=78;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp4";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
+		};
+		class Item14
+		{
+			position[]={8395.9014,360.40634,6676.6851};
+			azimut=125;
+			id=79;
+			side="EMPTY";
+			vehicle="USBasicAmmunitionBox";
+			skill=0.60000002;
+			text="g_ammo_3";
+			init="clearWeaponCargo this; clearMagazineCargo this; this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item15
+		{
+			position[]={8398.1113,360.43729,6675.0249};
+			id=80;
+			side="EMPTY";
+			vehicle="Land_bouda2_vnitrek";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item16
+		{
+			position[]={3322.3943,185.95049,3922.3176};
+			special="NONE";
+			id=82;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp2";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
+		};
+		class Item17
+		{
+			position[]={3329.7144,185.95638,3920.1074};
+			azimut=309;
+			id=83;
+			side="EMPTY";
+			vehicle="USBasicAmmunitionBox";
+			skill=0.60000002;
+			text="g_ammo_2";
+			init="clearWeaponCargo this; clearMagazineCargo this; this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item18
+		{
+			position[]={3327.2544,185.95139,3921.9775};
+			azimut=180;
+			id=84;
+			side="EMPTY";
+			vehicle="Land_bouda2_vnitrek";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item19
+		{
+			position[]={3320.6387,185.95622,3924.8357};
+			azimut=-72.934555;
+			id=85;
+			side="EMPTY";
+			vehicle="Land_CncBlock";
+			skill=0.60000002;
+			init="this setVariable [""R3F_LOG_disabled"", true]; this addEventHandler[""handleDamage"", {false}];";
+		};
+		class Item20
+		{
+			position[]={10424.907,10.747202,2367.6357};
+			azimut=-53.868099;
+			special="NONE";
+			id=86;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp5";
+			init="this setVariable [""R3F_LOG_disabled"", true]; this setVectorUp [0,-0.1,1];";
+		};
+		class Item21
+		{
+			position[]={6013.9927,305.79456,7816.7412};
+			azimut=-53.868099;
+			special="NONE";
+			id=87;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp6";
+			init="this setVariable [""R3F_LOG_disabled"", true]; this setVectorUp [0,-0.1,1];";
+		};
+		class Item22
+		{
+			position[]={2587.6858,198.74002,5064.8896};
+			azimut=53.868099;
+			special="NONE";
+			id=88;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp7";
+			init="this setVariable [""R3F_LOG_disabled"", true]; this setVectorUp [0,-0.1,1];";
+		};
+		class Item23
+		{
+			position[]={11249.974,194.08,12208.114};
+			azimut=115.8681;
+			special="NONE";
+			id=89;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp8";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
+		};
+		class Item24
+		{
+			position[]={10635.894,215.50311,8020.4468};
+			azimut=210.868;
+			special="NONE";
+			id=90;
+			side="EMPTY";
+			vehicle="Land_Campfire_burning";
+			leader=1;
+			skill=0.60000002;
+			text="fp9";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
+		};
 	};
 	class Markers
 	{
-		items=1;
+		items=58;
 		class Item0
 		{
-			position[]={13672.13,45.607868,2916.5195};
-			name="SpawnVehicle";
+			position[]={3251.6377,194.82915,3971.3855};
+			name="Spawn_315";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={3239.1323,216.42313,4080.5999};
+			name="Spawn_316";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={3283.8606,187.01077,3943.5447};
+			name="Spawn_317";
+			type="Empty";
+		};
+		class Item3
+		{
+			position[]={3209.5364,230.19873,4138.957};
+			name="Spawn_318";
+			type="Empty";
+		};
+		class Item4
+		{
+			position[]={3357.9675,188.23331,3959.5352};
+			name="Spawn_320";
+			type="Empty";
+		};
+		class Item5
+		{
+			position[]={3306.4939,188.08881,3870.0862};
+			name="Spawn_321";
+			type="Empty";
+		};
+		class Item6
+		{
+			position[]={3162.7131,225.44724,4132.3076};
+			name="Spawn_322";
+			type="Empty";
+		};
+		class Item7
+		{
+			position[]={10496.352,16.356911,2251.7437};
+			name="city_elect";
+			type="Empty";
+		};
+		class Item8
+		{
+			position[]={10182.152,13.13027,2210.7241};
+			name="Spawn_79";
+			type="Empty";
+		};
+		class Item9
+		{
+			position[]={10484.184,6,2303.7686};
+			name="Spawn_96";
+			type="Empty";
+		};
+		class Item10
+		{
+			position[]={10588.053,5.9999681,2389.3628};
+			name="Spawn_97";
+			type="Empty";
+		};
+		class Item11
+		{
+			position[]={10402.758,5.9885926,2422.062};
+			name="Spawn_99";
+			type="Empty";
+		};
+		class Item12
+		{
+			position[]={10458.859,6.0084419,2493.8735};
+			name="Spawn_100";
+			type="Empty";
+		};
+		class Item13
+		{
+			position[]={11413.125,176.62764,12235.143};
+			name="Spawn_272";
+			type="Empty";
+		};
+		class Item14
+		{
+			position[]={11266.127,189.14526,12159.475};
+			name="Spawn_273";
+			type="Empty";
+		};
+		class Item15
+		{
+			position[]={11205.102,194.25903,12154.182};
+			name="Spawn_274";
+			type="Empty";
+		};
+		class Item16
+		{
+			position[]={11161.727,199.9355,12230.842};
+			name="Spawn_275";
+			type="Empty";
+		};
+		class Item17
+		{
+			position[]={11271.17,190.20567,12288.592};
+			name="Spawn_276";
+			type="Empty";
+		};
+		class Item18
+		{
+			position[]={11326.398,188.68341,12275.982};
+			name="Spawn_277";
+			type="Empty";
+		};
+		class Item19
+		{
+			position[]={11107.004,206.10825,12244.459};
+			name="Spawn_278";
+			type="Empty";
+		};
+		class Item20
+		{
+			position[]={2584.3232,194.99345,4950.3188};
+			name="Spawn_332";
+			type="Empty";
+		};
+		class Item21
+		{
+			position[]={2547.3521,194,5063.0806};
+			name="Spawn_333";
+			type="Empty";
+		};
+		class Item22
+		{
+			position[]={2616.8574,193.99001,5077.8687};
+			name="Spawn_334";
+			type="Empty";
+		};
+		class Item23
+		{
+			position[]={2688.2114,195.98624,5050.8794};
+			name="Spawn_336";
+			type="Empty";
+		};
+		class Item24
+		{
+			position[]={2678.2295,194.54509,5141.4565};
+			name="Spawn_335";
+			type="Empty";
+		};
+		class Item25
+		{
+			position[]={2759.5659,197.97971,5043.4829};
+			name="Spawn_337";
+			type="Empty";
+		};
+		class Item26
+		{
+			position[]={6016.1587,308.78787,7662.1177};
+			name="Spawn_561";
+			type="Empty";
+		};
+		class Item27
+		{
+			position[]={6042.4067,300.97159,7748.6841};
+			name="Spawn_562";
+			type="Empty";
+		};
+		class Item28
+		{
+			position[]={6075.104,300.98999,7772.5669};
+			name="Spawn_563";
+			type="Empty";
+		};
+		class Item29
+		{
+			position[]={6016.5317,301.32947,7860.9946};
+			name="Spawn_564";
+			type="Empty";
+		};
+		class Item30
+		{
+			position[]={6168.6479,301,7725.3696};
+			name="Spawn_565";
+			type="Empty";
+		};
+		class Item31
+		{
+			position[]={6211.8657,298.67462,7672.7681};
+			name="Spawn_567";
+			type="Empty";
+		};
+		class Item32
+		{
+			position[]={6267.8794,301.00562,7731.3403};
+			name="Spawn_566";
+			type="Empty";
+		};
+		class Item33
+		{
+			position[]={6259.6343,304.58353,7820.9028};
+			name="Spawn_568";
+			type="Empty";
+		};
+		class Item34
+		{
+			position[]={5962.5117,307.25189,7969.3223};
+			name="Spawn_569";
+			type="Empty";
+		};
+		class Item35
+		{
+			position[]={6283.8032,296.82855,7594.8638};
+			name="Spawn_570";
+			type="Empty";
+		};
+		class Item36
+		{
+			position[]={6130.4399,300.98608,7774.1597};
+			name="Spawn_571";
+			type="Empty";
+		};
+		class Item37
+		{
+			position[]={6030.229,300.95062,7815.3804};
+			name="Spawn_572";
+			type="Empty";
+		};
+		class Item38
+		{
+			position[]={5966.9829,303.65067,7902.9927};
+			name="Spawn_573";
+			type="Empty";
+		};
+		class Item39
+		{
+			position[]={6128.4263,300.65771,7658.7271};
+			name="Spawn_575";
+			type="Empty";
+		};
+		class Item40
+		{
+			position[]={6333.4976,288.79428,7532.5024};
+			name="Spawn_576";
+			type="Empty";
+		};
+		class Item41
+		{
+			position[]={6385.814,286.92258,7521.981};
+			name="Spawn_577";
+			type="Empty";
+		};
+		class Item42
+		{
+			position[]={10790.053,234.10324,8213.1172};
+			name="Spawn_625";
+			type="Empty";
+		};
+		class Item43
+		{
+			position[]={10858.977,229.40468,8162.7871};
+			name="Spawn_626";
+			type="Empty";
+		};
+		class Item44
+		{
+			position[]={10741.002,217.8279,8130.0879};
+			name="Spawn_627";
+			type="Empty";
+		};
+		class Item45
+		{
+			position[]={10713.434,213.79068,8103.4805};
+			name="Spawn_628";
+			type="Empty";
+		};
+		class Item46
+		{
+			position[]={10723.262,213.12816,8020.582};
+			name="Spawn_629";
+			type="Empty";
+		};
+		class Item47
+		{
+			position[]={10632.232,210.8792,8036.4629};
+			name="Spawn_630";
+			type="Empty";
+		};
+		class Item48
+		{
+			position[]={10663.992,210.99001,8095.7344};
+			name="Spawn_631";
+			type="Empty";
+		};
+		class Item49
+		{
+			position[]={10589.064,224.81726,8154.1113};
+			name="Spawn_632";
+			type="Empty";
+		};
+		class Item50
+		{
+			position[]={10532.701,228.02675,8104.6816};
+			name="Spawn_633";
+			type="Empty";
+		};
+		class Item51
+		{
+			position[]={10591.748,211.72258,8077.1699};
+			name="Spawn_634";
+			type="Empty";
+		};
+		class Item52
+		{
+			position[]={10642.07,210.93524,7987.4824};
+			name="Spawn_635";
+			type="Empty";
+		};
+		class Item53
+		{
+			position[]={10678.975,211.29153,7933.8047};
+			name="Spawn_636";
+			type="Empty";
+		};
+		class Item54
+		{
+			position[]={10585.037,196.11633,7908.3091};
+			name="Spawn_637";
+			type="Empty";
+		};
+		class Item55
+		{
+			position[]={10683.902,210.99001,8039.6055};
+			name="Spawn_640";
+			type="Empty";
+		};
+		class Item56
+		{
+			position[]={10817.557,221.54344,8106.6836};
+			name="Spawn_641";
+			type="Empty";
+		};
+		class Item57
+		{
+			position[]={10877.322,228.5672,8088.7813};
+			name="Spawn_642";
 			type="Empty";
 		};
 	};

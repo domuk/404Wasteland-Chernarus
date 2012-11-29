@@ -32,3 +32,5 @@ _player setVariable["fuelEmpty", 1, false];
 _player setVariable["bombs",false,false];
 
 [] execVM "client\functions\playerActions.sqf";
+
+playerSetupComplete = true;

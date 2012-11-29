@@ -1,26 +1,9 @@
-enableItemsDropping = 0;
+#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
 loadScreen = "Loading.jpg";
-respawn ="BASE";
+respawn="BASE";
 respawnDelay=15;
-
 disabledAI=1;
 disableChannels[]={2};
-
-//Dialog includes
-#include "client\systems\common.hpp"
-#include "client\systems\dialogParentClasses.hpp"
-#include "client\systems\playerMenu\dialog\player_settings.hpp"
-#include "client\systems\gunStore\dialog\gunshop_settings.hpp"
-#include "client\systems\generalStore\dialog\genstore_settings.hpp"
-#include "client\systems\playerMenu\dialog\respawn_dialog.hpp"
-#include "client\systems\adminPanel\dialog\adminMenu.hpp"
-#include "client\systems\adminPanel\dialog\playerMenu.hpp"
-#include "client\systems\adminPanel\dialog\VehicleManagement.hpp"
-
-//3rd party includes
-#include "addons\proving_ground\PG_config.hpp"
-#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
-
 class Header
 {
 	gameType=COOP;
@@ -28,13 +11,23 @@ class Header
 	maxPlayers=60;
 };
 
+//Dialog includes
+#include "client\systems\common.hpp"
+#include "client\systems\dialogParentClasses.hpp"
+#include "client\systems\playerMenu\dialog\player_settings.hpp"
+#include "client\systems\gunStore\dialog\gunshop_settings.hpp"
+#include "client\systems\generalStore\dialog\genstore_settings.hpp"
+#include "client\systems\adminPanel\dialog\adminMenu.hpp"
+#include "client\systems\adminPanel\dialog\playerMenu.hpp"
+#include "client\systems\adminPanel\dialog\VehicleManagement.hpp"
+#include "client\systems\playerMenu\dialog\respawn_dialog.hpp"
+#include "addons\proving_ground\PG_config.hpp"
+
 class RscTitles {
 	#include "addons\proving_ground\PG_rsctitles.hpp"
     #include "client\systems\hud\dialog\hud.hpp"
 };
 
 class CfgSounds {
-
-	sounds[] = {};
-	
+	sounds[] = {};	
 };

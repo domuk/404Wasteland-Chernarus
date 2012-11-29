@@ -11,5 +11,6 @@ compareTime = compile preprocessFileLineNumbers "server\functions\compareTime.sq
 randomWeapons = compile preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";
 vehicleCreation = compile preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
 objectCreation = compile preprocessFileLineNumbers "server\spawning\objectCreation.sqf";
+staticGunCreation = compile preprocessFileLineNumbers "server\spawning\staticGunCreation.sqf";
 
 serverCompiledScripts = true;

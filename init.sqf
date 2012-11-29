@@ -6,7 +6,6 @@
 //	@file Description: The main init.
 //	@file Args:
 
-
 "Arma2Net.Unmanaged" callExtension "Activate";
 if (isnil "RE") then {[] execVM "\ca\Modules\MP\data\scripts\MPframework.sqf"};
 
@@ -22,7 +21,14 @@ versionName = "v0.1";
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
 if(isNull player) then {X_JIP = true;};
-//if(X_JIP) then {[] execVM "core\onJIP.sqf";};
+
+true spawn {
+	if(!isDedicated) then {
+		titleText ["Loading...", "BLACK OUT", 1];
+		waitUntil {player == player};
+		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
+	};
+};
 
 //init Wasteland Core
 [] execVM "config.sqf";

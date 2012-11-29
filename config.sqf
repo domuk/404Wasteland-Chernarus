@@ -156,17 +156,18 @@ objectList = ["Land_Barrel_water",
 				"Land_fort_bagfence_long",
 				"Land_HBarrier_large",
 				"Land_Misc_Scaffolding",
-				"Barrels",
 				"Land_fort_artillery_nest_EP1",
 				"Land_fort_rampart_EP1",
 				"Land_Fort_Watchtower_EP1",
-				"DSHKM_TK_INS_EP1",
 				"Land_fortified_nest_big",
-				"M2StaticMG_US_EP1",
 				"RampConcrete",
 				"WarfareBDepot",
 				"WarfareBCamp",
 				"Land_ConcreteBlock"];
+                
+//Object List - Random Spawns.
+staticWeaponsList = ["M2StaticMG_US_EP1",
+				"DSHKM_TK_INS_EP1"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
 vehicleWeapons = ["AK_107_GL_kobra",
@@ -209,10 +210,59 @@ vehicleWeapons = ["AK_107_GL_kobra",
 				"SCAR_L_CQC"];
 
 //Vars not to be changed
+playerSetupComplete = false;
 currentVehicles = [];
 pvar_teamSwitchList = [];
 pvar_teamKillList = [];
-
+cityLocations = [];
+cityList = [
+		["ACityC_Chernogorsk",600,"Chernogorsk"],
+		["ACityC_Balota",200,"Balota"],
+		["ACityC_Komarovo",200,"Komarovo"],
+		["ACityC_Kamenka",200,"Kamenka"],
+		["ACityC_Pavlovo",200,"Pavlovo"],
+		["ACityC_Bor",200,"Bor"],
+		["ACityC_Zelenogorsk",300,"Zelenogorsk"],
+		["ACityC_Drozhino",200,"Drozhino"],
+		["ACityC_Kozlovka",200,"Kozlovka"],
+		["ACityC_Sosnovka",200,"Sosnovka"],
+		["ACityC_Pulkovo",200,"Pulkovo"],
+		["ACityC_Pogorevka",200,"Pogorevka"],
+		["ACityC_Rogovo",200,"Rogovo"],
+		["ACityC_Myshkino",200,"Myshkino"],
+		["ACityC_Pustoshka",250,"Pustoshka"],
+		["ACityC_Vybor",300,"Vybor"],
+		["ACityC_Lopatino",200,"Lopatino"],
+		["ACityC_Kabanino",200,"Kabanino"],
+		["ACityC_Grishino",300,"Grishino"],
+		["ACityC_Petrovka",200,"Petrovka"],
+		["ACityC_StarySobor",300,"StarySobor"],
+		["ACityC_NovySobor",200,"NovySobor"],
+		["ACityC_Guglovo",200,"Guglovo"],
+		["ACityC_Vyshnoye",200,"Vyshnoye"],
+		["ACityC_Mogilevka",250,"Mogilevka"],
+		["ACityC_Nadezhdino",200,"Nadezhdino"],
+		["ACityC_Prigorodki",200,"Prigorodki"],
+		["ACityC_Elektrozavodsk",600,"Elektro"],
+		["ACityC_Pusta",200,"Pusta"],
+		["ACityC_Staroye",200,"Staroye"],
+		["ACityC_Msta",200,"Msta"],
+		["ACityC_Tulga",200,"Tulga"],
+		["ACityC_Kamyshovo",200,"Kamyshovo"],
+		["ACityC_Solnychniy",250,"Solnychniy"],
+		["ACityC_Dolina",200,"Dolina"],
+		["ACityC_Shakhovka",200,"Shakhovka"],
+		["ACityC_Orlovets",200,"Orlovets"],
+		["ACityC_Polana",200,"Polana"],
+		["ACityC_Gorka",350,"Gorka"],
+		["ACityC_Berezino",600,"Berezino"],
+		["ACityC_Dubrovka",200,"Dubrovka"],
+		["ACityC_Gvozdno",250,"Gvozdno"],
+		["ACityC_Krasnostav",350,"Krasnostav"],
+		["ACityC_Olsha",200,"Olsha"],
+		["ACityC_Khelm",250,"Khelm"],
+		["ACityC_Nizhnoye",200,"Nizhnoye"]
+];
 blacklist = ["Land_stand_small_EP1",
 		"Land_stand_meat_EP1",
 		"Land_stand_waterl_EP1",

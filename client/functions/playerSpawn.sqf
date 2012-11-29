@@ -1,4 +1,3 @@
-
 //	@file Version: 1.0
 //	@file Name: playerSpawn.sqf
 //	@file Author: [404] Deadbeat
@@ -7,10 +6,10 @@
 
 playerSpawning = true;
 playerUID = getPlayerUID(player);
-
 townSearch = 0;
 beaconSearch = 0;
 
+diag_log format["Entered Player Spawn"];
 //Check if team killer
 
 //Check if team switcher
@@ -30,10 +29,17 @@ if(doKickTeamSwitcher) exitWith {
 	[] spawn {sleep 20; endMission "LOSER";};
 };
 
-titleText ["Loading...", "BLACK OUT", 0.00001];
-waitUntil {compiledScripts};
+player setPos [-20000 - (random 10000), 5000 + random 15000, 0];
 
-[] execVM "client\functions\loadRespawnDialog.sqf";
+titleText ["Loading...", "BLACK OUT", 0.00001];
+waitUntil {!isNil {BIS_fnc_init}};
+waitUntil {compiledScripts};
+waitUntil {time > 0};
+waitUntil {playerSetupComplete};
+
+private ["_handle"];
+true spawn client_respawnDialog;
+
 waitUntil {respawnDialogActive};
 
 while {respawnDialogActive} do {

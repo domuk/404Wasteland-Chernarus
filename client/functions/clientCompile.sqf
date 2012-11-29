@@ -12,5 +12,6 @@ loadPlayerMenu = compile preprocessFile "client\systems\playerMenu\init.sqf";
 
 playerSetup = compile preprocessFileLineNumbers "client\functions\playerSetup.sqf";
 spawnAction = compile preprocessFileLineNumbers "client\functions\spawnAction.sqf";
+client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
 
 compiledScripts = true;

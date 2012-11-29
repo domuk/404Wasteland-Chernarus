@@ -47,28 +47,113 @@ switch (AdminSelect) do
     };
     case 4: //Test Function
     {
-        _rad = 20000;
-        _cnps = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-		//_flatArea = nearestLocations [_cnps, ["NameLocal"], _rad];
-        _flatArea = nearestObjects [_cnps, ["House"], _rad];
         
-        _count = count _flatArea;
-        hint format["Houses = %1", _count];
-        /*
-        {
-            _markerName = format["marker%1",_forEachIndex];
-	    	_marker = createMarker [_markerName, getPos _x];
-			_marker setMarkerType "mil_destroy";
-			_marker setMarkerSize [1.25, 1.25];
-			_marker setMarkerText "Point";
-			_marker setMarkerColor "ColorRed";
-        }forEach _flatArea;
-        */
     };
     case 5: //Respawn Dialog
     {
-    	_respawnDialog = createDialog "respawnDialog";
-        
-        _Dialog = findDisplay respawn_Dialog;
+    	#define respawn_Content_Text 3401
+		#define respawn_MissionUptime_Text 3402
+		#define respawn_Town_Button0 3403
+		#define respawn_Town_Button1 3404
+		#define respawn_Town_Button2 3405
+		#define respawn_Town_Button3 3406
+		#define respawn_Town_Button4 3407
+		
+		disableSerialization;
+		
+		createDialog "RespawnSelectionDialog";
+		_display = uiNamespace getVariable "RespawnSelectionDialog";
+		_display displayAddEventHandler ["KeyDown", "_return = false; if(respawnDialogActive && (_this select 1) == 1) then {_return = true;}; _return"];
+		_respawnText = _display displayCtrl respawn_Content_Text;
+		
+		_side = "";
+		if(playerSide in [west]) then {_side = "Blufor"};
+		if(playerSide in [east]) then {_side = "Opfor"};
+		if(str(playerSide) == "GUER") then {_side = "Independent"};
+		_respawnText ctrlSetStructuredText parseText (format["You are on %1.<br/>Please select a spawn point.",_side]);
+		respawnDialogActive = true;
+		
+		_buttonArray = [respawn_Town_Button0,respawn_Town_Button1,respawn_Town_Button2,respawn_Town_Button3,respawn_Town_Button4];
+		{_button ctrlSetText format[""];}forEach _buttonArray;
+		_locations = [];
+		
+		_arr = configFile >> "CfgWorlds" >> worldName >> "Names";
+		for "_i" from 0 to (count _arr)-1 do 
+		{
+			_loc = (_arr select _i);
+		    if((getText(_loc >> "type") == "CityCenter")) then 
+		    {
+				_locations set [count _locations, _loc];
+			};
+		};
+		
+		_player = "";
+		_city = "";
+		_radius = 0;
+		_name = "";
+		_playerLocations = [];
+		_friendlyTowns = [];
+		_enemyCount = 0;
+		_friendlyCount = 0;
+		while {respawnDialogActive} do
+		{
+			_onTeam = str(playerSide) in ["WEST", "EAST"];
+		    if(_onTeam) then
+		    {
+		        //diag_log format["Is Team Player"];
+				{
+					_city = _x;
+			    	{
+			            if((configName(_city)) == _x select 0) then
+			            {
+			                _radius = _x select 1;
+				            _centrePos = getArray(_city >> "position");
+			                
+			                {
+			                    _onTeam = str(side _x) in ["WEST", "EAST"];   
+			                    if(_onTeam) then 
+			                    {
+			                       if((getPos _x distance _centrePos) < _radius) then
+					               {
+					                	if(side _x == playerSide) then 
+				                        {
+				                        	_friendlyCount = _friendlyCount + 1;
+				                        }else{
+				                        	_enemyCount = _enemyCount + 1; 
+				                        };		  
+					                }; 
+			                    };  
+			                }forEach playableUnits;
+		                    _playerLocations set [count _playerLocations, [configName _city,_friendlyCount,_enemyCount]];
+		                    _friendlyCount = 0;
+		                    _enemyCount = 0;  
+			            };     
+			        }forEach cityList;    
+			    }forEach _locations;        
+		    };
+		    
+		    {
+		        if(((_x select 2) == 0) AND ((_x select 1) > 0)) then
+		        {
+		            _friendlyTowns set [count _friendlyTowns, _x select 0];
+		        };
+		    }forEach _playerLocations;
+		    
+		    {
+		    	_button = _display displayCtrl _x;
+		        if(_forEachIndex <= count _friendlyTowns -1) then
+		        {
+		            _name = _friendlyTowns select _forEachIndex;
+			        {if(_x select 0 == _name) then {_name = _x select 2};}forEach cityList;
+		        } else {
+		            _name = "";
+		        };
+		        _button ctrlSetText	format["%1",_name];    
+		    }forEach _buttonArray;
+		    
+		    _playerLocations = [];
+			_friendlyTowns = [];                                                                                                                                                                                                          	    	     
+		    sleep 1;
+		};
     };
 };
