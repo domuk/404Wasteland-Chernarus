@@ -12,11 +12,11 @@ if(isnil {_player getVariable "cmoney"}) then {_player setVariable["cmoney",0,tr
 if(!local _player) exitwith {};
 
 if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer) && (str(playerSide) in ["WEST", "EAST"])) then {
-	pTeamkiller = objNull;
+	pvar_PlayerTeamKiller = objNull;
 	if(_killer isKindOf "CAManBase") then {
-		pTeamkiller = _killer;
+		pvar_PlayerTeamKiller = _killer;
 
-		diag_log format ["Teamkilled by %1 (%2)", pTeamkiller, name pTeamkiller];
+		diag_log format ["Teamkilled by %1 (%2)", pvar_PlayerTeamKiller, name pvar_PlayerTeamKiller];
 	} else {
 		_veh = (_killer);
 		_trts = configFile >> "CfgVehicles" >> typeof _veh >> "turrets";
@@ -47,18 +47,18 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 		} forEach _paths;
 
 		if(count _suspects == 1) then {
-			pTeamkiller = _suspects select 0;
+			pvar_PlayerTeamKiller = _suspects select 0;
 
-			diag_log format ["Teamkilled by %1 (%2) with %3", pTeamkiller, name pTeamkiller, typeOf vehicle pTeamkiller];
+			diag_log format ["Teamkilled by %1 (%2) with %3", pvar_PlayerTeamKiller, name pvar_PlayerTeamKiller, typeOf vehicle pvar_PlayerTeamKiller];
 		};
 	};
 };
 
-if(!isNull(pTeamkiller)) then {
-	publicVar_teamkillMessage = pTeamkiller;
+if(!isNull(pvar_PlayerTeamKiller)) then {
+	publicVar_teamkillMessage = pvar_PlayerTeamKiller;
 	publicVariable "publicVar_teamkillMessage";
 
-	publicVar_reportTeamkiller = [pTeamkiller, player];
+	publicVar_reportTeamkiller = [pvar_PlayerTeamKiller, player];
 	publicVariableServer "publicVar_reportTeamkiller";
 };
 

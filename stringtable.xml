@@ -3,41 +3,187 @@
 	<Package name="General">
 		<Key ID="STR_WL_Gen_TeamWEST">
 			<English>BLUFOR</English>
+			<Russian>Синие</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_TeamWEST_2">
+			<English>BLUFOR</English>
+			<Russian>синих</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_TeamEAST">
+			<English>OPFOR</English>
+			<Russian>Красные</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_TeamEAST_2">
+			<English>OPFOR</English>
+			<Russian>красных</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_TeamGUER">
+			<English>Independent</English>
+			<Russian>Независимые</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_TeamGUER_2">
+			<English>Independent</English>
+			<Russian>независимых</Russian>
+		</Key>
+		<Key ID="STR_WL_Gen_Warning">
+			<English>Warning!</English>
+			<Russian>Внимание!</Russian>
 		</Key>
 	</Package>
 	<Package name="Loading">
 		<Key ID="STR_WL_Loading_Teamkiller">
-			<English>You are considered teamkiller and not allowed in BLUFOR or OPFOR teams. Please go back into lobby and join Independent where killing anyone is allowed.</English>
+			<English>You are considered teamkiller and not allowed in BLUFOR or OPFOR teams. You will shortly be kicked back to the lobby where you can only join Independent and killing anyone is allowed.</English>
+			<Russian>Из-за ваших убийств товарищей по команде, доступ в команды Красных или Синих вам закрыт. Вернитесь в лобби и выберите команду Независимых, в ней разрешено убивать всех.</Russian>
+		</Key>
+		<Key ID="STR_WL_Loading_Teamswitched">
+			<English>You have played as %1 for too long and can not switch to the other team. You can still play as Independent</English>
 		</Key>
 	</Package>
 	<Package name="Gameplay">
 		<Key ID="STR_WL_Action_Refuel_DriverSeat">
 			<English>Please enter driver seat before refueling</English>
+			<Russian>Перед заправкой вам необходимо сесть один раз на место водителя\пилота</Russian>
 		</Key>
 	</Package>
 	<Package name="WelcomeMessage">
 		<Key ID="STR_WL_WelcomeToWasteland">
 			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Welcome to 404Games - Wasteland Server&lt;t color='#FFFFFF' size='1' &gt;</English>
+			<Russian>Добро пожаловать в Wasteland</Russian>
+		</Key>
+		<Key ID="STR_WL_YouAreInTeam">
+			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Instructions&lt;br/&gt;&lt;t color='#FFFFFF' size='1.5' &gt;&#127;You are in &lt;img size="1.5" image="%1"/&gt; &lt;t color="%2"&gt;%3&lt;/t&gt; team.&lt;br/&gt;&#127;Attacking or stealing from other %4 players is &lt;t color="#aa0000"&gt;FORBIDDEN.&lt;/t&gt;&lt;br/&gt;&#127;No VOIP in GLOBAL&lt;br/&gt;&#127;Server Does Restart Unexpectedly&lt;br/&gt;&#127;You will be locked to your team after 3 minutes&lt;/t&gt;</English>
+		</Key>
+		<Key ID="STR_WL_YouAreInFFA">
+			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Instructions&lt;br/&gt;&lt;t color='#FFFFFF' size='1.5' &gt;&#127;You are in &lt;img size="1.5" image="%1"/&gt; &lt;t color="%2"&gt;%3&lt;/t&gt; team.&lt;br/&gt;&#127;You are &lt;t color="#00aa00"&gt;FREE TO ATTACK ANYONE.&lt;/t&gt;&lt;br/&gt;&#127;No VOIP in GLOBAL&lt;br/&gt;&#127;Server Does Restart Unexpectedly&lt;/t&gt;</English>
+		</Key>
+		<Key ID="STR_WL_MapMoreInfo">
+			<English>&lt;t color='#FFFFFF' size='1.5' &gt;Website: www.404games.co.uk&lt;br/&gt;TS3: ts.404games.co.uk:9988&lt;br/&gt;Server Restart Times: 6AM/6PM (GMT)&lt;br/&gt;For More Info Please See The Map&lt;br/&gt;&lt;br/&gt;&lt;/t&gt;</English>
 		</Key>
 	</Package>
-	<Package name="TeamkillMessage">
-		<Key ID="STR_WL_TeamkillMessage">
-			<English>&lt;t size='2.5' color='#ff0000'&gt;Teamkilling is forbidden under any reason!&lt;/t&gt;&lt;br/&gt;You have killed your teammate which is against rules. If this was a mistake then &lt;t color='#8888ff'&gt;you must explain yourself and say sorry&lt;/t&gt;, otherwise they will mark you as teamkiller and you will get kicked. Teamkilling is forbidden under any reason, no matter what somebody said or did, teamkiller is always guilty and teamkilling will get you permabanned on our servers!</English>
+	<Package name="TeamKillWarningMessage">
+		<Key ID="STR_TK_MESSAGE">
+			<English>&lt;t size='2' color='#ff0000'&gt;Team killing is against the rules!&lt;/t&gt;&lt;br/&gt;If this was a mistake then you must explain yourself and say sorry, otherwise they will mark you as teamkiller and you will get kicked.</English>
+		</Key>
+	</Package>
+	<Package name="Diary">
+		<Key ID="STR_WL_Diary_RulesTitle">
+			<English>*SERVER RULES</English>
+			<Russian>*ПРАВИЛА СЕРВЕРА</Russian>
+		</Key>
+		<Key ID="STR_WL_Diary_RulesContent">
+			<English>&lt;br/&gt;    1. Keep bad language to a minimum. If you have a problm with another player, take it to direct.&lt;br/&gt;    2. NO VOIP IN GLOBAL. We have a public teamspeak for players to use.&lt;br/&gt;    3. Team killing or stealing from team mates when you BLUFOR or OPFOR is forbidden and punishable. Play as Independent if you want to be free for all.&lt;br/&gt;    4. Revealing information about your (ex)team to other teams is strictly forbidden&lt;br/&gt;    5. Do not exploit R3F or any other addons or you will be banned.&lt;br/&gt;    6. Using or spamming with loud\long custom sound commands will cause punishment up to permaban</English>
+			<Russian>&lt;br/&gt;    1. Запрещено грубо оскорблять или материться на других игроков&lt;br/&gt;    2. Нельзя использовать Общий Канал для голосового общения с один человеком или вашей группой. Как минимум говорите в Доп. канал или заведите Skype\Teamspeak\т.д.&lt;br/&gt;    3. Запрещено убийство товарищей по команде, воровство их вещей или техники. Замеченные случае преднамеренного нарушения этого правила будут наказаны. Если вы хотите играть сами по себе и убивать всех, зайдите за команду "Независимые".&lt;br/&gt;    4. Запрещено сливать информацию о своей (бывшей) команде другим командам: нарушения будут строго наказываться.&lt;br/&gt;    5. Использование скриптов переноса R3F для полета не лестницах запрещено и будет наказываться вплоть до бана&lt;br/&gt;    6. Использование или спам громких\долгих звуковых команд запрещено и будет наказываться вплось до бана</Russian>
+		</Key>
+
+		<Key ID="STR_WL_Diary_ChangelogTitle">
+			<English>*What's new (%1)</English>
+			<Russian>*Обновления (%1)</Russian>
+		</Key>
+		<Key ID="STR_WL_Diary_ChangelogTitle2">
+			<English>Changes in %1</English>
+			<Russian>Изменения в %1</Russian>
+		</Key>
+		<Key ID="STR_WL_Diary_ChangelogNew">
+			<English>&lt;font color="#aaaaff"&gt;[New]&lt;/font&gt;</English>
+			<Russian>&lt;font color="#aaaaff"&gt;[Новое]&lt;/font&gt;</Russian>
+		</Key>
+		<Key ID="STR_WL_Diary_ChangelogFixed">
+			<English>&lt;font color="#aaaaff"&gt;[Fixed]&lt;/font&gt;</English>
+			<Russian>&lt;font color="#aaaaff"&gt;[Исправлено]&lt;/font&gt;</Russian>
+		</Key>
+		<Key ID="STR_WL_Diary_ChangelogChanged">
+			<English>&lt;font color="#aaaaff"&gt;[Changed]&lt;/font&gt;</English>
+			<Russian>&lt;font color="#aaaaff"&gt;[Изменено]&lt;/font&gt;</Russian>
 		</Key>
 	</Package>
 	<Package name="Shop">
 		<Key ID="STR_WL_Shop_Marker_GunStore">
 			<English>Gun store</English>
+			<Russian>Магазин оружия</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Marker_GenStore">
+			<English>General store</English>
+			<Russian>общий оружия</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Marker_Empty">
+			<English>Unoccupied</English>
+			<Russian>Свободен</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Marker_Enemy">
+			<English>Enemy players here</English>
+			<Russian>Вражескими игроки</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Marker_Friendly">
+			<English>Friendly players</English>
+			<Russian>Дружественные игроки</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Marker_Mixed">
+			<English>Enemy and friendly players</English>
+			<Russian>Вражеские и дружественные игроки</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Message_EnemyApproaching">
+			<English>Enemy player just entered the area</English>
+			<Russian>Враждебный игрок приближается к магазину!</Russian>
+		</Key>
+		<Key ID="STR_WL_Shop_Message_NoMines">
+			<English>Placing explosives within 200m of a gun store is forbidden.</English>
+			<Russian>Установка взрывчатки в 200 метрах от магазина оружия запрещена.</Russian>
 		</Key>
 	</Package>
 	<Package name="Dialogs">
 		<Key ID="STR_WL_Dlg_PlayerMenuServerTime">
 			<English>Mission uptime: %1</English>
+			<Russian>Время от рестарта: %1</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_ReservedSlot">
+			<English>You have been kicked for a reserved slot</English>
+		</Key>
+		<!-- Teamkill -->
+		<Key ID="STR_WL_dialog_TeamkillText">
+			<English>You have been team-killed by %2 player %1.&lt;br/&gt;&lt;br/&gt;If this was an accident then forgive them, otherwise they should explain their actions.&lt;br/&gt;&lt;br/&gt;If the player does not explain why then select Punish or Announce.</English>
+		</Key>
+		<!-- Respawn -->
+		<Key ID="STR_WL_Dlg_RespawnTitle">
+			<English>Respawn selection</English>
+			<Russian>Место респавна</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnText">
+			<English>Please select where you would like to spawn. In order to spawn in specific town it should have at least 1 friendly player in it and no enemy players.</English>
+			<Russian>Выберите место, где бы вы хотели возродиться. Появление в городах возможно только если в городе есть как минимум 1 дружественный игрок и не одного противника.</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnTextFFA">
+			<English>Please select where you would like to spawn. Independents can only spawn in random town</English>
+			<Russian>Выберите место, где бы вы хотели возродиться. Независимые могут появляться только в случайном городе.</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnTextFFA_">
+			<English>Please select where you would like to spawn. Since you are free for all, you can either spawn in random town or north-west, north-east, south-east, south-west or center town.</English>
+			<Russian>Выберите место, где бы вы хотели \ Так как вы в команде независимых, вы можете появиться или в случайном городе или случайном городе выбранной части карты.</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnRandomTitle">
+			<English>Random village or town around the map.</English>
+			<Russian>Случайный город или деревня на карте.</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnRandomButton">
+			<English>Random</English>
+			<Russian>Случайно</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnPlayers">
+			<English>Players: %1</English>
+			<Russian>Игроки: %1</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnTowns">
+			<English>Towns: %1</English>
+			<Russian>Города: %1</Russian>
+		</Key>
+		<Key ID="STR_WL_Dlg_RespawnTownsEtc">
+			<English>and others</English>
+			<Russian>и другие</Russian>
 		</Key>
 	</Package>
 	<Package name="Actions">
 		<Key ID="STR_WL_Acts_PlayerMenu">
 			<English>Player Menu</English>
+			<Russian>Меню игрока</Russian>
 		</Key>
 	</Package>
 </Project>

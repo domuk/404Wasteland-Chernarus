@@ -10,7 +10,7 @@ private["_ui","_hud","_food","_water"];
 
 while {true} do
 {
-    cutRsc ["WastelandHud","PLAIN"];
+    1000 cutRsc ["WastelandHud","PLAIN"];
     _ui = uiNameSpace getVariable "WastelandHud";
     _vitals = _ui displayCtrl 3600;
     _hudVehicle = _ui displayCtrl 3601;

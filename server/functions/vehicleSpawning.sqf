@@ -25,8 +25,8 @@ _house = nearestObjects [_cnps, ["House"], _rad];
 	        //Check that there isn't a car right next to it.
 	        if((count _vehicles == 0)) then 
 	        {
-	            _hint = "Vehicles Spawning";
-	            [nil,nil,rHINT,_hint] call RE;
+	            //_hint = "Vehicles Spawning";
+	            //[nil,nil,rHINT,_hint] call RE;
 	            _num = floor (random 100);
 				if (_num < 100) then {_type = 0;};
 				if (_num < 35) then {_type = 1;};

@@ -39,6 +39,23 @@ player addEventHandler ["Killed", {[_this] call onKilled;}];
 waituntil {!(IsNull (findDisplay 46))};
 (findDisplay 46) displaySetEventHandler ["KeyDown", "_this call onKeyPress"];
 
+"publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
+
+pvar_PlayerTeamKiller = objNull;
+"pvar_teamKillList" addPublicVariableEventHandler {
+	if(str(playerSide) in ["WEST", "EAST"]) then {
+		{
+			if(_x select 0 == playerUID) then {
+				if((_x select 1) >= 2) then {
+					titleText ["", "BLACK IN", 0];
+					titleText [localize "STR_WL_Loading_Teamkiller", "black"]; titleFadeOut 9999;
+                    removeAllWeapons player;
+					[] spawn {sleep 20; endMission "LOSER";};
+				};
+			};
+		} forEach pvar_teamKillList;
+	};
+};
 
 //client Executes
 [] execVM "client\functions\initSurvival.sqf";
@@ -46,4 +63,4 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\createTownMarkers.sqf";
 [] execVM "client\functions\createGunStoreMarkers.sqf";
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
-//[] execVM "core\client_playerIcons.sqf";
+[] execVM "client\functions\createPlayerIcons.sqf";

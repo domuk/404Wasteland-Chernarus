@@ -325,7 +325,7 @@ R3F_LOG_CFG_objets_transportables =  [
 	["SmallTable", 1],
 	["Notebook", 1],
 	["Land_Chair_EP1", 1],
-
+	["Land_Misc_Scaffolding", 5],
 	["Suitcase",1],
 	["Fuel_can",1],
 	["Land_Barrel_water",2],
@@ -488,6 +488,7 @@ R3F_LOG_CFG_objets_deplacables = [
 	"Land_prebehlavka",
 	"Land_prolejzacka",
 	"RampConcrete",
+    "Land_Misc_Scaffolding",
 	"Land_ConcreteBlock",
 	"Land_Misc_ConcPipeline_EP1",
 	"Paleta1",

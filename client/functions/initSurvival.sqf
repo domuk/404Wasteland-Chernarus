@@ -10,7 +10,7 @@
 	while{true} do
 	{
 		sleep 600;
-		waitUntil {!client_respawnDialogActive};
+		waitUntil {!respawnDialogActive};
 		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";}
 		else
 		{
@@ -30,7 +30,7 @@
 	while{true} do
 	{
 	sleep 450;
-	waitUntil {!client_respawnDialogActive};
+	waitUntil {!respawnDialogActive};
 	if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";}
 	else
 	{

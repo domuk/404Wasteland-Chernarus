@@ -9,10 +9,33 @@ playerUID = getPlayerUID(player);
 townSearch = 0;
 beaconSearch = 0;
 
-diag_log format["Entered Player Spawn"];
-//Check if team killer
+doKickTeamKiller = false;
+doKickTeamSwitcher = false;
 
-//Check if team switcher
+diag_log format["Entered Player Spawn"];
+//Check Teamkiller
+{
+	if(_x select 0 == playerUID) then {
+        
+		if((_x select 1) >= 2) then {
+			if(playerSide in [west, east]) then {
+				doKickTeamKiller = true;
+			};
+		};
+	};
+} forEach pvar_teamKillList;
+
+//Check Teamswitcher
+_side = "";
+{
+	if(_x select 0 == playerUID) then
+    {
+        if(playerSide != (_x select 1) && str(playerSide) != "GUER") then{
+        	doKickTeamSwitcher = true;
+			_side = str(_x select 1);
+        };	
+	};
+} forEach pvar_teamSwitchList;
 
 //Kick to lobby for appropriate reason
 //Teamkiller Kick
@@ -29,6 +52,7 @@ if(doKickTeamSwitcher) exitWith {
 	[] spawn {sleep 20; endMission "LOSER";};
 };
 
+//Send player to debug to stop fake spawn locations.
 player setPos [-20000 - (random 10000), 5000 + random 15000, 0];
 
 titleText ["Loading...", "BLACK OUT", 0.00001];

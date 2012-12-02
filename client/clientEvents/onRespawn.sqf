@@ -18,13 +18,13 @@ _corpse removeAction playerMenuId;
 player call playerSetup;
 
 [] spawn {
-	waitUntil{client_respawnDialogActive};
-	waitUntil{!client_respawnDialogActive};
+	waitUntil{respawnDialogActive};
+	waitUntil{!respawnDialogActive};
 
-	if(!isNull pTeamkiller) then {
-		pDialogTeamkiller = pTeamkiller;
-		pTeamkiller = objNull;
+	if(!isNull pvar_PlayerTeamKiller) then {
+		pDialogTeamkiller = pvar_PlayerTeamKiller;
+		pvar_PlayerTeamKiller = objNull;
 
-		[] execVM "core\client_teamkillDialog.sqf";
+		[] execVM "client\functions\createTeamKillDialog.sqf";
 	};
 };

@@ -5,7 +5,6 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-
 private["_currTime","_startTime","_duration","_result","_return"];
 
 _currTime = _this select 0;

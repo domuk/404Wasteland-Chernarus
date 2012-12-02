@@ -21,7 +21,7 @@ while {_run} do
     
     if(_result == 1) then
     {
-        [nil,nil,rHINT,"Server Running Vehicle Clean Up"] call RE;
+        //[nil,nil,rHINT,"Server Running Vehicle Clean Up"] call RE;
         //Reset Values
         _result = 0;
         _startTime = currentTime;

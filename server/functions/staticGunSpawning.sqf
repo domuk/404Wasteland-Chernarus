@@ -22,8 +22,8 @@ waitUntil{ammoCrateSpawnComplete};
 	    //Check that there isn't a car right next to it.
 	    if((count _objects == 0)) then 
 	    {
-	    	_hint = "Objects Spawning";
-	        [nil,nil,rHINT,_hint] call RE;
+	    	//_hint = "Objects Spawning";
+	        //[nil,nil,rHINT,_hint] call RE;
 			[_pos] call staticGunCreation;
 	        _count = _count + 1;
             
@@ -43,3 +43,5 @@ diag_log format["WASTELAND SERVER - %1 Static Guns Spawned",_count];
 
 _hint = "Spawning Complete";
 [nil,nil,rHINT,_hint] call RE;
+
+staticGunSpawningComplete = true;

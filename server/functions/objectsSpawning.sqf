@@ -75,8 +75,8 @@ waitUntil{vehicleSpawnComplete};
 	        //Check that there isn't a car right next to it.
 	        if((count _objects == 0)) then 
 	        {
-	            _hint = "Objects Spawning";
-	            [nil,nil,rHINT,_hint] call RE;
+	            //_hint = "Objects Spawning";
+	            //[nil,nil,rHINT,_hint] call RE;
 				[_pos] call objectCreation;
 	            _count = _count + 1;
                 

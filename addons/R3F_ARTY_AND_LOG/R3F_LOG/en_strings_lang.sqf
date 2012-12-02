@@ -16,6 +16,9 @@ STR_R3F_LOG_action_deplacer_objet = "Take this object";
 STR_R3F_LOG_action_relacher_objet = "Release the object";
 STR_R3F_LOG_ne_pas_monter_dans_vehicule = "You can't get in a vehicle while you're carrying this object !";
 STR_R3F_LOG_courir_trop_vite = "You're walking too fast ! (Shift key to slow down)";
+STR_LOCK_OBJECT = "Lock this object";
+STR_UNLOCK_OBJECT = "Unlock this object";
+STR_RELEASE_HORIZONTAL = "Release the object horizontally";
 
 STR_R3F_LOG_action_selectionner_objet_charge = "Load in...";
 STR_R3F_LOG_action_selectionner_objet_charge_fait = "Now select the vehicle in which to load the object ""%1""...";

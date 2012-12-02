@@ -48,6 +48,6 @@ waitUntil{objectSpawnComplete};
     
 }forEach _locations;
 
-diag_log format["WASTELAND SERVER - %1 Objects Spawned",_count];
+diag_log format["WASTELAND SERVER - %1 Ammo Caches Spawned",_count];
 
 ammoCrateSpawnComplete = true;

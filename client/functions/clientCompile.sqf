@@ -10,8 +10,11 @@ onKilled = compile preprocessfile "client\clientEvents\onKilled.sqf";
 onKeyPress = compile preprocessFile "client\clientEvents\onKeyPress.sqf";
 loadPlayerMenu = compile preprocessFile "client\systems\playerMenu\init.sqf";
 
+clientCompareTime = compile preprocessFileLineNumbers "client\functions\compareTime.sqf";
 playerSetup = compile preprocessFileLineNumbers "client\functions\playerSetup.sqf";
 spawnAction = compile preprocessFileLineNumbers "client\functions\spawnAction.sqf";
 client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
+teamkillAction = compile preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
+teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
 
 compiledScripts = true;
