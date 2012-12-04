@@ -55,7 +55,7 @@ switch(_switch) do
     case 1:{
         {
             _city = _x;
-        	if(ctrlText _buttonZero == _x select 2) then
+        	if(ctrlText _buttonOne == _x select 2) then
         	{
             	//Do spawn here
                 {
@@ -85,7 +85,7 @@ switch(_switch) do
     case 2:{
         {
             _city = _x;
-        	if(ctrlText _buttonZero == _x select 2) then
+        	if(ctrlText _buttonTwo == _x select 2) then
         	{
             	//Do spawn here
                 {
@@ -115,7 +115,7 @@ switch(_switch) do
     case 3:{
         {
             _city = _x;
-        	if(ctrlText _buttonZero == _x select 2) then
+        	if(ctrlText _buttonThree == _x select 2) then
         	{
             	//Do spawn here
                 {
@@ -145,7 +145,7 @@ switch(_switch) do
     case 4:{
         {
             _city = _x;
-        	if(ctrlText _buttonZero == _x select 2) then
+        	if(ctrlText _buttonFour == _x select 2) then
         	{
             	//Do spawn here
                 {

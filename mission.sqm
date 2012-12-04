@@ -28,7 +28,7 @@ class Mission
 	randomSeed=10079095;
 	class Intel
 	{
-		briefingName="Wasteland United - Chernarus - v0.1";
+		briefingName="Wasteland United - Chernarus - v2.0";
 		briefingDescription="Wasteland is a harsh survival sandbox";
 		resistanceWest=0;
 		startWeather=0.25;

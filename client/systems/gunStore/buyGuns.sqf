@@ -15,7 +15,7 @@ _switch = _this select 0;
 
 _playerMoney = player getVariable "cmoney";
 _size = 0;
-
+_price = 0;
 // Grab access to the controls
 _dialog = findDisplay gunshop_DIALOG;
 _cartlist = _dialog displayCtrl gunshop_cart;
@@ -34,7 +34,30 @@ switch(_switch) do
 
 			{if(_itemText == _x select 0) then{
 				_class = _x select 1;
-				player addWeapon _class;
+                _weapon = (configFile >> "cfgWeapons" >> _class);
+                if(getNumber(_weapon >> "type") == 1) then
+                {
+                    if(primaryWeapon player == "") then
+                    {
+                    	player addWeapon _class;    
+                    } else {
+                    	{if(_x select 1 == _class) then{_price = _x select 2;};}forEach weaponsArray;
+                        gunStoreCart = gunStoreCart - _price;
+                        hint format["You can't carry more than one primary weapon, you have been refunded $%1", _price];     
+                    };  
+                };
+                
+                if(getNumber(_weapon >> "type") == 4) then
+                {
+                    if(secondaryWeapon player == "") then
+                    {
+                    	player addWeapon _class;     
+                    } else {
+                    	{if(_x select 1 == _class) then{_price = _x select 2;};}forEach weaponsArray;
+                        gunStoreCart = gunStoreCart - _price;
+                        hint format["You can't carry more than one secondary weapon, you have been refunded $%1", _price];     
+                    }; 
+                };                         		
 			}}forEach weaponsArray;
 
 			{if(_itemText == _x select 0) then{
@@ -78,8 +101,7 @@ switch(_switch) do
 				gsCrate addWeaponCargoGlobal [_class, 1];
 			}}forEach accessoriesArray;
 		};
-
-		gunStoreCart = 0;
+		
 		player setVariable["cmoney",_playerMoney - gunStoreCart,false];
 		_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
 		

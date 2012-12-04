@@ -6,10 +6,11 @@
 //	@file Args:
 
 //Initialize Values
+private["_primary","_magazine","_weapon_value","_magSell"];
 _magSell = 0;
+_primary = "";
 _primary = currentWeapon player;
-
-if(isNil {_primary}) exitWith {hint "You don't have a current weapon in your hand to sell!";};
+if(_primary == "") exitWith {hint "You don't have a current weapon in your hand to sell!";};
 
 {
 	if(_x in magazines player) then
@@ -26,4 +27,4 @@ player removeWeapon _primary;
 player removeMagazines _magazine;
 
 player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _weapon_value, true];
-hint format["You made a total of: $%1", _weapon_value];
+//hint format["You made a total of: $%1", _weapon_value];

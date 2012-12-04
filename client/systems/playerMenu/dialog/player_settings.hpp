@@ -144,7 +144,7 @@ class playerSettings {
 		class DropcButton : w_RscButton {
 
 			text = "Drop Money";
-			onButtonClick = "[] execVM 'client\systems\playerMenu\money_fnc.sqf'";
+			onButtonClick = "[] execVM 'client\systems\playerMenu\dropMoney.sqf'";
 			
 			x = 0.2; y = 0.2;
 			w = 0.135; h = 0.05;

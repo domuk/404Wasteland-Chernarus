@@ -1,0 +1,63 @@
+//Thanks goes to Xeno
+#define icons_idc 3100
+class PlayerIcons {
+	idd = -1;
+	duration = 1e+011;
+	name="PlayerIcons";
+	onLoad = "uiNamespace setVariable ['PlayerIcons', _this select 0]";
+	objects[] = {};
+	class controls {
+		class PlayerNameDisp {
+			type = 0;
+			idc = -1;
+			style = ST_PICTURE;
+			colorText[] = {0.75,0.75,0.75,1};
+			colorBackground[] = {0,0,0,0};
+			font = "Bitstream";
+			text = "";
+			sizeEx = 0.020;
+			w = 0;h = 0;x = 0.5;y = 0.5;
+		};
+		class Player00:PlayerNameDisp {idc = icons_idc +  0;};
+		class Player01:PlayerNameDisp {idc = icons_idc +  1;};
+		class Player02:PlayerNameDisp {idc = icons_idc +  2;};
+		class Player03:PlayerNameDisp {idc = icons_idc +  3;};
+		class Player04:PlayerNameDisp {idc = icons_idc +  4;};
+		class Player05:PlayerNameDisp {idc = icons_idc +  5;};
+		class Player06:PlayerNameDisp {idc = icons_idc +  6;};
+		class Player07:PlayerNameDisp {idc = icons_idc +  7;};
+		class Player08:PlayerNameDisp {idc = icons_idc +  8;};
+		class Player09:PlayerNameDisp {idc = icons_idc +  9;};
+		class Player10:PlayerNameDisp {idc = icons_idc + 10;};
+		class Player11:PlayerNameDisp {idc = icons_idc + 11;};
+		class Player12:PlayerNameDisp {idc = icons_idc + 12;};
+		class Player13:PlayerNameDisp {idc = icons_idc + 13;};
+		class Player14:PlayerNameDisp {idc = icons_idc + 14;};
+		class Player15:PlayerNameDisp {idc = icons_idc + 15;};
+		class Player16:PlayerNameDisp {idc = icons_idc + 16;};
+		class Player17:PlayerNameDisp {idc = icons_idc + 17;};
+		class Player18:PlayerNameDisp {idc = icons_idc + 18;};
+		class Player19:PlayerNameDisp {idc = icons_idc + 19;};
+		class Player20:PlayerNameDisp {idc = icons_idc + 20;};
+		class Player21:PlayerNameDisp {idc = icons_idc + 21;};
+		class Player22:PlayerNameDisp {idc = icons_idc + 22;};
+		class Player23:PlayerNameDisp {idc = icons_idc + 23;};
+		class Player24:PlayerNameDisp {idc = icons_idc + 24;};
+		class Player25:PlayerNameDisp {idc = icons_idc + 25;};
+		class Player26:PlayerNameDisp {idc = icons_idc + 26;};
+		class Player27:PlayerNameDisp {idc = icons_idc + 27;};
+		class Player28:PlayerNameDisp {idc = icons_idc + 28;};
+		class Player29:PlayerNameDisp {idc = icons_idc + 29;};
+		class Player30:PlayerNameDisp {idc = icons_idc + 30;};
+		class Player31:PlayerNameDisp {idc = icons_idc + 31;};
+		class Player32:PlayerNameDisp {idc = icons_idc + 32;};
+		class Player33:PlayerNameDisp {idc = icons_idc + 33;};
+		class Player34:PlayerNameDisp {idc = icons_idc + 34;};
+		class Player35:PlayerNameDisp {idc = icons_idc + 35;};
+		class Player36:PlayerNameDisp {idc = icons_idc + 36;};
+		class Player37:PlayerNameDisp {idc = icons_idc + 37;};
+		class Player38:PlayerNameDisp {idc = icons_idc + 38;};
+		class Player39:PlayerNameDisp {idc = icons_idc + 39;};
+		class Player40:PlayerNameDisp {idc = icons_idc + 40;};
+	};
+};

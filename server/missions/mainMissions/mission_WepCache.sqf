@@ -42,7 +42,7 @@ _marker = createMarker ["Weapon_Marker", _hillpos ];
 box = createVehicle ["RULaunchersBox",[(getpos _hill select 0), getpos _hill select 1,0],[], 0, "NONE"];
 box2 = createVehicle ["RUSpecialWeaponsBox",[(getpos _hill select 0), (getpos _hill select 1) - 10,0],[], 0, "NONE"];
 	
-_text = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Side Objective</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>This <t color='#FFCC33'>Supply Drop</t>, is your OBJECTIVE!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Be careful, there may be resistance.</t>",   _name, _picture, _color];
+_text = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Side Objective</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>This <t color='#FFCC33'>Supply Drop</t>, is your OBJECTIVE!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Be careful, there may be resistance.</t>"];
 [nil,nil,rHINT,_text] call RE;
 
 _group = createGroup civilian;
@@ -110,7 +110,7 @@ waitUntil
     (_result == 1) or (PlayerPresent == 1 and !alive man and !alive man2 and !alive man3 and !alive man4 and !alive man5)
 };
 
-_text2 = parseText format ["<t align='center' color='#00D60E' shadow='1' shadowColor='#000000' size='1.5'>Side Objective Complete</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>Capture the <t color='#FFCC33'>Weapon Cache</t>, has been completed!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Re-Arm All your Kit!</t>",   _name, _picture, _color];
+_text2 = parseText format ["<t align='center' color='#00D60E' shadow='1' shadowColor='#000000' size='1.5'>Side Objective Complete</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>Capture the <t color='#FFCC33'>Weapon Cache</t>, has been completed!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Re-Arm All your Kit!</t>"];
 [nil,nil,rHINT,_text2] call RE;
 
 diag_log format["WASTELAND SERVER - Mission Finished"];
