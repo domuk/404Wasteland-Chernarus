@@ -72,7 +72,6 @@ for "_i" from 0 to 40 do {
 };
 
 while{playerIcons} do {
-	//_test = "============";
 	for "_i" from 0 to 40 do {
 		_unit = nil;
 		if(_i < count _units) then {
@@ -118,7 +117,6 @@ while{playerIcons} do {
 			waituntil {ctrlCommitted _control};
 		};
 	};
-	//hint format ["%1", _test];
 	sleep 0.01;
 };
 

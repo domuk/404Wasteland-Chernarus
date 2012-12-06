@@ -13,8 +13,8 @@ if(!X_Server) exitWith {};
 [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\currentTime.sqf";
 [] execVM "server\functions\relations.sqf";
-
 waitUntil{serverCompiledScripts};
+
 diag_log format["WASTELAND SERVER - Server Complie Finished"];
 
 //Execute Server Spawning.

@@ -18,7 +18,7 @@ _hillpos = getpos _hill;
 PlayerPresent = 0;
 
 _text6 = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Side Objective</t>
-							<t color='#FFCC33'>Starting in 5 Minutes</t>"];
+							<t color='#FFCC33'>Starting in %1 Minutes</t>", _missionDelayTime];
 [nil,nil,rHINT,_text6] call RE; 
 
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];

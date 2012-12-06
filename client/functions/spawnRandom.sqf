@@ -6,7 +6,7 @@
 
 waituntil {!isnil "bis_fnc_init"};
 
-private ["_rad"];
+private ["_rad","_townName"];
 
 _randomLoc = cityLocations select (random (count cityLocations - 1));
 if((configName(_randomLoc)) == "ACityC_Berezino") then {
@@ -25,3 +25,10 @@ if((configName(_randomLoc)) == "ACityC_Berezino") then {
 
 respawnDialogActive = false;
 closeDialog 0;
+
+_mins = floor(60 * (daytime - floor(daytime)));
+{if(_x select 0 == (configName(_randomLoc))) then {_townName = _x select 3;};}forEach cityList;
+[
+	getText(configFile >> "CfgWorlds" >> worldName >> "Names" >> _townName >> "name"),
+	format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
+] spawn BIS_fnc_infoText;

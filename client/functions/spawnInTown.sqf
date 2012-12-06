@@ -11,6 +11,8 @@
 #define respawn_Town_Button4 3407
 disableSerialization;
 
+private ["_townNameSelected","_townName"];
+
 _switch = _this select 0;
 
 _display = uiNamespace getVariable "RespawnSelectionDialog";
@@ -44,6 +46,8 @@ switch(_switch) do
 						
 						    player setPos _pos;
 						};
+                        
+                        _townNameSelected = configName _x;
 					}; 
                 }forEach cityLocations;
 
@@ -74,6 +78,8 @@ switch(_switch) do
 						
 						    player setPos _pos;
 						};
+                        
+                        _townNameSelected = configName _x;
 					}; 
                 }forEach cityLocations;
 
@@ -104,6 +110,8 @@ switch(_switch) do
 						
 						    player setPos _pos;
 						};
+                        
+                        _townNameSelected = configName _x;
 					}; 
                 }forEach cityLocations;
 
@@ -134,9 +142,11 @@ switch(_switch) do
 						
 						    player setPos _pos;
 						};
+                        
+                        _townNameSelected = configName _x;
 					}; 
                 }forEach cityLocations;
-
+				
                 respawnDialogActive = false;
 				closeDialog 0;
         	}   
@@ -164,6 +174,8 @@ switch(_switch) do
 						
 						    player setPos _pos;
 						};
+                        
+                        _townNameSelected = configName _x;
 					}; 
                 }forEach cityLocations;
 
@@ -173,3 +185,10 @@ switch(_switch) do
         }forEach cityList;
     };
 };
+
+_mins = floor(60 * (daytime - floor(daytime)));
+{if(_x select 0 == _townNameSelected) then {_townName = _x select 3;};}forEach cityList;
+[
+	getText(configFile >> "CfgWorlds" >> worldName >> "Names" >> _townName >> "name"),
+	format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
+] spawn BIS_fnc_infoText;

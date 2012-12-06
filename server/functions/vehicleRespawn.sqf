@@ -21,12 +21,11 @@ while {_run} do
     
     if(_result == 1) then
     {
-        //[nil,nil,rHINT,"Server Running Vehicle Clean Up"] call RE;
         //Reset Values
         _result = 0;
         _startTime = currentTime;
         
-        _hintText = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Running Server Vehicle Clean Up</t>"];
+        _hintText = format ["Running Server Vehicle Clean Up"];
 		[nil,nil,rHINT,_hintText] call RE;
         
 		{
@@ -53,7 +52,6 @@ while {_run} do
 				[_pos, _type] call vehicleCreation;
 			};
 		} forEach currentVehicles;
-        [player,nil,rGlobalChat,"Vehicle Clean Up Complete"] call RE;
     } else {
     	sleep 1;  
     };

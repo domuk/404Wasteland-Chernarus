@@ -15,6 +15,10 @@ respawnDialogActive = false;
 waitUntil{player == player};
 waitUntil{time > 0};
 
+removeAllWeapons player;
+removeBackpack player;
+player removeWeapon "ItemGPS";
+
 cityLocationsComplete = false;
 [] execVM "client\functions\setupCityLocations.sqf";
 waitUntil {cityLocationsComplete};

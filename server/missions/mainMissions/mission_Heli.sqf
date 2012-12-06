@@ -5,7 +5,7 @@ private ["_rad","_cnps","_hills","_hillcount","_hillnum","_hill","_marker","_box
 
 _rad=20000;
 _result = 0;
-_missionTimeOut = 20;
+_missionTimeOut = 30;
 _missionDelayTime = 10;
 _missionTriggerRadius = 100;
 _missionPlayerRadius = 50;
@@ -19,7 +19,7 @@ _hillpos = getpos _hill;
 PlayerPresent = 0;
 
 _text6 = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Main Objective</t>
-							<t color='#FFCC33'>Starting in 10 Minutes</t>"];
+							<t color='#FFCC33'>Starting in %1 Minutes</t>", _missionDelayTime];
 [nil,nil,rHINT,_text6] call RE; 
 
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];
@@ -45,6 +45,9 @@ hueychop = createVehicle [_chopper,[(getpos _hill select 0), getpos _hill select
 hueychop setFuel 0.25;
 hueychop setVehicleAmmo 1;
 hueychop setdamage 0.5;
+
+clearMagazineCargoGlobal hueychop;
+clearWeaponCargoGlobal hueychop;
 
 if(isnull hueychop) exitwith 
 {

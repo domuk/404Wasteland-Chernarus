@@ -12,8 +12,8 @@ _col_enemy = "ColorRed";
 _col_friendly = "ColorGreen";
 _col_mixed = "ColorOrange";
 
+//Creates the markers around general stores.
 waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespace getVariable _x) distance [0,0,0]) > 100)} count _generalStores == count _generalStores};
-
 {
 	_unit = missionNamespace getVariable _x;
 
@@ -52,6 +52,7 @@ waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespac
 	_status set [count _status, "EMPTY"];
 } forEach _generalStores;
 
+//Used to set the status of each store.
 _setStatus = {
 	if(_status select (_this select 0) == (_this select 1)) exitWith {};
 
@@ -87,6 +88,7 @@ _setStatus = {
 	_status set [_this select 0, _this select 1];
 };
 
+//Check each store to see if their state has changed and then calls the update function to make the display the correct state.
 showmarkers = true;
 while {showmarkers} do {
     {

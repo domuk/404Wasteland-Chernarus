@@ -12,10 +12,10 @@ STR_R3F_LOG_action_heliporter_objet_remorque = "Can't lift the object ""%1"" bec
 STR_R3F_LOG_action_heliport_larguer = "Drop the object";
 STR_R3F_LOG_action_heliport_larguer_fait = "Object ""%1"" dropped.";
 
-STR_R3F_LOG_action_deplacer_objet = "Take this object";
+STR_R3F_LOG_action_deplacer_objet = "Move this object";
 STR_R3F_LOG_action_relacher_objet = "Release the object";
 STR_R3F_LOG_ne_pas_monter_dans_vehicule = "You can't get in a vehicle while you're carrying this object !";
-STR_R3F_LOG_courir_trop_vite = "You're walking too fast ! (Shift key to slow down)";
+STR_R3F_LOG_courir_trop_vite = "You're walking too fast ! (Hold the shift key to slow down)";
 STR_LOCK_OBJECT = "Lock this object";
 STR_UNLOCK_OBJECT = "Unlock this object";
 STR_RELEASE_HORIZONTAL = "Release the object horizontally";
@@ -27,15 +27,15 @@ STR_R3F_LOG_action_charger_selection = "... load the selected object in this veh
 STR_R3F_LOG_action_charger_selection_en_cours = "Loading in progress...";
 STR_R3F_LOG_action_charger_selection_fait = "The object ""%1"" has been loaded in the vehicle.";
 STR_R3F_LOG_action_charger_selection_trop_loin = "The object ""%1"" is too far from the vehicle to be loaded.";
-STR_R3F_LOG_action_charger_selection_pas_assez_de_place = "There is no enough space in this vehicle. Space left: %1, Required: %2";
+STR_R3F_LOG_action_charger_selection_pas_assez_de_place = "There is not enough space in this vehicle. Space left: %1, Required: %2";
 STR_R3F_LOG_action_charger_selection_objet_transporte = "The object ""%1"" is in transit.";
 
 STR_R3F_LOG_action_charger_deplace = "Load in the vehicle";
 STR_R3F_LOG_action_charger_deplace_en_cours = "Loading in progress...";
 STR_R3F_LOG_action_charger_deplace_fait = "The object has been loaded in the vehicle ""%1"".";
-STR_R3F_LOG_action_charger_deplace_pas_assez_de_place = "There is no enough space in this vehicle.";
+STR_R3F_LOG_action_charger_deplace_pas_assez_de_place = "There is not enough space in this vehicle.";
 
-STR_R3F_LOG_action_selectionner_objet_remorque = "Tow...";
+STR_R3F_LOG_action_selectionner_objet_remorque = "Tow to a vehicle";
 STR_R3F_LOG_action_selectionner_objet_remorque_fait = "Now select the vehicle in which to load the object ""%1""...";
 
 STR_R3F_LOG_action_remorquer_selection = "... tow the selected object to this vehicle";

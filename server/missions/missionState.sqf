@@ -22,7 +22,7 @@ _result = 0;
 while {true} do
 {
     _currTime = currentTime;
-    _result = [_currTime, _startTime, 30] call compareTime;
+    _result = [_currTime, _startTime, 40] call compareTime;
     
     if(_result == 1) then
     {

@@ -5,7 +5,7 @@ private ["_rad","_cnps","_hills","_hillcount","_hillnum","_hill","_marker","_box
 
 _rad=20000;
 _result = 0;
-_missionTimeOut = 20;
+_missionTimeOut = 30;
 _missionDelayTime = 5;
 _missionTriggerRadius = 100;
 _missionPlayerRadius = 50;
@@ -19,7 +19,7 @@ _hillpos = getpos _hill;
 PlayerPresent = 0;
 
 _text6 = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Side Objective</t>
-                            <t color='#FFCC33'>Starting in 5 Minutes</t>"];
+                            <t color='#FFCC33'>Starting in %1 Minutes</t>", _missionDelayTime];
 [nil,nil,rHINT,_text6] call RE; 
 
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];
@@ -121,7 +121,7 @@ diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
 waitUntil
 { 
     _currTime = currentTime;
-    _result = [_currTime, _startTime, _missionDelayTime] call compareTime;
+    _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
     (_result == 1) or (PlayerPresent == 1 and !alive man and !alive man2 and !alive man3 and !alive man4 and !alive man5) or getpos tank distance getMarkerPos _marker > _missionTriggerRadius
 };
 

@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+private ["_side"];
+
 playerSpawning = true;
 playerUID = getPlayerUID(player);
 townSearch = 0;
@@ -26,7 +28,6 @@ diag_log format["Entered Player Spawn"];
 } forEach pvar_teamKillList;
 
 //Check Teamswitcher
-_side = "";
 {
 	if(_x select 0 == playerUID) then
     {
@@ -56,9 +57,6 @@ if(doKickTeamSwitcher) exitWith {
 player setPos [-20000 - (random 10000), 5000 + random 15000, 0];
 
 titleText ["Loading...", "BLACK OUT", 0.00001];
-waitUntil {!isNil {BIS_fnc_init}};
-waitUntil {compiledScripts};
-waitUntil {time > 0};
 waitUntil {playerSetupComplete};
 
 private ["_handle"];

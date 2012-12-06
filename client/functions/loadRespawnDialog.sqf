@@ -20,8 +20,8 @@ createDialog "RespawnSelectionDialog";
 _display = uiNamespace getVariable "RespawnSelectionDialog";
 _display displayAddEventHandler ["KeyDown", "_return = false; if(respawnDialogActive && (_this select 1) == 1) then {_return = true;}; _return"];
 _respawnText = _display displayCtrl respawn_Content_Text;
+_missionUptimeText = _display displayCtrl respawn_MissionUptime_Text;
 
-//_side = "";
 if(playerSide in [west]) then {_side = "Blufor"};
 if(playerSide in [east]) then {_side = "Opfor"};
 if(str(playerSide) == "GUER") then {_side = "Independent"};
@@ -32,7 +32,7 @@ _buttonArray = [respawn_Town_Button0,respawn_Town_Button1,respawn_Town_Button2,r
 
 {
 	_button = _display displayCtrl _x;
-    _button ctrlSetText format[""];	
+    _button ctrlSetText format[""];
     _button ctrlShow false;    
 }foreach _buttonArray;
 
@@ -41,7 +41,9 @@ if(_side != "Independent") then
 	_playerLocations = [];
 	_friendlyTowns = [];
 	while {respawnDialogActive} do
-	{
+	{    
+        _missionUptimeText ctrlSetText format["Mission Uptime: %1 mins", floor ((time) / 60)];
+        
 		_onTeam = str(playerSide) in ["WEST", "EAST"];
 	    if(_onTeam) then
 	    {

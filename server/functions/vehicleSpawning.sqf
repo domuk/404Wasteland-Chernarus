@@ -7,6 +7,20 @@
 _rad = 20000;
 _cnps = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
 _house = nearestObjects [_cnps, ["House"], _rad];
+_startTime = 0;
+
+waitUntil{currentTime > 0};
+
+_startTime = currentTime;
+waitUntil
+{ 
+    _currTime = currentTime;
+    _result = [_currTime, _startTime, 2] call compareTime;
+    (_result == 1)
+};
+
+_hint = "Spawning Started";
+[nil,nil,rHINT,_hint] call RE;
 
 {
     if((typeOf _x) in blacklist) then {} else

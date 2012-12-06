@@ -27,6 +27,7 @@
  */
 R3F_LOG_CFG_remorqueurs = [
 	"Truck",
+    "Car",
 	"TowingTractor",
 	"Tractor",
 	"BRDM2_Base",
