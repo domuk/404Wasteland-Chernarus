@@ -18,7 +18,6 @@ maxArmedMilitVehicles = 1;
 maxPickups = 1;
 maxObjects = 1;
 
-
 //18836358 = Tom
 //20243782 = Dom
 //18519302 = Venny

@@ -14,6 +14,36 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.1",
+"
+<br/>
+		[Added] - Towing Limit Now Set to 1 Vehicle and Cars can Tow
+        [Added] - Some Static Helis
+        [Added] - Spawn Beacons
+        [Added] - Client Markers
+        [Added] - Outpost Mission
+        [Added] - Concurrent Missions
+        [Added] - Welcome Message
+        [Added] - Admin Levels
+        [Added] - More Ammo Types
+        [Added] - More Player Roles, Now 120 Total
+        [Changed] - Object List to have more Objects
+        [Changed] - Balanced Mission Ammo Caches
+        [Changed] - Faction Starting Pistols now more appropriate
+        [Changed] - Missions Rewriten to Address Multiple Bugs
+		[Redesigned] - Gun Store
+        [Redesigned] - General Store
+        [Fixed] - Animation not working correctly
+        [Fixed] - Money Drop Bug and Exploit
+        [Fixed] - JIP Loading Bug
+        [Fixed] - AI Running to Other Mission
+        [Fixed] - Numerous minor bugs and tweeks  
+"
+]
+];
+
 player createDiaryRecord["404games",
 [
 "Credits",
