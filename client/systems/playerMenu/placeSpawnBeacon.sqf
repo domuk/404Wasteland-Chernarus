@@ -10,7 +10,7 @@ if(mutexScriptInProgress) exitWith {
 	player globalChat "YOU ARE ALREADY PERFORMING ANOTHER ACTION!";
 };
 
-private["_stringEscapePercent","_totalDuration","_lockDuration","_iteration","_iterationPercentage","_playerPos","_placedBeacon", "_lockDuration", "_beaconOwner", "_placedBeaconPos", "_playerSide", "_playerUID"];
+private["_stringEscapePercent","_totalDuration","_lockDuration","_iteration","_iterationPercentage","_playerPos","_placedBeacon", "_lockDuration", "_beaconOwner", "_placedBeaconPos", "_playerSide", "_playerUID", "_activeBeacon"];
 
 // PRECONDITION: Check that a player is not currently a car (driving)
 if(vehicle player != player) exitWith {
@@ -25,28 +25,39 @@ _iteration = 0;
 _beaconOwner = name vehicle player;
 _playerSide = str(playerSide);
 _playerUID = getPlayerUID player;
+_activeBeacon = false;
 
 // PRECONDITION: Check that the player does not have a currently deployed spawn beacon (BLU).
 {
-	if(str(_playerUID) == str(_x select 3)) exitWith {
-		player globalChat "YOU ALREADY HAVE AN ACTIVE SPAWN BEACON!";
+	if(str(_playerUID) == str(_x select 3)) then {
+    	_activeBeacon = true;
     };
     
 }forEach pvar_beaconListBlu;
 // PRECONDITION: Check that the player does not have a currently deployed spawn beacon (RED).
 {
-    if(str(_playerUID) == str(_x select 3)) exitWith {
-    	player globalChat "YOU ALREADY HAVE AN ACTIVE SPAWN BEACON!";
+    if(str(_playerUID) == str(_x select 3)) then {
+    	_activeBeacon = true;	
     };
 }forEach pvar_beaconListRed;
 
+// Due to the 'Undefined behaviour' of exitWith inside loops, this is the workaround.
+if (_activeBeacon) exitWith {
+	player globalChat "YOU ALREADY HAVE AN ACTIVE SPAWN BEACON!";
+};
 		
 player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
 
+mutexScriptInProgress = true;
+
 for "_iteration" from 1 to _lockDuration do {
 		
-	mutexScriptInProgress = true;
-			    
+	if(vehicle player != player) exitWith {
+		player globalChat "YOU CANNOT ENTER A VEHICLE WHILE PLACING A SPAWN BEACON!";
+        player action ["eject", vehicle player];
+		sleep 1;
+	};                        
+                                                        	    
 	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
 	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 	};

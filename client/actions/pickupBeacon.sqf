@@ -39,10 +39,15 @@ switch (_destroyOrSteal) do {
     
     	_totalDuration = 90; // This will NOT be easy >:)
 		_lockDuration = _totalDuration;
+     	mutexScriptInProgress = true;
     
 		for "_iteration" from 1 to _lockDuration do {
 			
-		    mutexScriptInProgress = true;
+           	if(vehicle player != player) exitWith { // A little inspiration from R3F
+				player globalChat "YOU CANNOT ENTER A VEHICLE WHILE STEALING A SPAWN BEACON!";
+        		player action ["eject", vehicle player];
+				sleep 1;
+			};   
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the steal.
 		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
@@ -84,10 +89,15 @@ switch (_destroyOrSteal) do {
     
    	 	_totalDuration = 30; // This will NOT be easy >:)
 		_lockDuration = _totalDuration;
+        mutexScriptInProgress = true;
     
 		for "_iteration" from 1 to _lockDuration do {
-			
-		    mutexScriptInProgress = true;
+ 
+            if(vehicle player != player) exitWith { // A little inspiration from R3F
+				player globalChat "YOU CANNOT ENTER A VEHICLE WHILE DESTROYING A SPAWN BEACON!";
+        		player action ["eject", vehicle player];
+				sleep 1;
+			};   
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the destroy.
 		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
