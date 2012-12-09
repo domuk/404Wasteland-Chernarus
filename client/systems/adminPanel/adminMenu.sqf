@@ -8,14 +8,20 @@ _start = createDialog "AdminMenu";
 
 #define AdminMenu 2119
 
-thingsAvailable = [
-"Player Menu",
-"Vehicle Management",
-"Gun Store",
-"General Store",
-"Test Function",
-"Respawn Dialog"
-];
+if (((getPlayerUID player) in provingGrounds)) then {
+	thingsAvailable = [
+		"Player Menu",
+		"Vehicle Management",
+		"Gun Store",
+		"General Store",
+		"Test Function",
+		"Respawn Dialog"
+	];	    
+} else {
+	thingsAvailable = [
+		"Player Menu"
+	];    
+};
 
 {
 	lbAdd [AdminMenu, _x];

@@ -8,9 +8,6 @@
 
 
 //Main Features
-sideMissions = 1;
-serverSpawning = 1;
-vehicleRespawn = 1;
 generalStores = 1;
 vehicleStores = 1;
 gunStores = 1;
@@ -21,12 +18,35 @@ maxArmedMilitVehicles = 1;
 maxPickups = 1;
 maxObjects = 1;
 
+
+//18836358 = Tom
+//20243782 = Dom
+//18519302 = Venny
+//32879878 = Costlyy
+//57199878 = Magnet
+//8626566 = Teacup
+//2771014 = MiniDude
+//38204230 = Jelly Fish
+//1279378 = Bane
+//3450176 = Derpy
+//73698182 = unDead
+//59344390 = Ian
+//19714694 = pulse
+
 //Standard admin panel, use at your own risk.
 adminPanelUIDS = ["18836358",
 				"20243782",
 				"18519302",
 				"32879878",
-				"57199878"];
+				"57199878",
+                "38204230",
+                "1279378",
+                "2771014",
+                "8626566",
+                "3450176",
+                "73698182",
+                "59344390",
+                "19714694"];
 
 //Heavy debuging tool, use at your own risk.
 provingGrounds = ["18836358",

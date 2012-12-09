@@ -111,6 +111,11 @@ if(_side != "Independent") then
         } else {
         
         _enemyCount = 0;
+        {
+			_button = _display displayCtrl _x;
+		    _button ctrlSetText format[""];
+		    _button ctrlShow false;    
+		}foreach _buttonArray;
         
             {
 				if(_side == "Blufor") then {

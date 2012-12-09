@@ -64,9 +64,8 @@ _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _tank >> "displayN
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has been spotted at the marker go get it for your team.</t>", _missionType, _picture, _vehicleName, _mainTextColour, _subTextColour];
 [nil,nil,rHINT,_hint] call RE;
 
-_group = createGroup civilian;
-[_group,_randomPos]execVM "server\missions\createUnits\smallGroup.sqf";
-[_group, _randomPos] call BIS_fnc_taskDefend;
+CivGrpS = createGroup civilian;
+[CivGrpS,_randomPos]execVM "server\missions\createUnits\smallGroup.sqf";
 
 diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
 _startTime = currentTime;
@@ -77,7 +76,7 @@ waitUntil
     _currTime = currentTime;
     _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
     {if((isPlayer _x) AND (_x distance _tank <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
-    _unitsAlive = ({alive _x} count units _group);
+    _unitsAlive = ({alive _x} count units CivGrpS);
     (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _tank) == 1)
 };
 
@@ -88,11 +87,13 @@ if(_result == 1) then
 {
 	//Mission Failed.
     deleteVehicle _tank;
+    deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, _failTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Failed"];
 } else {
 	//Mission Complete.
+    deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The recon vehicle has been captured, now go destroy the enemy</t>", _missionType, _picture, _vehicleName, _successTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Finished"];

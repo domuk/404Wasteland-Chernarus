@@ -276,9 +276,9 @@ class w_RscButton : w_RscButtonBase {
 
 	w = 0.183825;
 	h = 0.0522876;
-	
+
 	style = 2;
-	
+
 	color[] = {1, 1, 1, 1};
 	color2[] = {1, 1, 1, 0.85};
 	colorBackground[] = {1, 1, 1, 1};
@@ -306,9 +306,9 @@ class w_RscButton : w_RscButtonBase {
 	class TextPos {
 	
 		left = 0.002;
-		top = 0.008;
+		top = 0.014;
 		right = 0.002;
-		bottom = 0.016;
+		bottom = 0.005;
 		
 	};
 	

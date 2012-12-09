@@ -24,7 +24,7 @@ switch(_switch) do
 
 if(isNil{client_firstSpawn}) then {
 	client_firstSpawn = true;
-	//[] execVM "core\client_introMessage.sqf";
+	[] execVM "client\functions\welcomeMessage.sqf";
     
     true spawn {
         

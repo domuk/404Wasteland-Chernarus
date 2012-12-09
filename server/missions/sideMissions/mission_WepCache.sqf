@@ -59,9 +59,8 @@ _box2 = createVehicle ["RUSpecialWeaponsBox",[(_randomPos select 0), (_randomPos
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>A supply drop has been spotted near the marker</t>", _missionType,  _mainTextColour, _subTextColour];
 [nil,nil,rHINT,_hint] call RE;
 
-_group = createGroup civilian;
-[_group,_randomPos]execVM "server\missions\createUnits\smallGroup.sqf";
-[_group, _randomPos] call BIS_fnc_taskDefend;
+CivGrpS = createGroup civilian;
+[CivGrpS,_randomPos]execVM "server\missions\createUnits\smallGroup.sqf";
 
 diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
 _startTime = currentTime;
@@ -72,7 +71,7 @@ waitUntil
     _currTime = currentTime;
     _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
     {if((isPlayer _x) AND (_x distance _box <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
-    _unitsAlive = ({alive _x} count units _group);
+    _unitsAlive = ({alive _x} count units CivGrpS);
     (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box) == 1)
 };
 
@@ -81,11 +80,13 @@ if(_result == 1) then
 	//Mission Failed.
     deleteVehicle _box;
     deleteVehicle _box2;
+    deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>Objective failed, better luck next time</t>", _missionType, _failTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Failed"];
 } else {
 	//Mission Complete.
+    deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The ammo caches have been collected well done team</t>", _missionType, _successTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Finished"];

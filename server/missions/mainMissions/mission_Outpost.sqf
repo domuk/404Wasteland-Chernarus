@@ -55,9 +55,8 @@ _vehicleName = "Outpost";
 _hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>A<t color='%3'> %2</t>, has been spotted near the marker go capture it.</t>", _missionType, _vehicleName, _mainTextColour, _subTextColour];
 [nil,nil,rHINT,_hint] call RE;
 
-_group = createGroup civilian;
-[_group,_randomPos]execVM "server\missions\createUnits\midGroup.sqf";
-[_group, _randomPos] call BIS_fnc_taskDefend;
+CivGrpM = createGroup civilian;
+[CivGrpM,_randomPos]execVM "server\missions\createUnits\midGroup.sqf";
 
 diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
 _startTime = currentTime;
@@ -67,19 +66,21 @@ waitUntil
 	_playerPresent = false;
     _currTime = currentTime;
     _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
-    {if((isPlayer _x) AND (getPos _x distance _randomPos <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
-    _unitsAlive = ({alive _x} count units _group);
-    (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1))
+    //{if((isPlayer _x) AND (_x distance _item <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
+    _unitsAlive = ({alive _x} count units CivGrpM);
+    (_result == 1) OR (_unitsAlive < 1)
 };
 
 if(_result == 1) then
 {
 	//Mission Failed.
+    deleteGroup CivGrpM;
     _hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>Objective failed, better luck next time</t>", _missionType, _vehicleName, _failTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Failed"];
 } else {
 	//Mission Complete.
+    deleteGroup CivGrpM;
     _hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>The outpost has been captured, use what you found to help you crush the enemy</t>", _missionType, _vehicleName, _successTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Finished"];

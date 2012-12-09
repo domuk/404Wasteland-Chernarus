@@ -14,7 +14,7 @@ class WelcomeMessage {
 			type = CT_STRUCTURED_TEXT;
 			size = 0.028;
 			x = 0; y = 0;
-			w = 1; h = 0.6;
+			w = 1; h = 0.7;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0};
 			text = "Welcome";

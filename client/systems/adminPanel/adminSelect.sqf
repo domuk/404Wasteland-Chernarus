@@ -47,7 +47,7 @@ switch (AdminSelect) do
     };
     case 4: //Test Function
     {
-        execVM "client\functions\loadRespawnDialog.sqf";
+        player setVariable["cmoney", (player getVariable "cmoney")+1000,true];
     };
     case 5: //Respawn Dialog
     {

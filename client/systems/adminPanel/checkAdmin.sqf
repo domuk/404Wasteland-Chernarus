@@ -10,7 +10,6 @@ _uid = getPlayerUID player;
 if (_uid in adminPanelUIDS) then {
     player execVM "client\systems\adminPanel\adminMenu.sqf"; 
     hint "Welcome Admin";
-    //isitadmin = true;
 } 
 else {
     sleep 1;

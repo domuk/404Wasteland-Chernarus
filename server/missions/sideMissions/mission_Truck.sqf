@@ -57,7 +57,7 @@ _truck setFuel random 0;
 _truck setVehicleAmmo 1;
 
 _truck setVehicleLock "LOCKED";
-_tank setVariable ["R3F_LOG_disabled", true, true];
+_truck setVariable ["R3F_LOG_disabled", true, true];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _truck >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _truck >> "displayName");
@@ -77,7 +77,7 @@ waitUntil
 };
 
 _truck setVehicleLock "UNLOCKED";
-_tank setVariable ["R3F_LOG_disabled", false, true];
+_truck setVariable ["R3F_LOG_disabled", false, true];
 
 if(_result == 1) then
 {

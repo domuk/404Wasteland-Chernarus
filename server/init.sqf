@@ -8,6 +8,10 @@
 
 if(!X_Server) exitWith {};
 
+sideMissions = 1;
+serverSpawning = 1;
+vehicleRespawn = 1;
+
 //Execute Server Side Scripts.
 [] execVM "server\functions\serverVars.sqf";
 [] execVM "server\functions\serverCompile.sqf";
@@ -41,5 +45,5 @@ if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];
     [] execVM "server\missions\sideMissionController.sqf";
     [] execVM "server\missions\mainMissionController.sqf";
-    [] execVM "server\missions\worldMissionController.sqf";
+    //[] execVM "server\missions\worldMissionController.sqf";
 };
