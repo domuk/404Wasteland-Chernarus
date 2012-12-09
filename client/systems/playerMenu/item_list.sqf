@@ -50,3 +50,8 @@ if(player getVariable "medkits" > 0) then {
 	_itemListIndex = _itemList lbAdd _str;
 	_itemList lbSetData [(lbSize _itemList)-1, "medkit"];
 };
+
+if(player getVariable "spawnBeacon" > 0) then {
+	_itemListIndex = _itemList lbAdd "Spawn Beacon";
+	_itemList lbSetData [(lbSize _itemList)-1, "spawnBeacon"];
+};

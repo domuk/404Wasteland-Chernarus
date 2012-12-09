@@ -9,6 +9,9 @@ if(!X_Client) exitWith {};
 
 respawnDialogActive = false;
 
+// Stop multiple script executions.
+mutexScriptInProgress = false;
+
 //Call client compile list.
 [] execVM "client\functions\clientCompile.sqf";
 

@@ -112,6 +112,7 @@
 		class LoadTownsButton: RscButton
 		{
 			idc = -1;
+			onButtonClick = "[0] execVM 'client\functions\switchButtonNames.sqf'";
 			text = "Towns";
 
 			x = 0.406 * safezoneW + safezoneX;
@@ -123,6 +124,7 @@
 		class LoadBeaconsButton: RscButton
 		{
 			idc = -1;
+			onButtonClick = "[1] execVM 'client\functions\switchButtonNames.sqf'";
 			text = "Beacons";
 
 			x = 0.515 * safezoneW + safezoneX;

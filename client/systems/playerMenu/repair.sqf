@@ -1,3 +1,9 @@
+//	@file Version: 1.0
+//	@file Name: repair.sqf
+//	@file Author: TAW_Tonic
+//	@file Created: 01/01/1970 00:00
+//	@file Args: 
+
 private["_vehicle","_veh_type"];
 
 _vehicle = nearestObjects[player, ["LandVehicle", "Air", "Ship"], 6] select 0;

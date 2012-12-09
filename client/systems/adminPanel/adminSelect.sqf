@@ -47,10 +47,7 @@ switch (AdminSelect) do
     };
     case 4: //Test Function
     {
-        _weap_type = "Javelin";
-        _weapon = (configFile >> "cfgWeapons" >> _weap_type);       
-        hint format["Weapon Type: %1", getNumber(_weapon >> "type")];
-        //hint format["Test: %1",secondaryWeapon player];
+        execVM "client\functions\loadRespawnDialog.sqf";
     };
     case 5: //Respawn Dialog
     {

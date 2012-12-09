@@ -87,6 +87,15 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
             	genStoreCart = genStoreCart - _price;    
             };
         };
+        case "Spawn Beacon": {
+            if(((player getVariable "spawnBeacon") + 1 <= 1) AND ((player getVariable "spawnBeacon") + 1 <= 1)) then {
+                player setVariable["spawnBeacon",(player getVariable "spawnBeacon") + 1,true];
+            } else {
+            	_price = 0;
+                {if(_x select 0 == "Spawn Beacon") then{_price = _x select 4;};}forEach generalStore;
+            	genStoreCart = genStoreCart - _price;    
+            };
+        };
     };
 };
 

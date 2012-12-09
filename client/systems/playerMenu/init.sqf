@@ -33,26 +33,3 @@ _mIndex = _mvalue lbadd "$2000"; _mvalue lbSetData [(lbSize _mvalue)-1, "2000"];
 _mIndex = _mvalue lbadd "$3000"; _mvalue lbSetData [(lbSize _mvalue)-1, "3000"];
 _mIndex = _mvalue lbadd "$4000"; _mvalue lbSetData [(lbSize _mvalue)-1, "4000"];
 _mIndex = _mvalue lbadd "$5000"; _mvalue lbSetData [(lbSize _mvalue)-1, "5000"];
-
-true spawn {
-	disableSerialization;
-	_Dialog = findDisplay playersys_DIALOG;
-	_uptime = _Dialog displayCtrl uptime_text;
-
-	private ["_t", "_h", "_m", "_s", "_ms", "_ss", "_str"];
-
-	while{dialog} do {
-		_t = serverTime - publicVar_serverStartTime;
-		_h = floor(_t / 3600);
-		_m = floor((_t % 3600) / 60);
-		_s = floor(_t % 60);
-		if(_s < 10) then {_ss = format["0%1", _s]} else {_ss = _s};
-		if(_m < 10) then {_ms = format["0%1", _m]} else {_ms = _m};
-		_str = "";
-		if(_h > 0) then {_str = format["%1:%2:%3", _h, _ms, _ss];} else {_str = format["%1:%2", _ms, _ss];};
-
-		_uptime ctrlSetText format [localize "STR_WL_Dlg_PlayerMenuServerTime", _str];
-
-		sleep 0.1;
-	};
-};
