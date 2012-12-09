@@ -92,7 +92,7 @@ generalStore = [
 	["Medical Kit","medkits","Restore your health back to full. Disclaimer: This product was tested on animals and at least 5 bunnies died as a result.","client\icons\medkit.paa",400,200],
 	["Jerry Can (Full)","fuelFull","Top quality imported Russian petroleum, now with 10% less communism!","client\icons\jerrycan.paa",150,75],
     ["Jerry Can (Empty)","fuelEmpty","Stolen from a US military base, possibly. On sale now, 50% off!","client\icons\jerrycan.paa",50,25],
-    ["Spawn Beacon","spawnBeacon","Choose your spawn location.","",3000,1500]
+	["Spawn Beacon","spawnBeacon","Choose your spawn location.","",3000,1500]
 ];
 
 //Vars not to be changed

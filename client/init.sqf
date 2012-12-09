@@ -7,22 +7,19 @@
 
 if(!X_Client) exitWith {};
 
-respawnDialogActive = false;
-
-// Stop multiple script executions.
+cityLocationsComplete = false;
 mutexScriptInProgress = false;
+respawnDialogActive = false;
+playerSetupComplete = false;
+compiledScripts = false;
 
 //Call client compile list.
 [] execVM "client\functions\clientCompile.sqf";
 
+waitUntil{compiledScripts};
 waitUntil{player == player};
 waitUntil{time > 0};
 
-removeAllWeapons player;
-removeBackpack player;
-player removeWeapon "ItemGPS";
-
-cityLocationsComplete = false;
 [] execVM "client\functions\setupCityLocations.sqf";
 waitUntil {cityLocationsComplete};
 
@@ -46,6 +43,8 @@ player addEventHandler ["Killed", {[_this] call onKilled;}];
 waituntil {!(IsNull (findDisplay 46))};
 (findDisplay 46) displaySetEventHandler ["KeyDown", "_this call onKeyPress"];
 
+currentMissionsMarkers = [];
+"clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
 "publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
 pvar_PlayerTeamKiller = objNull;
@@ -71,3 +70,7 @@ pvar_PlayerTeamKiller = objNull;
 [] execVM "client\functions\createGunStoreMarkers.sqf";
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
 [] execVM "client\functions\createPlayerIcons.sqf";
+[] call updateMissionsMarkers;
+
+waitUntil {playerSetupComplete};
+true spawn playerSpawn;

@@ -1,27 +1,40 @@
-//Light Armored Vehicle
+//	@file Version: 1.0
+//	@file Name: mission_LightArmVeh.sqf
+//	@file Author: [404] Deadbeat
+//	@file Created: 08/12/2012 15:19
+//	@file Args:
+
+//Side Mission Colour = #4BC9B0 - Turquoise 
+//Main Mission Colour = #52bf90 - Light blue
+//Fail Mission Colour = #FF1717 - Light red
+//Fail Mission Colour = #17FF41 - Light green
+//Sub Colour = #FFF - White
+
 if(!isServer) exitwith {};
 diag_log format["WASTELAND SERVER - Mission Started"];
-private ["_rad","_cnps","_hills","_hillcount","_hillnum","_hill","_marker","_boxes","_numb","_boxnum","_box","_picture","_name","_text","_color","_tempPlayer"];
+private ["_unitsAlive","_playerPresent","_missionType","_successTextColour","_mainTextColour","_failTextColour","_subTextColour","_picture","_vehicleName","_rad","_centerPos","_missionTimeOut","_missionDelayTime","_missionTriggerRadius","_missionPlayerRadius","_flatAreas","_randomArea","_hint","_startTime","_currTime","_result","_c130wreck","_box","_box2"];
 
+//Mission Initialization.
 _rad=20000;
-_result = 0;
+_missionType = "Light Armored Vehicle";
+_mainTextColour = "#52bf90";
+_successTextColour = "#17FF41";
+_failTextColour = "#FF1717";
+_subTextColour = "#FFFFFF";
 _missionTimeOut = 30;
-_missionDelayTime = 10;
-_missionTriggerRadius = 100;
+_missionDelayTime = 20;
 _missionPlayerRadius = 50;
-_color = "#C5C5C5";
-_cnps = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-_hills = nearestLocations [_cnps, ["FlatArea"], _rad];
-_hillcount = count _hills;
-_hillnum = floor (random _hillcount);
-_hill = _hills select _hillnum;
-_hillpos = getpos _hill;
-PlayerPresent = 0;
+_centerPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+_flatAreas = nearestLocations [_centerPos, ["FlatArea"], _rad];
+_randomPos = getpos (_flatAreas select random (count _flatAreas -1));
 
-_text6 = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Main Objective</t>
-							<t color='#FFCC33'>Starting in %1 Minutes</t>", _missionDelayTime];
-[nil,nil,rHINT,_text6] call RE; 
+diag_log format["randomPos %1", _randomPos];
 
+//Tell everyone their will be a mission soon.
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime, _mainTextColour, _subTextColour];
+[nil,nil,rHINT,_hint] call RE;
+
+//Wait till the mission is ready to be ran.
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];
 _startTime = currentTime;
 waitUntil
@@ -31,115 +44,68 @@ waitUntil
     (_result == 1)
 };
 diag_log format["WASTELAND SERVER - Mission Resumed"];
-_startTime = currentTime;
+_result = 0;
 
-_marker = createMarker ["Light_Vehicle", _hillpos ];
-"Light_Vehicle" setMarkerType "mil_destroy";
-"Light_Vehicle" setMarkerSize [1.25, 1.25];
-"Light_Vehicle" setMarkerText "Light Armored Vehicle";
-"Light_Vehicle" setMarkerColor "ColorRed";
+//Add marker to client marker array.
+clientMissionMarkers set [count clientMissionMarkers,["Light_Vehicle",_randomPos,"Light Armored Vehicle"]];
+publicVariable "clientMissionMarkers";
 
+_veh = ["BTR40_MG_TK_GUE_EP1","GAZ_Vodnik_HMG","GAZ_Vodnik","BRDM2_HQ_TK_GUE_EP1","BRDM2_TK_GUE_EP1"] call BIS_fnc_selectRandom;
 
-_veh = ["HMMWV_M998A2_SOV_DES_EP1","HMMWV_TOW_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","BTR40_MG_TK_GUE_EP1","GAZ_Vodnik_HMG","HMMWV_M2","GAZ_Vodnik","HMMWV_TOW"] call BIS_fnc_selectRandom;
+_tank = createVehicle [_veh,[(_randomPos select 0), _randomPos select 1,0],[], 0, "NONE"];
+_tank setFuel random 0.1;
+_tank setVehicleAmmo 1;
+_tank setdamage 0.75;
 
-tank = createVehicle [_veh,[(getMarkerpos _marker select 0), getMarkerpos _marker select 1,0],[], 0, "NONE"];
-	tank setFuel random 0.1;
-	tank setVehicleAmmo 1;
-	tank setdamage 0.50;
+_tank setVehicleLock "LOCKED";
+_tank setVariable ["R3F_LOG_disabled", true, true];
 
-if(isnull tank) exitwith 
-{
-    deleteMarker _marker;
-    [1] execVM format ["server\core\missions\mainmission_selector.sqf",_element];
-};
+_picture = getText (configFile >> "cfgVehicles" >> typeOf _tank >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _tank >> "displayName");
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has been spoted in the area marked</t>", _missionType, _picture, _vehicleName, _mainTextColour, _subTextColour];
+[nil,nil,rHINT,_hint] call RE;
 
-tank setVehicleLock "LOCKED";
-
-_name = getText (configFile >> "cfgVehicles" >> typeOf tank >> "displayName");
-_picture = getText (configFile >> "cfgVehicles" >> typeOf tank >> "picture");
-
-_text = parseText format ["<t align='center' color='#0362f3' shadow='1' shadowColor='#000000' size='1.5'>Main Objective</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#666c3f' shadow='1' shadowColor='#000000'><t color='%3'><img size='4' image='%2'/></t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>This <t color='#FFCC33'>%1</t>, is your OBJECTIVE!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Get to it first!</t>",   _name, _picture, _color];
-[nil,nil,rHINT,_text] call RE; 
-      
 _group = createGroup civilian;
-//Anti Vehicle
-man = _group createunit ["Priest", [(getMarkerpos _marker select 0) + 10, getMarkerpos _marker select 1, 0], [], 0, "Form"];
-man addMagazine "PG7V";
-man addMagazine "PG7V";
-man addWeapon "RPG7V";
-man addMagazine "30Rnd_545x39_AK";
-man addMagazine "30Rnd_545x39_AK";
-man addMagazine "30Rnd_545x39_AK";
-man addWeapon "AKS_74_U";
-
-//Support
-man2 = _group createunit ["Priest", [(getMarkerpos _marker select 0) - 30, getMarkerpos _marker select 1, 0], [], 0, "Form"];
-man2 addMagazine "75Rnd_545x39_RPK";
-man2 addMagazine "75Rnd_545x39_RPK";
-man2 addWeapon "RPK_74";
-
-//Rifleman
-man3 = _group createunit ["Priest", [getMarkerpos _marker select 0, (getMarkerpos _marker select 1) + 30, 0], [], 0, "Form"];
-man3 addMagazine "30Rnd_762x39_AK47";
-man3 addMagazine "30Rnd_762x39_AK47";
-man3 addMagazine "30Rnd_762x39_AK47";
-man3 addWeapon "AK_47_M";
-
-//Rifleman
-man4 = _group createunit ["Priest", [getMarkerpos _marker select 0, (getMarkerpos _marker select 1) + 40, 0], [], 0, "Form"];
-man4 addMagazine "30Rnd_762x39_AK47";
-man4 addMagazine "30Rnd_762x39_AK47";
-man4 addMagazine "30Rnd_762x39_AK47";
-man4 addWeapon "AK_47_M";
-
-//Sniper
-man5 = _group createunit ["Priest", [getMarkerpos _marker select 0, (getMarkerpos _marker select 1) - 30, 0], [], 0, "Form"];
-man5 addMagazine "10Rnd_762x54_SVD";
-man5 addMagazine "10Rnd_762x54_SVD";
-man5 addMagazine "10Rnd_762x54_SVD";
-man5 addWeapon "SVD";
-
-{
-	[_x] execVM "core\ai_fnc.sqf";
-} foreach units _group;
-
-_trgw=createTrigger["EmptyDetector", _hillpos]; 
-_trgw setTriggerArea[_missionPlayerRadius,_missionPlayerRadius,0,false];
-_trgw setTriggerActivation["WEST","PRESENT",true];
-_trgw setTriggerStatements["this", "PlayerPresent = 1", "PlayerPresent = 0"];
-
-_trge=createTrigger["EmptyDetector", _hillpos]; 
-_trge setTriggerArea[_missionPlayerRadius,_missionPlayerRadius,0,false];
-_trge setTriggerActivation["EAST","PRESENT",true];
-_trge setTriggerStatements["this", "PlayerPresent = 1", "PlayerPresent = 0"];
-
-_trgr=createTrigger["EmptyDetector", _hillpos]; 
-_trgr setTriggerArea[_missionPlayerRadius,_missionPlayerRadius,0,false];
-_trgr setTriggerActivation["GUER","PRESENT",true];
-_trgr setTriggerStatements["this", "PlayerPresent = 1", "PlayerPresent = 0"]; 
+[_group,_randomPos]execVM "server\missions\createUnits\midGroup.sqf";
+[_group, _randomPos] call BIS_fnc_taskDefend;
 
 diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
+_startTime = currentTime;
 waitUntil
-{ 
+{
+    sleep 1; 
+	_playerPresent = false;
     _currTime = currentTime;
     _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
-    (_result == 1) or (PlayerPresent == 1 and !alive man and !alive man2 and !alive man3 and !alive man4 and !alive man5) or getpos tank distance getMarkerPos _marker > _missionTriggerRadius
+    {if((isPlayer _x) AND (_x distance _tank <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
+    _unitsAlive = ({alive _x} count units _group);
+    (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _tank) == 1)
 };
 
-tank setVehicleLock "UNLOCKED";
+_tank setVehicleLock "UNLOCKED";
+_tank setVariable ["R3F_LOG_disabled", false, true];
 
 if(_result == 1) then
 {
-    tank setDamage 1;
-    _text2 = parseText format ["<t align='center' color='#FF0000' shadow='1' shadowColor='#000000' size='1.5'>Main Objective Failed</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#666c3f' shadow='1' shadowColor='#000000'><t color='%3'><img size='4' image='%2'/></t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>No players captured the <t color='#FFCC33'>%1</t>. It was destroyed by the enemy.</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Try harder next time.</t>",   _name, _picture, _color ];
-        [nil,nil,rHINT,_text2] call RE;
-        diag_log format["WASTELAND SERVER - Mission Failed"];
-} else
-{
-    _text2 = parseText format ["<t align='center' color='#00D60E' shadow='1' shadowColor='#000000' size='1.5'>Main Objective Complete</t><br/><t align='center' color='#FFCC33'>------------------------------</t><br/><br/><t align='center' color='#666c3f' shadow='1' shadowColor='#000000'><t color='%3'><img size='4' image='%2'/></t><br/><br/><t align='center' color='#ffcc33' shadow='1' shadowColor='#000000'>Capture the <t color='#FFCC33'>%1</t>, has been completed!</t><br/><br/><t align='center' color='#ffffff' shadow='1' shadowColor='#000000'>Destroy The Enemy!</t>",   _name, _picture, _color ];
-        [nil,nil,rHINT,_text2] call RE;
-        diag_log format["WASTELAND SERVER - Mission Finished"];
+	//Mission Failed.
+    deleteVehicle _tank;
+    _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, _failTextColour, _subTextColour];
+	[nil,nil,rHINT,_hint] call RE;
+    diag_log format["WASTELAND SERVER - Mission Failed"];
+} else {
+	//Mission Complete.
+    _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The light armored vehicle has been captured</t>", _missionType, _picture, _vehicleName, _successTextColour, _subTextColour];
+	[nil,nil,rHINT,_hint] call RE;
+    diag_log format["WASTELAND SERVER - Mission Finished"];
 };
 
-deleteMarker _marker;
-MissionRunning = false;
+//Remove marker from client marker array.
+{
+    if(_x select 0 == "Light_Vehicle") then
+    {
+    	clientMissionMarkers set [_forEachIndex, "REMOVETHISCRAP"];
+		clientMissionMarkers = clientMissionMarkers - ["REMOVETHISCRAP"];
+        publicVariable "clientMissionMarkers";    
+    };
+}forEach clientMissionMarkers;
+mainMissionRunning = false;

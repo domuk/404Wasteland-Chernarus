@@ -20,13 +20,12 @@ pvar_teamSwitchList = [];
 publicVariable "pvar_teamSwitchList";
 pvar_teamKillList = [];
 publicVariable "pvar_teamKillList";
-
 pvar_beaconListBlu = []; 
 publicVariable "pvar_beaconListBlu";
-
 pvar_beaconListRed = []; 
 publicVariable "pvar_beaconListRed";
-
+clientMissionMarkers = [];
+publicVariable "clientMissionMarkers";
 
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = ["car_hatchback",

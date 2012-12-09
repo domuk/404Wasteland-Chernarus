@@ -6,7 +6,6 @@
 
 private["_player","_corpse","_town","_spawn","_temp"];
 playerSetupComplete = false;
-true spawn playerSpawn;
 
 _player = (_this select 0) select 0;
 _corpse = (_this select 0) select 1;
@@ -16,6 +15,9 @@ _corpse removeAction playerMenuId;
 } forEach aActionsIDs;
 
 player call playerSetup;
+waitUntil {playerSetupComplete};
+
+true spawn playerSpawn;
 
 [] spawn {
 	waitUntil{respawnDialogActive};
