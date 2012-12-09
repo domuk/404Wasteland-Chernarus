@@ -57,7 +57,6 @@ if(doKickTeamSwitcher) exitWith {
 player setPos [-20000 - (random 10000), 5000 + random 15000, 0];
 
 titleText ["Loading...", "BLACK OUT", 0.00001];
-waitUntil {playerSetupComplete};
 
 private ["_handle"];
 true spawn client_respawnDialog;
@@ -68,6 +67,6 @@ while {respawnDialogActive} do {
 	titleText ["", "BLACK OUT", 0.00001];
 };
 sleep 0.1;
-
 titleText ["", "BLACK IN", 0.00001];
+
 playerSpawning = false;

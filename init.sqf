@@ -24,7 +24,7 @@ if(isNull player) then {X_JIP = true;};
 
 true spawn {
 	if(!isDedicated) then {
-		titleText ["Loading...", "BLACK OUT", 1];
+		titleText ["Initilization Failed Please Press 'ESC' and Click Respawn", "BLACK OUT", 1];
 		waitUntil {player == player};
 		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};

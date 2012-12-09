@@ -112,7 +112,7 @@ class genstored {
 			h = 0.422222 * safezoneH;
 		};
 
-		class StoreButton0: RscButton
+		class StoreButton0: w_RscButton
 		{	
 			idc = genstore_iteminventory;
 
@@ -125,7 +125,7 @@ class genstored {
 			h = 0.040 * safezoneH;
 		};
 
-		class AddToCart : RscButton {
+		class AddToCart : w_RscButton {
 			
 			text = "Add";
 			onButtonClick = "[] execVM 'client\systems\generalStore\addToCart.sqf'";
@@ -136,7 +136,7 @@ class genstored {
 			h = 0.040 * safezoneH;
 		};
 
-		class RemoveFromCart : RscButton {
+		class RemoveFromCart : w_RscButton {
 
 			text = "Remove";
 			onButtonClick = "[] execVM 'client\systems\generalStore\removeFromCart.sqf'";
@@ -147,7 +147,7 @@ class genstored {
 			h = 0.040 * safezoneH;
 		};
 
-		class CancelButton : RscButton {
+		class CancelButton : w_RscButton {
 			
 			idc = -1;
 			text = "Cancel";
@@ -160,7 +160,7 @@ class genstored {
 			color[] = {0.95,0.1,0.1,1};
 		};
 
-		class SaleBuy : RscButton {
+		class SaleBuy : w_RscButton {
 			
 			idc = genstore_switch;
 
@@ -173,7 +173,7 @@ class genstored {
 			h = 0.040 * safezoneH;
 		};
 
-		class BuyToPlayer : RscButton {
+		class BuyToPlayer : w_RscButton {
 			
 			idc = genstore_buysell;
 

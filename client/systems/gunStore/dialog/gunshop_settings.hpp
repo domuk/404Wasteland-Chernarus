@@ -111,7 +111,7 @@ class gunshopd {
 			h = 0.422222 * safezoneH;
 		};
 
-		class AddToCart: RscButton
+		class AddToCart: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[] execVM 'client\systems\gunStore\addToCart.sqf'";
@@ -124,7 +124,7 @@ class gunshopd {
 
 		};
 
-		class RemoveFromCart: RscButton
+		class RemoveFromCart: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[] execVM 'client\systems\gunStore\removeFromCart.sqf'";
@@ -137,7 +137,7 @@ class gunshopd {
 
 		};
 
-		class BuyToCrate: RscButton
+		class BuyToCrate: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[1] execVM 'client\systems\gunStore\buyGuns.sqf'";
@@ -151,7 +151,7 @@ class gunshopd {
 
 		};
 
-		class BuyToPlayer: RscButton
+		class BuyToPlayer: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[0] execVM 'client\systems\gunStore\buyGuns.sqf'";
@@ -165,7 +165,7 @@ class gunshopd {
 
 		};
 
-		class BuySellEquipment: RscButton
+		class BuySellEquipment: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[] execVM 'client\systems\gunStore\sellWeapon.sqf'";
@@ -178,7 +178,7 @@ class gunshopd {
 
 		};
 
-		class CancelButton: RscButton
+		class CancelButton: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "closeDialog 0;";
@@ -192,7 +192,7 @@ class gunshopd {
 
 		};
 
-		class StoreButton0: RscButton
+		class StoreButton0: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[0] execVM 'client\systems\gunStore\populateGunStore.sqf'";
@@ -205,7 +205,7 @@ class gunshopd {
 	
 		};
 
-		class StoreButton1: RscButton
+		class StoreButton1: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[1] execVM 'client\systems\gunStore\populateGunStore.sqf'";
@@ -218,7 +218,7 @@ class gunshopd {
 
 		};
 
-		class StoreButton2: RscButton
+		class StoreButton2: w_RscButton
 		{
 			idc = -1;
 			onButtonClick = "[2] execVM 'client\systems\gunStore\populateGunStore.sqf'";
