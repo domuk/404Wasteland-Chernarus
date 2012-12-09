@@ -7,14 +7,14 @@
 
 // PRECONDITION: Check if mutex lock is active.
 if(mutexScriptInProgress) exitWith {
-	player globalChat "YOU ARE ALREADY PERFORMING ANOTHER ACTION!";
+	player globalChat localize "STR_WL_Errors_InProgress";
 };
 
 private["_stringEscapePercent","_totalDuration","_lockDuration","_iteration","_iterationPercentage","_playerPos","_placedBeacon", "_lockDuration", "_beaconOwner", "_placedBeaconPos", "_playerSide", "_playerUID", "_activeBeacon"];
 
 // PRECONDITION: Check that a player is not currently a car (driving)
 if(vehicle player != player) exitWith {
-	player globalChat "YOU ARE CURRENTLY BUSY!";
+	player globalChat localize "STR_WL_Errors_InVehicle";
 };
 
 _stringEscapePercent = "%"; // Required to get the % sign into a formatted string.
@@ -43,7 +43,7 @@ _activeBeacon = false;
 
 // Due to the 'Undefined behaviour' of exitWith inside loops, this is the workaround.
 if (_activeBeacon) exitWith {
-	player globalChat "YOU ALREADY HAVE AN ACTIVE SPAWN BEACON!";
+	player globalChat localize "STR_WL_Errors_BeaconActive";
 };
 		
 player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
@@ -53,7 +53,7 @@ mutexScriptInProgress = true;
 for "_iteration" from 1 to _lockDuration do {
 		
 	if(vehicle player != player) exitWith {
-		player globalChat "YOU CANNOT ENTER A VEHICLE WHILE PLACING A SPAWN BEACON!";
+		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
 		sleep 1;
 	};                        

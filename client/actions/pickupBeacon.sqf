@@ -7,13 +7,13 @@
 
 // Check if mutex lock is active.
 if(mutexScriptInProgress) exitWith {
-	player globalChat "YOU ARE ALREADY PERFORMING ANOTHER ACTION!";
+	player globalChat localize "STR_WL_Errors_InProgress";
 };
 
 private["_stringEscapePercent","_totalDuration","_lockDuration","_iteration","_iterationPercentage","_currSpawnBeaconFaction", "_destroyOrSteal", "_currBeaconOwnerUID", "_currBeaconTemp"];
 
 if(vehicle player != player) exitWith {
-	player globalChat "YOU ARE CURRENTLY BUSY!";
+	player globalChat localize "STR_WL_Errors_InVehicle";
 };
 
 _currSpawnBeaconFaction = ((nearestobjects [getpos player, ["Satelit"],  5] select 0) getVariable "faction");
@@ -28,7 +28,7 @@ _stringEscapePercent = "%"; // Required to get the % sign into a formatted strin
 _iteration = 0;
 
 if(_destroyOrSteal == 0 AND (player getVariable "spawnBeacon") > 0) exitWith {
-	player globalChat "YOU ARE ALREADY HAVE TOO MANY OF THAT OBJECT!";
+	player globalChat localize "STR_WL_Errors_BeaconTooMany";
 }; 
 
 	
@@ -44,7 +44,7 @@ switch (_destroyOrSteal) do {
 		for "_iteration" from 1 to _lockDuration do {
 			
            	if(vehicle player != player) exitWith { // A little inspiration from R3F
-				player globalChat "YOU CANNOT ENTER A VEHICLE WHILE STEALING A SPAWN BEACON!";
+				player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         		player action ["eject", vehicle player];
 				sleep 1;
 			};   
@@ -94,7 +94,7 @@ switch (_destroyOrSteal) do {
 		for "_iteration" from 1 to _lockDuration do {
  
             if(vehicle player != player) exitWith { // A little inspiration from R3F
-				player globalChat "YOU CANNOT ENTER A VEHICLE WHILE DESTROYING A SPAWN BEACON!";
+				player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         		player action ["eject", vehicle player];
 				sleep 1;
 			};   
