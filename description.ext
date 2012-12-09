@@ -8,7 +8,7 @@ class Header
 {
 	gameType=COOP;
 	minPlayers=1;
-	maxPlayers=60;
+	maxPlayers=120;
 };
 
 //Dialog includes

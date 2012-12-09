@@ -123,7 +123,7 @@ if(_side != "Independent") then
                     _centrePos = (pvar_beaconListBlu select _forEachIndex) select 1;
                     
                     {
-			        	_onTeam = str(side _x) in ["EAST"];   
+			        	_onTeam = str(side _x) in ["EAST","GUER"];   
 			           	if(_onTeam) then {
 			               if((getPos _x distance _centrePos) < 100) then {
 					            if(!(side _x == playerSide)) then {
@@ -151,15 +151,13 @@ if(_side != "Independent") then
                	_enemyCount = 0;         
             }forEach pvar_beaconListBlu;
             
-            
-            
           	{
                 if(_side == "Opfor") then {
 				   	_button = _display displayCtrl (_buttonArray select _forEachIndex);
                     _centrePos = (pvar_beaconListRed select _forEachIndex) select 1;
                             
                     {
-			        	_onTeam = str(side _x) in ["WEST"];   
+			        	_onTeam = str(side _x) in ["WEST","GUER"];   
 			           	if(_onTeam) then {
                         	diag_log "In loop - on team";
 			               	if((getPos _x distance _centrePos) < 100) then {

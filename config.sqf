@@ -90,11 +90,13 @@ ammoArray = [
 	["200Rnd. M249 Belt","200Rnd_556x45_M249",50],
 	["100Rnd. M240","100Rnd_762x51_M240",25],
 	["PKM Mag.","100Rnd_762x54_PK",25],
-	["PG-7V.","PG7V",100],
-	["SMAW-HEAA","SMAW_HEAA",100],
 	["Mk17 Mag.","20Rnd_762x51_B_SCAR",25],
 	["Mk17 SD Mag.","20Rnd_762x51_SB_SCAR",25],
-	["10Rnd. M107","10Rnd_127x99_m107",50]
+	["10Rnd. M107","10Rnd_127x99_m107",50],
+    ["PG-7V.","PG7V",100],
+    ["SMAW-HEAA","SMAW_HEAA",100],
+    ["Stinger","Stinger",150],
+    ["Javelin","Javelin",150]
 ];
 
 //Gun Store Equipment List
