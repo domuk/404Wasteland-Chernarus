@@ -1,3 +1,10 @@
+
+//	@file Version: 1.0
+//	@file Name: itemfnc.sqf
+//	@file Author: TAW_Tonic
+//	@file Created: 01/01/1970 00:00
+//	@file Args: [int (0 = use | 1 = drop)]
+
 #include "dialog\player_sys.sqf";
 #define GET_DISPLAY (findDisplay playersys_DIALOG)
 #define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
@@ -10,7 +17,7 @@ _switch = _this select 0;
 _data = GET_SELECTED_DATA(item_list);
 switch(_switch) do 
 {
-	case 0:
+	case 0: // Use item
 	{
 		closeDialog 0;
 		switch(_data) do 
@@ -32,23 +39,27 @@ switch(_switch) do
 
 			case "canfood": 
 			{
-				if((vehicle player) == player) then { player playmove "AinvPknlMstpSnonWnonDnon_healed_1"; };
+            	
+                mutexScriptInProgress = true;
+				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSlayWrflDnon_medic";};
 				player setVariable["canfood",(player getVariable "canfood")-1,true];
 				hungerLevel = hungerLevel + 30;
 				if(hungerLevel > 100) then {hungerLevel = 100};
-				hint format["You have eaten some canned food\nHunger Level: %1",hungerLevel];
-				sleep  1;
-				player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
+                sleep 3;
+                mutexScriptInProgress = false;
+        		player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
+
 			};
 			case "water": 
 			{
-				if((vehicle player) == player) then { player playmove "AinvPknlMstpSnonWnonDnon_healed_1"; };
+                mutexScriptInProgress = true;
+				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSlayWrflDnon_medic";};
 				player setVariable["water",(player getVariable "water")-1,true];
 				thirstLevel = thirstLevel + 50;
 				if(thirstLevel > 100) then {thirstLevel = 100};
-				hint format["You've drank some water.\n\n Hydration Level: %1",thirstLevel];
-				sleep  1;
-				player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
+				sleep 3;
+                mutexScriptInProgress = false;
+                player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
 			};
 
 			case "medkit": 
@@ -70,18 +81,33 @@ switch(_switch) do
 				player setDamage 0;
 				hint "You are now fully healed";
 			};
+            
+            case "spawnBeacon": 
+            {
+            	[] execVM "client\systems\playerMenu\placeSpawnBeacon.sqf";
+            };
 		};
 	};
 
-	case 1:
+	case 1: //Drop item
 	{
 
-		if(_data == "") exitWith {hint "You didn't select anything to drop";};
-		if(dropActive) exitwith {hint "You're already dropping something";};
-		if(vehicle player != player) exitwith {hint "You can't use this action while in a vehicle."};
-		player playmove "AinvPknlMstpSlayWrflDnon";
-		dropActive = true;
-		sleep 1.5;
+		if(_data == "") exitWith {
+        	player globalChat "YOU NEED TO SELECT AN ITEM TO DROP!";
+        };
+		// Check if mutex lock is active.
+		if(mutexScriptInProgress) exitWith {
+			player globalChat "YOU ARE ALREADY PERFORMING ANOTHER ACTION!";
+		};
+        
+		if(vehicle player != player) exitwith {
+        	player globalChat "YOU ARE CURRENTLY BUSY!";
+        };
+        
+        mutexScriptInProgress = true;
+        
+		player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
+		sleep 3;
 		_pos = getPosATL player;
 		//Drops the item and sets values & variables
 		switch(_data) do 
@@ -92,8 +118,16 @@ switch(_switch) do
 			case "repairkits": {player setVariable["repairkits", (player getVariable "repairkits")-1,true]; _temp = "Suitcase" createVehicle (position player); _temp setPos _pos;};
 			case "water": {player setVariable["water", (player getvariable "water")-1,true]; _temp = "Land_Teapot_EP1" createVehicle (position player); _temp setPos _pos;};
 			case "medkit": {player setVariable["medkits", (player getVariable "medkits")-1,true]; _temp = "CZ_VestPouch_EP1" createVehicle (position player); _temp setPos _pos;};
+            case "spawnBeacon": {
+            player setVariable["spawnBeacon", (player getVariable "spawnBeacon")-1,true]; 
+            _droppedBeacon = "Satelit" createVehicle (position player);
+            _droppedBeacon setVariable["spawnsRemaining", 100, true];
+            _droppedBeacon setVariable["faction","WORLD",true];
+            _droppedBeacon setPos _pos;
+            };
 		};
-			dropActive = false;
-			closeDialog 0;
+        mutexScriptInProgress = false;
+        player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
+        closeDialog 0; // To fix the listbox not updating properly.
 	};
 };

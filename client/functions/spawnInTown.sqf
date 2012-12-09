@@ -186,6 +186,8 @@ switch(_switch) do
     };
 };
 
+sleep 5;
+
 _mins = floor(60 * (daytime - floor(daytime)));
 {if(_x select 0 == _townNameSelected) then {_townName = _x select 3;};}forEach cityList;
 [

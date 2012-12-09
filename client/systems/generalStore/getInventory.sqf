@@ -74,6 +74,14 @@ for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 	_index = _index + 1;
 };
 
+_amount = (player getVariable "spawnBeacon");
+for [{_x=1},{_x<=_amount},{_x=_x+1}] do
+{
+	playerInventory set [_index, "Spawn Beacon"];
+	_index = _index + 1;
+};
+
+
 {
 	_itemlistIndex = _itemlist lbAdd format["%1",_x];
 } forEach playerInventory;

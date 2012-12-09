@@ -39,5 +39,7 @@ if(vehicleRespawn == 1) then {
 //Execute Server Missions.
 if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];
-    [] execVM "server\missions\missionState.sqf";
+    [] execVM "server\missions\sideMissionController.sqf";
+    [] execVM "server\missions\mainMissionController.sqf";
+    [] execVM "server\missions\worldMissionController.sqf";
 };

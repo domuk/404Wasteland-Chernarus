@@ -7,11 +7,19 @@
 _switch = _this select 0;
 _button = _this select 1;
 
+diag_log format["Showbeacons = %1", showBeacons];
+
 switch(_switch) do 
 {
     case 0:{execVM "client\functions\spawnRandom.sqf"};
-    case 1:{[_button] execVM "client\functions\spawnInTown.sqf"};
-    case 2:{};
+    case 1:{
+    diag_log "In case statement";
+	    if(showBeacons) then { 	
+	    	[_button] execVM "client\functions\spawnOnBeacon.sqf"
+	    } else {
+	    	[_button] execVM "client\functions\spawnInTown.sqf"
+	    }; 
+    };
 };
 
 if(isNil{client_firstSpawn}) then {

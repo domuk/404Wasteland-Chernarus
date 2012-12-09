@@ -49,7 +49,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=71;
+		items=70;
 		class Item0
 		{
 			side="WEST";
@@ -1217,13 +1217,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={-3061.6243,425.41513,14884.774};
+					position[]={8335.5176,25.712814,3333.0967};
+					azimut=328.64401;
 					id=61;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="CIV_Contractor1_BAF";
 					leader=1;
 					skill=0.60000002;
-					init="playerSpawn = compile preprocessFileLineNumbers ""client\functions\playerSpawn.sqf""; _nul = [] spawn {waitUntil {player == player}; true spawn playerSpawn;};";
+					text="gs1";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs1']; this attachTo[fp1,[-1.5,0,0]];";
 				};
 			};
 		};
@@ -1235,15 +1237,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8335.5176,25.712814,3333.0967};
-					azimut=328.64401;
-					id=62;
+					position[]={8431.4355,164.74019,12007.203};
+					azimut=151.632;
+					id=70;
 					side="LOGIC";
 					vehicle="CIV_Contractor1_BAF";
 					leader=1;
 					skill=0.60000002;
-					text="gs1";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs1']; this attachTo[fp1,[-1.5,0,0]];";
+					text="gs4";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs4']; this attachTo[fp3,[3.5,2.5,0.08]];";
 				};
 			};
 		};
@@ -1255,15 +1257,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8431.4355,164.74019,12007.203};
-					azimut=151.632;
-					id=71;
+					position[]={8398.9824,360.44235,6676.6982};
+					azimut=168.57201;
+					id=76;
 					side="LOGIC";
 					vehicle="CIV_Contractor1_BAF";
 					leader=1;
 					skill=0.60000002;
-					text="gs4";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs4']; this attachTo[fp3,[3.5,2.5,0.08]];";
+					text="gs3";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"", 'gs3']; this attachTo[fp4,[4,-0.6,-0.04]];";
 				};
 			};
 		};
@@ -1275,15 +1277,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8398.9824,360.44235,6676.6982};
-					azimut=168.57201;
-					id=77;
+					position[]={3326.5308,185.95369,3921.1165};
+					azimut=358.6969;
+					id=80;
 					side="LOGIC";
 					vehicle="CIV_Contractor1_BAF";
 					leader=1;
 					skill=0.60000002;
-					text="gs3";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"", 'gs3']; this attachTo[fp4,[4,-0.6,-0.04]];";
+					text="gs2";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs2']; this attachTo[fp2, [3.5,-1,0]];";
 				};
 			};
 		};
@@ -1295,15 +1297,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={3326.5308,185.95369,3921.1165};
-					azimut=358.6969;
-					id=81;
+					position[]={10427.027,10.748408,2366.4006};
+					azimut=328.64359;
+					id=90;
 					side="LOGIC";
-					vehicle="CIV_Contractor1_BAF";
+					vehicle="TK_CIV_Takistani04_EP1";
 					leader=1;
 					skill=0.60000002;
-					text="gs2";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>Gun store</t>"", ""client\systems\gunStore\loadGunStore.sqf"",'gs2']; this attachTo[fp2, [3.5,-1,0]];";
+					text="generalStore1";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp5,[0,-3,0]];";
 				};
 			};
 		};
@@ -1315,15 +1317,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10427.027,10.748408,2366.4006};
+					position[]={6016.0107,305.79456,7815.5566};
 					azimut=328.64359;
 					id=91;
 					side="LOGIC";
 					vehicle="TK_CIV_Takistani04_EP1";
 					leader=1;
 					skill=0.60000002;
-					text="generalStore1";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp5,[0,-3,0]];";
+					text="generalStore2";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp6,[0,-3,0]];";
 				};
 			};
 		};
@@ -1335,15 +1337,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={6016.0107,305.79456,7815.5566};
+					position[]={2586.0693,198.74002,5063.9194};
 					azimut=328.64359;
 					id=92;
 					side="LOGIC";
 					vehicle="TK_CIV_Takistani04_EP1";
 					leader=1;
 					skill=0.60000002;
-					text="generalStore2";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp6,[0,-3,0]];";
+					text="generalStore3";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp7,[0,-3,0]];";
 				};
 			};
 		};
@@ -1355,15 +1357,15 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2586.0693,198.74002,5063.9194};
+					position[]={11249.045,194.08,12208.52};
 					azimut=328.64359;
 					id=93;
 					side="LOGIC";
 					vehicle="TK_CIV_Takistani04_EP1";
 					leader=1;
 					skill=0.60000002;
-					text="generalStore3";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp7,[0,-3,0]];";
+					text="generalStore4";
+					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp8,[0,-3,0]];";
 				};
 			};
 		};
@@ -1375,29 +1377,9 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11249.045,194.08,12208.52};
-					azimut=328.64359;
-					id=94;
-					side="LOGIC";
-					vehicle="TK_CIV_Takistani04_EP1";
-					leader=1;
-					skill=0.60000002;
-					text="generalStore4";
-					init="this addEventHandler[""handledamage"", {false}]; this disableAI ""MOVE""; this DisableAI ""ANIM""; this disableAI ""FSM""; this addAction[""<t color='#ff1111'>General Store</t>"", ""client\systems\generalStore\loadGenStore.sqf""]; this attachTo[fp8,[0,-3,0]];";
-				};
-			};
-		};
-		class Item70
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
 					position[]={10634.965,215.50311,8020.8521};
 					azimut=328.64359;
-					id=95;
+					id=94;
 					side="LOGIC";
 					vehicle="TK_CIV_Takistani04_EP1";
 					leader=1;
@@ -1416,7 +1398,7 @@ class Mission
 			position[]={8343.0654,26.779518,3340.9795};
 			azimut=-53.868065;
 			special="NONE";
-			id=63;
+			id=62;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1428,7 +1410,7 @@ class Mission
 		{
 			position[]={8342.5723,27.014231,3343.8252};
 			azimut=53.277405;
-			id=64;
+			id=63;
 			side="EMPTY";
 			vehicle="USBasicAmmunitionBox";
 			skill=0.60000002;
@@ -1439,7 +1421,7 @@ class Mission
 		{
 			position[]={8340.9434,26.566187,3340.2039};
 			azimut=401.82047;
-			id=65;
+			id=64;
 			side="EMPTY";
 			vehicle="Land_sara_hasic_zbroj";
 			skill=0.60000002;
@@ -1450,7 +1432,7 @@ class Mission
 		{
 			position[]={8326.4502,25.459555,3335.7229};
 			azimut=-38.823055;
-			id=66;
+			id=65;
 			side="EMPTY";
 			vehicle="Land_CncBlock";
 			skill=0.60000002;
@@ -1460,7 +1442,7 @@ class Mission
 		{
 			position[]={8331.1016,26.018587,3340.7898};
 			azimut=-66.159485;
-			id=67;
+			id=66;
 			side="EMPTY";
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
@@ -1470,7 +1452,7 @@ class Mission
 		{
 			position[]={8323.9404,25.153147,3332.5264};
 			azimut=-243.02342;
-			id=68;
+			id=67;
 			side="EMPTY";
 			vehicle="Land_CncBlock";
 			skill=0.60000002;
@@ -1480,7 +1462,7 @@ class Mission
 		{
 			position[]={8341.6865,27.785107,3351.8079};
 			azimut=338.70856;
-			id=69;
+			id=68;
 			side="EMPTY";
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
@@ -1490,7 +1472,7 @@ class Mission
 		{
 			position[]={8331.1016,26.018587,3340.7898};
 			azimut=-66.159485;
-			id=70;
+			id=69;
 			side="EMPTY";
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
@@ -1501,7 +1483,7 @@ class Mission
 			position[]={8432.0771,164.48849,12012.323};
 			azimut=140;
 			special="NONE";
-			id=72;
+			id=71;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1513,7 +1495,7 @@ class Mission
 		{
 			position[]={8429.292,164.87874,12004.027};
 			azimut=45;
-			id=73;
+			id=72;
 			side="EMPTY";
 			vehicle="USBasicAmmunitionBox";
 			skill=0.60000002;
@@ -1524,7 +1506,7 @@ class Mission
 		{
 			position[]={8437.1826,164.11607,12016.169};
 			azimut=195.45775;
-			id=74;
+			id=73;
 			side="EMPTY";
 			vehicle="Land_CncBlock";
 			skill=0.60000002;
@@ -1534,7 +1516,7 @@ class Mission
 		{
 			position[]={8431.8555,164.79347,12006.722};
 			azimut=278;
-			id=76;
+			id=75;
 			side="EMPTY";
 			vehicle="Land_bouda2_vnitrek";
 			skill=0.60000002;
@@ -1544,7 +1526,7 @@ class Mission
 		{
 			position[]={8431.2041,164.23901,12016.341};
 			azimut=6.1187;
-			id=75;
+			id=74;
 			side="EMPTY";
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
@@ -1555,7 +1537,7 @@ class Mission
 			position[]={8403.0615,360.47531,6675.2549};
 			azimut=180;
 			special="NONE";
-			id=78;
+			id=77;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1567,7 +1549,7 @@ class Mission
 		{
 			position[]={8395.9014,360.40634,6676.6851};
 			azimut=125;
-			id=79;
+			id=78;
 			side="EMPTY";
 			vehicle="USBasicAmmunitionBox";
 			skill=0.60000002;
@@ -1577,7 +1559,7 @@ class Mission
 		class Item15
 		{
 			position[]={8398.1113,360.43729,6675.0249};
-			id=80;
+			id=79;
 			side="EMPTY";
 			vehicle="Land_bouda2_vnitrek";
 			skill=0.60000002;
@@ -1587,7 +1569,7 @@ class Mission
 		{
 			position[]={3322.3943,185.95049,3922.3176};
 			special="NONE";
-			id=82;
+			id=81;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1599,7 +1581,7 @@ class Mission
 		{
 			position[]={3329.7144,185.95638,3920.1074};
 			azimut=309;
-			id=83;
+			id=82;
 			side="EMPTY";
 			vehicle="USBasicAmmunitionBox";
 			skill=0.60000002;
@@ -1610,7 +1592,7 @@ class Mission
 		{
 			position[]={3327.2544,185.95139,3921.9775};
 			azimut=180;
-			id=84;
+			id=83;
 			side="EMPTY";
 			vehicle="Land_bouda2_vnitrek";
 			skill=0.60000002;
@@ -1620,7 +1602,7 @@ class Mission
 		{
 			position[]={3320.6387,185.95622,3924.8357};
 			azimut=-72.934555;
-			id=85;
+			id=84;
 			side="EMPTY";
 			vehicle="Land_CncBlock";
 			skill=0.60000002;
@@ -1631,7 +1613,7 @@ class Mission
 			position[]={10424.907,10.747202,2367.6357};
 			azimut=-53.868099;
 			special="NONE";
-			id=86;
+			id=85;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1644,7 +1626,7 @@ class Mission
 			position[]={6013.9927,305.79456,7816.7412};
 			azimut=-53.868099;
 			special="NONE";
-			id=87;
+			id=86;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1657,7 +1639,7 @@ class Mission
 			position[]={2587.6858,198.74002,5064.8896};
 			azimut=53.868099;
 			special="NONE";
-			id=88;
+			id=87;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1670,7 +1652,7 @@ class Mission
 			position[]={11249.974,194.08,12208.114};
 			azimut=115.8681;
 			special="NONE";
-			id=89;
+			id=88;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1683,7 +1665,7 @@ class Mission
 			position[]={10635.894,215.50311,8020.4468};
 			azimut=210.868;
 			special="NONE";
-			id=90;
+			id=89;
 			side="EMPTY";
 			vehicle="Land_Campfire_burning";
 			leader=1;
@@ -1694,7 +1676,7 @@ class Mission
 		class Item25
 		{
 			position[]={8145.2314,470.63556,9150.624};
-			id=96;
+			id=95;
 			side="EMPTY";
 			vehicle="UH1H_TK_EP1";
 			skill=0.60000002;
@@ -1703,7 +1685,7 @@ class Mission
 		{
 			position[]={6445.2173,6,2850.2505};
 			azimut=132.772;
-			id=97;
+			id=96;
 			side="EMPTY";
 			vehicle="CH_47F_BAF";
 			skill=0.60000002;
@@ -1712,7 +1694,7 @@ class Mission
 		class Item27
 		{
 			position[]={1041.2217,133.82132,4181.2944};
-			id=98;
+			id=97;
 			side="EMPTY";
 			vehicle="MH6J_EP1";
 			skill=0.60000002;
@@ -1720,7 +1702,7 @@ class Mission
 		class Item28
 		{
 			position[]={11631.619,103.38194,10334.914};
-			id=99;
+			id=98;
 			side="EMPTY";
 			vehicle="MH6J_EP1";
 			skill=0.60000002;
@@ -1728,7 +1710,7 @@ class Mission
 		class Item29
 		{
 			position[]={1981.5929,248.2283,10331.181};
-			id=100;
+			id=99;
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
@@ -1736,7 +1718,7 @@ class Mission
 		class Item30
 		{
 			position[]={13056.713,129.74501,5940.106};
-			id=101;
+			id=100;
 			side="EMPTY";
 			vehicle="UH1H_TK_EP1";
 			skill=0.60000002;
