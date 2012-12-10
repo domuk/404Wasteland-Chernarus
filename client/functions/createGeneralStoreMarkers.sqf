@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: createGeneralStoreMarkers.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat (Original concept by Sa-Matra)
 //	@file Created: 28/11/2012 05:19
 //	@file Args:
 
@@ -27,7 +27,7 @@ waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespac
 	_markerName setMarkerBrushLocal "Grid";
 	_markerName setMarkerAlphaLocal 0.5;
 
-	// Gun store title    
+	// General store title    
     _markerName = format["marker_shop_title_%1",_x];
     deleteMarkerLocal _markerName;
 	_marker = createMarkerLocal [_markerName, getPos _unit];
@@ -37,7 +37,7 @@ waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespac
 	_markerName setMarkerSizeLocal [0.8,0.8];
 	_markerName setMarkerTextLocal "General Store";
 
-	// Gun store description    
+	// General store description    
     _markerName = format["marker_shop_desc_%1",_x];
     deleteMarkerLocal _markerName;
     _pos = getPos _unit; _pos set [1, (_pos select 1) - 100];

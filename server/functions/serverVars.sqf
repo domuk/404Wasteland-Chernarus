@@ -26,6 +26,8 @@ pvar_beaconListRed = [];
 publicVariable "pvar_beaconListRed";
 clientMissionMarkers = [];
 publicVariable "clientMissionMarkers";
+clientRadarMarkers = [];
+publicVariable "clientRadarMarkers";
 
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = ["car_hatchback",

@@ -11,6 +11,7 @@ onKeyPress = compile preprocessFile "client\clientEvents\onKeyPress.sqf";
 loadPlayerMenu = compile preprocessFile "client\systems\playerMenu\init.sqf";
 
 updateMissionsMarkers = compile preprocessFileLineNumbers "client\functions\updatePlayerMissionMarkers.sqf";
+updateRadarMarkers = compile preprocessFileLineNumbers "client\functions\updatePlayerRadarMarkers.sqf";
 clientCompareTime = compile preprocessFileLineNumbers "client\functions\compareTime.sqf";
 playerSpawn = compile preprocessFileLineNumbers "client\functions\playerSpawn.sqf";
 playerSetup = compile preprocessFileLineNumbers "client\functions\playerSetup.sqf";

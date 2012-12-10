@@ -45,6 +45,9 @@ waituntil {!(IsNull (findDisplay 46))};
 
 currentMissionsMarkers = [];
 "clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
+currentRadarMarkers = [];
+"clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
+
 "publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
 pvar_PlayerTeamKiller = objNull;
@@ -71,6 +74,7 @@ pvar_PlayerTeamKiller = objNull;
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
 [] execVM "client\functions\createPlayerIcons.sqf";
 [] call updateMissionsMarkers;
+[] call updateRadarMarkers;
 
 waitUntil {playerSetupComplete};
 true spawn playerSpawn;
