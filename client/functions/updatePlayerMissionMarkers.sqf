@@ -11,4 +11,3 @@ currentMissionsMarkers = [];
 
 	currentMissionsMarkers = currentMissionsMarkers + [_x select 0];
 } forEach clientMissionMarkers;
-

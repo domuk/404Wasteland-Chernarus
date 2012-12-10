@@ -51,8 +51,12 @@ while {_run} do
 				
 				[_pos, _type] call vehicleCreation;
 			};
+            sleep 0.1;
 		} forEach currentVehicles;
+        
+        _hintText = format ["Server Vehicle Clean Up Finished"];
+		[nil,nil,rHINT,_hintText] call RE;
     } else {
-    	sleep 1;  
+    	sleep 5;  
     };
 };

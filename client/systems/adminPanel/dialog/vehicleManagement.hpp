@@ -1,113 +1,162 @@
-class VehicleManagement
-{
-    name=SpawnMenu;
-    idd=-1;
-    movingEnable=1;
-    controlsBackground[]={SpawnMenu_background};
-    objects[]={};
-    controls[]={SpawnMenu_playerName, SpawnMenu_options, SpawnMenu_activate1, SpawnMenu_activate2,SpawnMenu_1,SpawnMenu_2,SpawnMenu_3,SpawnMenu_4,SpawnMenu_5,SpawnMenu_6};
 
-    class SpawnMenu_playerName:w_RscText
-    {
-        idc=-1;
-        text="Vehicle Management";
-        x=0.02;
-        y=0.14;
-        w=2.50;
-        h=0.03;
-    };
-    class SpawnMenu_1:w_RscText
-    {
-        idc=38761;
-        text="Object: ";
-        x=0.02;
-        y=0.75;
-        w=0.50;
-        h=0.04;
-    };
-    class SpawnMenu_2:w_RscText
-    {
-        idc=38762;
-        text="Type: ";
-        x=0.02;
-        y=0.79;
-        w=0.50;
-        h=0.04;
-    };
-    class SpawnMenu_3:w_RscText
-    {
-        idc=38763;
-        text="Weapons: ";
-        x=0.02;
-        y=0.83;
-        w=0.50;
-        h=0.04;
-    };
-    class SpawnMenu_4:w_RscText
-    {
-        idc=38764;
-        text="Speed: ";
-        x=0.02;
-        y=0.87;
-        w=0.50;
-        h=0.04;
-    };
-    class SpawnMenu_5:w_RscText
-    {
-        idc=38765;
-        text="Users: ";
-        x=0.02;
-        y=0.91;
-        w=0.50;
-        h=0.04;
-    };
-    class SpawnMenu_6:w_RscText
-    {
-        idc=38766;
-        text="Damage: ";
-        x=0.02;
-        y=0.95;
-        w=0.50;
-        h=0.04;
-    };
+#define vehicleManagementDialog 12000
+#define vehicleManagementListBox 12001
+#define vehicleManagementVehicleCount 12002
+#define vehicleWeaponsText 12003
+#define vehicleUsersText 12004
+#define vehicleDamageText 12005
+#define vehicleSpeedText 12006
 
-    class SpawnMenu_options:w_Rsclist
-    {
-        idc=13372;
-        onLBSelChanged="[1,_this select 1] execVM ""client\systems\adminPanel\importvalues.sqf"";";
-        x=0.02;
-        y=0.21;
-        w=0.72;
-        h=0.49;
-    };
+class VehicleManagement {
 
-    class SpawnMenu_activate1:RscButton
-    {
-        idc=-1;
-        text="Delete";
-        action="[1] execVM ""client\systems\adminPanel\deleteVehicle.sqf"";";
-        x=0.02;
-        y=1.00;
-        w=0.15;
-        h=0.07;
-    };
-    class SpawnMenu_activate2:RscButton
-    {
-        idc=-1;
-        text="Announce";
-        action="[1] execVM ""client\systems\adminPanel\deleteVehicle.sqf"";";
-        x=0.18;
-        y=1.00;
-        w=0.15;
-        h=0.07;
-    };
+	idd = vehicleManagementDialog;
+	movingEnable = false;
+	enableSimulation = true;
+	onLoad = "[0] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 
-    class SpawnMenu_background:w_RscBackground
-    {
-        idc=-1;
-        x=0.00;
-        y=0.10;
-        w=0.76;
-        h=1.00;
-    };
+	class controlsBackground {
+		
+		class MainBackground: RscPicture
+		{
+			idc = -1;
+			text = "\ca\ui\data\ui_background_controlers_ca.paa";
+			x = 0.295 * safezoneW + safezoneX;
+			y = 0.228 * safezoneH + safezoneY;
+			w = 0.550 * safezoneW;
+			h = 0.543 * safezoneH;
+		};
+
+		class menuTitle: RscText
+		{
+			idc = -1;
+			text = "Vehicle Management";
+			x = 0.453 * safezoneW + safezoneX;
+			y = 0.248 * safezoneH + safezoneY;
+			w = 0.091 * safezoneW;
+			h = 0.030 * safezoneH;
+		};
+
+		class amountOfVehicles: RscText
+		{
+			idc = vehicleManagementVehicleCount;
+			text = "";
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.292 * safezoneH + safezoneY;
+			w = 0.121 * safezoneW;
+			h = 0.031 * safezoneH;
+		};
+
+		class weaponsText: RscText
+		{
+			idc = vehicleWeaponsText;
+			text = "Weapons:";
+			sizeEx = 0.030;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.600 * safezoneH + safezoneY;
+			w = 0.2 * safezoneW;
+			h = 0.030 * safezoneH;
+		};
+
+		class speedText: RscText
+		{
+			idc = vehicleSpeedText;
+			text = "Speed:";
+			sizeEx = 0.030;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.620 * safezoneH + safezoneY;
+			w = 0.2 * safezoneW;
+			h = 0.030 * safezoneH;
+		};
+
+		class usersText: RscText
+		{
+			idc = vehicleUsersText;
+			text = "Users:";
+			sizeEx = 0.030;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.640 * safezoneH + safezoneY;
+			w = 0.2 * safezoneW;
+			h = 0.030 * safezoneH;
+		};
+
+		class damageText: RscText
+		{
+			idc = vehicleDamageText;
+			text = "Damage:";
+			sizeEx = 0.030;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.660 * safezoneH + safezoneY;
+			w = 0.2 * safezoneW;
+			h = 0.030 * safezoneH;
+		};
+	};
+	
+	class controls {
+		
+		class vehicleListBox: RscListbox
+		{
+			idc = vehicleManagementListBox;
+			onLBSelChanged="[1,_this select 1] execVM ""client\systems\adminPanel\importvalues.sqf"";";
+			x = 0.335938 * safezoneW + safezoneX;
+			y = 0.337963 * safezoneH + safezoneY;
+			w = 0.32875 * safezoneW;
+			h = 0.250 * safezoneH;
+		};
+		
+		class civButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[0] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+			text = "Cars/Trucks";
+			x = 0.305 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
+
+		class heliButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[1] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+			text = "Helicopters";
+			x = 0.38 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
+
+		class planeButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[2] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+			text = "Planes";
+			x = 0.455 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
+
+		class tankButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[3] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+			text = "Tanks";
+			x = 0.530 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
+
+		class deleteButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "execVM 'client\systems\adminPanel\deleteVehicle.sqf'";
+			text = "Delete Vehicle";
+			x = 0.62 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.95,0.1,0.1,1};
+		};
+	};
 };

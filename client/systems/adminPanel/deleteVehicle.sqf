@@ -4,24 +4,33 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-PlayersSelect = lbCurSel 13372;
-PSID = lbData [13372, PlayersSelect];
-_pList = vehicles;
-j = count _pList;
-j=j-1;
-i = 0;
-player commandChat format ["%1 ----",PSID];
+#define vehicleManagementDialog 12000
+#define vehicleManagementListBox 12001
 
-for "i" from 0 to j do {
-    v = _pList select i;
-    if (str(v) == PSID) then {
-        player commandChat "Deleting vehicle";
+disableSerialization;
+
+private ["_switch","_vehicleType","_vehicleSummary","_vehicle","_selectedItem","_selectedItemData"];
+_allVehicles = vehicles;
+
+_dialog = findDisplay vehicleManagementDialog;
+_vehicleListBox = _dialog displayCtrl vehicleManagementListBox;
+
+_selectedItem = lbCurSel _vehicleListBox;
+_selectedItemData = _vehicleListBox lbData _selectedItem;
+
+player commandChat format ["Deleting %1",_selectedItemData];
+{
+    _vehicle = _X;
+	if(str(_vehicle) == _selectedItemData) then
+    {
         {
-            _x leaveVehicle v;
-        } forEach crew v;
-        deleteVehicle v;
-    };
-};
+            _x leaveVehicle _vehicle;
+        } forEach crew _vehicle;
+        deleteVehicle _vehicle;    
+    };    
+}forEach _allVehicles;
+
+player commandChat "Vehicle Deleted";
 
 closeDialog 0;
 execVM "client\systems\adminPanel\vehicleManagement.sqf";

@@ -24,7 +24,7 @@ if(isNull player) then {X_JIP = true;};
 
 true spawn {
 	if(!isDedicated) then {
-		titleText ["Initilization Failed Please Press 'ESC' and Click Respawn", "BLACK OUT", 1];
+		titleText ["Please wait for your player to setup", "BLACK OUT", 1];
 		waitUntil {player == player};
 		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};
@@ -40,7 +40,7 @@ if(X_Client) then {
 
 if(X_Server) then {
     diag_log format["WASTELAND SERVER - Initilizing Server"];
-	[] execVM "server\init.sqf";
+	//[] execVM "server\init.sqf";
 };
 
 //init 3rd Party Scripts

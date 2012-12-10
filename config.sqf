@@ -94,8 +94,8 @@ ammoArray = [
 	["10Rnd. M107","10Rnd_127x99_m107",50],
     ["PG-7V.","PG7V",100],
     ["SMAW-HEAA","SMAW_HEAA",100],
-    ["Stinger","Stinger",150],
-    ["Javelin","Javelin",150]
+    ["Stinger Ammo","Stinger",150],
+    ["Javelin Ammo","Javelin",150]
 ];
 
 //Gun Store Equipment List
