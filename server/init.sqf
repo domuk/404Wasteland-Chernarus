@@ -10,7 +10,7 @@ if(!X_Server) exitWith {};
 
 sideMissions = 1;
 serverSpawning = 1;
-vehicleRespawn = 1;
+vehicleRespawn = 0;
 
 //Execute Server Side Scripts.
 [] execVM "server\functions\serverVars.sqf";
@@ -37,7 +37,7 @@ if (serverSpawning == 1) then {
 //Start Vehicle Respawn Script.
 if(vehicleRespawn == 1) then {
     diag_log format["WASTELAND SERVER - Initilizing Vehicle Respawning"];
-    [] execVM "server\functions\vehicleRespawn.sqf";
+    //[] execVM "server\functions\vehicleRespawn.sqf";
 };
 
 //Execute Server Missions.

@@ -11,13 +11,13 @@ _startTime = 0;
 
 waitUntil{currentTime > 0};
 
-_startTime = currentTime;
-waitUntil
-{ 
-    _currTime = currentTime;
-    _result = [_currTime, _startTime, 2] call compareTime;
-    (_result == 1)
-};
+//_startTime = currentTime;
+//waitUntil
+//{ 
+   // _currTime = currentTime;
+    //_result = [_currTime, _startTime, 2] call compareTime;
+    //(_result == 1)
+//};
 
 _hint = "Spawning Started";
 [nil,nil,rHINT,_hint] call RE;

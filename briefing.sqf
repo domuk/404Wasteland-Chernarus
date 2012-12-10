@@ -8,8 +8,8 @@ player createDiaryRecord["changelog",
 "
 <br/>
 		[Fixed] - Server performance issues.<br/>
-        [Fixed] - Vehicle cleanup.<br/>
-        [Fixed] - Team locking time which is actually 3 mins now.<br/>
+		[Fixed] - Vehicle cleanup.<br/>
+		[Fixed] - Team locking time which is actually 3 mins now.<br/>
 "
 ]
 ];
@@ -19,27 +19,39 @@ player createDiaryRecord["changelog",
 "2.1",
 "
 <br/>
-		[Added] - Towing Limit Now Set to 1 Vehicle and Cars can Tow
-        [Added] - Some Static Helis
-        [Added] - Spawn Beacons
-        [Added] - Client Markers
-        [Added] - Outpost Mission
-        [Added] - Concurrent Missions
-        [Added] - Welcome Message
-        [Added] - Admin Levels
-        [Added] - More Ammo Types
-        [Added] - More Player Roles, Now 120 Total
-        [Changed] - Object List to have more Objects
-        [Changed] - Balanced Mission Ammo Caches
-        [Changed] - Faction Starting Pistols now more appropriate
-        [Changed] - Missions Rewriten to Address Multiple Bugs
-		[Redesigned] - Gun Store
-        [Redesigned] - General Store
-        [Fixed] - Animation not working correctly
-        [Fixed] - Money Drop Bug and Exploit
-        [Fixed] - JIP Loading Bug
-        [Fixed] - AI Running to Other Mission
-        [Fixed] - Numerous minor bugs and tweeks  
+		[Added] - Towing Limit Now Set to 1 Vehicle and Cars can Tow<br/>
+		[Added] - Some Static Helis<br/>
+		[Added] - Spawn Beacons<br/>
+		[Added] - Client Markers<br/>
+		[Added] - Outpost Mission<br/>
+		[Added] - Concurrent Missions<br/>
+		[Added] - Welcome Message<br/>
+		[Added] - Admin Levels<br/>
+		[Added] - More Ammo Types<br/>
+		[Added] - More Player Roles, Now 120 Total<br/>
+		[Changed] - Object List to have more Objects<br/>
+		[Changed] - Balanced Mission Ammo Caches<br/>
+		[Changed] - Faction Starting Pistols now more appropriate<br/>
+		[Changed] - Missions Rewriten to Address Multiple Bugs<br/>
+		[Redesigned] - Gun Store<br/>
+		[Redesigned] - General Store<br/>
+		[Fixed] - Animation not working correctly<br/>
+		[Fixed] - Money Drop Bug and Exploit<br/>
+		[Fixed] - JIP Loading Bug<br/>
+		[Fixed] - AI Running to Other Mission<br/>
+		[Fixed] - Numerous minor bugs and tweeks<br/>  
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"2.2",
+"
+<br/>
+		[Added] - Body Clean Up after a short period.<br/>
+        [Added] - Mobile Radar Station Mission.<br/>
+        [Changed] - Vehicle Clean made less aggressive.<br/>
 "
 ]
 ];

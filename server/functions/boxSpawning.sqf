@@ -44,8 +44,7 @@ waitUntil{objectSpawnComplete};
 		_marker setMarkerText "Ammo Box";
 		_marker setMarkerColor "ColorRed";    
         */
-	};
-    
+	};   
 }forEach _locations;
 
 diag_log format["WASTELAND SERVER - %1 Ammo Caches Spawned",_count];

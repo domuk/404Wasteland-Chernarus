@@ -16,7 +16,7 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "v2.1";
+versionName = "v2.2a";
 
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
@@ -40,7 +40,7 @@ if(X_Client) then {
 
 if(X_Server) then {
     diag_log format["WASTELAND SERVER - Initilizing Server"];
-	//[] execVM "server\init.sqf";
+	[] execVM "server\init.sqf";
 };
 
 //init 3rd Party Scripts

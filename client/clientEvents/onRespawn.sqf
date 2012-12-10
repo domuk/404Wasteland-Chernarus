@@ -19,6 +19,8 @@ waitUntil {playerSetupComplete};
 
 true spawn playerSpawn;
 
+[_corpse] execVM "client\functions\removeDead.sqf";
+
 [] spawn {
 	waitUntil{respawnDialogActive};
 	waitUntil{!respawnDialogActive};

@@ -17,7 +17,7 @@ _run = true;
 while {_run} do
 {
     _currTime = currentTime;
-    _result = [_currTime, _startTime, 15] call compareTime;
+    _result = [_currTime, _startTime, 45] call compareTime;
     
     if(_result == 1) then
     {
@@ -51,7 +51,7 @@ while {_run} do
 				
 				[_pos, _type] call vehicleCreation;
 			};
-            sleep 0.1;
+            sleep 0.01;
 		} forEach currentVehicles;
         
         _hintText = format ["Server Vehicle Clean Up Finished"];
