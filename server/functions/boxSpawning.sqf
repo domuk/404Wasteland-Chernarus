@@ -21,12 +21,14 @@ while {_counter < 770} do
     _box = _boxes select (random (count _boxes - 1));
     _newpos = [_pos, 25, 50, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
 	_box = createVehicle [_box, _newpos,[], 30, "NONE"];
-      
+    
+	/*	
     _markerName = format["marker%1",_counter];
 	_marker = createMarker [_markerName, _newpos];
 	_marker setMarkerType "dot";
 	_marker setMarkerSize [1.25, 1.25];
 	_marker setMarkerColor "ColorRed";
+	*/
     
     _counter = _counter + 25;
     _countActual = _countActual + 1;
