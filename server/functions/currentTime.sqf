@@ -23,6 +23,8 @@ while {true} do {
     
     currentTime = _yearInMins + _hourInMins + _min;
     publicVariable "currentTime";
+    //To broadcast clientRaderMarkers to clients from the server due to clients not being able to broadcast server wide variables with eventhandlers.
+    publicVariable "clientRadarMarkers";
 
     sleep 1; 
 };

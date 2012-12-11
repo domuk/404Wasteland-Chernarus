@@ -6,13 +6,13 @@
 
 private["_uniqueID", "_radarStationPos", "_playerSide", "_markerState", "_enemyCount", "_friendlyCount", "_currSide", "_runLoop", "_stillAlive"];
 
+
 _uniqueID = _this select 0;
 _radarStationPos = _this select 1;
 _playerSide = _this select 2;
 _markerState = _this select 3;
 
 _runLoop = true;
-
 while {_runLoop} do {
 	_stillAlive = false;
 
@@ -42,19 +42,18 @@ while {_runLoop} do {
     if(_enemyCount > 0 AND _friendlyCount > 0) then {
     	_markerState = 3; // Enemy AND friendly
     };
-    
+
    	{
     	if(_x select 0 == _uniqueID) then {
         	_stillAlive = true;
             
             // delete current marker from server
             clientRadarMarkers set [_forEachIndex, "REMOVETHISCRAP"];
-			clientRadarMarkers = clientRadarMarkers - ["REMOVETHISCRAP"];
-	        publicVariable "clientRadarMarkers";  
+			clientRadarMarkers = clientRadarMarkers - ["REMOVETHISCRAP"]; 
               
             // put updated marker in with updated state
 			clientRadarMarkers set [count clientRadarMarkers,[_uniqueID,_radarStationPos,_playerSide, _markerState]];
-			publicVariableServer "clientRadarMarkers"; 
+			publicVariable "clientRadarMarkers"; 
         };
     }forEach clientRadarMarkers;
 

@@ -4,8 +4,6 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args: [obj(tank), player]
 
-if(!isServer) exitwith {};
-
 private["_radarTank","_player", "_stringEscapePercent", "_totalDuration", "_lockDuration", "_iteration", "_playerSide", "_playerPos", "_radarStation", "_uniqueID"];
 
 _radarStation = (nearestobjects [getpos player, ["M1130_HQ_unfolded_Base_EP1"],  10] select 0);

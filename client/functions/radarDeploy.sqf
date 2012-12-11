@@ -4,8 +4,6 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args: [obj(tank), player]
 
-if(!isServer) exitwith {};
-
 private["_radarTank","_player", "_stringEscapePercent", "_totalDuration", "_lockDuration", "_iteration", "_playerSide", "_playerPos", "_radarStation", "_radarStationPos", "_uniqueID", "_temp", "_markerState", "_tankFuel", "_tankDamage"];
 
 _radarTank = (nearestobjects [getpos player, ["M1133_MEV_EP1"],  10] select 0);
@@ -103,9 +101,11 @@ for "_iteration" from 1 to _actionDuration do {
            
 		mutexScriptInProgress = false;  
         hint "You have successfully unpacked the Mobile Radar Station.";
-        
-        player setVehicleInit format["if (IsServer) then {[_uniqueID, _radarStationPos, _playerSide, _markerState] execVM ""server\functions\radarMarkerUpdate.sqf""};"];
-        processInitCommands;      
+       
+        player setVariable ['PG_result',[]];
+        _command = format["if isServer then {this setVariable [""PG_result"",[call {[%1,%2,%3,%4] execVM 'server\functions\radarMarkerUpdate.sqf'}],true]}",str(_uniqueID),str(_radarStationPos),str(_playerSide),_markerState];
+		player setVehicleInit _command;
+		processInitCommands;      
 	};     
 };        		
 

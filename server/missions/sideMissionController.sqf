@@ -1,6 +1,6 @@
 if(!isServer) exitWith {};
 
-waitUntil{staticGunSpawningComplete};
+//waitUntil{ammoCrateSpawnComplete};
 
 diag_log format["WASTELAND SERVER - Started Mission State"];
 
@@ -26,7 +26,7 @@ while {true} do
     
 	if(!sideMissionRunning) then
     {
-        sleep 5;
+        sleep 30;
         _mission = _MMarray select (random (count _MMarray - 1));
         execVM format ["server\missions\sideMissions\%1.sqf",_mission];
 		sideMissionRunning = true;

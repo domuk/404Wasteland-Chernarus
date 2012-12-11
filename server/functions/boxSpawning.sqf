@@ -16,9 +16,11 @@ _locations = _locations + _towns;
 
 waitUntil{objectSpawnComplete};
 
+_hint = "Weapon Caches Spawning";
+[nil,nil,rHINT,_hint] call RE;
 {
     _pos = getpos _x;
-     _secondRad = 2000;
+     _secondRad = 20;
 	 _objects = nearestObjects [_pos, ["USBasicWeaponsBox",
 								     "RUBasicWeaponsBox",
 								     "GERBasicWeapons_EP1",
@@ -46,6 +48,9 @@ waitUntil{objectSpawnComplete};
         */
 	};   
 }forEach _locations;
+
+_hint = "Weapon Caches Complete";
+[nil,nil,rHINT,_hint] call RE;
 
 diag_log format["WASTELAND SERVER - %1 Ammo Caches Spawned",_count];
 

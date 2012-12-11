@@ -11,11 +11,13 @@ _house = nearestObjects [_cnps, ["House"], _rad];
 
 waitUntil{ammoCrateSpawnComplete};
 
+_hint = "Static Guns Started Spawning";
+[nil,nil,rHINT,_hint] call RE;
 {
     if((typeOf _x) in blacklist) then {} else
     {
         _pos = getPos _x;
-	    _secondRad = 1500;
+	    _secondRad = 20;
 	   	_objects = nearestObjects [_pos, ["M2StaticMG_US_EP1",
 					"DSHKM_TK_INS_EP1"], _secondRad];
 	        

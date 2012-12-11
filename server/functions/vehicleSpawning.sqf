@@ -60,6 +60,9 @@ _hint = "Spawning Started";
     };
 }forEach _house;
 
+_hint = "Vehicles Complete";
+[nil,nil,rHINT,_hint] call RE;
+
 _amountOfVehicles = count currentVehicles;
 diag_log format["WASTELAND SERVER - %1 Vehicles Spawned",_amountOfVehicles];
 

@@ -45,6 +45,7 @@ waituntil {!(IsNull (findDisplay 46))};
 
 currentMissionsMarkers = [];
 "clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
+
 currentRadarMarkers = [];
 "clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
 

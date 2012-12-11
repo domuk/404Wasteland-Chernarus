@@ -11,6 +11,9 @@ _house = nearestObjects [_cnps, ["House"], _rad];
 
 waitUntil{vehicleSpawnComplete};
 
+_hint = "Object Spawning Started";
+[nil,nil,rHINT,_hint] call RE;
+
 {
     if((typeOf _x) in blacklist) then {} else
     {
@@ -92,6 +95,9 @@ waitUntil{vehicleSpawnComplete};
 	    };
     };
 }forEach _house;
+
+_hint = "Objects Finished Spawning";
+[nil,nil,rHINT,_hint] call RE;
 
 _hint = format["%1 Objects Spawned",_count];
 diag_log format["WASTELAND SERVER - %1 Objects Spawned",_count];
