@@ -4,44 +4,33 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-_rad = 20000;
-_count = 0;
-_cnps = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-_house = nearestObjects [_cnps, ["House"], _rad];
-
 waitUntil{ammoCrateSpawnComplete};
 
-_hint = "Static Guns Started Spawning";
+private ["_counter","_pos","_markerName","_marker","_hint","_newpos","_countActual"];
+_counter = 0;
+_countActual = 0;
+_hint = "Static Guns Spawning Started";
 [nil,nil,rHINT,_hint] call RE;
-{
-    if((typeOf _x) in blacklist) then {} else
-    {
-        _pos = getPos _x;
-	    _secondRad = 20;
-	   	_objects = nearestObjects [_pos, ["M2StaticMG_US_EP1",
-					"DSHKM_TK_INS_EP1"], _secondRad];
-	        
-	    //Check that there isn't a car right next to it.
-	    if((count _objects == 0)) then 
-	    {
-	    	//_hint = "Objects Spawning";
-	        //[nil,nil,rHINT,_hint] call RE;
-			[_pos] call staticGunCreation;
-	        _count = _count + 1;
-            
-            /*    
-            _markerName = format["marker%1",_forEachIndex];
-			_marker = createMarker [_markerName, _pos];
-			_marker setMarkerType "mil_destroy";
-			_marker setMarkerSize [1.25, 1.25];
-			_marker setMarkerText "Object";
-			_marker setMarkerColor "ColorRed";   
-            */ 
-		};   
-    };
-}forEach _house;
 
-diag_log format["WASTELAND SERVER - %1 Static Guns Spawned",_count];
+while {_counter < 770} do
+{
+    _pos = getMarkerPos format ["Spawn_%1", _counter];
+    _newpos = [_pos, 25, 50, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
+	[_newpos] call staticGunCreation;
+    
+    /*      
+    _markerName = format["marker%1",_counter];
+	_marker = createMarker [_markerName, _newpos];
+	_marker setMarkerType "dot";
+	_marker setMarkerSize [1.25, 1.25];
+	_marker setMarkerColor "ColorRed";
+    */
+    
+    _counter = _counter + 20;
+    _countActual = _countActual + 1;
+};
+
+diag_log format["WASTELAND SERVER - %1 Static Guns Spawned",_countActual];
 
 _hint = "Spawning Complete";
 [nil,nil,rHINT,_hint] call RE;

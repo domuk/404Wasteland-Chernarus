@@ -1,4 +1,3 @@
-
 //	@file Version: 1.0
 //	@file Name: init.sqf
 //	@file Author: [404] Deadbeat
@@ -31,7 +30,7 @@ if (serverSpawning == 1) then {
 	[] execVM "server\functions\vehicleSpawning.sqf";
     [] execVM "server\functions\objectsSpawning.sqf";
     [] execVM "server\functions\boxSpawning.sqf";
-    //[] execVM "server\functions\staticGunSpawning.sqf";
+    [] execVM "server\functions\staticGunSpawning.sqf";
 };
 
 //Start Vehicle Respawn Script.
