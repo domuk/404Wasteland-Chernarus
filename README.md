@@ -36,9 +36,11 @@ Advanced - Download the source from Github and then pack the files using PBOView
 
 https://github.com/domuk/404Wasteland-Chernarus/archive/master.zip
 ```
+
 4. Put the files into your arma2 server folder.
 5. Edit the "server.cfg" in the wastelands folder to your own liking.
 6. Arma2Net has two requirements, below are the download links to the C+ Redist and netframework 4. If these are installed please skip this step.
+
 ```
 
 Arma2Net Requirements- 
@@ -48,7 +50,9 @@ http://www.microsoft.com/download/en/details.aspx?id=24872
 http://www.microsoft.com/en-us/download/details.aspx?id=8328
 
 ```
+
 5. OPTIONAL: You can download this file which contains our ban.txt and other script catching forms for battleye. They are all set to observe, you need to look at the generated *.log files to determine who/what has been hacking. You just need to copy the *.txt files in to your batteye folder. 
+
 ```
 http://www.404games.co.uk/forum/index.php?/topic/445-404wasteland-chernarus-v2-mission-requirements/
 ```
