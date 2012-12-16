@@ -9,8 +9,7 @@ waitUntil{vehicleSpawnComplete};
 private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint"];
 _counter = 0;
 
-_hint = "Objects Spawning Started";
-[nil,nil,rHINT,_hint] call RE;
+diag_log format["Objects Spawning Started"];
 
 while {_counter < 770} do
 {
@@ -33,9 +32,5 @@ while {_counter < 770} do
     _counter = _counter + 1;
 };
 
-_hint = "Objects Finished Spawning";
-[nil,nil,rHINT,_hint] call RE;
-
 diag_log format["WASTELAND SERVER - %1 Objects Spawned",_counter * 2];
-
 objectSpawnComplete = true;

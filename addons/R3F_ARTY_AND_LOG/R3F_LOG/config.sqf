@@ -234,12 +234,9 @@ R3F_LOG_CFG_transporteurs = [
 	["BMP2_Base", 7],
 	["BMP3", 7],
 	["ZSU_Base", 5],
-
 	["Ship", 10],
-
 	["Fort_Crate_wood", 20],
 	["Misc_cargo_cont_tiny", 40],
-
 	["BAF_Merlin_HC3_D",75],
 	["Ka60_Base_PMC", 40],
 	["ArmoredSUV_Base_PMC", 12],
@@ -341,7 +338,7 @@ R3F_LOG_CFG_objets_transportables =  [
 	["Fort_EnvelopeBig_EP1",3],
 	["Fort_EnvelopeSmall_EP1",2],
 	["Fort_StoneWall_EP1",2],
-	["Land_Fort_Watchtower_EP1",5],
+	["Land_Fort_Watchtower_EP1",8],
 	["Land_Misc_Rubble_EP1",2],
 	["Land_stand_small_EP1",1],
 	["Fort_RazorWire",1],
@@ -356,7 +353,7 @@ R3F_LOG_CFG_objets_transportables =  [
 	["Base_WarfareBBarrier10x", 8],
 	["Land_Misc_deerstand", 3],
 	["Barrack2", 15],
-	["Land_Fort_Watchtower", 15],
+	["Land_Fort_Watchtower", 8],
 	["Land_Dirthump01", 10],
 	["Land_CncBlock_Stripes", 2],
 	["Land_CncBlock", 2],
@@ -377,7 +374,7 @@ R3F_LOG_CFG_objets_transportables =  [
 	["Obstacle_saddle", 2],
 	["Land_Climbing_Obstacle", 3],
 	["Fort_StoneWall_EP1", 5],
-
+	["Land_CamoNet_NATO", 3],
 	["WarfareBCamp", 15],
 	["WarfareBDepot", 30],
 
@@ -405,6 +402,7 @@ R3F_LOG_CFG_objets_transportables =  [
 
 R3F_LOG_CFG_objets_deplacables = [
 	"SatPhone",
+    "Land_CamoNet_NATO",
 	"FoldChair_with_Cargo",
 	"StaticWeapon",
 	"FlagCarrierSmall",

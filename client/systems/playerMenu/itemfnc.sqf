@@ -41,25 +41,25 @@ switch(_switch) do
 			{
             	
                 mutexScriptInProgress = true;
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSlayWrflDnon_medic";};
+				if((vehicle player) == player) then {player playmove "AinvPknlMstpSnonWnonDnon_healed_1";};
 				player setVariable["canfood",(player getVariable "canfood")-1,true];
 				hungerLevel = hungerLevel + 30;
 				if(hungerLevel > 100) then {hungerLevel = 100};
                 sleep 3;
                 mutexScriptInProgress = false;
-        		player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
+        		player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
 
 			};
 			case "water": 
 			{
                 mutexScriptInProgress = true;
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSlayWrflDnon_medic";};
+				if((vehicle player) == player) then {player playmove "AinvPknlMstpSnonWnonDnon_healed_1";};
 				player setVariable["water",(player getVariable "water")-1,true];
 				thirstLevel = thirstLevel + 50;
 				if(thirstLevel > 100) then {thirstLevel = 100};
 				sleep 3;
                 mutexScriptInProgress = false;
-                player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 
+                player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
 			};
 
 			case "medkit": 

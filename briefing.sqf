@@ -50,8 +50,29 @@ player createDiaryRecord["changelog",
 "
 <br/>
 		[Added] - Body Clean Up after a short period.<br/>
-        [Added] - Mobile Radar Station Mission.<br/>
-        [Changed] - Vehicle Clean made less aggressive.<br/>
+		[Added] - Mobile Radar Station Mission.<br/>
+		[Changed] - Vehicle Clean made less aggressive.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"2.2b",
+"
+<br/>
+		[Changed] - Server Spawning Less Aggressive.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"2.3",
+"
+<br/>
+		[Fixed] - Drinking and Eating While in the car animation.<br/>
+        [Fixed] - Other minor bugs.<br/>
 "
 ]
 ];
@@ -64,7 +85,7 @@ player createDiaryRecord["404games",
 	Contributors:<br/><br/>
 	Credit to Tonic for original game-mode creation.<br/><br/>
 	
-	Developers:<br/><br/>
+	404 Developers:<br/><br/>
 	Development Lead - Deadbeat<br/>
 	Senior Developer - Costlyy<br/>
 	Server Host - Domuk<br/>
@@ -96,20 +117,6 @@ player createDiaryRecord["404games",
 "
 ]
 ];
-
-player createDiaryRecord["404games",
-[
-"General Information",
-"
-<br/>
-	This server is provided and maintained by 404Games (www.404games.co.uk).<br/><br/>
-	Server Version: v0.1<br/>
-	Build Date: 20/11/2012 24:00:00
-"
-]
-];
-
-
 
 player createDiaryRecord["wasteland",
 [

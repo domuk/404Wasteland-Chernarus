@@ -28,7 +28,12 @@ _centerPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition
 _flatAreas = nearestLocations [_centerPos, ["FlatArea"], _rad];
 _randomPos = getpos (_flatAreas select random (count _flatAreas -1));
 
-diag_log format["randomPos %1", _randomPos];
+if(str(mainMissionPos) == str(_randomPos)) then
+{
+	_flatAreas = _flatAreas - _randomPos;    
+};
+_randomPos = getpos (_flatAreas select random (count _flatAreas -1));
+sideMissionPos = str(_randomPos);
 
 //Tell everyone their will be a mission soon.
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime, _mainTextColour, _subTextColour];

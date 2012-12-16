@@ -14,7 +14,6 @@ beaconSearch = 0;
 doKickTeamKiller = false;
 doKickTeamSwitcher = false;
 
-diag_log format["Entered Player Spawn"];
 //Check Teamkiller
 {
 	if(_x select 0 == playerUID) then {

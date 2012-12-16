@@ -28,6 +28,13 @@ _centerPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition
 _flatAreas = nearestLocations [_centerPos, ["FlatArea"], _rad];
 _randomPos = getpos (_flatAreas select random (count _flatAreas -1));
 
+if(str(sideMissionPos) == str(_randomPos)) then
+{
+	_flatAreas = _flatAreas - _randomPos;    
+};
+_randomPos = getpos (_flatAreas select random (count _flatAreas -1));
+mainMissionPos = str(_randomPos);
+
 //Tell everyone their will be a mission soon.
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime, _mainTextColour, _subTextColour];
 [nil,nil,rHINT,_hint] call RE;
@@ -58,6 +65,7 @@ _tank setVehicleAmmo 1;
 _tank setDamage 0.75;
 
 _tank setVehicleLock "LOCKED";
+_tank setVariable["original",1,true];
 _tank setVariable ["R3F_LOG_disabled", true, true];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _tank >> "picture");

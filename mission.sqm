@@ -15,7 +15,9 @@ class Mission
 		"CAAir_E_UH1H_EP1",
 		"CAAir_BAF",
 		"caair_baf_ch_47f",
-		"CAAir_E_AH6J"
+		"CAAir_E_AH6J",
+		"CAWater",
+		"cawater2_fishing_boat"
 	};
 	addOnsAuto[]=
 	{
@@ -31,12 +33,14 @@ class Mission
 		"CAAir_BAF",
 		"caair_baf_ch_47f",
 		"CAAir_E_AH6J",
+		"CAWater",
+		"cawater2_fishing_boat",
 		"chernarus"
 	};
 	randomSeed=10079095;
 	class Intel
 	{
-		briefingName="404Wasteland - Chernarus [v2.2a]";
+		briefingName="404Wasteland - Chernarus [v2.4]";
 		briefingDescription="Wasteland is a harsh survival sandbox";
 		resistanceWest=0;
 		startWeather=0.25;
@@ -2533,7 +2537,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=31;
+		items=42;
 		class Item0
 		{
 			position[]={8343.0654,26.779518,3340.9795};
@@ -2821,6 +2825,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_EP1";
 			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
 		};
 		class Item26
 		{
@@ -2830,7 +2835,7 @@ class Mission
 			side="EMPTY";
 			vehicle="CH_47F_BAF";
 			skill=0.60000002;
-			init="clearMagazineCargo this; clearWeaponCargo this;";
+			init="clearMagazineCargo this; clearWeaponCargo this; this setVariable[""original"",1,true];";
 		};
 		class Item27
 		{
@@ -2839,6 +2844,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MH6J_EP1";
 			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
 		};
 		class Item28
 		{
@@ -2847,6 +2853,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MH6J_EP1";
 			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
 		};
 		class Item29
 		{
@@ -2855,6 +2862,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
 		};
 		class Item30
 		{
@@ -2863,6 +2871,106 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_EP1";
 			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item31
+		{
+			position[]={1904.7126,0.40264818,2069.999};
+			id=161;
+			side="EMPTY";
+			vehicle="RHIB2Turret";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item32
+		{
+			position[]={1312.2729,-5.4484959,2198.4631};
+			id=162;
+			side="EMPTY";
+			vehicle="Zodiac";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item33
+		{
+			position[]={3660.2771,-1.7619531,2083.7969};
+			id=163;
+			side="EMPTY";
+			vehicle="PBX";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item34
+		{
+			position[]={4382.9126,-3.7387145,2160.9082};
+			id=164;
+			side="EMPTY";
+			vehicle="RHIB";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item35
+		{
+			position[]={6814.4326,-5.3577933,2181.2695};
+			id=165;
+			side="EMPTY";
+			vehicle="Zodiac";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item36
+		{
+			position[]={7965.7847,-2.7074182,2903.9126};
+			id=166;
+			side="EMPTY";
+			vehicle="PBX";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item37
+		{
+			position[]={10236.266,-13.99353,1715.0903};
+			id=167;
+			side="EMPTY";
+			vehicle="Zodiac";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item38
+		{
+			position[]={12128.081,-9.2207212,3395.6597};
+			id=168;
+			side="EMPTY";
+			vehicle="Fishing_Boat";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item39
+		{
+			position[]={13603,-8.9154272,6258.2656};
+			id=169;
+			side="EMPTY";
+			vehicle="PBX";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item40
+		{
+			position[]={13082.406,-12.548197,9801.5352};
+			id=170;
+			side="EMPTY";
+			vehicle="RHIB2Turret";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
+		};
+		class Item41
+		{
+			position[]={13173.35,-13.206818,10031.251};
+			id=171;
+			side="EMPTY";
+			vehicle="PBX";
+			skill=0.60000002;
+			init="this setVariable[""original"",1,true];";
 		};
 	};
 	class Markers

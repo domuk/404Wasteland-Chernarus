@@ -9,8 +9,8 @@ waitUntil{ammoCrateSpawnComplete};
 private ["_counter","_pos","_markerName","_marker","_hint","_newpos","_countActual"];
 _counter = 0;
 _countActual = 0;
-_hint = "Static Guns Spawning Started";
-[nil,nil,rHINT,_hint] call RE;
+
+diag_log format["Static Guns Spawning Started"];
 
 while {_counter < 770} do
 {
@@ -31,8 +31,4 @@ while {_counter < 770} do
 };
 
 diag_log format["WASTELAND SERVER - %1 Static Guns Spawned",_countActual];
-
-_hint = "Spawning Complete";
-[nil,nil,rHINT,_hint] call RE;
-
 staticGunSpawningComplete = true;

@@ -7,8 +7,7 @@
 private ["_counter","_pos","_type","_num","_markerName","_marker","_amountOfVehicles","_hint"];
 _counter = 0;
 
-_hint = "Spawning Started";
-[nil,nil,rHINT,_hint] call RE;
+diag_log format["Vehicle Spawning Started"];
 
 while {_counter < 770} do
 {
@@ -29,9 +28,6 @@ while {_counter < 770} do
 	_marker setMarkerColor "ColorRed";
     */
 };
-
-_hint = "Vehicles Complete";
-[nil,nil,rHINT,_hint] call RE;
 
 _amountOfVehicles = count currentVehicles;
 diag_log format["WASTELAND SERVER - %1 Vehicles Spawned",_amountOfVehicles];

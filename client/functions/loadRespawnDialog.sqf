@@ -127,21 +127,17 @@ if(_side != "Independent") then
 			           	if(_onTeam) then {
 			               if((getPos _x distance _centrePos) < 100) then {
 					            if(!(side _x == playerSide)) then {
-                                	diag_log "Incrementing enemy count";
 				                    _enemyCount = _enemyCount + 1; 
 				                };   
 					        }; 
 			            };  
 			        }forEach playableUnits;
                     
-                    diag_log format["Enemycount = %1", _enemyCount];
-                    
                     if(_enemyCount == 0) then {
 					    _button ctrlShow true;   
 					    _name = (pvar_beaconListBlu select _forEachIndex) select 0;
 					    _button ctrlSetText	format["%1",_name]; 
 				    } else {
-                    	diag_log "Enemy near by spawn beacon";
 				    	_name = "";
 						_button ctrlSetText _name;
 				        _button ctrlShow false; 
@@ -159,25 +155,20 @@ if(_side != "Independent") then
                     {
 			        	_onTeam = str(side _x) in ["WEST","GUER"];   
 			           	if(_onTeam) then {
-                        	diag_log "In loop - on team";
 			               	if((getPos _x distance _centrePos) < 100) then {
-                            	diag_log "In loop";
 					            if(!(side _x == playerSide)) then {
-                                	diag_log "Incrementing enemy count";
 				                    _enemyCount = _enemyCount + 1; 
 				                };   
 					        }; 
 			            };  
 			        }forEach playableUnits;
                     
-                    diag_log format["Enemycount = %1", _enemyCount];
                     
                     if(_enemyCount == 0) then {
 					    _button ctrlShow true;   
 					    _name = (pvar_beaconListRed select _forEachIndex) select 0;
 					    _button ctrlSetText	format["%1",_name]; 
 				    } else {
-                    	diag_log "Enemy near by spawn beacon";
 				    	_name = "";
 						_button ctrlSetText _name;
 				        _button ctrlShow false; 

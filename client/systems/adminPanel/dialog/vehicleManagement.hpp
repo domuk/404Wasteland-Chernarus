@@ -109,7 +109,7 @@ class VehicleManagement {
 			onButtonClick = "[0] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Cars/Trucks";
 			x = 0.305 * safezoneW + safezoneX;
-			y = 0.72 * safezoneH + safezoneY;
+			y = 0.700 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;
 			h = 0.040 * safezoneH;
 		};
@@ -120,7 +120,7 @@ class VehicleManagement {
 			onButtonClick = "[1] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Helicopters";
 			x = 0.38 * safezoneW + safezoneX;
-			y = 0.72 * safezoneH + safezoneY;
+			y = 0.700 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;
 			h = 0.040 * safezoneH;
 		};
@@ -130,8 +130,8 @@ class VehicleManagement {
 			idc = -1;
 			onButtonClick = "[2] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Planes";
-			x = 0.455 * safezoneW + safezoneX;
-			y = 0.72 * safezoneH + safezoneY;
+			x = 0.305 * safezoneW + safezoneX;
+			y = 0.730 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;
 			h = 0.040 * safezoneH;
 		};
@@ -141,7 +141,18 @@ class VehicleManagement {
 			idc = -1;
 			onButtonClick = "[3] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Tanks";
-			x = 0.530 * safezoneW + safezoneX;
+			x = 0.38 * safezoneW + safezoneX;
+			y = 0.730 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
+
+		class hackedVehiclesButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[4] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+			text = "Hacked Vehicles";
+			x = 0.455 * safezoneW + safezoneX;
 			y = 0.72 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;
 			h = 0.040 * safezoneH;

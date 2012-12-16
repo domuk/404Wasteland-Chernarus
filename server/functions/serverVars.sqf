@@ -14,6 +14,9 @@ CVG_weapons = CVG_weapons + CVG_Heavy;
 CVG_weapons = CVG_weapons + CVG_pistols;
 CVG_weapons = CVG_weapons + CVG_Launchers;
 
+sideMissionPos = "";
+mainMissionPos = "";
+
 currentVehicles = [];
 publicVariable "currentVehicles";
 pvar_teamSwitchList = [];
@@ -77,6 +80,9 @@ pickupList = ["Satelit",
 
 //Object List - Random Spawns.
 objectList = ["Land_Barrel_water",
+				"Land_prebehlavka",
+                "Fort_Crate_wood",
+                "Land_CamoNet_NATO",
 				"Land_Barrel_water",
 				"Land_stand_small_EP1",
                 "Land_stand_small_EP1",

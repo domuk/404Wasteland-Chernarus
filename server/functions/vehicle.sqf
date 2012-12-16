@@ -120,7 +120,6 @@ while {_run} do
 		// Respawn vehicle
       	if (_dead) then 
 		{	
-        	diag_log format["Vehicle Dead"];
 			if (_nodelay) then {sleep 0.1; _nodelay = false;} else {sleep _delay;};
 			if (_dynamic) then {_position = getPosASL _unit; _dir = getDir _unit;};
 			if (_explode) then {_effect = "M_TOW_AT" createVehicle getPosASL _unit; _effect setPosASL getPosASL _unit;};
@@ -148,7 +147,7 @@ while {_run} do
 			if ((_rounds == _respawns) and !(_noend)) then {_run = false;};
 		};
         
-        _startTime = call timeInMins;
+        _startTime = call currentTime;
 		_result = 0;
     } else {
     	sleep 1;

@@ -29,9 +29,7 @@ if (_type == 0) then {
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
-	_car setVariable["origPos",_pos,false];
-	currentVehicles set [count currentVehicles, [_car]];
-    publicVariable "currentVehicles";
+	_car setVariable["original",1,true];
 };
 
 //Create Military Vehicle
@@ -54,9 +52,7 @@ if (_type == 1) then {
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
-	_car setVariable["origPos",_pos,false];
-	currentVehicles set [count currentVehicles, [_car]];
-    publicVariable "currentVehicles";
+	_car setVariable["original",1,true];
 };
 
 //Create Armed Military Vehicle
@@ -80,7 +76,5 @@ if (_type == 2) then {
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
-	_car setVariable["origPos",_pos,false];
-	currentVehicles set [count currentVehicles, [_car]];
-    publicVariable "currentVehicles";
+	_car setVariable["original",1,true];
 };
