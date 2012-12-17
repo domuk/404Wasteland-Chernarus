@@ -13,45 +13,43 @@ How To Host 404Wasteland
 ----------------------
 
 1. If you own a dedicated server, you can follow the guide below and download our files and away you go.
-2. Pop over to http://www.vilayer.com and rent a easy and ready to go server.
+2. Pop over to http://tinyurl.com/wastelandserverhosting and rent a easy and ready to go server.
 
 How To Setup A 404Wasteland Server
 ----------------------
 
-1. Setup a arma2oa server. This can be compleated by downloading arma2 and arma2oa on to your server from somewhere like steam.
-2. Install Arma2 Beta - http://www.arma2.com/beta-patch.php
-2. Create a folder somewhere for your server to go. Copy all the files from "Arma 2 Operation Arrowhead" to your new folder, then copy the "Addons" folder from "Arma2"
-3. Download the latest version of 404Wasteland.
+* Setup a arma2oa server. This can be compleated by downloading arma2 and arma2oa on to your server from somewhere like steam.
+* Install Arma2 Beta - http://www.arma2.com/beta-patch.php
+* Create a folder somewhere for your server to go. Copy all the files from "Arma 2 Operation Arrowhead" to your new folder, then copy the "Addons" folder from "Arma2"
+* Download the latest version of 404Wasteland.
 
 ```
-Basic - Download the 404wasteland pack which includes the mission file, arma2net, bat script to start the server and an example config.
-
-Update - Download the latest version of our mission file without the 404wasteland pack.
+Basic/Update - Download the 404wasteland pack which includes the mission file, arma2net, bat script to start the server
+and an example config.
 
 http://www.404games.co.uk/forum/index.php?/topic/445-404wasteland-chernarus-v2-mission-requirements/
 ```
 
 ```
-Advanced - Download the source from Github and then pack the files using PBOView (Warning builds from git are dev build, we recommend downloading the stable build from our website)
+Advanced - Download the source from Github and then pack the files using PBOView (Warning builds from git are dev
+build, we recommend downloading the stable build from our website)
 
 https://github.com/domuk/404Wasteland-Chernarus/archive/master.zip
 ```
 
-4. Put the files into your arma2 server folder.
-5. Edit the "server.cfg" in the wastelands folder to your own liking.
-6. Arma2Net has two requirements, below are the download links to the C+ Redist and netframework 4. If these are installed please skip this step.
+* Put the files into your arma2 server folder.
+* Edit the "server.cfg" in the wastelands folder to your own liking.
+* Arma2Net has two requirements, below are the download links to the C+ Redist and netframework 4. If these are installed please skip this step.
 
 ```
-
 Arma2Net Requirements- 
 
 http://www.microsoft.com/download/en/details.aspx?id=24872 
 
 http://www.microsoft.com/en-us/download/details.aspx?id=8328
-
 ```
 
-5. OPTIONAL: You can download this file which contains our ban.txt and other script catching forms for battleye. They are all set to observe, you need to look at the generated *.log files to determine who/what has been hacking. You just need to copy the *.txt files in to your batteye folder. 
+* OPTIONAL: You can download our battleye banlist/logfiles which contains our ban.txt and other script catching forms for battleye. They are all set to observe, you need to look at the generated *.log files to determine who/what has been hacking. You just need to copy the *.txt files in to your batteye folder. 
 
 ```
 http://www.404games.co.uk/forum/index.php?/topic/445-404wasteland-chernarus-v2-mission-requirements/
