@@ -12,5 +12,6 @@ randomWeapons = compile preprocessFileLineNumbers "server\spawning\randomWeapon.
 vehicleCreation = compile preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
 objectCreation = compile preprocessFileLineNumbers "server\spawning\objectCreation.sqf";
 staticGunCreation = compile preprocessFileLineNumbers "server\spawning\staticGunCreation.sqf";
+staticHeliCreation = compile preprocessFileLineNumbers "server\spawning\staticHeliCreation.sqf";
 
 serverCompiledScripts = true;

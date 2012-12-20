@@ -32,6 +32,8 @@ publicVariable "clientMissionMarkers";
 clientRadarMarkers = [];
 publicVariable "clientRadarMarkers";
 
+currentStaticHelis = []; // Storage for the heli marker numbers so that we don't spawn wrecks on top of live helis
+
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = ["car_hatchback",
 					"car_sedan",
@@ -131,6 +133,16 @@ objectList = ["Land_Barrel_water",
 //Object List - Random Spawns.
 staticWeaponsList = ["M2StaticMG_US_EP1",
 				"DSHKM_TK_INS_EP1"];
+
+//Object List - Random Helis.
+staticHeliList = ["UH1H_TK_GUE_EP1",
+				"Mi17_Civilian",
+                "MV22",
+                "CH_47F_EP1",
+                "Mi17_TK_EP1",
+                "MH6J_EP1",
+                "UH60M_MEV_EP1",
+                "AH6X_EP1"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
 vehicleWeapons = ["AK_107_GL_kobra",

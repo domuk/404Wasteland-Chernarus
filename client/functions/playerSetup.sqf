@@ -50,7 +50,7 @@ _player switchMove "amovpknlmstpsraswpstdnon_gear";
 thirstLevel = 100;
 hungerLevel = 100;
 
-_player setVariable["cmoney",200,false];
+_player setVariable["cmoney",100,false];
 _player setVariable["canfood",2,false];
 _player setVariable["medkits",0,false];
 _player setVariable["water",2,false];
