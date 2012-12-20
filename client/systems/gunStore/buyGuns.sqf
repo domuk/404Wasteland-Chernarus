@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: buyGuns.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:13
 //	@file Args: [int (0 = buy to player 1 = buy to crate)]
 
@@ -35,7 +35,10 @@ switch(_switch) do
 			{if(_itemText == _x select 0) then{
 				_class = _x select 1;
                 _weapon = (configFile >> "cfgWeapons" >> _class);
-                if(getNumber(_weapon >> "type") == 1) then
+                
+                //diag_log format["Adding class %1 of weapon %2 of type %3",_class,_weapon,getNumber(_weapon >> "type")];
+                
+                if((getNumber(_weapon >> "type") == 1) OR (getNumber(_weapon >> "type") == 5)) then // Weapon type 5 = LMG's
                 {
                     if(primaryWeapon player == "") then
                     {

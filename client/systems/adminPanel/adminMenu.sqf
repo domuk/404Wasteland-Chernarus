@@ -14,8 +14,8 @@ if (((getPlayerUID player) in provingGrounds)) then {
 		"Vehicle Management",
 		"Gun Store",
 		"General Store",
-		"Test Function",
-		"Respawn Dialog"
+		"Debug Function",
+		"Fake Respawn Dialog (old)"
 	];	    
 } else {
 	thingsAvailable = [

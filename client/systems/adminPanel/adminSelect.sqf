@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: adminSelect.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -45,7 +45,7 @@ switch (AdminSelect) do
 		_money = player getVariable "cmoney";
 		_playerMoney CtrlsetText format["Cash: $%1", _money];
     };
-    case 4: //Test Function
+    case 4: //Debugging Option
     {
         player setVariable["cmoney", (player getVariable "cmoney")+1000,true];
     };
