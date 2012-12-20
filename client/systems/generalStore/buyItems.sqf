@@ -96,7 +96,16 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
             	genStoreCart = genStoreCart - _price;    
             };
         };
-    };
+        case "Camo Net": {
+            if(((player getVariable "camonet") + 1 <= 1) AND ((player getVariable "camonet") + 1 <= 1)) then {
+                player setVariable["camonet",(player getVariable "camonet") + 1,true];
+            } else {
+            	_price = 0;
+                {if(_x select 0 == "Camo Net") then{_price = _x select 4;};}forEach generalStore;
+            	genStoreCart = genStoreCart - _price;    
+            };
+        };
+		};
 };
 
 player setVariable["cmoney",_playerMoney - genStoreCart,false];

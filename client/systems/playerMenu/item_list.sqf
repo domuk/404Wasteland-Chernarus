@@ -25,7 +25,15 @@ if(player getVariable "fuelEmpty" == 1) then {
 	_itemListIndex = _itemList lbAdd "Empty Fuel Can";
 	_itemList lbSetData [(lbSize _itemList)-1, "fuelEmpty"];
 };
-
+if(player getVariable "camonet" > 0) then {
+	if(player getVariable "camonet" > 1) then {
+	    _str = format ["%1x - Camo Nets", player getVariable "camonet"];
+	} else {
+	    _str = "Camo Net";
+	};
+	_itemListIndex = _itemList lbAdd format["%1x - Camo Net", player getVariable "camonet"];
+	_itemList lbSetData [(lbSize _itemList)-1, "camonet"];
+};
 if(player getVariable "repairkits" > 0) then {
 	_str = "Repair Kit";
     

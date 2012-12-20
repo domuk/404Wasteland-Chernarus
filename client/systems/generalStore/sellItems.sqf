@@ -29,6 +29,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
     if(_itemText == "Jerry Can (Full)") then {player setVariable["fuelFull",(player getVariable "fuelFull") - 1,false];};
     if(_itemText == "Jerry Can (Empty)") then {player setVariable["fuelEmpty",(player getVariable "fuelEmpty") - 1,false];};
     if(_itemText == "Spawn Beacon") then {player setVariable["spawnBeacon",(player getVariable "spawnBeacon") - 1,false];};
+	if(_itemText == "Camo Net") then {player setVariable["camonet",(player getVariable "camonet") - 1,false];};
 };
 
 player setVariable["cmoney",_playerMoney + genStoreCart,false];

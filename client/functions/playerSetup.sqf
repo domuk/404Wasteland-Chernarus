@@ -60,6 +60,7 @@ _player setVariable["fuelFull", 0, false];
 _player setVariable["fuelEmpty", 1, false];
 _player setVariable["bombs",false,false];
 _player setVariable["spawnBeacon",0,false];
+_player setVariable["camonet",0,false];
 
 [] execVM "client\functions\playerActions.sqf";
 
