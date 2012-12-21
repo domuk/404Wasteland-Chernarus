@@ -4,7 +4,6 @@
    	@file Date:	22/11/2012	
 	@file Description: Releases the object that the player has currently selected.
 	@file Args: [ , , ,boolean(true = release horizontally)]
-	@file Notes: Everyone is free to use / redistribute / modify this file. 
 */
 if (R3F_LOG_mutex_local_verrou) then
 {

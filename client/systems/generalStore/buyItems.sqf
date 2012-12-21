@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: buyGuns.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:13
 //	@file Args: [int (0 = buy to player 1 = buy to crate)]
 
@@ -70,21 +70,32 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
         
         case "Jerry Can (Full)": {
             if(((player getVariable "fuelFull") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
+            	diag_log "full < 1 and empty < 1";
                 player setVariable["fuelFull",(player getVariable "fuelFull") + 1,true];
             } else {
-            	_price = 0;
-                {if(_x select 0 == "Jerry Can (Full)") then{_price = _x select 4;};}forEach generalStore;
-            	genStoreCart = genStoreCart - _price;    
+            	if (!((player getVariable "fuelFull") + 1 <= 1)) then {
+	            	_price = 0;
+	                {if(_x select 0 == "Jerry Can (Full)") then{_price = _x select 4;};}forEach generalStore;
+	            	genStoreCart = genStoreCart - _price;    
+                } else {
+                    player setVariable["fuelEmpty",0,true];
+                    player setVariable["fuelFull",1,true];
+                };
             };
         };
         
         case "Jerry Can (Empty)": {
-            if(((player getVariable "fuelEmpty") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
+            if(((player getVariable "fuelFull") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
                 player setVariable["fuelEmpty",(player getVariable "fuelEmpty") + 1,true];
             } else {
-            	_price = 0;
-                {if(_x select 0 == "Jerry Can (Empty)") then{_price = _x select 4;};}forEach generalStore;
-            	genStoreCart = genStoreCart - _price;    
+            	if (((player getVariable "fuelFull") + 1 <= 1)) then {
+	            	_price = 0;
+	                {if(_x select 0 == "Jerry Can (Empty)") then{_price = _x select 4;};}forEach generalStore;
+	            	genStoreCart = genStoreCart - _price;    
+                } else {
+                    player setVariable["fuelEmpty",1,true];
+                    player setVariable["fuelFull",0,true];
+                };
             };
         };
         case "Spawn Beacon": {

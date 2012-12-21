@@ -4,7 +4,6 @@
    	@file Date:	21/11/2012	
 	@file Description: Locks an object until the player disconnects.
 	@file Args: [object,player,int,lockState(lock = 0 / unlock = 1)]
-	@file Notes: Everyone is free to use / redistribute / modify this file.
 */
 
 // Check if mutex lock is active.

@@ -4,7 +4,6 @@
    	@file Date:	20/11/2012	
 	@file Description: Rotates an object by x degrees depending on args
 	@file Args: [rotation amount(int)]
-	@file Notes: Everyone is free to use / redistribute / modify this file.
 */
 
 private ["_currDirection", "_targetDirection", "_rotateAmount"];
