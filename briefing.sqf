@@ -77,6 +77,44 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.4",
+"
+<br/>
+		[Added] - Three new objects.<br/>
+		[Added] - More anti hack for vehicles.<br/>
+		[Added] - Check to make sure missions don't pop up in the same place.<br/>
+		[Added] - Static Boats.<br/>
+		[Changed] - Increased length of welcome message.<br/>
+		[Changed] - Mission failover to 60 mins.<br/>
+		[Changed] - Increased delay for body clean up to 15 mins.<br/>
+		[Fixed] - Vehicle respawn script.<br/>
+		[Removed] - Some debuging.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"2.5",
+"
+<br/>
+		[Added] - Default weapon crates have been nerfed and more gun variations added.<br/>
+		[Added] - Static helis now spawn in random locations.<br/>
+		[Added] - When a static heli fails to spawn, a wreck is spawned instead.<br/>
+		[Added] - Cammo nets have been added to the general store.<br/>
+		[Fixed] - Players are now able to buy LMG's at the gun store.<br/>
+		[Fixed] - Weapons now have varying sell prices relative to gun cost.<br/>
+		[Fixed] - When buying a full jerry can, the empty one is automatically removed from player inventory.<br/>
+		[Changed] - Various balance and price tweaks made to stores.<br/>
+		[Changed] - Chernarus is now in summer time. Longer days to be had by all.<br/>
+		[Changed] - Player starting money reduced to $100.<br/>
+"
+]
+];
+
+
 player createDiaryRecord["404games",
 [
 "Credits",
@@ -86,10 +124,10 @@ player createDiaryRecord["404games",
 	Credit to Tonic for original game-mode creation.<br/><br/>
 	
 	404 Developers:<br/><br/>
-	Development Lead - Deadbeat<br/>
-	Senior Developer - Costlyy<br/>
+	Developer - Deadbeat<br/>
+	Developer - Costlyy<br/>
+    Developer - Pulse<br/>
 	Server Host - Domuk<br/>
-	
 "
 ]
 ];
