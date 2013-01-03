@@ -4,21 +4,21 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#define playerMenuDialog 55500
+#define playerMenuPlayerList 55505
+                
+disableSerialization;
+				
+private ["_start","_dialog","_playerListBox","_decimalPlaces","_health","_namestr","_index","_punishCount","_side"];
 _start = createDialog "PlayersMenu";
-
-#define PlayersMenu 13371
-
-
-
+_punishCount = 0;				
+_dialog = findDisplay playerMenuDialog;
+_playerListBox = _dialog displayCtrl playerMenuPlayerList;
+                
 {
-    //Calculate Health 0 - 100
-    _decimalPlaces = 2;
-    _health = damage _x;
-    _health = round (_health * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
-    _health = 100 - (_health * 100);
-    
-    namestr = name(_x) + " [UID:" + getplayerUID(_x) + " - ID:" + format["%1",owner _x] + "] [Side:" + format["%1",side(_x)] + "] [Skin:" + typeOf(_x) + "] [Object:" + format["%1",_x] + "] [Health:" + format["100"] + "%] [Alive:" + format["%1",alive _x] + "] [Vehicle:" + Format["%1",typeOf(vehicle _x)] + "] [Speed:" + format["%1",round(speed (vehicle _x))] + "] [Weap:" + format["%1",currentWeapon (vehicle _x)] + "]";
-    _num1 = lbAdd [PlayersMenu, namestr];
-    lbSetData [PlayersMenu, _num1, str(_x)];
-    
+	{if((_x select 0) == (getPlayerUID player)) then {_punishCount = _x select 1;};}forEach pvar_teamKillList;
+    if(str(playerSide) in ["WEST"] OR str(playerSide) in ["EAST"]) then {if(str(playerSide) in ["WEST"]) then {_side = "Blufor";} else {_side = "Opfor";};} else {_side = "Independent";};
+	_namestr = name(_x) + " [UID:" + getplayerUID(_x) + "] [Side:" + format["%1",_side] + "] [Vehicle:" + Format["%1",typeOf(vehicle _x)] + "] [Speed:" + format["%1",round(speed (vehicle _x))] + "] [Weap:" + format["%1",currentWeapon (vehicle _x)] + "] [Punish Count:" + format["%1",_punishCount]+ "]";             
+	_index = _playerListBox lbAdd _namestr;
+	_playerListBox lbSetData [_index, str(_x)];   
 } forEach playableUnits;

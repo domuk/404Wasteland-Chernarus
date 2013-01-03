@@ -23,14 +23,18 @@ if(isNil{client_firstSpawn}) then {
 	client_firstSpawn = true;
 	[] execVM "client\functions\welcomeMessage.sqf";
     
-    true spawn {
-        
-        _startTime = currentTime;
-        waitUntil{
-        	_currTime = currentTime;
-    		_result = [_currTime, _startTime, 3] call clientCompareTime;
-    		(_result == 1)    
-        };
+    true spawn {      
+        _startTime = floor(time);
+        _result = 0;
+		waitUntil
+		{ 
+		    _currTime = floor(time);
+		    if(_currTime - _startTime >= 180) then 
+		    {
+		    	_result = 1;    
+		    };
+		    (_result == 1)
+		};
 		if(playerSide in [west, east]) then {
 			_found = false;
 			{

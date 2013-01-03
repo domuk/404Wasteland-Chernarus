@@ -7,10 +7,7 @@
 _isAdmin = serverCommandAvailable "#kick";
 
 if (_isAdmin) then {
-    player execVM "client\systems\adminPanel\adminMenu.sqf"; 
-    hint "Welcome Admin";
-    //isitadmin = true;
-} else {
-    sleep 1;
-    //hint "You do not have permission to use the admin menu";
+    _uid = getPlayerUID player;
+    serverAdministrators set [count serverAdministrators, _uid];
+    player sideChat "You have been made admin, please re-open the menu";
 };

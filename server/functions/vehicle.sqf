@@ -88,15 +88,13 @@ _type = typeOf _unit;
 _dead = false;
 _nodelay = false;
 
-waituntil{currentTime > 0};
-
-_startTime = currentTime;
+_startTime = floor(time);
 
 // Start monitoring the vehicle
 while {_run} do 
 {	
-	_currTime = currentTime;
-    _result = [_currTime, _startTime, 5] call compareTime;
+	_currTime = floor(time);
+    if(_currTime - _startTime >= 300) then {_result = 1;};
         
 	if(_result == 1) then
     {
@@ -133,21 +131,10 @@ while {_run} do
 			if (_num < 35) then {_type = 1;};
 			if (_num < 10) then {_type = 2;};
 			[_position, _type] call vehicleCreation;
-	
-			if (_haveinit) then 
-						{_unit setVehicleInit format ["%1;", _unitinit];
-						processInitCommands;};
-			if (_hasname) then 
-						{_unit setVehicleInit format ["%1 = this; this setVehicleVarName ""%1""",_unitname];
-						processInitCommands;};
-			_dead = false;
-	
-			// Check respawn amount
-			if !(_noend) then {_rounds = _rounds + 1};
-			if ((_rounds == _respawns) and !(_noend)) then {_run = false;};
+			_run = false;
 		};
         
-        _startTime = call currentTime;
+        _startTime = floor(time);
 		_result = 0;
     } else {
     	sleep 1;

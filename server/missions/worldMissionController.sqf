@@ -8,13 +8,13 @@ diag_log format["WASTELAND SERVER - Started Mission State"];
 _MMarray = [];
 
 worldMissionRunning = false;
-_startTime = currentTime;
+_startTime = floor(time);
 _result = 0;
 
 while {true} do
 {
-    _currTime = currentTime;
-    _result = [_currTime, _startTime, 40] call compareTime;
+    _currTime = floor(time);
+	if(_currTime - _startTime >= 2400) then {_result = 1;};
     
     if(_result == 1) then
     {
@@ -28,7 +28,8 @@ while {true} do
         execVM format ["server\missions\otherMissions\%1.sqf",_mission];
 		worldMissionRunning = true;
         diag_log format["WASTELAND SERVER - Execute New Mission"];
-        _startTime = currentTime;
+        _startTime = floor(time);
+        _result = 0;
     } else {
     	sleep 1;  
     };    

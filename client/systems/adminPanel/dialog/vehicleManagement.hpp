@@ -6,17 +6,21 @@
 #define vehicleUsersText 12004
 #define vehicleDamageText 12005
 #define vehicleSpeedText 12006
+#define vehicleManagementCivButton 12007
+#define vehicleManagementHeliButton 12008
+#define vehicleManagementPlaneButton 12009
+#define vehicleManagementTankButton 12010
 
 class VehicleManagement {
 
 	idd = vehicleManagementDialog;
 	movingEnable = false;
 	enableSimulation = true;
-	onLoad = "[0] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
+	onLoad = "[4] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 
 	class controlsBackground {
 		
-		class MainBackground: RscPicture
+		class MainBackground: w_RscPicture
 		{
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
@@ -26,7 +30,7 @@ class VehicleManagement {
 			h = 0.543 * safezoneH;
 		};
 
-		class menuTitle: RscText
+		class menuTitle: w_RscText
 		{
 			idc = -1;
 			text = "Vehicle Management";
@@ -36,7 +40,7 @@ class VehicleManagement {
 			h = 0.030 * safezoneH;
 		};
 
-		class amountOfVehicles: RscText
+		class amountOfVehicles: w_RscText
 		{
 			idc = vehicleManagementVehicleCount;
 			text = "";
@@ -46,7 +50,7 @@ class VehicleManagement {
 			h = 0.031 * safezoneH;
 		};
 
-		class weaponsText: RscText
+		class weaponsText: w_RscText
 		{
 			idc = vehicleWeaponsText;
 			text = "Weapons:";
@@ -57,7 +61,7 @@ class VehicleManagement {
 			h = 0.030 * safezoneH;
 		};
 
-		class speedText: RscText
+		class speedText: w_RscText
 		{
 			idc = vehicleSpeedText;
 			text = "Speed:";
@@ -68,7 +72,7 @@ class VehicleManagement {
 			h = 0.030 * safezoneH;
 		};
 
-		class usersText: RscText
+		class usersText: w_RscText
 		{
 			idc = vehicleUsersText;
 			text = "Users:";
@@ -79,7 +83,7 @@ class VehicleManagement {
 			h = 0.030 * safezoneH;
 		};
 
-		class damageText: RscText
+		class damageText: w_RscText
 		{
 			idc = vehicleDamageText;
 			text = "Damage:";
@@ -93,7 +97,7 @@ class VehicleManagement {
 	
 	class controls {
 		
-		class vehicleListBox: RscListbox
+		class vehicleListBox: w_RscListbox
 		{
 			idc = vehicleManagementListBox;
 			onLBSelChanged="[1,_this select 1] execVM ""client\systems\adminPanel\importvalues.sqf"";";
@@ -105,7 +109,7 @@ class VehicleManagement {
 		
 		class civButton: w_RscButton
 		{
-			idc = -1;
+			idc = vehicleManagementCivButton;
 			onButtonClick = "[0] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Cars/Trucks";
 			x = 0.305 * safezoneW + safezoneX;
@@ -116,7 +120,7 @@ class VehicleManagement {
 
 		class heliButton: w_RscButton
 		{
-			idc = -1;
+			idc = vehicleManagementHeliButton;
 			onButtonClick = "[1] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Helicopters";
 			x = 0.38 * safezoneW + safezoneX;
@@ -127,7 +131,7 @@ class VehicleManagement {
 
 		class planeButton: w_RscButton
 		{
-			idc = -1;
+			idc = vehicleManagementPlaneButton;
 			onButtonClick = "[2] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Planes";
 			x = 0.305 * safezoneW + safezoneX;
@@ -138,7 +142,7 @@ class VehicleManagement {
 
 		class tankButton: w_RscButton
 		{
-			idc = -1;
+			idc = vehicleManagementTankButton;
 			onButtonClick = "[3] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
 			text = "Tanks";
 			x = 0.38 * safezoneW + safezoneX;
@@ -164,6 +168,18 @@ class VehicleManagement {
 			onButtonClick = "execVM 'client\systems\adminPanel\deleteVehicle.sqf'";
 			text = "Delete Vehicle";
 			x = 0.62 * safezoneW + safezoneX;
+			y = 0.72 * safezoneH + safezoneY;
+			w = 0.065 * safezoneW;
+			h = 0.040 * safezoneH;
+			color[] = {0.95,0.1,0.1,1};
+		};
+
+		class deleteAllButton: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "execVM 'client\systems\adminPanel\deleteAllHackedVehicles.sqf'";
+			text = "Delete All";
+			x = 0.545 * safezoneW + safezoneX;
 			y = 0.72 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;
 			h = 0.040 * safezoneH;

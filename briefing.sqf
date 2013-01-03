@@ -114,6 +114,45 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.6",
+"
+<br/>
+		[Added] - Groups.<br/>
+        [Added] - Body and Object clean up.<br/>
+		[Added] - Static helis now spawn in random locations.<br/>
+		[Added] - Default weapon crates have been nerfed and more gun variations added.<br/>
+		[Added] - When a static heli fails to spawn, a wreck is spawned instead.<br/>
+		[Added] - Player Tags thanks to [OcUK]Melbo.<br/>
+		[Added] - Yellow tint, falling ash and dust for wasteland.<br/>
+		[Added] - Cammo nets have been added to the general store.<br/>
+        [Fixed] - Fix vehicle cleanup and respawn.<br/>
+		[Fixed] - Players are now able to buy LMG's at the gun store.<br/>
+		[Fixed] - Weapons now have varying sell prices relative to gun cost.<br/>
+		[Fixed] - When buying a full jerry can, the empty one is automatically removed from player inventory.<br/>
+		[Changed] - Town marker procedural generation optimised for reduced start-up lag.<br/>
+		[Changed] - Admin menu can now remove player teamlock and teamkiller, also added a three tier permission system for greater flexibility.<br/>
+		[Changed] - Player starting money reduced to $100.<br/>
+		[Changed] - Various balance and price tweaks made to stores.<br/>
+		[Changed] - Chernarus is now in summer time. Longer days to be had by all.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"2.6 Dev3",
+"
+<br/>
+		[Fixed] - Flickering Icons.<br/>
+		[Fixed] - Spawning with guns.<br/>
+		[Fixed] - Spawning in a group.<br/>
+		[Changed] - Removed Green Icons From Groups.<br/>
+"
+]
+];
+
 
 player createDiaryRecord["404games",
 [
@@ -122,7 +161,6 @@ player createDiaryRecord["404games",
 <br/>
 	Contributors:<br/><br/>
 	Credit to Tonic for original game-mode creation.<br/><br/>
-	
 	404 Developers:<br/><br/>
 	Developer - Deadbeat<br/>
 	Developer - Costlyy<br/>
@@ -181,8 +219,8 @@ The Wasteland is a team versus team versus team sandbox survival experience. The
 
 FAQ<br/>
 Q. What am I supposed to do here?<br/>
-A. See the above description
-<br/><br/>
+A. See the above description<br/>
+<br/>
 Q. Where can I get a gun?<br/>
 A. Weapons are found in one of three places, first in ammo caches that randomly spawn around the map inside and outside buildings, and second, in the gear section of the vehicles, which also randomly spawn around the map. The last place to find a gun would be at the gunshops located throughout the map. You can also find them on dead players whose bodies have not yet been looted.
 <br/><br/>

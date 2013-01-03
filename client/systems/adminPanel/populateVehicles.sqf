@@ -118,7 +118,7 @@ switch (_switch) do
 	                	_vehicleSummary = format["[Class: Car] [Type: %1]",_vehicleType];
 				        _index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
 				        _vehicleListBox lbSetData [_index, str(_x)];    
-	                }
+	                };
 			    };
                 if(_vehicleType isKindOf "Helicopter") then {
 			        _vehicleSummary = format["[Class: Helicopter] [Type: %1]",_vehicleType];

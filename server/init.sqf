@@ -9,13 +9,13 @@ if(!X_Server) exitWith {};
 
 sideMissions = 1;
 serverSpawning = 1;
-vehicleRespawn = 0;
 
 //Execute Server Side Scripts.
 [] execVM "server\functions\serverVars.sqf";
 [] execVM "server\functions\serverCompile.sqf";
-[] execVM "server\functions\currentTime.sqf";
+[] execVM "server\functions\broadcaster.sqf";
 [] execVM "server\functions\relations.sqf";
+[] execVM "server\functions\serverTimeSync.sqf";
 waitUntil{serverCompiledScripts};
 
 diag_log format["WASTELAND SERVER - Server Complie Finished"];
@@ -35,16 +35,14 @@ if (serverSpawning == 1) then {
     [] execVM "server\functions\staticHeliSpawning.sqf";
 };
 
-//Start Vehicle Respawn Script.
-if(vehicleRespawn == 1) then {
-    diag_log format["WASTELAND SERVER - Initilizing Vehicle Respawning"];
-    //[] execVM "server\functions\vehicleRespawn.sqf";
-};
-
 //Execute Server Missions.
 if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];
     [] execVM "server\missions\sideMissionController.sqf";
     [] execVM "server\missions\mainMissionController.sqf";
     //[] execVM "server\missions\worldMissionController.sqf";
+};
+
+if (isDedicated) then {
+	_id = [] execFSM "server\WastelandServClean.fsm";
 };

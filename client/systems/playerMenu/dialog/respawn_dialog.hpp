@@ -16,7 +16,7 @@
 	
 	class controlsBackground {
 
-		class MainBackground: RscPicture
+		class MainBackground: w_RscPicture
 		{
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
@@ -27,7 +27,7 @@
 			h = 0.650 * safezoneH;
 		};
 
-		class RespawnMenuTitle: RscText
+		class RespawnMenuTitle: w_RscText
 		{
 			idc = -1;
 			text = "Respawn Menu";
@@ -39,7 +39,7 @@
 			h = 0.035 * safezoneH;
 		};
 
-		class RespawnStructuredText: RscStructuredText
+		class RespawnStructuredText: w_RscStructuredText
 		{
 			idc = respawn_Content_Text;
 			text = "";
@@ -50,7 +50,7 @@
 			h = 0.060 * safezoneH;
 		};
 
-		class TopLine: RscPicture
+		class TopLine: w_RscPicture
 		{
 			idc = -1;
 			text = "#(argb,8,8,3)color(1,1,1,1)";
@@ -61,7 +61,7 @@
 			h = 0.0025 * safezoneH;
 		};
 
-		class MiddleLine: RscPicture
+		class MiddleLine: w_RscPicture
 		{
 			idc = -1;
 			text = "#(argb,8,8,3)color(1,1,1,1)";
@@ -72,7 +72,7 @@
 			h = 0.0025 * safezoneH;
 		};
 
-		class BottomLine: RscPicture
+		class BottomLine: w_RscPicture
 		{
 			idc = -1;
 			text = "#(argb,8,8,3)color(1,1,1,1)";
@@ -83,7 +83,7 @@
 			h = 0.0025 * safezoneH;
 		};
 
-		class MissionUptimeText: RscText
+		class MissionUptimeText: w_RscText
 		{
 			idc = respawn_MissionUptime_Text;
 			text = "Mission Uptime: 00:00:00";

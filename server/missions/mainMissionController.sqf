@@ -11,16 +11,16 @@ _MMarray = ["mission_MBT",
             "mission_APC",
             "mission_Heli",
             "mission_Outpost",
-            "mission_RadarTruck"];
+            "mission_RadarTruck"];          
 
 mainMissionRunning = false;
-_startTime = currentTime;
+_startTime = floor(time);
 _result = 0;
 
 while {true} do
 {
-    _currTime = currentTime;
-    _result = [_currTime, _startTime, 60] call compareTime;
+    _currTime = floor(time);
+	if(_currTime - _startTime >= 3600) then {_result = 1;};
     
     if(_result == 1) then
     {
@@ -34,7 +34,8 @@ while {true} do
         execVM format ["server\missions\mainMissions\%1.sqf",_mission];
 		mainMissionRunning = true;
         diag_log format["WASTELAND SERVER - Execute New Mission"];
-        _startTime = currentTime;
+        _startTime = floor(time);
+        _result = 0;
     } else {
     	sleep 1;  
     };    

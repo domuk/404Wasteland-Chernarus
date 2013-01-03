@@ -1,4 +1,3 @@
-
 //	@file Version: 1.0
 //	@file Name: onKilled.sqf
 //	@file Author: [404] Deadbeat
@@ -9,14 +8,18 @@ _player = (_this select 0) select 0;
 _killer = (_this select 0) select 1;
 if(isnil {_player getVariable "cmoney"}) then {_player setVariable["cmoney",0,true];};
 
+PlayerCDeath = [_player];
+publicVariable "PlayerCDeath";
+if (isServer) then {
+	_id = PlayerCDeath spawn serverPlayerDied; 
+};
+
 if(!local _player) exitwith {};
 
 if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer) && (str(playerSide) in ["WEST", "EAST"])) then {
 	pvar_PlayerTeamKiller = objNull;
 	if(_killer isKindOf "CAManBase") then {
 		pvar_PlayerTeamKiller = _killer;
-
-		diag_log format ["Teamkilled by %1 (%2)", pvar_PlayerTeamKiller, name pvar_PlayerTeamKiller];
 	} else {
 		_veh = (_killer);
 		_trts = configFile >> "CfgVehicles" >> typeof _veh >> "turrets";
@@ -48,8 +51,6 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 
 		if(count _suspects == 1) then {
 			pvar_PlayerTeamKiller = _suspects select 0;
-
-			diag_log format ["Teamkilled by %1 (%2) with %3", pvar_PlayerTeamKiller, name pvar_PlayerTeamKiller, typeOf vehicle pvar_PlayerTeamKiller];
 		};
 	};
 };
@@ -57,9 +58,6 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 if(!isNull(pvar_PlayerTeamKiller)) then {
 	publicVar_teamkillMessage = pvar_PlayerTeamKiller;
 	publicVariable "publicVar_teamkillMessage";
-
-	publicVar_reportTeamkiller = [pvar_PlayerTeamKiller, player];
-	publicVariableServer "publicVar_reportTeamkiller";
 };
 
 private["_a","_b","_c","_d","_e","_f","_m","_player","_killer", "_to_delete"];
@@ -78,19 +76,6 @@ if((_player getVariable "medkits") > 0) then {
 		_m = "CZ_VestPouch_EP1" createVehicle (position _player);
 		_to_delete = _to_delete + [_m];
 	};
-};
-
-if(_player getVariable "bombs") then {
-	_pos = getPosATL player;
-	_pos set [2, (_pos select 2) + 0.05];
-
-	_bomb = "bomb" createVehicle getPos _player; 
-	_vecu = vectorUp _bomb;
-	_bomb setPosATL _pos;
-	_bomb setVectorUp _vecu;
-
-	_bomb enableSimulation false; 
-	_bomb setVariable["bArmed", false, true]; 
 };
 
 if((_player getVariable "repairkits") > 0) then {

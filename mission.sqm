@@ -36,7 +36,7 @@ class Mission
 	randomSeed=10079095;
 	class Intel
 	{
-		briefingName="404Wasteland - Chernarus [v2.5]";
+		briefingName="404Wasteland - Chernarus [v2.6 Dev3]";
 		briefingDescription="Wasteland is a harsh survival sandbox";
 		resistanceWest=0;
 		startWeather=0.25;
@@ -44,7 +44,7 @@ class Mission
 		year=2020;
 		month=7;
 		day=1;
-		hour=6;
+		hour=8;
 		minute=0;
 	};
 	class Groups
@@ -2916,7 +2916,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=809;
+		items=856;
 		class Item0
 		{
 			position[]={10472.047,6,2300.7461};
@@ -7769,6 +7769,288 @@ class Mission
 		{
 			position[]={7264.6265,16.48313,3671.1316};
 			name="heliSpawn_24";
+			type="Empty";
+		};
+		class Item809
+		{
+			position[]={6704.1572,6,2619.647};
+			name="Town_0";
+			type="Empty";
+		};
+		class Item810
+		{
+			position[]={7975.686,5.9942846,3303.6274};
+			name="Town_1";
+			type="Empty";
+		};
+		class Item811
+		{
+			position[]={9182.4463,223.6701,3931.322};
+			name="Town_2";
+			type="Empty";
+		};
+		class Item812
+		{
+			position[]={10381.505,5.8696795,2207.7439};
+			name="Town_3";
+			type="Empty";
+		};
+		class Item813
+		{
+			position[]={12062.819,5.9470968,3551.8699};
+			name="Town_4";
+			type="Empty";
+		};
+		class Item814
+		{
+			position[]={12806.863,171.25244,4452.9438};
+			name="Town_5";
+			type="Empty";
+		};
+		class Item815
+		{
+			position[]={13406.78,5.2914267,6223.9292};
+			name="Town_6";
+			type="Empty";
+		};
+		class Item816
+		{
+			position[]={12875.81,7.9350724,8048.0171};
+			name="Town_7";
+			type="Empty";
+		};
+		class Item817
+		{
+			position[]={12044.313,54.001263,9090.2607};
+			name="Town_8";
+			type="Empty";
+		};
+		class Item818
+		{
+			position[]={12918.521,6.0067835,10029.737};
+			name="Town_9";
+			type="Empty";
+		};
+		class Item819
+		{
+			position[]={12302.065,101.20927,10826.104};
+			name="Town_10";
+			type="Empty";
+		};
+		class Item820
+		{
+			position[]={13362.998,93.978043,12878.235};
+			name="Town_11";
+			type="Empty";
+		};
+		class Item821
+		{
+			position[]={11114.624,211.47307,12316.843};
+			name="Town_12";
+			type="Empty";
+		};
+		class Item822
+		{
+			position[]={8609.1104,188.71494,11874.412};
+			name="Town_13";
+			type="Empty";
+		};
+		class Item823
+		{
+			position[]={5982.1436,266.90219,10344.679};
+			name="Town_14";
+			type="Empty";
+		};
+		class Item824
+		{
+			position[]={4994.7905,181.99001,12507.1};
+			name="Town_15";
+			type="Empty";
+		};
+		class Item825
+		{
+			position[]={2736.062,274,9954.708};
+			name="Town_16";
+			type="Empty";
+		};
+		class Item826
+		{
+			position[]={3813.4265,310.98999,8891.6709};
+			name="Town_17";
+			type="Empty";
+		};
+		class Item827
+		{
+			position[]={3068.8718,299.4837,7942.5879};
+			name="Town_18";
+			type="Empty";
+		};
+		class Item828
+		{
+			position[]={1992.7201,252.0349,7337.4717};
+			name="Town_19";
+			type="Empty";
+		};
+		class Item829
+		{
+			position[]={2527.8623,299.32986,6346.7012};
+			name="Town_20";
+			type="Empty";
+		};
+		class Item830
+		{
+			position[]={2751.499,206.78842,5276.0127};
+			name="Town_21";
+			type="Empty";
+		};
+		class Item831
+		{
+			position[]={1692.6235,143.99001,3842.5012};
+			name="Town_22";
+			type="Empty";
+		};
+		class Item832
+		{
+			position[]={1911.6917,6.1490116,2248.2222};
+			name="Town_23";
+			type="Empty";
+		};
+		class Item833
+		{
+			position[]={3641.8972,6.9299998,2474.2813};
+			name="Town_24";
+			type="Empty";
+		};
+		class Item834
+		{
+			position[]={4499.4058,5.9814229,2453.2517};
+			name="Town_25";
+			type="Empty";
+		};
+		class Item835
+		{
+			position[]={3340.6707,191.14653,3937.9441};
+			name="Town_26";
+			type="Empty";
+		};
+		class Item836
+		{
+			position[]={3380.251,241.91806,4956.8628};
+			name="Town_27";
+			type="Empty";
+		};
+		class Item837
+		{
+			position[]={4482.2095,234.63503,4619.0742};
+			name="Town_28";
+			type="Empty";
+		};
+		class Item838
+		{
+			position[]={4916.3149,322.79654,5605.0215};
+			name="Town_29";
+			type="Empty";
+		};
+		class Item839
+		{
+			position[]={4496.0293,293.58835,6415.5781};
+			name="Town_30";
+			type="Empty";
+		};
+		class Item840
+		{
+			position[]={4751.1348,269.20258,6800.7046};
+			name="Town_31";
+			type="Empty";
+		};
+		class Item841
+		{
+			position[]={5337.7412,332.80084,8586.1289};
+			name="Town_32";
+			type="Empty";
+		};
+		class Item842
+		{
+			position[]={6067.2256,300.99762,7768.2173};
+			name="Town_33";
+			type="Empty";
+		};
+		class Item843
+		{
+			position[]={7071.2568,293.98999,7682.5518};
+			name="Town_34";
+			type="Empty";
+		};
+		class Item844
+		{
+			position[]={6563.1069,321.99918,6113.6416};
+			name="Town_35";
+			type="Empty";
+		};
+		class Item845
+		{
+			position[]={7560.999,225.55363,5148.8286};
+			name="Town_36";
+			type="Empty";
+		};
+		class Item846
+		{
+			position[]={8439.2207,360.39957,6677.7446};
+			name="Town_37";
+			type="Empty";
+		};
+		class Item847
+		{
+			position[]={9541.2109,302.55081,8815.1074};
+			name="Town_38";
+			type="Empty";
+		};
+		class Item848
+		{
+			position[]={9620.3086,209.69733,6552.0869};
+			name="Town_39";
+			type="Empty";
+		};
+		class Item849
+		{
+			position[]={10133.263,245.02214,5451.6987};
+			name="Town_40";
+			type="Empty";
+		};
+		class Item850
+		{
+			position[]={11271.686,253.80298,5468.6782};
+			name="Town_41";
+			type="Empty";
+		};
+		class Item851
+		{
+			position[]={11233.498,76.967117,6573.3892};
+			name="Town_42";
+			type="Empty";
+		};
+		class Item852
+		{
+			position[]={12146.958,185.27824,7268.3379};
+			name="Town_43";
+			type="Empty";
+		};
+		class Item853
+		{
+			position[]={10676.757,210.99001,8035.0884};
+			name="Town_44";
+			type="Empty";
+		};
+		class Item854
+		{
+			position[]={5835.4395,135.09471,4755.9678};
+			name="Town_45";
+			type="Empty";
+		};
+		class Item855
+		{
+			position[]={10415.261,118.20923,9838.9834};
+			name="Town_46";
 			type="Empty";
 		};
 	};

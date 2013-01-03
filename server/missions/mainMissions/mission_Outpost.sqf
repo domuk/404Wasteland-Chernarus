@@ -16,13 +16,14 @@ private ["_base","_unitsAlive","_playerPresent","_missionType","_successTextColo
 
 //Mission Initialization.
 _rad=20000;
+_result = 0;
 _missionType = "Capture Outpost";
 _mainTextColour = "#52bf90";
 _successTextColour = "#17FF41";
 _failTextColour = "#FF1717";
 _subTextColour = "#FFFFFF";
-_missionTimeOut = 30;
-_missionDelayTime = 20;
+_missionTimeOut = 1800;
+_missionDelayTime = 1200;
 _missionPlayerRadius = 50;
 _centerPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
 _flatAreas = nearestLocations [_centerPos, ["FlatArea"], _rad];
@@ -36,16 +37,16 @@ _randomPos = getpos (_flatAreas select random (count _flatAreas -1));
 mainMissionPos = str(_randomPos);
 
 //Tell everyone their will be a mission soon.
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime, _mainTextColour, _subTextColour];
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime / 60, _mainTextColour, _subTextColour];
 [nil,nil,rHINT,_hint] call RE;
 
 //Wait till the mission is ready to be ran.
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];
-_startTime = currentTime;
+_startTime = floor(time);
 waitUntil
 { 
-    _currTime = currentTime;
-    _result = [_currTime, _startTime, _missionDelayTime] call compareTime;
+    _currTime = floor(time);
+    if(_currTime - _startTime >= _missionDelayTime) then {_result = 1;};
     (_result == 1)
 };
 diag_log format["WASTELAND SERVER - Mission Resumed"];
@@ -66,14 +67,13 @@ CivGrpM = createGroup civilian;
 [CivGrpM,_randomPos]execVM "server\missions\createUnits\midGroup.sqf";
 
 diag_log format["WASTELAND SERVER - Mission Waiting to be Finished"];
-_startTime = currentTime;
+_startTime = floor(time);
 waitUntil
 {
     sleep 1; 
 	_playerPresent = false;
-    _currTime = currentTime;
-    _result = [_currTime, _startTime, _missionTimeOut] call compareTime;
-    //{if((isPlayer _x) AND (_x distance _item <= _missionPlayerRadius)) then {_playerPresent = true};}forEach playableUnits;
+    _currTime = floor(time);
+    if(_currTime - _startTime >= _missionTimeOut) then {_result = 1;};
     _unitsAlive = ({alive _x} count units CivGrpM);
     (_result == 1) OR (_unitsAlive < 1)
 };
@@ -81,6 +81,7 @@ waitUntil
 if(_result == 1) then
 {
 	//Mission Failed.
+    {deleteVehicle _x;}forEach units CivGrpM;
     deleteGroup CivGrpM;
     _hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%3'>------------------------------</t><br/><t align='center' color='%4' size='1.25'>%1</t><br/><t align='center' color='%4'>Objective failed, better luck next time</t>", _missionType, _vehicleName, _failTextColour, _subTextColour];
 	[nil,nil,rHINT,_hint] call RE;

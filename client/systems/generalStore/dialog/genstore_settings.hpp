@@ -9,7 +9,7 @@ class genstored {
 
 	class controlsBackground {
 		
-		class MainBackground: RscPicture
+		class MainBackground: w_RscPicture
 		{
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
@@ -20,7 +20,7 @@ class genstored {
 			h = 0.661111 * safezoneH;
 		};
 		
-		class ItemSelectedPicture: RscPicture
+		class ItemSelectedPicture: w_RscPicture
 		{
 			idc = genstore_item_pic;
 			text = "";
@@ -31,7 +31,7 @@ class genstored {
 			h = 0.055 * safezoneH;
 		};
 
-		class ItemSelectedInfo: RscStructuredText
+		class ItemSelectedInfo: w_RscStructuredText
 		{
 			idc = genstore_item_Info;
 			text = "";
@@ -42,7 +42,7 @@ class genstored {
 			h = 0.192963 * safezoneH;
 		};
 
-		class ItemSelectedPrice: RscStructuredText
+		class ItemSelectedPrice: w_RscStructuredText
 		{
 			idc = genstore_item_TEXT;
 			text = "";
@@ -53,7 +53,7 @@ class genstored {
 			h = 0.068889 * safezoneH;
 		};
 
-		class DialogTitleText: RscText
+		class DialogTitleText: w_RscText
 		{
 			idc = -1;
 			text = "General Store Menu";
@@ -64,7 +64,7 @@ class genstored {
 			h = 0.0448148 * safezoneH;
 		};
 
-		class PlayerMoneyText: RscText
+		class PlayerMoneyText: w_RscText
 		{
 			idc = genstore_money;
 			text = "Cash:";
@@ -75,7 +75,7 @@ class genstored {
 			h = 0.0448148 * safezoneH;
 		};
 
-		class CartTotalText: RscText
+		class CartTotalText: w_RscText
 		{
 			idc = genstore_total;
 			text = "Total: $0";
@@ -90,7 +90,7 @@ class genstored {
 	
 	class controls {
 		
-		class SelectionList: RscListbox
+		class SelectionList: w_RscListbox
 		{
 			idc = genstore_item_list;
 			onLBSelChanged = "[] execvm 'client\systems\generalStore\itemInfo.sqf'";
@@ -101,7 +101,7 @@ class genstored {
 			h = 0.422222 * safezoneH;
 		};
 
-		class CartList: RscListbox
+		class CartList: w_RscListbox
 		{
 			idc = genstore_cart;
 			onLBSelChanged = "[] execvm 'client\systems\generalStore\itemInfo.sqf'";

@@ -11,6 +11,7 @@ _player = _this;
 _player removeWeapon "ItemGPS";
 removeAllWeapons _player;
 removeBackpack _player;
+enableRadio false;
 
 //Default case means something fucked up.
 _player addMagazine "6Rnd_45ACP";

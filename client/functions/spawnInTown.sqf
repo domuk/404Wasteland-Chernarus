@@ -24,173 +24,94 @@ _buttonFour = _display displayCtrl respawn_Town_Button4;
 
 switch(_switch) do 
 {
-    case 0:{
+    case 0:
+    {
         {
-            _city = _x;
-        	if(ctrlText _buttonZero == _x select 2) then
-        	{
-            	//Do spawn here
-                {
-                   if(configName(_x) == _city select 0) then 
-				    {
-						if((configName(_x)) == "ACityC_Berezino") then {
-						    _pos = getArray(_x >> "position");
-						    _pos set [0, (_pos select 0) - 450];
-							_pos set [1, (_pos select 1) - 475];
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						    
-						    player setPos _pos;
-						} else {
-						    _pos = getArray(_x >> "position");
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						
-						    player setPos _pos;
-						};
-                        
-                        _townNameSelected = configName _x;
-					}; 
-                }forEach cityLocations;
-
-                respawnDialogActive = false;
+			_name = _x select 2;
+			if(ctrlText _buttonZero == _name) then
+			{
+                _townName = _name;
+				_pos = getMarkerPos (_x select 0);
+				_rad = _x select 1;
+				_pos = [_pos,5,_rad,1,0,0,0] call BIS_fnc_findSafePos;
+				_pos = [_pos select 0, _pos select 1, (_pos select 2) + 10];				
+				player setPos _pos;
+				respawnDialogActive = false;
 				closeDialog 0;
-        	}   
-        }forEach cityList;
+			};
+		}forEach cityList;
     };
-    case 1:{
+    case 1:
+    {
         {
-            _city = _x;
-        	if(ctrlText _buttonOne == _x select 2) then
-        	{
-            	//Do spawn here
-                {
-                   if(configName(_x) == _city select 0) then 
-				    {
-						if((configName(_x)) == "ACityC_Berezino") then {
-						    _pos = getArray(_x >> "position");
-						    _pos set [0, (_pos select 0) - 450];
-							_pos set [1, (_pos select 1) - 475];
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						    
-						    player setPos _pos;
-						} else {
-						    _pos = getArray(_x >> "position");
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						
-						    player setPos _pos;
-						};
-                        
-                        _townNameSelected = configName _x;
-					}; 
-                }forEach cityLocations;
-
-                respawnDialogActive = false;
+			_name = _x select 2;
+			if(ctrlText _buttonOne == _name) then
+			{
+                _townName = _name;
+				_pos = getMarkerPos (_x select 0);
+				_rad = _x select 1;
+				_pos = [_pos,5,_rad,1,0,0,0] call BIS_fnc_findSafePos;
+				_pos = [_pos select 0, _pos select 1, (_pos select 2) + 10];			
+				player setPos _pos;
+				respawnDialogActive = false;
 				closeDialog 0;
-        	}   
-        }forEach cityList;
+			};
+		}forEach cityList;
     };
-    case 2:{
+    case 2:
+    {
         {
-            _city = _x;
-        	if(ctrlText _buttonTwo == _x select 2) then
-        	{
-            	//Do spawn here
-                {
-                   if(configName(_x) == _city select 0) then 
-				    {
-						if((configName(_x)) == "ACityC_Berezino") then {
-						    _pos = getArray(_x >> "position");
-						    _pos set [0, (_pos select 0) - 450];
-							_pos set [1, (_pos select 1) - 475];
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						    
-						    player setPos _pos;
-						} else {
-						    _pos = getArray(_x >> "position");
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						
-						    player setPos _pos;
-						};
-                        
-                        _townNameSelected = configName _x;
-					}; 
-                }forEach cityLocations;
-
-                respawnDialogActive = false;
+			_name = _x select 2;
+			if(ctrlText _buttonTwo == _name) then
+			{
+                _townName = _name;
+				_pos = getMarkerPos (_x select 0);
+				_rad = _x select 1;
+				_pos = [_pos,5,_rad,1,0,0,0] call BIS_fnc_findSafePos;
+				_pos = [_pos select 0, _pos select 1, (_pos select 2) + 10];			
+				player setPos _pos;
+				respawnDialogActive = false;
 				closeDialog 0;
-        	}   
-        }forEach cityList;
+			};
+		}forEach cityList;
     };
-    case 3:{
+    case 3:
+    {
         {
-            _city = _x;
-        	if(ctrlText _buttonThree == _x select 2) then
-        	{
-            	//Do spawn here
-                {
-                   if(configName(_x) == _city select 0) then 
-				    {
-						if((configName(_x)) == "ACityC_Berezino") then {
-						    _pos = getArray(_x >> "position");
-						    _pos set [0, (_pos select 0) - 450];
-							_pos set [1, (_pos select 1) - 475];
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						    
-						    player setPos _pos;
-						} else {
-						    _pos = getArray(_x >> "position");
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						
-						    player setPos _pos;
-						};
-                        
-                        _townNameSelected = configName _x;
-					}; 
-                }forEach cityLocations;
-				
-                respawnDialogActive = false;
+			_name = _x select 2;
+			if(ctrlText _buttonThree == _name) then
+			{
+                _townName = _name;
+				_pos = getMarkerPos (_x select 0);
+				_rad = _x select 1;
+				_pos = [_pos,5,_rad,1,0,0,0] call BIS_fnc_findSafePos;
+				_pos = [_pos select 0, _pos select 1, (_pos select 2) + 10];			
+				player setPos _pos;
+				respawnDialogActive = false;
 				closeDialog 0;
-        	}   
-        }forEach cityList;
+			};
+		}forEach cityList;
     };
-    case 4:{
+    case 4:
+    {
         {
-            _city = _x;
-        	if(ctrlText _buttonFour == _x select 2) then
-        	{
-            	//Do spawn here
-                {
-                   if(configName(_x) == _city select 0) then 
-				    {
-						if((configName(_x)) == "ACityC_Berezino") then {
-						    _pos = getArray(_x >> "position");
-						    _pos set [0, (_pos select 0) - 450];
-							_pos set [1, (_pos select 1) - 475];
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						    
-						    player setPos _pos;
-						} else {
-						    _pos = getArray(_x >> "position");
-						    _pos = [_pos,5,100,1,0,0,0] call BIS_fnc_findSafePos;
-						
-						    player setPos _pos;
-						};
-                        
-                        _townNameSelected = configName _x;
-					}; 
-                }forEach cityLocations;
-
-                respawnDialogActive = false;
+			_name = _x select 2;
+			if(ctrlText _buttonFour == _name) then
+			{
+                _townName = _name;
+				_pos = getMarkerPos (_x select 0);
+				_rad = _x select 1;
+				_pos = [_pos,5,_rad,1,0,0,0] call BIS_fnc_findSafePos;
+				_pos = [_pos select 0, _pos select 1, (_pos select 2) + 10];			
+				player setPos _pos;
+				respawnDialogActive = false;
 				closeDialog 0;
-        	}   
-        }forEach cityList;
+			};
+		}forEach cityList;
     };
 };
-
 sleep 5;
-
 _mins = floor(60 * (daytime - floor(daytime)));
-{if(_x select 0 == _townNameSelected) then {_townName = _x select 3;};}forEach cityList;
 [
-	getText(configFile >> "CfgWorlds" >> worldName >> "Names" >> _townName >> "name"),
-	format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
+	"404 Wasteland",_townName,format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
 ] spawn BIS_fnc_infoText;

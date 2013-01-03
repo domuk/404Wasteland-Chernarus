@@ -87,6 +87,9 @@
 		<Key ID="STR_WL_ShopDescriptions_Water">
 			<English>4O4Games Premium Spring Water. This water contains 200% more flavour than other leading brands.</English>
 		</Key>
+		<Key ID="STR_WL_ShopDescriptions_Camo">
+			<English>Become a ninja, hide yourself while camping. Warning this does not make you invisible</English>
+		</Key>
 		<Key ID="STR_WL_ShopDescriptions_CanFood">
 			<English>4O4Games Value Cat food. Heat treated and sealed in a 100% steel can for extra long shelf life. Warning: contents may contain organs.</English>
 		</Key>

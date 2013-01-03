@@ -7,11 +7,11 @@
 
 diag_log format["WASTELAND SERVER - Initilizing Server Complie"];
 
-compareTime = compile preprocessFileLineNumbers "server\functions\compareTime.sqf";
 randomWeapons = compile preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";
 vehicleCreation = compile preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
 objectCreation = compile preprocessFileLineNumbers "server\spawning\objectCreation.sqf";
 staticGunCreation = compile preprocessFileLineNumbers "server\spawning\staticGunCreation.sqf";
 staticHeliCreation = compile preprocessFileLineNumbers "server\spawning\staticHeliCreation.sqf";
+server_playerDied = compile preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
 
 serverCompiledScripts = true;

@@ -126,6 +126,6 @@ sleep 5;
 
 _mins = floor(60 * (daytime - floor(daytime)));
 [
-	"Spawn Beacon",
+	"404 Wasteland","Spawn Beacon",
 	format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
 ] spawn BIS_fnc_infoText;

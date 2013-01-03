@@ -68,7 +68,8 @@ for "_iteration" from 1 to _actionDuration do {
         _playerPos = getPosATL player;
         _stationPos = position _radarStation;
         _radarTank = "M1133_MEV_EP1" createVehicle (_stationPos);
-        _radarTank setVariable ["deployed", 0, true]; 
+        _radarTank setVariable ["deployed", 0, true];
+        _radarTank setVariable["original",1,true];
         _radarTank setFuel (_radarStation getVariable "prevFuel");
         _radarTank setDamage (_radarStation getVariable "prevDamage");
       	deleteVehicle (nearestobjects [getpos player, ["M1130_HQ_unfolded_Base_EP1"],  15] select 0);

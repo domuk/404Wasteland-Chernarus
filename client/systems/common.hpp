@@ -90,8 +90,31 @@ class w_RscText {
 	colorText[] = { 1 , 1 , 1 , 1 };
 	font = FontM;
 	sizeEx = 0.025;
-	h = 0.05;
+	h = 0.25;
 	text = "";
+};
+
+class w_RscStructuredText
+{
+	access = 0;
+	type = 13;
+	idc = -1;
+	style = 0;
+	colorText[] = {0.8784,0.8471,0.651,1};
+	class Attributes
+	{
+		font = "Zeppelin32";
+		color = "#e0d8a6";
+		align = "center";
+		shadow = 1;
+	};
+	x = 0;
+	y = 0;
+	h = 0.035;
+	w = 0.1;
+	text = "";
+	size = 0.03921;
+	shadow = 2;
 };
 
 class w_RscBackground
@@ -124,6 +147,48 @@ class w_RscEdit
 
     autocomplete = false;
     colorSelection[] = {0,0,0,1};
+};
+
+class w_RscListBox
+{
+	type = CT_LISTBOX;
+    style = 69;
+    idc = -1;
+    text = "";
+    w = 0.275;
+    h = 0.04;
+    colorSelect[] = {1, 1, 1, 1};
+    colorText[] = {1, 1, 1, 1};
+    colorBackground[] = {1,1,1,1};
+    colorSelectBackground[] = {0.40, 0.43, 0.28, 0.5};
+    colorScrollbar[] = {0.2, 0.2, 0.2, 1};
+    arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+    arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+    wholeHeight = 0.45;
+    rowHeight = 0.04;
+    color[] = {0.7, 0.7, 0.7, 1};
+    colorActive[] = {0,0,0,1};
+    colorDisabled[] = {0,0,0,0.3};
+    font = "Zeppelin32";
+    sizeEx = 0.023;
+    soundSelect[] = {"",0.1,1};
+    soundExpand[] = {"",0.1,1};
+    soundCollapse[] = {"",0.1,1};
+    maxHistoryDelay = 1;
+    autoScrollSpeed = -1;
+    autoScrollDelay = 5;
+    autoScrollRewind = 0;
+
+    class ScrollBar
+    {
+		color[] = {1, 1, 1, 1};
+        colorActive[] = {1, 1, 1, 1};
+        colorDisabled[] = {1, 1, 1, 1};
+        thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+        arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+        arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+        border = "\ca\ui\data\ui_border_scroll_ca.paa";
+    };
 };
 
 class w_Rsclist
@@ -227,9 +292,9 @@ class w_RscButtonBase {
 	class TextPos {
 	
 		left = 0.05;
-		top = 0.034;
+		top = 0.025;
 		right = 0.005;
-		bottom = 0.005;
+		bottom = 0.025;
 		
 	};
 	
@@ -309,7 +374,6 @@ class w_RscButton : w_RscButtonBase {
 		top = 0.014;
 		right = 0.002;
 		bottom = 0.005;
-		
 	};
 	
 	animTextureNormal = "\ca\ui\data\igui_button_normal_ca.paa";
