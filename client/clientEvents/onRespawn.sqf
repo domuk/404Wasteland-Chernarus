@@ -17,6 +17,8 @@ _corpse removeAction playerMenuId;
 player call playerSetup;
 waitUntil {playerSetupComplete};
 
+[] execVM "client\clientEvents\onMouseWheel.sqf";
+
 true spawn playerSpawn;
 
 [] spawn {
