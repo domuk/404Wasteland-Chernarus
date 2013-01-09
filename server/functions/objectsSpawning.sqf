@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 waitUntil{vehicleSpawnComplete};
 
 private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint"];

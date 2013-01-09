@@ -4,39 +4,12 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Description: Main config.
 
-//Admin menu access levels
-moderators = ["32077894", //Krykiln
-				"87053254", //Shaneyport
-				"8626566", //Teacup
-				"1279378", //Bane
-				"3450176", //Derpy
-				"73698182", //unDead
-				"59344390", //Ian
-				"38204230", //JellaFish
-				"2771014", //MiniDude
-                "91598150", //Rainforger
-                "klauS"
-               	]; 
-            
-administrators = ["18519302", //Venny
-					"57199878", //Garey
-                    "13472326", //Delite
-					"bombeh"];
-
-serverAdministrators = ["18836358", //Tom
-					"19714694", //pulse
-					"20243782", //Dom
-					"32879878"]; //Ally
-      
 // --------------------------------------------------------------------------------------------------- \\
 // ----------  !DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING!	---------- \\
 // ----------																				---------- \\
 // ----------			404Games are not responsible for anything that may happen 			---------- \\
 // ----------			 as a result of unauthorised modifications to this file.			---------- \\
 // --------------------------------------------------------------------------------------------------- \\
-
-//Client Vars
-playerSetupComplete = false;
                                                                                                 
 //Gunstore Weapon List - Gun Store Base List
 // Text name, classname, buy cost, sell amount

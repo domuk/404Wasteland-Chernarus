@@ -5,6 +5,7 @@
 //	@file Created: DD/MM/YYYY HH:MM
 //	@file Args:
 
+if(!X_Server) exitWith {};
 
 _objPos = _this select 0;
 _Objtype = objectList select (random (count objectList - 1));

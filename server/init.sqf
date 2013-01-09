@@ -11,6 +11,7 @@ sideMissions = 1;
 serverSpawning = 1;
 
 //Execute Server Side Scripts.
+[] execVM "server\admins.sqf";
 [] execVM "server\functions\serverVars.sqf";
 [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\broadcaster.sqf";

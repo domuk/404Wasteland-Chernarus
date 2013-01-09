@@ -63,7 +63,7 @@ class PlayersMenu
 		class PlayerGunText: w_RscText
 		{
 			idc = playerMenuPlayerGun;
-			text = "Current Weapon:";
+			text = "Money:";
 			sizeEx = 0.030;
 			x = 0.225 * safezoneW + safezoneX;
 			y = 0.63 * safezoneH + safezoneY;

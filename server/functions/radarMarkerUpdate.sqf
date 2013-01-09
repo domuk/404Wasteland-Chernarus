@@ -4,8 +4,9 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args: [int(key)]
 
-private["_uniqueID", "_radarStationPos", "_playerSide", "_markerState", "_enemyCount", "_friendlyCount", "_currSide", "_runLoop", "_stillAlive"];
+if(!X_Server) exitWith {};
 
+private["_uniqueID", "_radarStationPos", "_playerSide", "_markerState", "_enemyCount", "_friendlyCount", "_currSide", "_runLoop", "_stillAlive"];
 
 _uniqueID = _this select 0;
 _radarStationPos = _this select 1;

@@ -13,7 +13,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
         hint "Welcome Moderator";		
 	};
     if ((_uid in administrators)) then {
-		execVM "client\systems\adminPanel\loadAdministratorMenu.sqf";
+		[] execVM "client\systems\adminPanel\loadAdministratorMenu.sqf";
         hint "Welcome Admin";		
 	};
     if ((_uid in serverAdministrators)) then {

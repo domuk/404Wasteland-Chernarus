@@ -47,6 +47,7 @@ switch (_destroyOrSteal) do {
 				player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         		player action ["eject", vehicle player];
 				sleep 1;
+				mutexScriptInProgress = false;
 			};   
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the steal.
@@ -97,6 +98,7 @@ switch (_destroyOrSteal) do {
 				player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         		player action ["eject", vehicle player];
 				sleep 1;
+				mutexScriptInProgress = false;
 			};   
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the destroy.

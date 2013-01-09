@@ -4,6 +4,8 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 private ["_crate"];
 
 _crate = _this select 0;

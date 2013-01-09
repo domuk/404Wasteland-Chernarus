@@ -11,7 +11,7 @@
 #define respawn_Town_Button2 3405
 #define respawn_Town_Button3 3406
 #define respawn_Town_Button4 3407
-
+waitUntil{!isnil "bis_fnc_init"};
 disableSerialization;
 
 private["_player","_city","_radius","_name","_enemyCount","_friendlyCount","_side","_buttonArray", "_enemyPresent","_inGroup","_tempArray"];

@@ -4,7 +4,7 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args: Element 0 = Vehicle.
 
-if (!isServer) exitWith {};
+if(!X_Server) exitWith {};
 
 private ["_car","_mags","_rnd","_weapon","_mag"];
 

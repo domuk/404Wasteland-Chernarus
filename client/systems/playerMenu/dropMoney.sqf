@@ -22,6 +22,7 @@ _pos = getPosATL player;
 player playmove "AinvPknlMstpSlayWrflDnon";
 _cash = "Evmoney" createVehicle (position player); _cash setPos _pos;
 _cash setVariable["money",_money,true];
+_cash setVariable["owner","world",true];
 player setVariable["cmoney",(player getVariable "cmoney") - _money,true];
 sleep 3;
 mutexScriptInProgress = false;

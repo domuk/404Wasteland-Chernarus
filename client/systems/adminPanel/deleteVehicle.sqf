@@ -10,27 +10,32 @@
 disableSerialization;
 
 private ["_switch","_vehicleType","_vehicleSummary","_vehicle","_selectedItem","_selectedItemData"];
-_allVehicles = vehicles;
-
-_dialog = findDisplay vehicleManagementDialog;
-_vehicleListBox = _dialog displayCtrl vehicleManagementListBox;
-
-_selectedItem = lbCurSel _vehicleListBox;
-_selectedItemData = _vehicleListBox lbData _selectedItem;
-
-player commandChat format ["Deleting %1",_selectedItemData];
-{
-    _vehicle = _X;
-	if(str(_vehicle) == _selectedItemData) then
-    {
-        {
-            _x leaveVehicle _vehicle;
-        } forEach crew _vehicle;
-        deleteVehicle _vehicle;    
-    };    
-}forEach _allVehicles;
-
-player commandChat "Vehicle Deleted";
-
-closeDialog 0;
-execVM "client\systems\adminPanel\vehicleManagement.sqf";
+_uid = getPlayerUID player;
+if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministrators)) then {
+	_allVehicles = vehicles;
+	
+	_dialog = findDisplay vehicleManagementDialog;
+	_vehicleListBox = _dialog displayCtrl vehicleManagementListBox;
+	
+	_selectedItem = lbCurSel _vehicleListBox;
+	_selectedItemData = _vehicleListBox lbData _selectedItem;
+	
+	player commandChat format ["Deleting %1",_selectedItemData];
+	{
+	    _vehicle = _X;
+		if(str(_vehicle) == _selectedItemData) then
+	    {
+	        {
+	            _x leaveVehicle _vehicle;
+	        } forEach crew _vehicle;
+	        deleteVehicle _vehicle;    
+	    };    
+	}forEach _allVehicles;
+	
+	player commandChat "Vehicle Deleted";
+	
+	closeDialog 0;
+	execVM "client\systems\adminPanel\vehicleManagement.sqf";
+} else {
+  exit;  
+};

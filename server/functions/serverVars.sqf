@@ -3,6 +3,14 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
+// --------------------------------------------------------------------------------------------------- \\
+// ----------  !DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING!	---------- \\
+// ----------																				---------- \\
+// ----------			404Games are not responsible for anything that may happen 			---------- \\
+// ----------			 as a result of unauthorised modifications to this file.			---------- \\
+// --------------------------------------------------------------------------------------------------- \\
+
+if(!X_Server) exitWith {};
 
 diag_log format["WASTELAND SERVER - Initilizing Server Vars"];
 
@@ -34,7 +42,7 @@ currentDate = [];
 publicVariable "currentDate";
 currentInvites = [];
 publicVariable "currentInvites";
-
+                  
 if (isServer) then {
 	"PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
 };

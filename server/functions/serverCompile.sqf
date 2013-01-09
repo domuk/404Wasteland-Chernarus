@@ -5,6 +5,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 diag_log format["WASTELAND SERVER - Initilizing Server Complie"];
 
 randomWeapons = compile preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";

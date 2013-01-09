@@ -5,6 +5,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 private ["_marker","_cartype","_car","_num","_tipped","_carpos","_type","_townpos"];
 _type = _this select 1;
 _pos = _this select 0;

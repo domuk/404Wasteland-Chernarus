@@ -4,6 +4,8 @@
 //	@file Created: 08/12/2012 21:58
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 private ["_group","_pos","_leader","_man2","_man3","_man4","_man5","_man6","_man7","_man8","_man9","_man10"];
 
 _group = _this select 0;

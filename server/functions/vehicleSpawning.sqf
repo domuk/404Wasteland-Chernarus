@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 private ["_counter","_pos","_type","_num","_markerName","_marker","_amountOfVehicles","_hint"];
 _counter = 0;
 

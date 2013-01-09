@@ -152,7 +152,22 @@ player createDiaryRecord["changelog",
 "
 ]
 ];
-
+player createDiaryRecord["changelog",
+[
+"2.7",
+"
+<br/>
+		[Added] - Better player join flow.<br/>
+		[Added] - Independent groups now have icons back.<br/>
+		[Fixed] - Disapearing icons on players who have been alive a long time.<br/>
+		[Fixed] - Player Setup and Initialization.<br/>
+		[Fixed] - Joining with a group.<br/>
+		[Fixed] - Feedback messages missing.<br/>
+        [Fixed] - Money dupe.<br/>
+		[Changed] - Time Sync to just sync time and not accelerate it.<br/>
+"
+]
+];
 
 player createDiaryRecord["404games",
 [

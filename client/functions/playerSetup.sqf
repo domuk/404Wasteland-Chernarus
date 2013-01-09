@@ -8,10 +8,11 @@
 _player = _this;
 
 //Player initialization
+enableSentences false;
+_player removeWeapon "ItemRadio";
 _player removeWeapon "ItemGPS";
 removeAllWeapons _player;
 removeBackpack _player;
-enableRadio false;
 
 //Default case means something fucked up.
 _player addMagazine "6Rnd_45ACP";
@@ -65,4 +66,5 @@ _player setVariable["camonet",0,false];
 
 [] execVM "client\functions\playerActions.sqf";
 
+_player groupChat format["Player Initialization Complete"];
 playerSetupComplete = true;

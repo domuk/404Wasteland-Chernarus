@@ -5,6 +5,8 @@
 //	@file Description: Random static helis
 //	@file Args: [int (0 = not wreck | 1 = wreck), array (position)]
 
+if(!X_Server) exitWith {};
+
 private["_spawnPos", "_spawnType", "_currHeli"];
 
 _isWreck = _this select 0;

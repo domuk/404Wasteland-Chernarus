@@ -6,6 +6,8 @@
 
 // This file is to address the serious imbalance caused by the default load-out of all weapon crates.
 
+if(!X_Server) exitWith {};
+
 private ["_selectedBox", "_selectedBoxPos", "_finishedBox", "_currBox"];
 
 _selectedBox = _this select 0;

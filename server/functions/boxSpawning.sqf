@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 waitUntil{objectSpawnComplete};
 
 private ["_counter","_pos","_markerName","_marker","_hint","_safePos","_countActual","_boxes", "_nerfBoxes", "_currBox"];

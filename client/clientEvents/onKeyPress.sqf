@@ -36,15 +36,6 @@ switch _key do
     {
         [] call loadPlayerMenu;
     };
-    
-    //Y key
-    case 21:
-    {
-        if(((getPlayerUID player) in provingGrounds)) then
-		{
-			createDialog "balca_debug_main";
-		};
-    };
 };
 
 _handled;

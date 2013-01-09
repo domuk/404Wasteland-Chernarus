@@ -9,26 +9,29 @@ if(!X_Client) exitWith {};
 mutexScriptInProgress = false;
 respawnDialogActive = false;
 groupManagmentActive = false;
-playerSetupComplete = false;
-compiledScripts = false;
 pvar_PlayerTeamKiller = objNull;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 
+//Initialization Variables
+playerCompiledScripts = false;
+playerSetupComplete = false;
+
+waitUntil {player == player};
+waitUntil{time > 2};
+
 //Call client compile list.
-[] execVM "client\functions\clientCompile.sqf";
-
-waitUntil{compiledScripts};
-waitUntil{player == player};
-waitUntil{time > 0};
-
-//Player setup
-player call playerSetup;
+player call compile preprocessFileLineNumbers "client\functions\clientCompile.sqf";
+waitUntil{playerCompiledScripts};
 
 //Stop people being civ's.
 if(!(playerSide in [west, east, resistance])) then {
 	endMission "LOSER";
 };
+
+//Player setup
+player call playerSetup;
+waitUntil {playerSetupComplete};
 
 //Setup player events.
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};
@@ -54,12 +57,14 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\createTownMarkers.sqf";
 [] execVM "client\functions\createGunStoreMarkers.sqf";
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
-[] execVM "client\functions\createPlayerIcons.sqf";
 [] execVM "client\functions\loadAtmosphere.sqf";
 [] execVM "client\functions\playerTags.sqf";
 [] execVM "client\functions\groupTags.sqf";
 [] call updateMissionsMarkers;
 [] call updateRadarMarkers;
-
-waitUntil {playerSetupComplete};
+if (isNil "FZF_IC_INIT") then   {
+	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
+};
+sleep 1;
 true spawn playerSpawn;
+[] spawn FZF_IC_INIT;

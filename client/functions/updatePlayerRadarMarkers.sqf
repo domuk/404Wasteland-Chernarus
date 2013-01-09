@@ -34,12 +34,12 @@ currentRadarMarkers = [];
         case 2:{ // Enemy NO friendly
         	_colorSelected = _colorEnemy;
             _textSelected = "Player detected : Enemy";
-            hintSilent parseText format ["<t size='2' color='#E01B1B'>%1</t><br/><br/>%2.","ACHTUNG!","Enemy player detected the radar proximity!"];
+            hintSilent parseText format ["<t size='2' color='#E01B1B'>%1</t><br/><br/>%2.","ATTENTION!","Enemy player detected the radar proximity!"];
         };
         case 3:{ // Enemy AND friendly
         	_colorSelected = _colorBoth;
             _textSelected = "Players detected : Mixed";
-            hintSilent parseText format ["<t size='2' color='#E01B1B'>%1</t><br/><br/>%2.","ACHTUNG!","Enemy and Friendly players detected the radar proximity!"];
+            hintSilent parseText format ["<t size='2' color='#E01B1B'>%1</t><br/><br/>%2.","ATTENTION!","Enemy and Friendly players detected the radar proximity!"];
         };
     };
     

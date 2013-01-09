@@ -5,6 +5,8 @@
 //	@file Description: Random static helis
 //	@file Args:
 
+if(!X_Server) exitWith {};
+
 waitUntil{staticGunSpawningComplete};
 
 private ["_counter","_position","_markerName","_marker","_hint","_newPos","_countActual", "_i", "_doSpawnWreck"];
