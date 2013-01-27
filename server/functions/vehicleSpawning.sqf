@@ -33,5 +33,3 @@ while {_counter < 770} do
 
 _amountOfVehicles = count currentVehicles;
 diag_log format["WASTELAND SERVER - %1 Vehicles Spawned",_amountOfVehicles];
-
-vehicleSpawnComplete = true;

@@ -1,13 +1,13 @@
 #define icons_idc 46300
 
-    class ST_FTHud_Rsc
+    class FZF_ICHud_Rsc
     {
         idd = -1;
         movingEnable = 1;
         enableSimulation = 1;
         enableDisplay = 1;
 
-        onLoad = "_this call ST_FTHud_Load";
+        onLoad = "_this call FZF_ICHud_Load";
 
         duration = 99999999999999999;
         fadein  = 0;

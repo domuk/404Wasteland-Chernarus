@@ -172,7 +172,7 @@ FZF_IC_INIT =
 #define SHOW_HUD (cameraView in ["INTERNAL","EXTERNAL","GUNNER"]) && (alive(player) && isNil("BIS_DEBUG_CAM") && (count(allUnits) > 1)) && (!visibleMap)
             waitUntil{sleep 1; SHOW_HUD};
 
-            FZF_ICHud_Layer cutRsc ["ST_FTHud_Rsc", "PLAIN"];
+            FZF_ICHud_Layer cutRsc ["FZF_ICHud_Rsc", "PLAIN"];
             while {SHOW_HUD} do {
                 call FZF_IC_Icons;
                 sleep 0.01;
@@ -183,7 +183,7 @@ FZF_IC_INIT =
     };	
 };
 
-ST_FTHud_Load =
+FZF_ICHud_Load =
 {
 
 	with uiNamespace do { FZF_IC_Hud_Disp = _this select 0; };

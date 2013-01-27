@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: getInventory.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy, [404] Pulse
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
 

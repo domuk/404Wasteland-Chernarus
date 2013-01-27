@@ -36,7 +36,7 @@ class Mission
 	randomSeed=10079095;
 	class Intel
 	{
-		briefingName="404Wasteland - Chernarus [v2.7]";
+		briefingName="404Wasteland - Chernarus [v2.8]";
 		briefingDescription="Wasteland is a harsh survival sandbox";
 		resistanceWest=0;
 		startWeather=0.25;
@@ -2916,7 +2916,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=856;
+		items=906;
 		class Item0
 		{
 			position[]={10472.047,6,2300.7461};
@@ -7632,282 +7632,329 @@ class Mission
 			position[]={11619.985,104.46297,10334.99};
 			name="heliSpawn_1";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item786
 		{
 			position[]={8135.8037,470.67252,9146.3369};
 			name="heliSpawn_2";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item787
 		{
 			position[]={9402.7754,234.54828,11455.795};
 			name="heliSpawn_3";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item788
 		{
 			position[]={11183.136,251.51396,7865.1113};
 			name="heliSpawn_4";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item789
 		{
 			position[]={8202.124,365.9198,6739.583};
 			name="heliSpawn_5";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item790
 		{
 			position[]={13057.188,129.72296,5938.3877};
 			name="heliSpawn_6";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item791
 		{
 			position[]={11066.188,300.81674,5137.5586};
 			name="heliSpawn_7";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item792
 		{
 			position[]={6448.4243,6,2853.4148};
 			name="heliSpawn_8";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item793
 		{
 			position[]={1267.1754,6.1504326,2427.8303};
 			name="heliSpawn_9";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item794
 		{
 			position[]={1053.3646,133.78517,4182.4814};
 			name="heliSpawn_10";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item795
 		{
 			position[]={1727.7216,155.29893,5164.3369};
 			name="heliSpawn_11";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item796
 		{
 			position[]={2517.676,366.76486,6777.5747};
 			name="heliSpawn_12";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item797
 		{
 			position[]={2031.6031,249.46078,10297.882};
 			name="heliSpawn_13";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item798
 		{
 			position[]={4886.2407,339,9690.1455};
 			name="heliSpawn_14";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item799
 		{
 			position[]={4186.729,305.90768,7880.1992};
 			name="heliSpawn_15";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item800
 		{
 			position[]={7057.1187,311.40982,8061.8823};
 			name="heliSpawn_16";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item801
 		{
 			position[]={7337.8071,306.85992,11289.838};
 			name="heliSpawn_17";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item802
 		{
 			position[]={6913.5806,283.44354,5428.2124};
 			name="heliSpawn_18";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item803
 		{
 			position[]={8849.6484,5.8830171,2331.2817};
 			name="heliSpawn_19";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item804
 		{
 			position[]={12189.821,199.54247,7008.0151};
 			name="heliSpawn_20";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item805
 		{
 			position[]={6165.0928,336.24951,7988.2983};
 			name="heliSpawn_21";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item806
 		{
 			position[]={5333.8735,307.11465,5562.8867};
 			name="heliSpawn_22";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item807
 		{
 			position[]={5081.1865,217.22705,4125.2056};
 			name="heliSpawn_23";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item808
 		{
 			position[]={7264.6265,16.48313,3671.1316};
 			name="heliSpawn_24";
 			type="Empty";
+			colorName="ColorGreen";
 		};
 		class Item809
 		{
 			position[]={6704.1572,6,2619.647};
 			name="Town_0";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item810
 		{
 			position[]={7975.686,5.9942846,3303.6274};
 			name="Town_1";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item811
 		{
 			position[]={9182.4463,223.6701,3931.322};
 			name="Town_2";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item812
 		{
 			position[]={10381.505,5.8696795,2207.7439};
 			name="Town_3";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item813
 		{
 			position[]={12062.819,5.9470968,3551.8699};
 			name="Town_4";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item814
 		{
 			position[]={12806.863,171.25244,4452.9438};
 			name="Town_5";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item815
 		{
 			position[]={13406.78,5.2914267,6223.9292};
 			name="Town_6";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item816
 		{
 			position[]={12875.81,7.9350724,8048.0171};
 			name="Town_7";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item817
 		{
 			position[]={12044.313,54.001263,9090.2607};
 			name="Town_8";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item818
 		{
 			position[]={12918.521,6.0067835,10029.737};
 			name="Town_9";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item819
 		{
 			position[]={12302.065,101.20927,10826.104};
 			name="Town_10";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item820
 		{
 			position[]={13362.998,93.978043,12878.235};
 			name="Town_11";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item821
 		{
 			position[]={11114.624,211.47307,12316.843};
 			name="Town_12";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item822
 		{
 			position[]={8609.1104,188.71494,11874.412};
 			name="Town_13";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item823
 		{
 			position[]={5982.1436,266.90219,10344.679};
 			name="Town_14";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item824
 		{
 			position[]={4994.7905,181.99001,12507.1};
 			name="Town_15";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item825
 		{
 			position[]={2736.062,274,9954.708};
 			name="Town_16";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item826
 		{
 			position[]={3813.4265,310.98999,8891.6709};
 			name="Town_17";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item827
 		{
 			position[]={3068.8718,299.4837,7942.5879};
 			name="Town_18";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item828
 		{
 			position[]={1992.7201,252.0349,7337.4717};
 			name="Town_19";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item829
 		{
 			position[]={2527.8623,299.32986,6346.7012};
 			name="Town_20";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item830
 		{
 			position[]={2751.499,206.78842,5276.0127};
 			name="Town_21";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item831
 		{
 			position[]={1692.6235,143.99001,3842.5012};
 			name="Town_22";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item832
 		{
@@ -7920,138 +7967,511 @@ class Mission
 			position[]={3641.8972,6.9299998,2474.2813};
 			name="Town_24";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item834
 		{
 			position[]={4499.4058,5.9814229,2453.2517};
 			name="Town_25";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item835
 		{
 			position[]={3340.6707,191.14653,3937.9441};
 			name="Town_26";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item836
 		{
 			position[]={3380.251,241.91806,4956.8628};
 			name="Town_27";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item837
 		{
 			position[]={4482.2095,234.63503,4619.0742};
 			name="Town_28";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item838
 		{
 			position[]={4916.3149,322.79654,5605.0215};
 			name="Town_29";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item839
 		{
 			position[]={4496.0293,293.58835,6415.5781};
 			name="Town_30";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item840
 		{
 			position[]={4751.1348,269.20258,6800.7046};
 			name="Town_31";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item841
 		{
 			position[]={5337.7412,332.80084,8586.1289};
 			name="Town_32";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item842
 		{
 			position[]={6067.2256,300.99762,7768.2173};
 			name="Town_33";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item843
 		{
 			position[]={7071.2568,293.98999,7682.5518};
 			name="Town_34";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item844
 		{
 			position[]={6563.1069,321.99918,6113.6416};
 			name="Town_35";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item845
 		{
 			position[]={7560.999,225.55363,5148.8286};
 			name="Town_36";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item846
 		{
 			position[]={8439.2207,360.39957,6677.7446};
 			name="Town_37";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item847
 		{
 			position[]={9541.2109,302.55081,8815.1074};
 			name="Town_38";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item848
 		{
 			position[]={9620.3086,209.69733,6552.0869};
 			name="Town_39";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item849
 		{
 			position[]={10133.263,245.02214,5451.6987};
 			name="Town_40";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item850
 		{
 			position[]={11271.686,253.80298,5468.6782};
 			name="Town_41";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item851
 		{
 			position[]={11233.498,76.967117,6573.3892};
 			name="Town_42";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item852
 		{
 			position[]={12146.958,185.27824,7268.3379};
 			name="Town_43";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item853
 		{
 			position[]={10676.757,210.99001,8035.0884};
 			name="Town_44";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item854
 		{
 			position[]={5835.4395,135.09471,4755.9678};
 			name="Town_45";
 			type="Empty";
+			colorName="ColorRed";
 		};
 		class Item855
 		{
 			position[]={10415.261,118.20923,9838.9834};
 			name="Town_46";
 			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item856
+		{
+			position[]={3554.0732,358.95609,10329.486};
+			name="Mission_1";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item857
+		{
+			position[]={2122.8215,262.05481,10617.604};
+			name="Mission_2";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item858
+		{
+			position[]={3654.3635,312.08698,7456.605};
+			name="Mission_3";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item859
+		{
+			position[]={4611.2344,300.48544,5933.6987};
+			name="Mission_4";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item860
+		{
+			position[]={2086.5344,174.17706,4163.7134};
+			name="Mission_5";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item861
+		{
+			position[]={1134.1564,128.89546,3970.5425};
+			name="Mission_6";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item862
+		{
+			position[]={4247.3535,9.4756794,2816.0083};
+			name="Mission_7";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item863
+		{
+			position[]={3232.0835,265.70486,4320.9434};
+			name="Mission_8";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item864
+		{
+			position[]={5222.1934,187.82387,3921.125};
+			name="Mission_9";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item865
+		{
+			position[]={6695.6841,74.398926,3696.5078};
+			name="Mission_10";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item866
+		{
+			position[]={8389.2988,9.0608768,2775.5759};
+			name="Mission_11";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item867
+		{
+			position[]={9319.2158,50.667152,2308.3706};
+			name="Mission_12";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item868
+		{
+			position[]={10181.748,23.795893,2833.9756};
+			name="Mission_13";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item869
+		{
+			position[]={13460.595,5.8235955,4175.1602};
+			name="Mission_14";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item870
+		{
+			position[]={11646.634,226.39958,5588.5229};
+			name="Mission_15";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item871
+		{
+			position[]={11289.424,260.20465,5058.1201};
+			name="Mission_16";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item872
+		{
+			position[]={10378.809,231.49133,4732.0288};
+			name="Mission_17";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item873
+		{
+			position[]={13296.343,6.0061302,6564.2461};
+			name="Mission_18";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item874
+		{
+			position[]={12352.074,176.46921,6867.4961};
+			name="Mission_19";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item875
+		{
+			position[]={12463.596,32.815666,8458.0684};
+			name="Mission_20";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item876
+		{
+			position[]={12595.081,5.7483692,9223.0645};
+			name="Mission_21";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item877
+		{
+			position[]={11881.882,65.772827,10191.264};
+			name="Mission_22";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item878
+		{
+			position[]={12196.646,148.66722,12462.348};
+			name="Mission_23";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item879
+		{
+			position[]={11722.508,162.87819,13071.955};
+			name="Mission_24";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item880
+		{
+			position[]={9666.5811,246.04636,11565.869};
+			name="Mission_25";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item881
+		{
+			position[]={9806.0332,144.84807,13231.329};
+			name="Mission_26";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item882
+		{
+			position[]={7817.8408,160.08794,12219.305};
+			name="Mission_27";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item883
+		{
+			position[]={8463.3066,409.37497,9286.8174};
+			name="Mission_28";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item884
+		{
+			position[]={5734.0239,272.84775,10904.468};
+			name="Mission_29";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item885
+		{
+			position[]={6076.6782,333.32913,8657.291};
+			name="Mission_30";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item886
+		{
+			position[]={4821.6074,243.5674,11880.636};
+			name="Mission_31";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item887
+		{
+			position[]={4108.4072,309.39822,8442.1367};
+			name="Mission_32";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item888
+		{
+			position[]={5016.8403,344.44708,9191.1953};
+			name="Mission_33";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item889
+		{
+			position[]={1036.4702,168.09816,7406.2036};
+			name="Mission_34";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item890
+		{
+			position[]={6293.1074,361.79239,6788.0439};
+			name="Mission_35";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item891
+		{
+			position[]={8386.7559,319.90643,6214.4844};
+			name="Mission_36";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item892
+		{
+			position[]={7180.0874,244.25247,5286.7593};
+			name="Mission_37";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item893
+		{
+			position[]={5686.2773,73.405609,2545.4307};
+			name="Mission_38";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item894
+		{
+			position[]={2814.6809,149.97672,3427.0955};
+			name="Mission_39";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item895
+		{
+			position[]={1779.2759,70.139015,2879.3555};
+			name="Mission_40";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item896
+		{
+			position[]={1083.1162,5.3578067,2497.7051};
+			name="Mission_41";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item897
+		{
+			position[]={595.45074,23.711557,1960.5653};
+			name="Mission_42";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item898
+		{
+			position[]={3320.0156,6.0843697,2137.2566};
+			name="Mission_43";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item899
+		{
+			position[]={9975.4082,159.41219,10535.308};
+			name="Mission_44";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item900
+		{
+			position[]={7116.4331,382.24567,9625.2773};
+			name="Mission_45";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item901
+		{
+			position[]={10002.4,181.22797,7214.9038};
+			name="Mission_46";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item902
+		{
+			position[]={9553.6064,259.81433,8441.1348};
+			name="Mission_47";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item903
+		{
+			position[]={10840.819,250.44478,8568.2627};
+			name="Mission_48";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item904
+		{
+			position[]={12872.978,70.019432,11851.474};
+			name="Mission_49";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item905
+		{
+			position[]={12638.76,79.143929,10956.514};
+			name="Mission_50";
+			type="Empty";
+			colorName="ColorOrange";
 		};
 	};
 };

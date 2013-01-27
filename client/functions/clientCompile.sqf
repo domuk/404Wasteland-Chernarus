@@ -20,6 +20,8 @@ spawnAction = compile preprocessFileLineNumbers "client\functions\spawnAction.sq
 client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
 teamkillAction = compile preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
 teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
+loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
+loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
 
 player groupChat "Client Compile Complete";
 sleep 1;

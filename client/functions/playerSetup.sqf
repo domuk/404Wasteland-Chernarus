@@ -6,8 +6,11 @@
 //	@file Args:
 
 _player = _this;
-
 //Player initialization
+_player setskill 0;
+{_player disableAI _x} foreach ["move","anim","target","autotarget"];
+_player setVariable ["BIS_noCoreConversations", true];
+
 enableSentences false;
 _player removeWeapon "ItemRadio";
 _player removeWeapon "ItemGPS";

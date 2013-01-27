@@ -66,5 +66,5 @@ _man7 addMagazine "1Rnd_HE_GP25";
 _man7 addWeapon "AK_74_GL";
 
 _leader = leader _group;
-_man1 setVehicleInit "null = [group this,(getPos this)] execVM 'server\functions\defendArea.sqf'";
+_leader setVehicleInit "null = [group this,(getPos this)] execVM 'server\functions\defendArea.sqf'";
 processInitCommands;

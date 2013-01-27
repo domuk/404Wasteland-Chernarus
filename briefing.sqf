@@ -169,6 +169,27 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.8",
+"
+<br/>
+		[Added] - When spawning on a spawn beacon, you come in via HALO jump.<br/>
+		[Added] - New store interaction system.<br/>
+		[Added] - Supply drop mission written by OCUK MarKeR and tweaked by 404Games.<br/>
+		[Added] - Lots of new mission spawn locations.<br/>
+		[Fixed] - Floating crates/objects sometimes appearing above Novy.<br/>
+		[Fixed] - AI Team defend script. Be careful, they now actually use their mounted weapons!<br/>
+		[Fixed] - Vehicles no longer spawn in silly places / silly angles.<br/>
+		[Fixed] - Not able to interact with stores sometimes.<br/>
+		[Fixed] - Outpost having overpowered weapons.<br/>
+		[Fixed] - Other misc fixes that have been mentioned on the forums, Thanks for your help!<br/>
+		[Improved] - Vehicle HUD to now show the players respective role within the vehicle.<br/>
+		[Improved] - Mission spawning system thanks to Kettlewell.<br/>
+"
+]
+];
+
 player createDiaryRecord["404games",
 [
 "Credits",
@@ -203,7 +224,7 @@ player createDiaryRecord["404games",
 "
 <br/>
 	There is a public Teamspeak 3 server available for players of this server.<br/><br/>
-	Teamspeak IP: ts.404games.co.uk:9988<br/><br/>
+	Teamspeak IP: ts.404games.co.uk<br/><br/>
 	Please join and say hello! (Please speak English)
 "
 ]
@@ -229,7 +250,7 @@ player CreateDiaryRecord["wasteland",
 [
 "WELCOME TO THE WASTELAND",
 "
-The Wasteland is a team versus team versus team sandbox survival experience. The objective of this mission is to rally your faction, scavenge supplies, weapons, and vehicles, and destroy the other factions. It is survival at its best! Keep in mind this is a work in progress, please direct your reports to Deadbeat.
+The Wasteland is a team versus team versus team sandbox survival experience. The objective of this mission is to rally your faction, scavenge supplies, weapons, and vehicles, and destroy the other factions. It is survival at its best! Keep in mind this is a work in progress, please direct your reports to 404Games.
 <br/><br/>
 
 FAQ<br/>
@@ -239,8 +260,8 @@ A. See the above description<br/>
 Q. Where can I get a gun?<br/>
 A. Weapons are found in one of three places, first in ammo caches that randomly spawn around the map inside and outside buildings, and second, in the gear section of the vehicles, which also randomly spawn around the map. The last place to find a gun would be at the gunshops located throughout the map. You can also find them on dead players whose bodies have not yet been looted.
 <br/><br/>
-Q. What are the colored circles on the map?<br/>
-A. The colored circles represent power grids, each color with its own transformer or substation. If you tamper with the substation, the grid will lose power, it will be very inconvenient for anyone looking through the town at night.
+Q. What are the circles on the map?<br/>
+A. The circles represent town limits. If friendly soldiers are in a town, you can spawn there from the re-spawn menu; however if there is an enemy presence, you will not be able to spawn there.
 <br/><br/>
 Q. Why is it so dark, I cant see.<br/>
 A. The server has a day/night cycle just like in the real world, and as such, night time is a factor in your survival. It is recommended that you find sources of light or Night Vision Goggles before the darkness sets in. You can find night vision goggles in vehicles, or you can purchase them at the gunshops.
@@ -252,7 +273,7 @@ Q. Whats with the teapots and big bags?<br/>
 A. This game has a food and water system that you must stay on top of if you hope to survive. You can collect food and water from water barrels, food stands, or dead players bodies. Food and water will randomly spawn around the map. Other items that will randomly spawn are fuel cans for refueling vehicles, medkits for healing yourself, and repair kits for repairing vehicles. Each of these is a one-time-only use item.
 <br/><br/>
 Q. I saw someone breaking a rule, what do I do?<br/>
-A. Simply go into global chat and get the attention of one of the admins and let them know who the offender was and what they did and they will be dealt with swiftly.
+A. Simply go into global chat and get the attention of one of the admins or visit www.404games.co.uk/forum and make a report if the offence is serious.
 <br/>
 "]
 ];

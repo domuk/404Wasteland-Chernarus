@@ -6,8 +6,6 @@
 
 if(!X_Server) exitWith {};
 
-waitUntil{vehicleSpawnComplete};
-
 private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint"];
 _counter = 0;
 
@@ -35,4 +33,3 @@ while {_counter < 770} do
 };
 
 diag_log format["WASTELAND SERVER - %1 Objects Spawned",_counter * 2];
-objectSpawnComplete = true;

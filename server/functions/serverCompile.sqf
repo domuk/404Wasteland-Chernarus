@@ -15,5 +15,6 @@ objectCreation = compile preprocessFileLineNumbers "server\spawning\objectCreati
 staticGunCreation = compile preprocessFileLineNumbers "server\spawning\staticGunCreation.sqf";
 staticHeliCreation = compile preprocessFileLineNumbers "server\spawning\staticHeliCreation.sqf";
 server_playerDied = compile preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
+fn_refillbox = compile preprocessFileLineNumbers "server\functions\fn_refillbox.sqf";
 
 serverCompiledScripts = true;

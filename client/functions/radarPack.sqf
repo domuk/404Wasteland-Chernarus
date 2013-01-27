@@ -36,7 +36,9 @@ for "_iteration" from 1 to _actionDuration do {
 		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
 		sleep 1;
-	};                        
+	};
+
+	if(!alive player) exitWith {};                         
                                                         	    
 	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
 	player switchMove "AinvPknlMstpSlayWrflDnon_medic";

@@ -1,7 +1,5 @@
 if(!isServer) exitWith {};
 
-//waitUntil{ammoCrateSpawnComplete};
-
 diag_log format["WASTELAND SERVER - Started Mission State"];
 
 //Main Mission Array
@@ -11,7 +9,8 @@ _MMarray = ["mission_MBT",
             "mission_APC",
             "mission_Heli",
             "mission_Outpost",
-            "mission_RadarTruck"];          
+            "mission_RadarTruck",
+			"mission_SupplyDrop"];
 
 mainMissionRunning = false;
 _startTime = floor(time);

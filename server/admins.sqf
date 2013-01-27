@@ -17,7 +17,7 @@ publicVariable "moderators";
 administrators = ["18519302", //Venny
 					"57199878", //Garey
                     "13472326", //Delite
-					"bombeh" //Bombeh
+					"27183366" //Bombeh
                     ];
 publicVariable "administrators";
 

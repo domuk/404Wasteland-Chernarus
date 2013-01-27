@@ -12,7 +12,7 @@
 
 if(!isServer) exitwith {};
 diag_log format["WASTELAND SERVER - Mission Started"];
-private ["_base","_unitsAlive","_playerPresent","_missionType","_successTextColour","_mainTextColour","_failTextColour","_subTextColour","_picture","_vehicleName","_rad","_centerPos","_missionTimeOut","_missionDelayTime","_missionTriggerRadius","_missionPlayerRadius","_flatAreas","_randomArea","_hint","_startTime","_currTime","_result","_tank"];
+private ["_base","_unitsAlive","_playerPresent","_missionType","_successTextColour","_mainTextColour","_failTextColour","_subTextColour","_picture","_vehicleName","_rad","_centerPos","_missionTimeOut","_missionDelayTime","_missionTriggerRadius","_missionPlayerRadius","_flatAreas","_randomArea","_hint","_startTime","_currTime","_result","_tank", "_randomPos"];
 
 //Mission Initialization.
 _rad=20000;
@@ -25,9 +25,24 @@ _subTextColour = "#FFFFFF";
 _missionTimeOut = 1800;
 _missionDelayTime = 1200;
 _missionPlayerRadius = 50;
-_centerPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-_flatAreas = nearestLocations [_centerPos, ["FlatArea"], _rad];
-_randomPos = getpos (_flatAreas select random (count _flatAreas -1));
+
+_GotLoc = false;
+while {!_GotLoc} do 
+{
+	_randomIndex = random (count MissionSpawnMarkers - 1);
+
+	//If the index of the mission markers array is false then break the loop and finish up doing the mission
+	if (!((MissionSpawnMarkers select _randomIndex) select 1)) then 
+	{
+		_selectedMarker = MissionSpawnMarkers select _randomIndex select 0;
+		_randomPos = getMarkerPos _selectedMarker;
+		MissionSpawnMarkers select _randomIndex set[1, true];
+		_GotLoc = true;
+	};
+};
+
+//ensure the rest of the script doesn't continue until we are done
+waitUntil {_GotLoc};
 
 //Tell everyone their will be a mission soon.
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", _missionDelayTime / 60, _mainTextColour, _subTextColour];
@@ -38,8 +53,9 @@ diag_log format["WASTELAND SERVER - Mission Waiting to run"];
 _startTime = floor(time);
 waitUntil
 { 
-    _currTime = floor(time);
-    if(_currTime - _startTime >= _missionDelayTime) then {_result = 1;};
+    sleep 1;
+	_currTime = floor(time);
+    if(_currTime - _startTime >= _missionDelayTime) then {_result = 1;};	
     (_result == 1)
 };
 diag_log format["WASTELAND SERVER - Mission Resumed"];
@@ -85,6 +101,9 @@ if(_result == 1) then
 	[nil,nil,rHINT,_hint] call RE;
     diag_log format["WASTELAND SERVER - Mission Finished"];
 };
+
+//Reset Mission Spot.
+MissionSpawnMarkers select _randomIndex set[1, false]; 
 
 //Remove marker from client marker array.
 {

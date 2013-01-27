@@ -6,6 +6,11 @@
 #define respawn_Town_Button2 3405
 #define respawn_Town_Button3 3406
 #define respawn_Town_Button4 3407
+#define respawn_PlayersInTown_Text0 3408
+#define respawn_PlayersInTown_Text1 3409
+#define respawn_PlayersInTown_Text2 3410
+#define respawn_PlayersInTown_Text3 3411
+#define respawn_PlayersInTown_Text4 3412
 
 
 	class RespawnSelectionDialog {
@@ -96,7 +101,62 @@
 	};
 	
 	class controls {
+	
+		class PlayersInTown0: w_RscText
+		{
+			idc = respawn_PlayersInTown_Text0;
+			text = "";
 
+			x = 0.443 * safezoneW + safezoneX;
+			y = 0.443 * safezoneH + safezoneY;
+			w = 0.110 * safezoneW;
+			h = 0.025 * safezoneH;
+		};
+		
+		class PlayersInTown1: w_RscText
+		{
+			idc = respawn_PlayersInTown_Text1;
+			text = "";
+
+			x = 0.443 * safezoneW + safezoneX;
+			y = 0.493 * safezoneH + safezoneY;
+			w = 0.110 * safezoneW;
+			h = 0.025 * safezoneH;
+		};
+		
+		class PlayersInTown2: w_RscText
+		{
+			idc = respawn_PlayersInTown_Text2;
+			text = "";
+
+			x = 0.443 * safezoneW + safezoneX;
+			y = 0.543 * safezoneH + safezoneY;
+			w = 0.110 * safezoneW;
+			h = 0.025 * safezoneH;
+		};
+		
+		class PlayersInTown3: w_RscText
+		{
+			idc = respawn_PlayersInTown_Text3;
+			text = "";
+
+			x = 0.443 * safezoneW + safezoneX;
+			y = 0.593 * safezoneH + safezoneY;
+			w = 0.110 * safezoneW;
+			h = 0.025 * safezoneH;
+		};
+		
+		class PlayersInTown4: w_RscText
+		{
+			idc = respawn_PlayersInTown_Text4;
+			text = "";
+
+			x = 0.443 * safezoneW + safezoneX;
+			y = 0.643 * safezoneH + safezoneY;
+			w = 0.110 * safezoneW;
+			h = 0.025 * safezoneH;
+		};
+		
 		class RandomSpawnButton: w_RscButton
 		{
 			idc = -1;

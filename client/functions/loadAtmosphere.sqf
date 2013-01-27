@@ -7,7 +7,7 @@
 "filmGrain" ppEffectEnable true; 
 "filmGrain" ppEffectAdjust [0.02, 1, 1, 0.1, 1, false];
 "filmGrain" ppEffectCommit 5;
-
+if !(_this) exitWith{};
 //--- Wind & Dust
 [] spawn {
     waituntil {isplayer player};

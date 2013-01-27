@@ -28,6 +28,7 @@ if (_type == 0) then {
     _car setFuel (0.50);
     _car setDamage (random 0.50);
     _car setDir (random 360);
+	_car setVelocity [0,0,1];
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
@@ -51,9 +52,10 @@ if (_type == 1) then {
     _car setFuel (0.50);
     _car setDamage (random 0.50);
     _car setDir (random 360);
+	_car setVelocity [0,0,1];
     [_car] call randomWeapons;
 
-	//Set original posistion then add to vehicle array
+	//Set authenticity
 	_car setVariable["original",1,true];
 };
 
@@ -75,6 +77,7 @@ if (_type == 2) then {
     _car setDamage (random 0.50);
     _car setDir (random 360);
     _car setVehicleAmmo (random 0.90);
+	_car setVelocity [0,0,1];
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array

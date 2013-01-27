@@ -61,5 +61,6 @@ for "_i" from 0 to ((count _objs) - 1) do
 		if (!isNil "_damage") then {_newObj setDamage _damage};
 		if (!isNil "_vehicleinit") then {_newObj setVehicleInit format ["%1;",_vehicleinit]};
 		processInitCommands;
+		clearVehicleInit _newObj;  //Stop weapon boxes refilling themselves 
 		_newObjs = _newObjs + [_newObj];	
 };

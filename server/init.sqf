@@ -13,27 +13,26 @@ serverSpawning = 1;
 //Execute Server Side Scripts.
 [] execVM "server\admins.sqf";
 [] execVM "server\functions\serverVars.sqf";
-[] execVM "server\functions\serverCompile.sqf";
+_serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\broadcaster.sqf";
 [] execVM "server\functions\relations.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
-waitUntil{serverCompiledScripts};
+waitUntil{scriptDone _serverCompiledScripts};
 
 diag_log format["WASTELAND SERVER - Server Complie Finished"];
 
 //Execute Server Spawning.
 if (serverSpawning == 1) then {
     diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
-    vehicleSpawnComplete = false;
-    objectSpawnComplete = false;
-    ammoCrateSpawnComplete = false;
-    staticGunSpawningComplete = false;
-    staticHeliSpawningComplete = false;
-	[] execVM "server\functions\vehicleSpawning.sqf";
-    [] execVM "server\functions\objectsSpawning.sqf";
-    [] execVM "server\functions\boxSpawning.sqf";
-    [] execVM "server\functions\staticGunSpawning.sqf";
-    [] execVM "server\functions\staticHeliSpawning.sqf";
+	_vehSpawn = [] ExecVM "server\functions\vehicleSpawning.sqf";
+	waitUntil{sleep 0.1; scriptDone _vehSpawn};
+    _objSpawn = [] ExecVM "server\functions\objectsSpawning.sqf";
+	waitUntil{sleep 0.1; scriptDone _objSpawn};
+    _boxSpawn = [] ExecVM "server\functions\boxSpawning.sqf";
+	waitUntil{sleep 0.1; scriptDone _boxSpawn};
+    _gunSpawn = [] ExecVM "server\functions\staticGunSpawning.sqf";
+	waitUntil{sleep 0.1; scriptDone _gunSpawn};
+    _heliSpawn= [] ExecVM "server\functions\staticHeliSpawning.sqf";
 };
 
 //Execute Server Missions.
