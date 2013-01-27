@@ -31,8 +31,24 @@ while {true} do
         _vehicle = assignedVehicle player;
 
         {
-            _tempString = format ["%1 %2 <img size='0.8' image='client\icons\arrow.paa'/><br/>",_tempString, (name _x)];
-            _yOffset = _yOffset + 0.04;
+            if((driver _vehicle == _x) || (gunner _vehicle == _x)) then
+            {
+                if(driver _vehicle == _x) then
+                {
+                    _tempString = format ["%1 %2 <img size='0.8' image='client\icons\driver.paa'/><br/>",_tempString, (name _x)];
+                    _yOffset = _yOffset + 0.04;
+                }
+                else
+                {
+                    _tempString = format ["%1 %2 <img size='0.8' image='client\icons\gunner.paa'/><br/>",_tempString, (name _x)];
+                    _yOffset = _yOffset + 0.04;
+                }; 
+            }
+            else
+            {
+                _tempString = format ["%1 %2 <img size='0.8' image='client\icons\cargo.paa'/><br/>",_tempString, (name _x)];
+                _yOffset = _yOffset + 0.04;
+            };    
         } forEach crew _vehicle;
 
         _hudVehicle ctrlSetStructuredText parseText _tempString;

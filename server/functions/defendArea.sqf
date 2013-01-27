@@ -35,7 +35,7 @@ _pos = _this select 1;
 _grp setBehaviour "SAFE";
 
 private ["_list", "_units","_staticWeapons"];
-_list = _pos nearObjects ["LandVehicle", 120];
+_list = _pos nearObjects ["StaticWeapon", 120];
 _units = (units _grp) - [leader _grp]; // The leader should not man defenses
 _staticWeapons = [];
 

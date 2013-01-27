@@ -190,6 +190,18 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.8a",
+"
+<br/>
+		[Fixed] - AI getting into mission vehicles.<br/>
+		[Fixed] - Fixed some issues with missions.<br/>
+		[Fixed] - Added in some defines for missions to easily edit the times.<br/>
+"
+]
+];
+
 player createDiaryRecord["404games",
 [
 "Credits",

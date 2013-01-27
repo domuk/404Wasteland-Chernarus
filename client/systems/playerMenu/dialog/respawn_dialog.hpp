@@ -109,7 +109,7 @@
 
 			x = 0.443 * safezoneW + safezoneX;
 			y = 0.443 * safezoneH + safezoneY;
-			w = 0.110 * safezoneW;
+			w = 0.230 * safezoneW;
 			h = 0.025 * safezoneH;
 		};
 		
@@ -120,7 +120,7 @@
 
 			x = 0.443 * safezoneW + safezoneX;
 			y = 0.493 * safezoneH + safezoneY;
-			w = 0.110 * safezoneW;
+			w = 0.230 * safezoneW;
 			h = 0.025 * safezoneH;
 		};
 		
@@ -131,7 +131,7 @@
 
 			x = 0.443 * safezoneW + safezoneX;
 			y = 0.543 * safezoneH + safezoneY;
-			w = 0.110 * safezoneW;
+			w = 0.230 * safezoneW;
 			h = 0.025 * safezoneH;
 		};
 		
@@ -142,7 +142,7 @@
 
 			x = 0.443 * safezoneW + safezoneX;
 			y = 0.593 * safezoneH + safezoneY;
-			w = 0.110 * safezoneW;
+			w = 0.230 * safezoneW;
 			h = 0.025 * safezoneH;
 		};
 		
@@ -153,7 +153,7 @@
 
 			x = 0.443 * safezoneW + safezoneX;
 			y = 0.643 * safezoneH + safezoneY;
-			w = 0.110 * safezoneW;
+			w = 0.230 * safezoneW;
 			h = 0.025 * safezoneH;
 		};
 		

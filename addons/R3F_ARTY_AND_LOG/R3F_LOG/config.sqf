@@ -69,17 +69,10 @@ R3F_LOG_CFG_objets_remorquables = [
 	"SUV_Base_EP1",
 	"Volha_TK_CIV_Base_EP1",
 	"BAF_Jackal2_BASE_D",
-//	"ATV_Base_EP1",
 	"An2_Base_EP1",
 	"M119",
 	"D30_base",
-	"ZU23_base",
-
-	"Land_fortified_nest_big",
-	"Land_ConcreteRamp",
-	"RampConcrete",
-	"Land_ConcreteBlock",
-	"Land_Fort_Watchtower"
+	"ZU23_base"
 ];
 
 /****** LIFT WITH VEHICLE / HELIPORTER AVEC VEHICULE ******/

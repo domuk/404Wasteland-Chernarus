@@ -4,12 +4,13 @@ if(!X_Server) exitWith {};
 moderators = ["32077894", //Krykiln
 				"87053254", //Shaneyport
 				"8626566", //Teacup
-				"1279378", //Bane
+				"12793798", //Bane
 				"73698182", //unDead
 				"59344390", //Ian
 				"38204230", //JellaFish
 				"2771014", //MiniDude
                 "91598150", //Rainforger
+                "90615878", // Killer4791
                 "2264774" //Vesper
 				]; 
 publicVariable "moderators"; 
