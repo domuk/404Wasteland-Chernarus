@@ -30,14 +30,13 @@ _iteration = 0;
 if(_destroyOrSteal == 0 AND (player getVariable "spawnBeacon") > 0) exitWith {
 	player globalChat localize "STR_WL_Errors_BeaconTooMany";
 }; 
-
 	
 player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
 
 switch (_destroyOrSteal) do {
     case 0:{ // Steal
     
-    	_totalDuration = 90; // This will NOT be easy >:)
+    	_totalDuration = 60; // This will NOT be easy >:)
 		_lockDuration = _totalDuration;
      	mutexScriptInProgress = true;
     
@@ -48,22 +47,33 @@ switch (_destroyOrSteal) do {
         		player action ["eject", vehicle player];
 				sleep 1;
 				mutexScriptInProgress = false;
-			};   
+			};  
+            
+            if (doCancelAction) exitWith {// Player selected "cancel action".
+    			2 cutText ["", "PLAIN DOWN", 1];
+        		doCancelAction = false;
+    			mutexScriptInProgress = false;
+			}; 
+            
+            if (!(alive player)) exitWith {// If the player dies, revert state.
+				2 cutText ["Steal spawn beacon interrupted...", "PLAIN DOWN", 1];
+                mutexScriptInProgress = false;
+			};
+                
+			if(player distance _currSpawnBeacon > 5) exitWith { // If the player leaves, revert state.
+				2 cutText ["Steal spawn beacon interrupted...", "PLAIN DOWN", 1];
+		        mutexScriptInProgress = false;
+			}; 
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the steal.
 		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 		    };
 		    
-			_lockDuration = _lockDuration - 1;
+            _lockDuration = _lockDuration - 1;
 			_iterationPercentage = floor (_iteration / _totalDuration * 100);
 				    
 			2 cutText [format["Steal spawn beacon %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 			sleep 1;
-				    
-			if(player distance (nearestobjects [player, ["Satelit"],  5] select 0) > 5) exitWith { // If the player dies, revert state.
-				2 cutText ["Steal spawn beacon interrupted...", "PLAIN DOWN", 1];
-		        mutexScriptInProgress = false;
-			};
 				    
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that steal has completed.
 				sleep 1;
@@ -87,7 +97,7 @@ switch (_destroyOrSteal) do {
 		};
     };
     case 1:{ // Destroy
-    
+                          
    	 	_totalDuration = 30; // This will NOT be easy >:)
 		_lockDuration = _totalDuration;
         mutexScriptInProgress = true;
@@ -99,22 +109,33 @@ switch (_destroyOrSteal) do {
         		player action ["eject", vehicle player];
 				sleep 1;
 				mutexScriptInProgress = false;
-			};   
+			};  
+             
+            if (doCancelAction) exitWith {// Player selected "cancel action".
+    			2 cutText ["", "PLAIN DOWN", 1];
+        		doCancelAction = false;
+    			mutexScriptInProgress = false;
+			}; 
+            
+            if (!(alive player)) exitWith {// If the player dies, revert state.
+				2 cutText ["Destroy spawn beacon interrupted...", "PLAIN DOWN", 1];
+                mutexScriptInProgress = false;
+			};    
+						    
+			if(player distance _currSpawnBeacon > 5) exitWith { // If the player leaves, revert state.
+				2 cutText ["Destroy spawn beacon interrupted...", "PLAIN DOWN", 1];
+		        mutexScriptInProgress = false;
+			};
 		    
 		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the destroy.
 		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
-		    };
-		    
-			_lockDuration = _lockDuration - 1;
+		    };    
+            
+            _lockDuration = _lockDuration - 1;
 			_iterationPercentage = floor (_iteration / _totalDuration * 100);
-				    
-			2 cutText [format["Destroy spawn beacon %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
+            
+            2 cutText [format["Destroy spawn beacon %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 			sleep 1;
-				    
-			if(player distance _currSpawnBeacon > 50) exitWith { // If the player dies, revert state.
-				2 cutText ["Destroying spawn beacon interrupted...", "PLAIN DOWN", 1];
-		        mutexScriptInProgress = false;
-			};
 				    
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that destroy has completed.
 				sleep 1;
@@ -124,11 +145,11 @@ switch (_destroyOrSteal) do {
                 _currBeaconTemp = (nearestObjects [getpos player, ["Satelit"],  5]);
                 
 		        if(count _currBeaconTemp == 0) then { // Check if the beacon has been removed since curr player started interacting with it.
-                	hint "Your attempt to destroy the enemy spawn beacon was unsuccessful.";
+                	hint "Your attempt to destroy the spawn beacon was unsuccessful.";
                     mutexScriptInProgress = false;
                 } else {
 	               	deleteVehicle (nearestobjects [getpos player, ["Satelit"],  5] select 0);
-	                hint "You have successfully destroyed the enemy spawn beacon.";
+	                hint "You have successfully destroyed the spawn beacon.";
 			        mutexScriptInProgress = false;	
                                     
 	                [_currBeaconOwnerUID] execVM "client\functions\cleanBeaconArrays.sqf"; // Now that the previous instance of the spawn beacon has been technically removed, remove it from the spawn locations list.

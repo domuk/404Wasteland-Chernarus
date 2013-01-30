@@ -12,8 +12,6 @@ _counter = 0;
 _countActual = 0;
 _i = 0;
 
-diag_log format["Static Heli Spawning Started"];
-
 while {_counter < 8} do // 8 helis spawn at the beginning
 {
 	_selectedMarker = floor (random 24);

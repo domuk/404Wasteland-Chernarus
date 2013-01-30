@@ -49,23 +49,32 @@ for "_iteration" from 1 to _actionDuration do {
         player action ["eject", vehicle player];
 		sleep 1;
 	};
+    
+    if (doCancelAction) exitWith {// Player selected "cancel action".
+    	2 cutText ["", "PLAIN DOWN", 1];
+        doCancelAction = false;
+    	mutexScriptInProgress = false;
+	}; 
 
-	if(!alive player) exitWith {};  // If they die while in the loop                      
+	if (!(alive player)) exitWith {// If the player dies, revert state.
+		2 cutText ["Radar deploy interrupted...", "PLAIN DOWN", 1];
+    	mutexScriptInProgress = false;
+	};     
+    
+    if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
+		2 cutText ["Radar deploy interrupted...", "PLAIN DOWN", 1];
+		mutexScriptInProgress = false;       
+    };          
                                                         	    
 	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
-	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 	};
 			    
 	_actionDuration = _actionDuration - 1;
 	_iterationPercentage = floor (_iteration / _totalDuration * 100);
 					    
 	2 cutText [format["Unpacking radar station %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
-	sleep 1;
-					    
-	if(player distance _currObject > 50) exitWith { // If the player dies, revert state.
-	2 cutText ["Unpack radar station interrupted...", "PLAIN DOWN", 1];
-	mutexScriptInProgress = false;
-	};
+	sleep 1;					   
 					    
 	if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that place has completed.
 		sleep 1;

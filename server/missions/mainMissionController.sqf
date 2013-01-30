@@ -7,25 +7,44 @@
 
 if(!isServer) exitWith {};
 
-diag_log format["WASTELAND SERVER - Started Mission State"];
+private ["_MMarray","_lastMission","_randomIndex","_mission","_missionType","_newMissionArray","_lastMission"];
+
+diag_log format["WASTELAND SERVER - Started Main Mission State"];
 
 //Main Mission Array
-_MMarray = ["mission_SupplyDrop",
-			"mission_APC",
-			"mission_Heli",
-			"mission_LightArmVeh",
-			"mission_LightTank",
-			"mission_MBT",
-			"mission_Outpost",
-			"mission_RadarTruck"
-			];
-
+_MMarray = [
+			[mission_SupplyDrop,"mission_SupplyDrop"],
+			[mission_APC,"mission_APC"],
+            [mission_Heli,"mission_Heli"],
+            [mission_LightArmVeh,"mission_LightArmVeh"],
+            [mission_LightTank,"mission_LightTank"],
+            [mission_MBT,"mission_MBT"],
+            [mission_Outpost,"mission_Outpost"],
+            [mission_RadarTruck,"mission_RadarTruck"]];
+            
+_lastMission = "nomission";
 while {true} do
 {
-	_mission = _MMarray select (random (count _MMarray - 1));
-	_missionRunning = [] ExecVM format ["server\missions\mainMissions\%1.sqf",_mission];
-    diag_log format["WASTELAND SERVER - Execute New Mission"];
+    //Select Mission
+    _randomIndex = (random (count _MMarray - 1));
+	_mission = _MMarray select _randomIndex select 0;
+    _missionType = _MMarray select _randomIndex select 1;
+
+	//Select new mission if the same
+    if(str(_missionType) == _lastMission) then
+    {
+        _MMarray set [_randomIndex, "REMOVETHISCRAP"];
+        _newMissionArray = _MMarray - ["REMOVETHISCRAP"];
+        _randomIndex = (random (count _newMissionArray - 1));
+        _missionType = _newMissionArray select _randomIndex select 1;
+        _mission = _newMissionArray select _randomIndex select 0;   
+    };
+    
+	_missionRunning = [] spawn _mission;
+    diag_log format["WASTELAND SERVER - Execute New Main Mission: %1",_missionType];
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", mainMissionDelayTime / 60, mainMissionColor, subTextColor];
 	[nil,nil,rHINT,_hint] call RE;
-	waitUntil{sleep 0.1; scriptDone _missionRunning}; 
+    _lastMission = _missionType;
+	waitUntil{sleep 0.1; scriptDone _missionRunning};
+    sleep 5; 
 };

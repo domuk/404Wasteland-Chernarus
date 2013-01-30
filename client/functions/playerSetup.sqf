@@ -56,9 +56,9 @@ thirstLevel = 100;
 hungerLevel = 100;
 
 _player setVariable["cmoney",100,false];
-_player setVariable["canfood",2,false];
+_player setVariable["canfood",1,false];
 _player setVariable["medkits",0,false];
-_player setVariable["water",2,false];
+_player setVariable["water",1,false];
 _player setVariable["fuel",0,false];
 _player setVariable["repairkits",0,false];
 _player setVariable["fuelFull", 0, false];

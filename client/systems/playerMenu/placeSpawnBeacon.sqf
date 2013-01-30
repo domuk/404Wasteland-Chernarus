@@ -18,7 +18,6 @@ if(vehicle player != player) exitWith {
 };
 
 _stringEscapePercent = "%"; // Required to get the % sign into a formatted string.
-
 _totalDuration = 30; // This will NOT be easy >:)
 _lockDuration = _totalDuration;
 _iteration = 0;
@@ -55,25 +54,33 @@ for "_iteration" from 1 to _lockDuration do {
 	if(vehicle player != player) exitWith {
 		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
-		sleep 1;
-	};
-
-	if(!alive player) exitWith {};                        
+	};  
+    
+    if (doCancelAction) exitWith {// Player selected "cancel action".
+    	2 cutText ["", "PLAIN DOWN", 1];
+        doCancelAction = false;
+    	mutexScriptInProgress = false;
+	}; 
+    
+    if (!(alive player)) exitWith {// If the player dies, revert state.
+		2 cutText ["Place spawn beacon interrupted...", "PLAIN DOWN", 1];
+    	mutexScriptInProgress = false;
+	};	
+    		    
+	if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
+		2 cutText ["Place spawn beacon interrupted...", "PLAIN DOWN", 1];
+		mutexScriptInProgress = false;
+	};                  
                                                         	    
 	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
-	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 	};
-			    
+    	    
 	_lockDuration = _lockDuration - 1;
 	_iterationPercentage = floor (_iteration / _totalDuration * 100);
 					    
 	2 cutText [format["Placing spawn beacon %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 	sleep 1;
-					    
-	if(player distance _currObject > 50) exitWith { // If the player dies, revert state.
-	2 cutText ["Place spawn beacon interrupted...", "PLAIN DOWN", 1];
-	mutexScriptInProgress = false;
-	};
 					    
 	if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that place has completed.
 		sleep 1;
