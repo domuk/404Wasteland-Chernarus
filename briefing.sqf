@@ -202,32 +202,6 @@ player createDiaryRecord["changelog",
 ]
 ];
 
-player createDiaryRecord["changelog",
-[
-"2.9",
-"
-<br/>
-		[Added] - Most interactions now have a Cancel Action option.<br/>
-		[Fixed] - Abandoned Truck showing up as recon vehicle.<br/>
-		[Fixed] - Object lock now functions correctly.<br/>
-		[Fixed] - Spawn beacon, radar, object etc unlock/lock actions now stop on death.<br/>    
-		[Fixed] - The mission RPT errors.<br/>
-		[Fixed] - The vehicle count RPT error.<br/>
-		[Fixed] - mission_Outpost timeout.<br/>
-		[Changed] - Gun and General stores no longer have over-powered super radars.<br/>
-		[Changed] - Player now starts with only 1x food and water.<br/>
-		[Changed] - Added more variation to vehicle weapons spawns and removed OP weapons.<br/>
-		[Enhancement] - Refuel and Repair vehicle functions have been improved.<br/>
-		[Enhancement] - The mission RPT's to have more information to help with debuging.<br/>
-		[Enhancement] - Server startup optimizations.<br/>
-		[Enhancement] - General wasteland mission optimizations; many changes to improve performance.<br/>
-		[Enhancement] - Made some changes to defend area to make the AI more aware.<br/>
-		[Enhancement] - The mission system is now all pre compiled and steamlined to make it run smoother.<br/>
-		[Enhancement] - Mission will no longer run the same one twice.<br/>  
-"
-]
-];
-
 player createDiaryRecord["404games",
 [
 "Credits",

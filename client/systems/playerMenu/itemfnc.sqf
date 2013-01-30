@@ -1,8 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: itemfnc.sqf
-//	@file Original Author: TAW_Tonic
-//  @file Author: [404] Costlyy, [404] Deadbeat
+//	@file Author: TAW_Tonic
 //	@file Created: 01/01/1970 00:00
 //	@file Args: [int (0 = use | 1 = drop)]
 
@@ -25,7 +24,7 @@ switch(_switch) do
 		{
 			case "fuelFull": 
 			{
-				[] call refuelVehicle;
+				[] call compile preProcessFile "client\systems\playerMenu\refuel.sqf";
 			};
 
 			case "fuelEmpty": 
@@ -35,69 +34,34 @@ switch(_switch) do
 
 			case "repairkits": 
 			{
-				[] call repairVehicle;
+				[] call compile preProcessFile "client\systems\playerMenu\repair.sqf";
 			};
 
 			case "canfood": 
 			{
-            	// Check if mutex lock is active.
-				if(mutexScriptInProgress) exitWith {
-					player globalChat localize "STR_WL_Errors_InProgress";
-				};
-            
-            	mutexScriptInProgress = true;
-                _currState = animationState player;
-                
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSnonWnonDnon_healed_1";};
-                
-                for "_i" from 1 to 50 do
-                {
-                	if (doCancelAction) exitWith {// Player selected "cancel action"
-    					mutexScriptInProgress = false;
-					}; 
-                	sleep 0.1;
-                };
-                
-                if (!(doCancelAction)) then {
-                	player setVariable["canfood",(player getVariable "canfood")-1,true];
-					hungerLevel = hungerLevel + 30;
-					if(hungerLevel > 100) then {hungerLevel = 100};
-                	mutexScriptInProgress = false;
-                } else {
-                	player switchMove _currState;
-                	doCancelAction = false;
-                };
+            	
+                mutexScriptInProgress = true;
+				if((vehicle player) == player) then {player playmove "AinvPknlMstpSnonWnonDnon_healed_1";};
+				player setVariable["canfood",(player getVariable "canfood")-1,true];
+				hungerLevel = hungerLevel + 30;
+				if(hungerLevel > 100) then {hungerLevel = 100};
+                sleep 3;
+                mutexScriptInProgress = false;
+        		player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
+
 			};
 			case "water": 
 			{
-            	// Check if mutex lock is active.
-				if(mutexScriptInProgress) exitWith {
-					player globalChat localize "STR_WL_Errors_InProgress";
-				};
-            	
                 mutexScriptInProgress = true;
-                _currState = animationState player;
-                
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSnonWnonDnon_healed_1";};
-                
-                for "_i" from 1 to 50 do
-                {
-                	if (doCancelAction) exitWith {// Player selected "cancel action"
-    					mutexScriptInProgress = false;
-					}; 
-                	sleep 0.1;
-                };
-                
-                if (!(doCancelAction)) then {
-                	player setVariable["water",(player getVariable "water")-1,true];
-					thirstLevel = thirstLevel + 50;
-					if(thirstLevel > 100) then {thirstLevel = 100};
-                	mutexScriptInProgress = false;
-                } else {
-                	player switchMove _currState;
-                	doCancelAction = false;
-                };     
+				if((vehicle player) == player) then {player playmove "AinvPknlMstpSnonWnonDnon_healed_1";};
+				player setVariable["water",(player getVariable "water")-1,true];
+				thirstLevel = thirstLevel + 50;
+				if(thirstLevel > 100) then {thirstLevel = 100};
+				sleep 3;
+                mutexScriptInProgress = false;
+                player playmove "AinvPknlMstpSnonWnonDnon_healed_1";
 			};
+
 			case "medkit": 
 			{
 				if((damage player) < 0.25) exitwith {
@@ -128,7 +92,7 @@ switch(_switch) do
 			};            
             case "spawnBeacon": 
             {
-            	[] call placeSpawnBeacon;
+            	[] execVM "client\systems\playerMenu\placeSpawnBeacon.sqf";
             };
 		};
 	};

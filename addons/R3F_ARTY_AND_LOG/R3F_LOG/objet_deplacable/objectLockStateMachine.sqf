@@ -1,8 +1,10 @@
-//	@file Author: [404] Costlyy
-//	@file Version: 1.0
-//  @file Date:	21/11/2012	
-//	@file Description: Locks an object until the player disconnects.
-//	@file Args: [object,player,int,lockState(lock = 0 / unlock = 1)]
+/*
+	@file Author: [404] Costlyy
+	@file Version: 1.0
+   	@file Date:	21/11/2012	
+	@file Description: Locks an object until the player disconnects.
+	@file Args: [object,player,int,lockState(lock = 0 / unlock = 1)]
+*/
 
 // Check if mutex lock is active.
 if(R3F_LOG_mutex_local_verrou) exitWith {
@@ -15,39 +17,31 @@ _currObject = _this select 0;
 _lockState = _this select 3;
 
 _totalDuration = 0;
-_stringEscapePercent = "%";
+_stringEscapePercent = "%"; // Required to get the % sign into a formatted string.
 
 switch (_lockState) do {
     case 0:{ // LOCK
     
-    	R3F_LOG_mutex_local_verrou = true;
+    	R3F_LOG_mutex_local_verrou = true; // Set mutex lock to stop the player performing concurrent actions.
+    
 		_totalDuration = 5;
 		_lockDuration = _totalDuration;
 		_iteration = 0;
 		
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
 		
 		for "_iteration" from 1 to _lockDuration do {
 		    
-            if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
-		        2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
-                R3F_LOG_mutex_local_verrou = false;
-			};
-            
-            if (!(alive player)) exitWith {// If the player dies, revert state.
-				2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
-                R3F_LOG_mutex_local_verrou = false;
-			};
-            
-            if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
-                player switchMove "AinvPknlMstpSlayWrflDnon_medic";
-            };
-            
 			_lockDuration = _lockDuration - 1;
 		    _iterationPercentage = floor (_iteration / _totalDuration * 100);
 		    
 			2 cutText [format["Object lock %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 		    sleep 1;
+		    
+		    if(player distance _currObject > 50) exitWith { // If the player dies, revert state.
+		        2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
+                R3F_LOG_mutex_local_verrou = false;
+			};
 		    
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that lock has completed.
 		        sleep 1;
@@ -61,25 +55,16 @@ switch (_lockState) do {
     };
     case 1:{ // UNLOCK
         
-        R3F_LOG_mutex_local_verrou = true;
+        R3F_LOG_mutex_local_verrou = true; // Set mutex lock to stop the player performing concurrent actions.
+		
 		_totalDuration = 45;
 		_unlockDuration = _totalDuration;
 		_iteration = 0;
 		
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
 		
 		for "_iteration" from 1 to _unlockDuration do {
 		    
-            if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
-		        2 cutText ["Object unlock interrupted...", "PLAIN DOWN", 1];
-                R3F_LOG_mutex_local_verrou = false;
-			};
-            
-            if (!(alive player)) exitWith {// If the player dies, revert state.
-				2 cutText ["Object unlock interrupted...", "PLAIN DOWN", 1];
-                R3F_LOG_mutex_local_verrou = false;
-			};
-            
             if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
                 player switchMove "AinvPknlMstpSlayWrflDnon_medic";
             };
@@ -90,9 +75,14 @@ switch (_lockState) do {
 			2 cutText [format["Object unlock %1%2 complete", _iterationPercentage, _stringEscapePercent], "PLAIN DOWN", 1];
 		    sleep 1;
 		    
+		    if(player distance _currObject > 50) exitWith { // If the player dies, revert state.
+		        2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
+                R3F_LOG_mutex_local_verrou = false;
+			};
+		    
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that lock has completed
 		        sleep 1;
-                _currObject setVariable ["objectLocked", false, true];
+                _currObject setVariable ["objectLocked", false, false];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
 		    }; 
@@ -101,6 +91,7 @@ switch (_lockState) do {
 		player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation.     
     };
     default{  // This should not happen... 
+        hint "An error has occured in LockStateMachine.sqf and the current action can not be completed. Please notify the server administrator.";
         diag_log format["WASTELAND DEBUG: An error has occured in LockStateMachine.sqf. _lockState was unknown. _lockState actual: %1", _lockState];
     };
     

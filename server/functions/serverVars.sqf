@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: serverVars.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 // --------------------------------------------------------------------------------------------------- \\
@@ -151,36 +151,53 @@ staticHeliList = ["UH1H_TK_GUE_EP1",
 				"Mi17_Civilian",
                 "MV22",
                 "CH_47F_EP1",
+                "Mi17_TK_EP1",
                 "MH6J_EP1",
                 "UH60M_MEV_EP1",
                 "AH6X_EP1"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
-vehicleWeapons = ["AK_107_kobra",
+vehicleWeapons = ["AK_107_GL_kobra",
+				"AK_107_kobra",
 				"AK_47_M",
 				"AK_47_S",
 				"AK_74",
+				"AK_74_GL",
+				"AK_74_GL_kobra",
+				"BAF_L110A1_Aim",
+				"BAF_L7A2_GPMG",
 				"BAF_L85A2_RIS_ACOG",
+				"BAF_L85A2_UGL_Holo",
+				"BAF_L86A2_ACOG",
 				"bizon",
 				"bizon_silenced",
 				"FN_FAL",
 				"G36a",
+				"G36_C_SD_eotech",
 				"LeeEnfield",
 				"M1014",
 				"M16A2",
+				"M14_EP1",
+				"M16A2GL",
 				"m16a4",
+				"M240",
+				"M249",
 				"M4A1_Aim",
+				"M4A1_HWS_GL",
+				"M4A3_CCO_EP1",
+				"M60A4_EP1",
+				"m8_carbine",
+				"MG36",
+				"Mk_48",
 				"MP5A5",
 				"Sa58V_EP1",
+				"Sa58V_CCO_EP1",
 				"Saiga12K",
-				"SCAR_L_CQC",
-                "M9",
-                "M9SD",
-                "revolver_EP1",
-                "Sa61_EP1",
-                "UZI_EP1"];
+				"SCAR_H_CQC_CCO",
+				"SCAR_L_CQC"];
                 
 MissionSpawnMarkers = [
+			["Mission_0",false],
             ["Mission_1",false],
             ["Mission_2",false],
             ["Mission_3",false],

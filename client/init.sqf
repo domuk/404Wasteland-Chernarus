@@ -10,7 +10,6 @@ mutexScriptInProgress = false;
 respawnDialogActive = false;
 groupManagmentActive = false;
 pvar_PlayerTeamKiller = objNull;
-doCancelAction = false;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 

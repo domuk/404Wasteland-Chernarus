@@ -32,7 +32,7 @@ private ["_grp", "_pos"];
 _grp = _this select 0;
 _pos = _this select 1;
 
-_grp setBehaviour "AWARE";
+_grp setBehaviour "SAFE";
 
 private ["_list", "_units","_staticWeapons"];
 _list = _pos nearObjects ["StaticWeapon", 120];
@@ -69,9 +69,9 @@ private ["_wp1","_wp2","_wp3","_wp4"];
 
 _wp1 = _grp addWaypoint [_pos, 0];
 _wp1 setWaypointType "MOVE";
-[_grp, 1] setWaypointSpeed "NORMAL";
-[_grp, 1] setWaypointBehaviour "AWARE";
-[_grp, 1] setWaypointCombatMode "RED";
+[_grp, 1] setWaypointSpeed "LIMITED";
+[_grp, 1] setWaypointBehaviour "SAFE";
+[_grp, 1] setWaypointCombatMode "YELLOW";
 [_grp, 1] setWaypointFormation "STAG COLUMN";
 [_grp, 1] setWaypointCompletionRadius 50;
 [_grp, 1] setWaypointStatements ["true", "null = [this] spawn {
