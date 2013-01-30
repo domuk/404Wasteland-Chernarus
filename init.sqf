@@ -14,7 +14,7 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "v2.8a";
+versionName = "v2.9";
 
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
