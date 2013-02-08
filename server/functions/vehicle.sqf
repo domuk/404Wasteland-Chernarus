@@ -56,9 +56,9 @@ Contact & Bugreport: harlechin@hotmail.com
 
 =========================================================
 */
-  
+ 
 if (!isServer) exitWith {};
-
+#include "setup.sqf" 
 // Define variables
 _unit = _this select 0;
 _delay = if (count _this > 1) then {_this select 1} else {30};
@@ -87,13 +87,20 @@ _position = getPosASL _unit;
 _type = typeOf _unit;
 _dead = false;
 _nodelay = false;
-
+#ifdef __A2NET__
+_startTime = floor(netTime);
+#else
 _startTime = floor(time);
+#endif
 
 // Start monitoring the vehicle
 while {_run} do 
 {	
+	#ifdef __A2NET__
+	_currTime = floor(netTime);
+	#else
 	_currTime = floor(time);
+	#endif
     if(_currTime - _startTime >= 300) then {_result = 1;};
         
 	if(_result == 1) then
@@ -106,9 +113,18 @@ while {_run} do
 		{
 			if ((getPosASL _unit distance _position > 10) and ({alive _x} count crew _unit == 0) and (getDammage _unit < 0.8)) then 
 			{
+				#ifdef __A2NET__
+				_timeout = netTime + _deserted;
+				#else
 				_timeout = time + _deserted;
+				#endif
+				
 				sleep 0.1;
-			 	waitUntil {_timeout < time or !alive _unit or {alive _x} count crew _unit > 0};
+				#ifdef __A2NET__
+			 	waitUntil {_timeout < netTime or !alive _unit or {alive _x} count crew _unit > 0};
+				#else
+				waitUntil {_timeout < time or !alive _unit or {alive _x} count crew _unit > 0};
+				#endif
 				if ({alive _x} count crew _unit > 0) then {_dead = false}; 
 				if ({alive _x} count crew _unit == 0) then {_dead = true; _nodelay =true}; 
 				if !(alive _unit) then {_dead = true; _nodelay = false}; 
@@ -133,8 +149,12 @@ while {_run} do
 			[_position, _type] call vehicleCreation;
 			_run = false;
 		};
+        #ifdef __A2NET__
+		_startTime = floor(netTime);
+		#else
+		_startTime = floor(time);
+		#endif
         
-        _startTime = floor(time);
 		_result = 0;
     } else {
     	sleep 5;

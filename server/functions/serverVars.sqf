@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: serverVars.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat, [404] Costlyy, [404] Pulse
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 // --------------------------------------------------------------------------------------------------- \\
@@ -9,7 +9,7 @@
 // ----------			404Games are not responsible for anything that may happen 			---------- \\
 // ----------			 as a result of unauthorised modifications to this file.			---------- \\
 // --------------------------------------------------------------------------------------------------- \\
-
+#include "setup.sqf"
 if(!X_Server) exitWith {};
 
 diag_log format["WASTELAND SERVER - Initilizing Server Vars"];
@@ -20,6 +20,11 @@ CVG_weapons = CVG_weapons + CVG_Scoped;
 CVG_weapons = CVG_weapons + CVG_Heavy;
 CVG_weapons = CVG_weapons + CVG_pistols;
 CVG_weapons = CVG_weapons + CVG_Launchers;
+
+#ifdef __A2NET__
+missionStartTime = 0;
+netTime = 0;
+#endif
 
 sideMissionPos = "";
 mainMissionPos = "";
@@ -43,9 +48,7 @@ publicVariable "currentDate";
 currentInvites = [];
 publicVariable "currentInvites";
                   
-if (isServer) then {
-	"PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
-};
+"PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
 
 currentStaticHelis = []; // Storage for the heli marker numbers so that we don't spawn wrecks on top of live helis
 

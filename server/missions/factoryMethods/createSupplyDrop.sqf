@@ -6,10 +6,11 @@
 // Modifications made by [404] Costlyy
 
 #include "mainMissionDefines.sqf";
+#include "setup.sqf";
 
 if(!isServer) exitwith {};
 
-private ["_randomPos","_plane","_cargoItem_1","_cargoItem_2","_cargoItem_3","_cargoItem_4","_parachute","_dropPosition","_picture","_vehicleName","_missionType","_hint"];
+private ["_randomPos","_plane","_cargoItem_1","_cargoItem_2","_cargoItem_3","_cargoItem_4","_parachute","_dropPosition","_picture","_vehicleName","_missionType","_hint","_startTime","_currTime"];
 
 _plane = _this select 0;
 _randomPos = _this select 1;
@@ -23,7 +24,19 @@ _cargoItem_3 = "Barrels";
 _cargoItem_4 = "Land_stand_small_EP1"; 
 _parachute = "ParachuteMediumWest";
 
-Waituntil {((_plane distance _randomPos) < 2000)};
+#ifdef __A2NET__
+_startTime = floor(netTime);
+#else
+_startTime = floor(time);
+#endif
+Waituntil {	
+#ifdef __A2NET__
+_currTime = floor(netTime);
+#else
+_currTime = floor(time);
+#endif
+if(_currTime - _startTime >= 1200) then {_result = 1;};
+(_result == 1) OR ((_plane distance _randomPos) < 2000)};
 	
 _plane animate ["ramp_top",1];
 _plane animate ["ramp_bottom",1];
@@ -46,7 +59,15 @@ sleep 7;
 	};
 };
 	
-Waituntil {((_plane distance _randomPos) < 200) OR (damage _plane == 1) OR ((_plane distance _randomPos) > 2500)};
+Waituntil {
+#ifdef __A2NET__
+_currTime = floor(netTime);
+#else
+_currTime = floor(time);
+#endif
+if(_currTime - _startTime >= 1200) then {_result = 1;};
+(_result == 1) OR ((_plane distance _randomPos) < 200) OR (damage _plane == 1) OR ((_plane distance _randomPos) > 2500)};
+
 if(damage _plane == 1) then {
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Drop Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The<t color='%4'> %3</t>, was destroyed before the target area!</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
 	[nil,nil,rHINT,_hint] call RE;
@@ -97,7 +118,14 @@ if(damage _plane == 1) then {
     
 	    _plane flyInHeight 1500;
 		_plane forceSpeed 600;
-		Waituntil {((_plane distance _randomPos) > 2500) OR (damage _plane == 1)};
+		Waituntil {
+		#ifdef __A2NET__
+		_currTime = floor(netTime);
+		#else
+		_currTime = floor(time);
+		#endif
+		if(_currTime - _startTime >= 1200) then {_result = 1;};
+		(_result == 1) OR((_plane distance _randomPos) > 2500) OR (damage _plane == 1)};
 	};   
 };
 	

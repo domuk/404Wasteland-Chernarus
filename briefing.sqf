@@ -207,7 +207,7 @@ player createDiaryRecord["changelog",
 "2.9",
 "
 <br/>
-		[Added] - Most interactions now have a Cancel Action option.<br/>
+		[Added] - Most interactions have a Cancel Action option now.<br/>
 		[Fixed] - Abandoned Truck showing up as recon vehicle.<br/>
 		[Fixed] - Object lock now functions correctly.<br/>
 		[Fixed] - Spawn beacon, radar, object etc unlock/lock actions now stop on death.<br/>    
@@ -220,7 +220,7 @@ player createDiaryRecord["changelog",
 		[Enhancement] - Refuel and Repair vehicle functions have been improved.<br/>
 		[Enhancement] - The mission RPT's to have more information to help with debuging.<br/>
 		[Enhancement] - Server startup optimizations.<br/>
-		[Enhancement] - General wasteland mission optimizations; many changes to improve performance.<br/>
+		[Enhancement] - General mission optimizations; many changes to improve performance.<br/>
 		[Enhancement] - Made some changes to defend area to make the AI more aware.<br/>
 		[Enhancement] - The mission system is now all pre compiled and steamlined to make it run smoother.<br/>
 		[Enhancement] - Mission will no longer run the same one twice.<br/>  

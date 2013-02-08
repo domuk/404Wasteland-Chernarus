@@ -4,7 +4,7 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Description: The main init.
 //	@file Args:
-
+#include "setup.sqf"
 if (isnil "RE") then {[] execVM "\ca\Modules\MP\data\scripts\MPframework.sqf"};
 
 StartProgress = false;
@@ -14,7 +14,7 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "v2.9";
+versionName = "v2.9a";
 
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
@@ -46,6 +46,10 @@ if(X_Client) then {
 };
 
 if(X_Server) then {
+	diag_log format ["############################# %1 #############################", missionName];
+	#ifdef __DEBUG__
+	diag_log format ["T%1,DT%2,F%3", time, diag_tickTime, diag_frameno];
+	#endif
     diag_log format["WASTELAND SERVER - Initilizing Server"];
 	[] execVM "server\init.sqf";
 };

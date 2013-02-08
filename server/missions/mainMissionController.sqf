@@ -2,7 +2,7 @@
 //	@file Name: mainMissionController.sqf
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 15:19
-
+#include "setup.sqf"
 #include "mainMissions\mainMissionDefines.sqf";
 
 if(!isServer) exitWith {};
@@ -33,11 +33,12 @@ while {true} do
 	//Select new mission if the same
     if(str(_missionType) == _lastMission) then
     {
-        _MMarray set [_randomIndex, "REMOVETHISCRAP"];
-        _newMissionArray = _MMarray - ["REMOVETHISCRAP"];
+        _newMissionArray = _MMarray;
+        _newMissionArray set [_randomIndex, "REMOVETHISCRAP"];
+        _newMissionArray = _newMissionArray - ["REMOVETHISCRAP"];
         _randomIndex = (random (count _newMissionArray - 1));
         _missionType = _newMissionArray select _randomIndex select 1;
-        _mission = _newMissionArray select _randomIndex select 0;   
+        _mission = _newMissionArray select _randomIndex select 0;    
     };
     
 	_missionRunning = [] spawn _mission;

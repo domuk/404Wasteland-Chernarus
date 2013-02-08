@@ -3,7 +3,7 @@
 //	@file Author: [404] Pulse , [404] Costlyy , [404] Deadbeat
 //	@file Created: 22/1/2012 00:00
 //	@file Args: [ OBJECT (Weapons box that needs filling), STRING (Name of the fill to give to object)]
-
+if (!isServer) exitWith {};
 private ["_selectedBox", "_selectedBoxPos", "_finishedBox", "_currBox"];
 
 _box = _this select 0;

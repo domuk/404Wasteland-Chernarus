@@ -7,12 +7,20 @@
 //Fail Mission Colour = #FF1717 - Light red
 //Fail Mission Colour = #17FF41 - Light green
 //Sub Colour = #FFF - White
+#include "setup.sqf"
+#ifdef __DEBUG__
 
-#define sideMissionTimeout 1800
-#define sideMissionDelayTime 600
+	#define sideMissionTimeout 500
+	#define sideMissionDelayTime 40
+
+#else
+
+	#define sideMissionTimeout 1800
+	#define sideMissionDelayTime 600
+
+#endif
 
 #define missionRadiusTrigger 50
-
 #define sideMissionColor "#4BC9B0"
 #define failMissionColor "#FF1717"
 #define successMissionColor "#17FF41"

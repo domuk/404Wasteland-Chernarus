@@ -27,7 +27,7 @@ The ideal method would be to write a new FSM and I may attempt that in a future 
 
 =======================================================================================================================
 */
-
+if (!isServer) exitWith {};
 private ["_grp", "_pos"];
 _grp = _this select 0;
 _pos = _this select 1;
