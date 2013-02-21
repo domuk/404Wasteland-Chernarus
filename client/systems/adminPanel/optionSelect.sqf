@@ -127,14 +127,8 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					hint format["Server FPS: %1",serverFPS];
 			    };
 	            case 5: //Test Function
-			    {      
-					if(group player == grpNull) then
-	                {
-	                    hint "not in a group";
-	                } else {
-	                    _unitCount = count units group player;
-	                	hint format["In a group of %1 players", _unitCount];    
-	                };
+			    {
+					
 			    };
 			};		
 	    };

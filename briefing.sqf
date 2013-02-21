@@ -228,6 +228,22 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.9b",
+"
+<br/>
+		[Fixed] - Fuel Cans not refilling.<br/>
+		[Fixed] - Deer Stand Flying.<br/>
+		[Fixed] - No limit on gunstore ammo.<br/>
+		[Fixed] - Supply Drop Mission Food Stand.<br/>
+		[Could Not Recrate] - The Mission_LightArmVeh Mission is not spawning the BTR40_MG_TK_GUE_EP1.<br/>
+		[Could Not Recrate] - Arma2Net version of 2.9a has got a problem with the groups system.<br/>
+		Could Not Recrate] - Teamkill Message Not Working.<br/>
+"
+]
+];
+
 player createDiaryRecord["404games",
 [
 "Credits",

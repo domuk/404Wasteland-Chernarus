@@ -56,7 +56,7 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\createTownMarkers.sqf";
 [] execVM "client\functions\createGunStoreMarkers.sqf";
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
-true execVM "client\functions\loadAtmosphere.sqf"; // Set to false to disable dust, ash and wind
+//true execVM "client\functions\loadAtmosphere.sqf"; // Set to false to disable dust, ash and wind
 [] execVM "client\functions\playerTags.sqf";
 [] execVM "client\functions\groupTags.sqf";
 [] call updateMissionsMarkers;

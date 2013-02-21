@@ -16,5 +16,10 @@ _cargo = createVehicle [_itemClass, _dropPosition, [], 0, "NONE"];
 _cargo attachTo [_parachute, [0,0,3]];
 _parachute setpos _dropPosition;
 
+if(_itemClass == "Land_stand_small_EP1") then
+{
+	_cargo setVariable["food",20,true];
+};
+
 _effectSmoke = "smokeShellPurple" createVehicle _dropPosition;
 _effectSmoke attachto [_cargo, [0,0,0]];

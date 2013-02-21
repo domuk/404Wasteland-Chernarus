@@ -11,6 +11,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+_currentAnim =	animationState player;
+_config = configFile >> "CfgMovesMaleSdr" >> "States" >> _currentAnim;
+_onLadder =	(getNumber (_config >> "onLadder"));
+if(_onLadder == 1) exitWith{player globalChat "You can't move this object while on a ladder";};
+
 if (R3F_LOG_mutex_local_verrou) then
 {
 	player globalChat STR_R3F_LOG_mutex_action_en_cours;

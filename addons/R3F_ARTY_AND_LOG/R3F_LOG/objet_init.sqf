@@ -10,7 +10,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-private ["_objet", "_est_desactive", "_est_transporte_par", "_est_deplace_par", "_objectState", "_doLock", "_doUnlock"];
+private ["_objet", "_est_desactive", "_est_transporte_par", "_est_deplace_par", "_objectState", "_doLock", "_doUnlock","_currentAnim","_config","_onLadder"];
 
 _objet = _this select 0;
 
