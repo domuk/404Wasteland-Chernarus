@@ -17,6 +17,9 @@ spawnAction = compile preprocessFileLineNumbers "client\functions\spawnAction.sq
 placeSpawnBeacon = compile preprocessFileLineNumbers "client\systems\playerMenu\placeSpawnBeacon.sqf";
 refuelVehicle = compile preprocessFileLineNumbers "client\systems\playerMenu\refuel.sqf";
 repairVehicle = compile preprocessFile "client\systems\playerMenu\repair.sqf";
+placeCammoNet = compile preprocessFileLineNumbers "client\systems\playerMenu\placeCammoNet.sqf";
+useMedicalKit = compile preprocessFileLineNumbers "client\systems\playerMenu\useMedicalKit.sqf";
+useEdibleItem = compile preprocessFileLineNumbers "client\systems\playerMenu\useEdibleItem.sqf";
 
 // Sync client with server time
 timeSync = compile preprocessFileLineNumbers "client\functions\clientTimeSync.sqf";
@@ -34,6 +37,8 @@ teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKi
 client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
 loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
 loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
+loadSellConfirm = compile preprocessFileLineNumbers "client\systems\gunStore\loadSellConfirm.sqf";
+sellWeaponConfirmed = compile preprocessFileLineNumbers "client\systems\gunStore\sellWeaponConfirmed.sqf";
 
 player groupChat "Client Compile Complete";
 sleep 1;

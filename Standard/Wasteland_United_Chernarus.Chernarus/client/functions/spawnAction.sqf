@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: spawnAction.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:19
 //	@file Args: [int(type of spawn)]
 
@@ -29,12 +29,16 @@ if(isNil{client_firstSpawn}) then {
 		waitUntil
 		{ 
 		    _currTime = floor(time);
-		    if(_currTime - _startTime >= 180) then 
+		    if(_currTime - _startTime >= 200) then 
 		    {
 		    	_result = 1;    
 		    };
 		    (_result == 1)
 		};
+        
+        // Allow the player to drop money again now that 3 minutes have passed.
+        player setVariable["canDrop",true,false];
+        
 		if(playerSide in [west, east]) then {
 			_found = false;
 			{
@@ -57,4 +61,22 @@ if(isNil{client_firstSpawn}) then {
 			};
 		};
 	};
+
+} else {
+	[] spawn {      
+        _startTime = floor(time);
+        _result = 0;
+		waitUntil
+		{ 
+		    _currTime = floor(time);
+		    if(_currTime - _startTime >= 200) then 
+		    {
+		    	_result = 1;    
+		    };
+		    (_result == 1)
+		};
+        
+        // Allow the player to drop money again now that 3 minutes have passed.
+        player setVariable["canDrop",true,false];
+    };
 };

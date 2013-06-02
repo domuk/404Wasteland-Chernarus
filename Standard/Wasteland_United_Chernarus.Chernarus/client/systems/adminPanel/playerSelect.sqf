@@ -74,13 +74,13 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 		{
 			_warnText = ctrlText _warnMessage;
 	        _playerName = name player;
-			_target setVehicleInit format["if (name player == ""%2"") then {titleText [""Admin %2: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName];
+			_target setVehicleInit format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName];
 	        processInitCommands;
 	        clearVehicleInit _target;
 		};
 	    case 2: //Slay
 	    {
-			_target setVehicleInit format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target];
+			_target setVehicleInit format["if (name player == ""%1"") then {player setdamage 1;deletevehicle player;};",name _target];
 			processInitCommands;
 			clearVehicleInit _target;
 	    };
@@ -119,6 +119,40 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 			        clearVehicleInit player;       
 			    };
 			}forEach pvar_teamKillList;       		
+	    };
+        case 5: //Remove All Money
+	    {      
+			_targetUID = getPlayerUID _target;
+	        {
+			    if(getPlayerUID _x == _targetUID) then
+			    {
+  					_x setVariable["cmoney",0,true];
+			    };
+			}forEach playableUnits;       		
+	    };
+        case 6: //Remove All Weapons
+	    {      
+			_targetUID = getPlayerUID _target;
+	        {
+			    if(getPlayerUID _x == _targetUID) then
+			    {
+					if(!(local _x)) then {
+						[nil, _x, "loc", rSPAWN, [_x], { removeAllWeapons (_this select 0) }] call RE;
+					} else {
+						removeAllWeapons _x;
+					};
+			    };
+			}forEach playableUnits;       		
+	    };
+        case 7: //Check Player Gear
+	    {      
+			_targetUID = getPlayerUID _target;
+	        {
+			    if(getPlayerUID _x == _targetUID) then
+			    {
+  					createGearDialog [_x, "RscDisplayGear"];
+			    };
+			}forEach playableUnits;        		
 	    };
 	};
 } else {

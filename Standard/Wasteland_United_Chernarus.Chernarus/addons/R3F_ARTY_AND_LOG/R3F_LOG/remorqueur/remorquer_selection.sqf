@@ -9,6 +9,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
+ // Notes: This script also contains the code to limit the number of towed vehicles.
+ //	       To increase the number, change the variable _maxVehicleTrain to the total number allowed (e.g. 1 tower and 1 towee would equal 2).
+ 
+ _maxVehicleTrain = 2;
 
 if (R3F_LOG_mutex_local_verrou) then
 {
@@ -37,13 +42,8 @@ else
 				_tempobj = _objet;		_countTowedVehicles = 1;
 				while{!isNull(_tempobj getVariable["R3F_LOG_remorque", objNull])} do {_countTowedVehicles = _countTowedVehicles + 1; _tempobj = _tempobj getVariable["R3F_LOG_remorque", objNull];};
                 
-                if(_countTransportedBy + _countTowedVehicles <= 2) then
+                if(_countTransportedBy + _countTowedVehicles <= _maxVehicleTrain) then
                 {
-                	// On mémorise sur le réseau que le véhicule remorque quelque chose
-					_remorqueur setVariable ["R3F_LOG_remorque", _objet, true];
-					// On mémorise aussi sur le réseau que le canon est attaché en remorque
-					_objet setVariable ["R3F_LOG_est_transporte_par", _remorqueur, true];
-					
 					// On place le joueur sur le côté du véhicule, ce qui permet d'éviter les blessure et rend l'animation plus réaliste
 					player attachTo [_remorqueur, [
 						(boundingBox _remorqueur select 1 select 0),
@@ -93,7 +93,11 @@ else
 						};
 					};
 					
-					sleep 5;    
+					sleep 5;
+
+					_remorqueur setVariable ["R3F_LOG_remorque", _objet, true];
+					_objet setVariable ["R3F_LOG_est_transporte_par", _remorqueur, true];  
+                      
                 } else {
                 	player globalChat "You can't tow more than one vehicle.";    
                 };

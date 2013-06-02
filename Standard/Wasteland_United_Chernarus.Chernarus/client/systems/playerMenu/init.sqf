@@ -1,3 +1,10 @@
+//	@file Version: 1.0
+//	@file Name: init.sqf
+//	@file Author: Tonic, [404] Costlyy
+//	@file Created: NA
+//	@file Args:
+
+
 #include "dialog\player_sys.sqf"; 
 if(isnil {player getVariable "cmoney"}) then {player setVariable["cmoney",0,true];};
 if(dialog) exitwith{};
@@ -20,11 +27,8 @@ _foodtext ctrlSettext format["%1 / 100", round(hungerLevel)];
 _watertext ctrlSetText format["%1 / 100", round(thirstLevel)];
 _moneytext ctrlSetText format["%1", player getVariable "cmoney"];
 
-_mIndex = _mvalue lbadd "$5"; _mvalue lbSetData [(lbSize _mvalue)-1, "5"];
-_mIndex = _mvalue lbadd "$15"; _mvalue lbSetData [(lbSize _mvalue)-1, "15"];
-_mIndex = _mvalue lbadd "$20"; _mvalue lbSetData [(lbSize _mvalue)-1, "20"];
+_mIndex = _mvalue lbadd "$25"; _mvalue lbSetData [(lbSize _mvalue)-1, "20"];
 _mIndex = _mvalue lbadd "$50"; _mvalue lbSetData [(lbSize _mvalue)-1, "50"];
-_mIndex = _mvalue lbadd "$75"; _mvalue lbSetData [(lbSize _mvalue)-1, "75"];
 _mIndex = _mvalue lbadd "$100"; _mvalue lbSetData [(lbSize _mvalue)-1, "100"];
 _mIndex = _mvalue lbadd "$200"; _mvalue lbSetData [(lbSize _mvalue)-1, "200"];
 _mIndex = _mvalue lbadd "$300"; _mvalue lbSetData [(lbSize _mvalue)-1, "300"];

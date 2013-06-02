@@ -1,3 +1,10 @@
+//	@file Version: 1.0
+//	@file Name: item_list.sqf
+//	@file Author: [404] Costlyy, Tonic
+//	@file Created: NA
+//	@file Args:
+
+
 #include "dialog\player_sys.sqf";
 disableSerialization;
 

@@ -1,9 +1,10 @@
 //	@file Version: 1.0
 //	@file Name: init.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:13
 //	@file Description: The main init.
 //	@file Args:
+
 #include "setup.sqf"
 if (isnil "RE") then {[] execVM "\ca\Modules\MP\data\scripts\MPframework.sqf"};
 
@@ -14,7 +15,7 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "v2.9b";
+versionName = "v3.0";
 
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
@@ -22,7 +23,7 @@ if(isNull player) then {X_JIP = true;};
 
 true spawn {
 	if(!isDedicated) then {
-		titleText ["Please wait for your player to setup", "BLACK", 0];
+		titleText ["Setting up player...", "BLACK", 0];
 		waitUntil {player == player};
 		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};
@@ -38,7 +39,7 @@ if(X_Client) then {
 	//Wipe Group.
 	if(count units group player > 1) then
 	{  
-		diag_log "Player Group Wiped";
+		//diag_log "Player Group Wiped";
 		[player] join grpNull;    
 	};
 

@@ -37,22 +37,6 @@ if (isNil "_est_deplace_par") then
 	_objet setVariable ["R3F_LOG_est_deplace_par", objNull, false];
 };
 
-// Ne pas monter dans un véhicule qui est en cours de transport
-_objet addEventHandler ["GetIn",
-{
-	if (_this select 2 == player) then
-	{
-		_this spawn
-		{
-			if ((!(isNull (_this select 0 getVariable "R3F_LOG_est_deplace_par")) && (alive (_this select 0 getVariable "R3F_LOG_est_deplace_par"))) || !(isNull (_this select 0 getVariable "R3F_LOG_est_transporte_par"))) then
-			{
-				player action ["eject", _this select 0];
-				player globalChat STR_R3F_LOG_transport_en_cours;
-			};
-		};
-	};
-}];
-
 if ({_objet isKindOf _x} count R3F_LOG_CFG_objets_deplacables > 0) then
 {
 	_objet addAction [("<t color=""#dddd00"">" + STR_R3F_LOG_action_deplacer_objet + "</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\deplacer.sqf", nil, 5, false, true, "", "R3F_LOG_objet_addAction == _target && R3F_LOG_action_deplacer_objet_valide && !(_target getVariable ['objectLocked', false])"];

@@ -40,7 +40,7 @@ _message = format ["<t shadow=""1""><t size=""2"">%1</t> (%2)<br/>%4<br/>%3</t>"
 
 _control ctrlSetStructuredText (parseText _message);
 
-sleep 20;
+sleep 10;
 
 _control ctrlSetFade 1;
 _control ctrlCommit 2;

@@ -9,18 +9,26 @@ if(R3F_LOG_mutex_local_verrou) exitWith {
 	player globalChat STR_R3F_LOG_mutex_action_en_cours;
 };
 
+// Check if mutex lock 2 is active.
+if(mutexScriptInProgress) exitWith {
+	player globalChat STR_R3F_LOG_mutex_action_en_cours;
+};
+
+R3F_LOG_mutex_local_verrou = true;
+mutexScriptInProgress = true;
+
 private["_locking", "_currObject", "_lockState", "_lockDuration", "_stringEscapePercent", "_interation", "_unlockDuration", "_totalDuration"];
 
 _currObject = _this select 0;
 _lockState = _this select 3;
-
+_currState = animationState player;
 _totalDuration = 0;
 _stringEscapePercent = "%";
 
 switch (_lockState) do {
     case 0:{ // LOCK
     
-    	R3F_LOG_mutex_local_verrou = true;
+    	
 		_totalDuration = 5;
 		_lockDuration = _totalDuration;
 		_iteration = 0;
@@ -29,15 +37,25 @@ switch (_lockState) do {
 		
 		for "_iteration" from 1 to _lockDuration do {
 		    
-            if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
-		        2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
+            if(player distance _currObject > 10) exitWith { // If the player dies, revert state.
+		        2 cutText ["ERROR: You are too far away to do that.", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+                mutexScriptInProgress = false;
 			};
             
             if (!(alive player)) exitWith {// If the player dies, revert state.
 				2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+                mutexScriptInProgress = false;
 			};
+            
+            if (doCancelAction) exitWith {// Player selected "cancel action"
+            	2 cutText ["Object lock canceled...", "PLAIN DOWN", 1];
+                sleep 3;
+                R3F_LOG_mutex_local_verrou = false;
+				mutexScriptInProgress = false;
+                doCancelAction = false;
+			}; 
             
             if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
                 player switchMove "AinvPknlMstpSlayWrflDnon_medic";
@@ -54,14 +72,14 @@ switch (_lockState) do {
                 _currObject setVariable ["objectLocked", true, true];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+                mutexScriptInProgress = false;
 		    }; 
 		};
 		
-		player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation.       
+		player SwitchMove _currState; // Redundant reset of animation state to avoid getting locked in animation.       
     };
     case 1:{ // UNLOCK
         
-        R3F_LOG_mutex_local_verrou = true;
 		_totalDuration = 45;
 		_unlockDuration = _totalDuration;
 		_iteration = 0;
@@ -70,15 +88,25 @@ switch (_lockState) do {
 		
 		for "_iteration" from 1 to _unlockDuration do {
 		    
-            if(player distance _currObject > 5) exitWith { // If the player dies, revert state.
-		        2 cutText ["Object unlock interrupted...", "PLAIN DOWN", 1];
+            if(player distance _currObject > 10) exitWith { // If the player dies, revert state.
+		        2 cutText ["ERROR: You are too far away to do that.", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+                mutexScriptInProgress = false;
 			};
             
             if (!(alive player)) exitWith {// If the player dies, revert state.
 				2 cutText ["Object unlock interrupted...", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+                mutexScriptInProgress = false;
 			};
+            
+            if (doCancelAction) exitWith {// Player selected "cancel action"
+            	2 cutText ["Object unlock canceled...", "PLAIN DOWN", 1];
+                sleep 3;
+				mutexScriptInProgress = false;
+                R3F_LOG_mutex_local_verrou = false;
+                doCancelAction = false;
+			}; 
             
             if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
                 player switchMove "AinvPknlMstpSlayWrflDnon_medic";
@@ -98,7 +126,7 @@ switch (_lockState) do {
 		    }; 
 		};
 		
-		player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation.     
+		player SwitchMove _currState; // Redundant reset of animation state to avoid getting locked in animation.     
     };
     default{  // This should not happen... 
         diag_log format["WASTELAND DEBUG: An error has occured in LockStateMachine.sqf. _lockState was unknown. _lockState actual: %1", _lockState];
@@ -108,4 +136,6 @@ switch (_lockState) do {
         R3F_LOG_mutex_local_verrou = false;
         diag_log format["WASTELAND DEBUG: An error has occured in LockStateMachine.sqf. Mutex lock was not reset. Mutex lock state actual: %1", R3F_LOG_mutex_local_verrou];
     }; 
+    
+    mutexScriptInProgress = false;
 };

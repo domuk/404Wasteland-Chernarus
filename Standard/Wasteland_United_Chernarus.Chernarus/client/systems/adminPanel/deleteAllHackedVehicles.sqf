@@ -3,7 +3,7 @@ private ["_allVehicles","_check","_vehicleType"];
 _allVehicles = vehicles;
 
 {
-	_check = _x getVariable ["original",0];
+	_check = _x getVariable ["newVehicle",0];
 	if(_check != 1) then 
 	{
 		_vehicleType = Format["%1",typeOf _x];

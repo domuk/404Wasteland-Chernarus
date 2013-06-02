@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: mission_Base.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 04:56
 //	@file Args:
 

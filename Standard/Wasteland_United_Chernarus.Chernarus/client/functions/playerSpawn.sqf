@@ -55,9 +55,7 @@ if(doKickTeamSwitcher) exitWith {
 //Send player to debug to stop fake spawn locations.
 player setPos [-20000 - (random 10000), 5000 + random 15000, 0];
 
-titleText ["Loading...", "BLACK OUT", 0.00001];
 
-private ["_handle"];
 true spawn client_respawnDialog;
 
 waitUntil {respawnDialogActive};
@@ -67,4 +65,5 @@ while {respawnDialogActive} do {
 };
 sleep 0.1;
 titleText ["", "BLACK IN", 0.00001];
+player enableSimulation true; 
 playerSpawning = false;

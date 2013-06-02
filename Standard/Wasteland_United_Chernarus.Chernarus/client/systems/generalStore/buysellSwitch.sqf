@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: buysellSwitch.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat,[404] Costlyy
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
 

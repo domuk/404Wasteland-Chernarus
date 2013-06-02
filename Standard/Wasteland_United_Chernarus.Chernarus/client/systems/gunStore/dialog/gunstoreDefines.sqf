@@ -8,3 +8,8 @@
 #define gunshop_total 2008
 #define gunshop_buysell 2020
 #define gunshop_gun_Info 2021
+#define gunshop_btn_quickAddAmmo 2009
+
+#define confirmSell 2550
+#define confirmSellWeapon 2551
+#define confirmSellValue 2552

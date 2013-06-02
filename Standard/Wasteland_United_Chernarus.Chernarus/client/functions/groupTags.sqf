@@ -62,7 +62,7 @@ while {true} do
         
         if (_absoluteDir < _storeInteractionBuffer OR _absoluteDir > (360 - _storeInteractionBuffer)) then {
         	_nameString = "<t size='0.5' shadow='2' color='#FFFFFF'>" + "Gun Store (Press E)" + "</t>";
-       		[_nameString,0,0.8,0.5,0,0,3] spawn bis_fnc_dynamicText;
+       		[_nameString,0,0.8,0.1,0,0,3] spawn bis_fnc_dynamicText;
         };
     }; 
     
@@ -72,7 +72,9 @@ while {true} do
         
         if (_absoluteDir < _storeInteractionBuffer OR _absoluteDir > (360 - _storeInteractionBuffer)) then {
         	_nameString = "<t size='0.5' shadow='2' color='#FFFFFF'>" + "General Store (Press E)" + "</t>";
-       		[_nameString,0,0.8,0.5,0,0,3] spawn bis_fnc_dynamicText;
+       		[_nameString,0,0.8,0.1,0,0,3] spawn bis_fnc_dynamicText;
         };
-    };         
+    };
+    
+	sleep 0.1;         
 };

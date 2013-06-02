@@ -128,7 +128,7 @@ class FSM
        "						deleteVehicle _x;" \n
        "						_delQtyTP = _delQtyTP + 1;" \n
        "						" \n
-       "					} forEach (nearestobjects [_x, [""Land_Teapot_EP1"",""Land_Bag_EP1""],  12] );" \n
+       "					} forEach (nearestobjects [_x, [""Land_Teapot_EP1"",""Land_Sack_EP1""],  12] );" \n
        "					deleteVehicle _x;" \n
        "					_delQtyP = _delQtyP + 1;" \n
        "				};" \n

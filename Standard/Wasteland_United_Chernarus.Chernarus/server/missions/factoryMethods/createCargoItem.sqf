@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: createCargoItem.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 26/1/2013 15:19
 
 if(!isServer) exitwith {};

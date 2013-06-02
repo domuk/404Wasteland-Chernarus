@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: vehicleCreation.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -32,7 +32,7 @@ if (_type == 0) then {
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
-	_car setVariable["original",1,true];
+	_car setVariable["newVehicle",1,true];
 };
 
 //Create Military Vehicle
@@ -56,7 +56,7 @@ if (_type == 1) then {
     [_car] call randomWeapons;
 
 	//Set authenticity
-	_car setVariable["original",1,true];
+	_car setVariable["newVehicle",1,true];
 };
 
 //Create Armed Military Vehicle
@@ -81,5 +81,5 @@ if (_type == 2) then {
     [_car] call randomWeapons;
 
 	//Set original posistion then add to vehicle array
-	_car setVariable["original",1,true];
+	_car setVariable["newVehicle",1,true];
 };

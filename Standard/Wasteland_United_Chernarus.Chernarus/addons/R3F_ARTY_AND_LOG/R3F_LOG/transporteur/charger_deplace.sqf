@@ -14,8 +14,6 @@ if (R3F_LOG_mutex_local_verrou) then
 }
 else
 {
-	R3F_LOG_mutex_local_verrou = true;
-	
 	private ["_objet", "_classes_transporteurs", "_transporteur", "_i"];
 	
 	_objet = R3F_LOG_joueur_deplace_objet;
@@ -28,12 +26,15 @@ else
 	{
 		_transporteur = _transporteur select 0;
 		
-		if (alive _transporteur && ([0,0,0] distance velocity _transporteur < 6) && (getPos _transporteur select 2 < 2) && !(_transporteur getVariable "R3F_LOG_disabled")) then
+		if (alive _transporteur && ([0,0,0] distance velocity _transporteur < 6) && (getPos _transporteur select 2 < 2) && !(_transporteur getVariable "R3F_LOG_disabled") AND (count (crew _objet) == 0)) then
 		{
+        
+        	R3F_LOG_mutex_local_verrou = true;
+        
 			private ["_objets_charges", "_chargement_actuel", "_cout_capacite_objet", "_chargement_maxi"];
 			
 			_objets_charges = _transporteur getVariable "R3F_LOG_objets_charges";
-			
+            
 			// Calcul du chargement actuel
 			_chargement_actuel = 0;
 			{
@@ -68,7 +69,7 @@ else
 			
 			// Si l'objet loge dans le véhicule
 			if (_chargement_actuel + _cout_capacite_objet <= _chargement_maxi) then
-			{
+			{          
 				// On mémorise sur le réseau le nouveau contenu du véhicule
 				_objets_charges = _objets_charges + [_objet];
 				_transporteur setVariable ["R3F_LOG_objets_charges", _objets_charges, true];

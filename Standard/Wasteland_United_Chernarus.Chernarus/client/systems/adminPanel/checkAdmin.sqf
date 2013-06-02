@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: checkAdmin.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -17,8 +17,14 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
         hint "Welcome Admin";		
 	};
     if ((_uid in serverAdministrators)) then {
-		execVM "client\systems\adminPanel\loadServerAdministratorMenu.sqf";
-        hint "Welcome Owner";		
+    
+    	if ((_this select 0) == 1) then {
+        	closeDialog 0;      
+			createDialog "balca_debug_main";
+        } else {
+        	execVM "client\systems\adminPanel\loadServerAdministratorMenu.sqf";
+        };
+      	hint "Welcome Owner";		
 	};	
 } else {
     sleep 1;

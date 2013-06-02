@@ -20,14 +20,7 @@ while {_counter < 8} do // 8 helis spawn at the beginning
 	[0, _newPos] call staticHeliCreation;
     
 	currentStaticHelis set [count currentStaticHelis, _selectedMarker];
-         
-    /*               
-    _markerName = format["marker%1",_counter];
-	_marker = createMarker [_markerName, _newPos];
-	_marker setMarkerType "dot";
-	_marker setMarkerSize [1.25, 1.25];
-	_marker setMarkerColor "ColorRed";
-    */
+
     _counter = _counter + 1;
     _countActual = _countActual + 1;
 };
@@ -47,14 +40,6 @@ for "_i" from 1 to 24 do {
     	_position = getMarkerPos format ["heliSpawn_%1", _i];
     	_newPos = [_position, 25, 50, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
 		[1, _newPos] call staticHeliCreation;
-        
-        /*
-    	_markerName = format["marker%1",_i];
-		_marker = createMarker [_markerName, _newPos];
-		_marker setMarkerType "dot";
-		_marker setMarkerSize [1.25, 1.25];
-		_marker setMarkerColor "ColorBlue";
-        */
     };
 };
 

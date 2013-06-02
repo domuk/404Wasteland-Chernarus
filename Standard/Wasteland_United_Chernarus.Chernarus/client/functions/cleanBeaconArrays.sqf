@@ -26,5 +26,14 @@ _currBeaconOwnerUID = _this select 0;
     };
 }forEach pvar_beaconListRed;
 
+{
+    if(str(_currBeaconOwnerUID) == str(_x select 3)) then {
+    	pvar_beaconListIndep set [_forEachIndex, "REMOVETHISCRAP"];
+        pvar_beaconListIndep = pvar_beaconListIndep - ["REMOVETHISCRAP"];
+        publicVariable "pvar_beaconListIndep";
+    };
+}forEach pvar_beaconListIndep;
+
+
 
 

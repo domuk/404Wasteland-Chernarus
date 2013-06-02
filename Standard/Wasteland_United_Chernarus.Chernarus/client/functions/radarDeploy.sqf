@@ -47,6 +47,7 @@ for "_iteration" from 1 to _actionDuration do {
 	if(vehicle player != player) exitWith {
 		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
+        mutexScriptInProgress = false;
 		sleep 1;
 	};
     
@@ -107,7 +108,7 @@ for "_iteration" from 1 to _actionDuration do {
         _radarStationPos = getPos _radarStation;  
         deleteVehicle (nearestobjects [getpos player, ["M1133_MEV_EP1"],  15] select 0);
 
-        clientRadarMarkers set [count clientRadarMarkers,[_uniqueID,_radarStationPos,_playerSide, _markerState]];
+        clientRadarMarkers set [count clientRadarMarkers,[_uniqueID,_radarStationPos,_playerSide, _markerState, player]];
 		publicVariableServer "clientRadarMarkers";
            
 		mutexScriptInProgress = false;  

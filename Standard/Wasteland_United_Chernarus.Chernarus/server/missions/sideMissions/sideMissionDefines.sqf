@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: missionDefines.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 15:19
 
 //Side Mission Colour = #4BC9B0 - Turquoise 
@@ -15,9 +15,9 @@
 
 #else
 
-	#define sideMissionTimeout 1800
-	#define sideMissionDelayTime 600
-
+#define sideMissionTimeout 1500
+#define sideMissionDelayTime 600
+    
 #endif
 
 #define missionRadiusTrigger 50

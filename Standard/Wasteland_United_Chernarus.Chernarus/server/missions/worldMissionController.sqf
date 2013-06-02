@@ -1,3 +1,9 @@
+//	@file Version: 1.0
+//	@file Name: worldMissionController.sqf
+//	@file Author: [404] Costlyy
+//	@file Created: 30th May 2013
+//	@file Args:
+
 if(!isServer) exitWith {};
 
 //waitUntil{sleep 1; staticGunSpawningComplete};

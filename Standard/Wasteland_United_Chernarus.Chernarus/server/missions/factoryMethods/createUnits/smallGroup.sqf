@@ -19,16 +19,23 @@ _leader addWeapon "RPG7V";
 _leader addMagazine "30Rnd_545x39_AK";
 _leader addMagazine "30Rnd_545x39_AK";
 _leader addMagazine "30Rnd_545x39_AK";
+_leader addMagazine "30Rnd_545x39_AK";
+_leader addMagazine "30Rnd_545x39_AK";
 _leader addWeapon "AKS_74_U";
 
 //Support
 _man2 = _group createunit ["CIV_EuroMan02_EP1", [(_pos select 0) - 30, _pos select 1, 0], [], 0.5, "Form"];
 _man2 addMagazine "75Rnd_545x39_RPK";
 _man2 addMagazine "75Rnd_545x39_RPK";
+_man2 addMagazine "75Rnd_545x39_RPK";
+_man2 addMagazine "75Rnd_545x39_RPK";
 _man2 addWeapon "RPK_74";
 
 //Rifleman
 _man3 = _group createunit ["CIV_EuroMan01_EP1", [_pos select 0, (_pos select 1) + 30, 0], [], 0.5, "Form"];
+_man3 addMagazine "30Rnd_762x39_AK47";
+_man3 addMagazine "30Rnd_762x39_AK47";
+_man3 addMagazine "30Rnd_762x39_AK47";
 _man3 addMagazine "30Rnd_762x39_AK47";
 _man3 addMagazine "30Rnd_762x39_AK47";
 _man3 addMagazine "30Rnd_762x39_AK47";
@@ -39,7 +46,15 @@ _man4 = _group createunit ["CIV_EuroMan01_EP1", [_pos select 0, (_pos select 1) 
 _man4 addMagazine "10Rnd_762x54_SVD";
 _man4 addMagazine "10Rnd_762x54_SVD";
 _man4 addMagazine "10Rnd_762x54_SVD";
+_man4 addMagazine "10Rnd_762x54_SVD";
+_man4 addMagazine "10Rnd_762x54_SVD";
 _man4 addWeapon "SVD";
+
+// Add event handlers for dropping items and money.
+_leader addEventHandler ["Killed", {[_this] call createLootMoney;}];
+_man2 addEventHandler ["Killed", {[_this] call createLootMoney;}];
+_man3 addEventHandler ["Killed", {[_this] call createLootMoney;}];
+_man4 addEventHandler ["Killed", {[_this] call createLootMoney;}];
 
 _leader = leader _group;
 [_group, _pos] call defendArea;

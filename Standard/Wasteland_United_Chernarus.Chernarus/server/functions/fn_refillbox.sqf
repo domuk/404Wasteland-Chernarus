@@ -56,12 +56,14 @@ switch(_selectedBox) do {
 		// Add new weapons before ammunition
 		_currBox addWeaponCargoGlobal ["RPG7V",2];
 		_currBox addWeaponCargoGlobal ["SMAW",2];
-		_currBox addWeaponCargoGlobal ["M79_EP1",3];
+		_currBox addWeaponCargoGlobal ["M32_EP1",2];
 		// Add ammunition
-		_currBox addMagazineCargoGlobal ["1Rnd_HE_M203",25];
-		_currBox addMagazineCargoGlobal ["PG7V",10];
-		_currBox addMagazineCargoGlobal ["SMAW_HEAA",10];
-		_currBox addMagazineCargoGlobal ["HandGrenade",10];
+		_currBox addMagazineCargoGlobal ["6Rnd_HE_M203",20];
+		_currBox addMagazineCargoGlobal ["PG7VR",3];
+        _currBox addMagazineCargoGlobal ["PG7V",6];
+		_currBox addMagazineCargoGlobal ["SMAW_HEDP",6];
+        _currBox addMagazineCargoGlobal ["SMAW_HEAA",3];
+		_currBox addMagazineCargoGlobal ["HandGrenade",20];
 		_currBox addMagazineCargoGlobal ["Mine",4];
     };
     case "mission_Side_USSpecial": { // Used in the airwreck side mission

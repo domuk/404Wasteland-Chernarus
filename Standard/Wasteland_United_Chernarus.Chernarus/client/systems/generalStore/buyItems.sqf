@@ -10,6 +10,19 @@ disableSerialization;
 
 if(genStoreCart > (player getVariable "cmoney")) exitWith {hint "You do not have enough money"};
 
+// Check if mutex lock is active.
+if(mutexScriptInProgress) exitWith {
+	player globalChat "ERROR: ALREADY PERFORMING ANOTHER ACTION!";
+};	
+
+// Check if player is alive.
+if(!(alive player)) exitWith {
+	player globalChat "ERROR: YOU ARE CURRENTLY BUSY.";
+};	
+
+mutexScriptInProgress = true;
+
+
 //Initialize Values
 _playerMoney = player getVariable "cmoney";
 _size = 0;
@@ -21,7 +34,10 @@ _totalText = _dialog displayCtrl genstore_total;
 _playerMoneyText = _Dialog displayCtrl genstore_money;
 _size = lbSize _cartlist;
 
-if(_size <= 0) exitWith {hint "You have no items in the cart"};
+if(_size <= 0) exitWith {
+	mutexScriptInProgress = false;
+	hint "You have no items in the cart"
+};
 
 for [{_x=0},{_x<=_size},{_x=_x+1}] do
 {
@@ -70,7 +86,6 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
         
         case "Jerry Can (Full)": {
             if(((player getVariable "fuelFull") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
-            	diag_log "full < 1 and empty < 1";
                 player setVariable["fuelFull",(player getVariable "fuelFull") + 1,true];
             } else {
             	if (!((player getVariable "fuelFull") + 1 <= 1)) then {
@@ -116,7 +131,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
             	genStoreCart = genStoreCart - _price;    
             };
         };
-		};
+	};
 };
 
 player setVariable["cmoney",_playerMoney - genStoreCart,false];
@@ -125,3 +140,5 @@ _playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
 genStoreCart = 0;
 _totalText CtrlsetText format["Total: $%1", genStoreCart];
 lbClear _cartlist;
+
+mutexScriptInProgress = false;

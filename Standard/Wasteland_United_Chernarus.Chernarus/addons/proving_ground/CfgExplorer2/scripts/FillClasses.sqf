@@ -8,7 +8,7 @@ private ["_curConfig", "_preIndex", "_i", "_Entry", "_cfgName", "_index"];
 _curConfig = _this select 0;
 if ((typeName _curConfig) != "CONFIG") then
 {
-	diag_log "Parameter 1 is not of type CONFIG.";
+	//diag_log "Parameter 1 is not of type CONFIG.";
 };
 
 // ***

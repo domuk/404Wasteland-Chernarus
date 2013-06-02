@@ -101,7 +101,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	    case 4:
 	    {
 	    	{
-	            _check = _x getVariable ["original",0];
+	            _check = _x getVariable ["newVehicle",0];
 	            if(_check != 1) then 
 	            {
 				    _vehicleType = Format["%1",typeOf _x];

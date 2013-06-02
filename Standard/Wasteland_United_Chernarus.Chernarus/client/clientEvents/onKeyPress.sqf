@@ -12,23 +12,18 @@ _key     = _this select 1;
 _shift   = _this select 2;
 _handled = false;
 
-if(isstunned) exitwith
-
-	{
-
-	if(_key == 50)then{_handled = true};
-	if(_key == 11)then{_handled = true};
-
-	_handled
-
-	};
-
 switch _key do
 {      
     //U key
     case 22:
     {
-		execVM "client\systems\adminPanel\checkAdmin.sqf";
+		[0] execVM "client\systems\adminPanel\checkAdmin.sqf";
+    };
+    
+    // Y key
+    case 21:
+    {
+    	[1] execVM "client\systems\adminPanel\checkAdmin.sqf";
     };
     
     //tilde ~
@@ -39,9 +34,9 @@ switch _key do
     
     //E key
 	case 18:
-    {
-    	if (dialog) exitwith { closeDialog 0; }; // Check a current dialog is not already active.
+    {	
         if(vehicle player != player) exitwith{};  // Check the player is not a car.
+        if(!alive player) exitwith{};  // Check the player is not dead.
         
         private ["_storeInteractionBuffer","_storeInteractionZone","_currPos","_store","_relativeDir","_absoluteDir"];
         
@@ -58,6 +53,7 @@ switch _key do
             
             if (_absoluteDir < _storeInteractionBuffer OR _absoluteDir > (360 - _storeInteractionBuffer)) then {
 				//Great success! Player is actually looking at the store keeper and is close by.
+                if (dialog) exitwith { closeDialog 0; }; // Check a current dialog is not already active.
             	[] spawn loadGunStore;
         	};   
         };
@@ -68,6 +64,7 @@ switch _key do
             
             if (_absoluteDir < _storeInteractionBuffer OR _absoluteDir > (360 - _storeInteractionBuffer)) then {
 				//Great success! Player is actually looking at the store keeper and is close by.
+                if (dialog) exitwith { closeDialog 0; }; // Check a current dialog is not already active.
             	[] spawn loadGeneralStore;
         	};   
         };  

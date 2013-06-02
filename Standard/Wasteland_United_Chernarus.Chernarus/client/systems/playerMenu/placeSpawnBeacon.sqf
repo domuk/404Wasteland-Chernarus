@@ -40,6 +40,13 @@ _activeBeacon = false;
     };
 }forEach pvar_beaconListRed;
 
+// PRECONDITION: Check that the player does not have a currently deployed spawn beacon (Indep).
+{
+    if(str(_playerUID) == str(_x select 3)) then {
+    	_activeBeacon = true;	
+    };
+}forEach pvar_beaconListIndep;
+
 // Due to the 'Undefined behaviour' of exitWith inside loops, this is the workaround.
 if (_activeBeacon) exitWith {
 	player globalChat localize "STR_WL_Errors_BeaconActive";
@@ -54,6 +61,7 @@ for "_iteration" from 1 to _lockDuration do {
 	if(vehicle player != player) exitWith {
 		player globalChat localize "STR_WL_Errors_BeaconInVehicle";
         player action ["eject", vehicle player];
+        mutexScriptInProgress = false;
 	};  
     
     if (doCancelAction) exitWith {// Player selected "cancel action".
@@ -95,7 +103,10 @@ for "_iteration" from 1 to _lockDuration do {
 		_placedBeacon setVariable["faction",_playerSide,true];
 	    _placedBeacon setVariable["ownerName",_beaconOwner,true];
 	    _placedBeacon setVariable["ownerUID",_playerUID,true]; 
-		_placedBeacon enableSimulation false;	
+
+      	// Disable physics for the spawn beacon globally and JIP      
+        _announce = [nil,_placedBeacon,"per",rENABLESIMULATION,false] call RE;
+        
 	    _placedBeaconPos = getPos _placedBeacon;
 	   
 	    if(_playerSide == "WEST") then {
@@ -106,6 +117,11 @@ for "_iteration" from 1 to _lockDuration do {
 	    if(_playerSide == "EAST") then {
 	    	pvar_beaconListRed set [count pvar_beaconListRed,[_beaconOwner, _placedBeaconPos, 100, _playerUID]];
 	    	publicVariable "pvar_beaconListRed";
+	    };
+        
+        if(_playerSide == "GUER") then {
+	    	pvar_beaconListIndep set [count pvar_beaconListIndep,[_beaconOwner, _placedBeaconPos, 100, _playerUID]];
+	    	publicVariable "pvar_beaconListIndep";
 	    };
 	                  
 		mutexScriptInProgress = false;

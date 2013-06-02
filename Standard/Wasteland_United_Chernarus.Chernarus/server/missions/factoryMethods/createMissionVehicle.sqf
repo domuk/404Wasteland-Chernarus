@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: createMissionVehicle.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 26/1/2013 15:19
 
 if(!isServer) exitwith {};
@@ -20,7 +20,7 @@ _veh setVehicleAmmo _ammo;
 _veh setdamage _damage;
 
 _veh setVehicleLock "LOCKED";
-_veh setVariable["original",1,true];
+_veh setVariable["newVehicle",1,true];
 _veh setVariable ["R3F_LOG_disabled", true, true];
 
 clearMagazineCargoGlobal _veh;

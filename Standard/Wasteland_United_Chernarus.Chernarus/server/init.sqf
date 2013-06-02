@@ -1,9 +1,10 @@
 //	@file Version: 1.0
 //	@file Name: init.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 20/11/2012 05:19
 //	@file Description: The server init.
 //	@file Args:
+
 #include "setup.sqf"
 if(!X_Server) exitWith {};
 
@@ -17,6 +18,7 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\broadcaster.sqf";
 [] execVM "server\functions\relations.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
+[] execVM "server\functions\antiCheatServer.sqf";
 waitUntil{scriptDone _serverCompiledScripts};
 
 diag_log format["WASTELAND SERVER - Server Complie Finished"];
@@ -30,8 +32,6 @@ if (serverSpawning == 1) then {
 	waitUntil{sleep 0.1; scriptDone _vehSpawn};
     _objSpawn = [] ExecVM "server\functions\objectsSpawning.sqf";
 	waitUntil{sleep 0.1; scriptDone _objSpawn};
-    _boxSpawn = [] ExecVM "server\functions\boxSpawning.sqf";
-	waitUntil{sleep 0.1; scriptDone _boxSpawn};
     _gunSpawn = [] ExecVM "server\functions\staticGunSpawning.sqf";
 	waitUntil{sleep 0.1; scriptDone _gunSpawn};
     _heliSpawn = [] ExecVM "server\functions\staticHeliSpawning.sqf";

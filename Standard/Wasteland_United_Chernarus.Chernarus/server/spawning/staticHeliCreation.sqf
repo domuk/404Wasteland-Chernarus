@@ -11,6 +11,7 @@ private["_spawnPos", "_spawnType", "_currHeli"];
 
 _isWreck = _this select 0;
 _spawnPos = _this select 1;
+_nerfBoxes = ["basicUS","basicUS2","basicRU","basicRU2","basicGER","basicPMC","basicSpecial","basicSpecial2","basicSpecial3"];
 
 if (_isWreck == 0) then {
 	//diag_log "Spawning heli complete...";
@@ -18,24 +19,47 @@ if (_isWreck == 0) then {
 	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
 	
 	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
-	
+	_currHeliLocation = getPosATL _currHeli;
+    
 	clearMagazineCargoGlobal _currHeli;
 	clearWeaponCargoGlobal _currHeli;
+    
+    // Spawn some AI to make it interesting...        
+    if ((_spawnType == "MV22") OR (_spawnType == "CH_47F_EP1")) then {
+    	CivGrpM = createGroup civilian;
+		[CivGrpM,_currHeliLocation] spawn createMidGroup;
+    } else  {     
+        CivGrpS = createGroup civilian;
+		[CivGrpS,_currHeliLocation] spawn createSmallGroup;
+    };
 	
 	//Set original status to stop ner-do-wells
-	_currHeli setVariable["original",1,true];
+	_currHeli setVariable["newVehicle",1,true];
 } else {
 	//diag_log "Spawning heli wreck...";
-	_spawnType = staticHeliList select (random (count staticHeliList - 1));
+	_spawnType = staticHeliWrecks select (random (count staticHeliList - 1));
 	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
 	
 	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
-	
+    _currHeliLocation = getPosATL _currHeli;
+    
 	clearMagazineCargoGlobal _currHeli;
 	clearWeaponCargoGlobal _currHeli;
-	
-	//Set original status to stop ner-do-wells
-	_currHeli setVariable["original",1,true];
     
-    _currHeli setDamage 1; // Destroy this heli on the spot so it looks like a realistic crash.
+    // Spawn some AI to make it interesting...
+    CivGrpS = createGroup civilian;
+	[CivGrpS,_currHeliLocation] spawn createSmallGroup;
+    
+    // Spawn a weapon crate.
+	_currBox = _nerfBoxes select (random (count _nerfBoxes - 1));
+	_safePos = [_currHeliLocation, 2, 8, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
+	[_currBox, _safePos] execVM "server\spawning\boxCreation.sqf";   
+    
+    // Stop the heli wreck from being destroyed.
+    _currHeli addEventHandler["handleDamage", { false } ];
+    _currHeli setVehicleAmmo (random 0.3);
+ 
+	//Set original status to stop ner-do-wells
+	_currHeli setVariable["newVehicle",1,true];
+    _currHeli setVariable["R3F_LOG_disabled", true, true];  
 };

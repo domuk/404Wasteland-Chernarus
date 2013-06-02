@@ -26,32 +26,40 @@ else
 	
 	R3F_LOG_objet_selectionne = objNull;
 	
-	private ["_objet", "_est_calculateur", "_arme_principale", "_action_menu_release_relative", "_action_menu_release_horizontal" , "_action_menu_45", "_action_menu_90", "_action_menu_180", "_azimut_canon"];
+	private ["_playerSideR3F", "_objet", "_est_calculateur", "_arme_principale", "_action_menu_release_relative", "_action_menu_release_horizontal" , "_action_menu_45", "_action_menu_90", "_action_menu_180", "_azimut_canon"];
 	
 	_objet = _this select 0;
+    _doExit = false;
+    _ownerMinDistance = 150;
+    
 	if(isNil {_objet getVariable "R3F_Side"}) then {
 		_objet setVariable ["R3F_Side", (side player), true];
-	};
-	_tempVar = false;
-	if(!isNil {_objet getVariable "R3F_Side"}) then {
-		if(side player != (_objet getVariable "R3F_Side")) then {
-			{if(side _x ==  (_objet getVariable "R3F_Side") && alive _x && _x distance _objet < 150) exitwith {_tempVar = true;};} foreach AllUnits;
+        
+	} else {
+    
+    	_playerSideR3F = ((_this select 0) getVariable "R3F_Side");
+        
+    	if(side player != _playerSideR3F) then {
+			{
+            	if ((side _x ==  _playerSideR3F) AND (alive _x) AND (_x distance _objet < _ownerMinDistance)) exitwith {
+                	_doExit = true;
+                };
+            } foreach AllUnits;
 		};
+    };
+
+	if(_doExit) exitwith {
+		hint format["This item belongs to %1.", _playerSideR3F]; 
+        R3F_LOG_mutex_local_verrou = false;
 	};
-	if(_tempVar) exitwith {
-		hint format["This object belongs to %1 and they're nearby you cannot take this.", _objet getVariable "R3F_Side"]; R3F_LOG_mutex_local_verrou = false;
-	};
+    
 	_objet setVariable ["R3F_Side", (side player), true];
 	
 	// Si l'objet est un calculateur d'artillerie, on laisse le script spécialisé gérer
 	_est_calculateur = _objet getVariable "R3F_ARTY_est_calculateur";
-	if !(isNil "_est_calculateur") then
-	{
+	if !(isNil "_est_calculateur") then {
 		R3F_LOG_mutex_local_verrou = false;
-		[_objet] execVM "addons\R3F_ARTY_AND_LOG\R3F_ARTY\poste_commandement\deplacer_calculateur.sqf";
-	}
-	else
-	{
+	} else {
 		_objet setVariable ["R3F_LOG_est_deplace_par", player, true];
 		
 		R3F_LOG_joueur_deplace_objet = _objet;
@@ -63,8 +71,9 @@ else
 			player playMove "AidlPercMstpSnonWnonDnon04";
 			sleep 1.5;
 			player removeWeapon _arme_principale;
-		}
-		else {sleep 0.5;};
+		} else {
+        	sleep 0.5;
+        };
 		
 		// Si le joueur est mort pendant le sleep, on remet tout comme avant
 		if (!alive player) then
@@ -107,9 +116,9 @@ else
 			
 			_action_menu_release_relative = player addAction [("<t color=""#21DE31"">" + STR_R3F_LOG_action_relacher_objet + "</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\relacher.sqf", false, 5, true, true];
 			_action_menu_release_horizontal = player addAction [("<t color=""#21DE31"">" + STR_RELEASE_HORIZONTAL + "</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\relacher.sqf", true, 5, true, true];
-			_action_menu_45 = player addAction [("<t color=""#dddd00"">Rotate object 45°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 45, 5, true, true];
-			_action_menu_90 = player addAction [("<t color=""#dddd00"">Rotate object 90°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 90, 5, true, true];
-			_action_menu_180 = player addAction [("<t color=""#dddd00"">Rotate object 180°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 180, 5, true, true];
+			_action_menu_45 = player addAction [("<t color=""#dddd00"">Rotate object 45°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 45, 4, true, true];
+			_action_menu_90 = player addAction [("<t color=""#dddd00"">Rotate object 90°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 90, 4, true, true];
+			_action_menu_180 = player addAction [("<t color=""#dddd00"">Rotate object 180°</t>"), "addons\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\rotate.sqf", 180, 4, true, true];
 			
 			// On limite la vitesse de marche et on interdit de monter dans un véhicule tant que l'objet est porté
 			while {!isNull R3F_LOG_joueur_deplace_objet && alive player} do
