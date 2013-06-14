@@ -21,7 +21,7 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\antiCheatServer.sqf";
 waitUntil{scriptDone _serverCompiledScripts};
 
-diag_log format["WASTELAND SERVER - Server Complie Finished"];
+diag_log format["WASTELAND SERVER - Server Compile Finished"];
 
 #ifdef __DEBUG__
 #else
