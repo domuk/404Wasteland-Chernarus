@@ -123,6 +123,7 @@ switch (_lockState) do {
                 _currObject setVariable ["objectLocked", false, true];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+				mutexScriptInProgress = false;
 		    }; 
 		};
 		

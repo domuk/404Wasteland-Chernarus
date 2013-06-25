@@ -23,21 +23,12 @@ if (_isWreck == 0) then {
     
 	clearMagazineCargoGlobal _currHeli;
 	clearWeaponCargoGlobal _currHeli;
-    
-    // Spawn some AI to make it interesting...        
-    if ((_spawnType == "MV22") OR (_spawnType == "CH_47F_EP1")) then {
-    	CivGrpM = createGroup civilian;
-		[CivGrpM,_currHeliLocation] spawn createMidGroup;
-    } else  {     
-        CivGrpS = createGroup civilian;
-		[CivGrpS,_currHeliLocation] spawn createSmallGroup;
-    };
 	
 	//Set original status to stop ner-do-wells
 	_currHeli setVariable["newVehicle",1,true];
 } else {
-	//diag_log "Spawning heli wreck...";
-	_spawnType = staticHeliWrecks select (random (count staticHeliList - 1));
+	//diag_log "Spawning heli wreck...";staticHeliWrecks
+	_spawnType = staticHeliWrecks select (random (count staticHeliWrecks - 1));
 	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
 	
 	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
@@ -45,10 +36,6 @@ if (_isWreck == 0) then {
     
 	clearMagazineCargoGlobal _currHeli;
 	clearWeaponCargoGlobal _currHeli;
-    
-    // Spawn some AI to make it interesting...
-    CivGrpS = createGroup civilian;
-	[CivGrpS,_currHeliLocation] spawn createSmallGroup;
     
     // Spawn a weapon crate.
 	_currBox = _nerfBoxes select (random (count _nerfBoxes - 1));

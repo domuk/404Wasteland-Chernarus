@@ -152,28 +152,10 @@ _graveBase = createVehicle ["Grave", _playerPos, [], 0, "NO_COLLIDE"];
 _graveBase setPosATL _playerPos; // setPos again because arma.
 _graveBase setDir _playerDir;
 
-_graveCross = createVehicle ["GraveCrossHelmet", _playerPos, [], 0, "NO_COLLIDE"];
-_graveCross setPosATL _playerPos;
-_graveCross setDir _playerDir;
-
-_graveCross setVariable["base",_graveBase,true];
-
-// Get the grave base relative position and add 1 to the Y axis. This makes the cross always appear +1m further on the
-// base's Y axis regardless of actual direction. This makes the cross always appear at the head end.
-_relativeCrossPos = _graveCross worldToModel (getPos _graveBase);
-_relativeCrossPos = [(_relativeCrossPos select 0),1,(getPos _graveBase) select 2];
-
-_absoluteCrossPos = _graveCross modelToWorld _relativeCrossPos;
-_absoluteCrossPos = [_absoluteCrossPos select 0, _absoluteCrossPos select 1, _playerPos select 2];
-
-_graveCross setPosATL _absoluteCrossPos;
-
 // Disable damage for tombstones.
 _graveBase addEventHandler["handledamage", { false }];
-_graveCross addEventHandler["handledamage", { false }];
 
 // Disable physics for the tombstone on all clients.      
-_announce = [nil,_graveCross,"per",rENABLESIMULATION,false] call RE;
 _announce = [nil,_graveBase,"per",rENABLESIMULATION,false] call RE;
 
 // Create a loot container inside the grave.
@@ -184,7 +166,6 @@ _tempContainer setPosATL _containerLoc;
 
 // Make sure people can't move the objects around.
 _tempContainer setVariable ["R3F_LOG_disabled", true, true];
-_graveCross setVariable ["R3F_LOG_disabled", true, true];
 _graveBase setVariable ["R3F_LOG_disabled", true, true];
 
 // Add the weapons that were on the player to the new weapon container.
@@ -211,11 +192,10 @@ true spawn {
 };
 
 // Grave cleanup after 15 minutes. This is to stop the spam of these across the map.
-[_graveBase, _graveCross, _tempContainer] spawn {
+[_graveBase, _tempContainer] spawn {
 	sleep 900; // 15 minutes.
     
     // Prenthesis are VERY important here, otherwise it attempts to delete the whole _this array.
     deleteVehicle (_this select 0);
     deleteVehicle (_this select 1);
-    deleteVehicle (_this select 2);
 };

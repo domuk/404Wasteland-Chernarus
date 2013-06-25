@@ -13,10 +13,10 @@ for "_i" from 1 to 770 do
 {
     _pos = getMarkerPos format ["Spawn_%1", _i];
     
-    _newpos = [_pos, 10, 20, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
+    _newpos = [_pos, 10, 40, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
 	[_newpos] call objectCreation;
     
-    _newpos = [_pos, 21, 40, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
+    _newpos = [_pos, 41, 80, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
     [_newpos] call objectCreation; 
     
     _counter = _counter + 2;

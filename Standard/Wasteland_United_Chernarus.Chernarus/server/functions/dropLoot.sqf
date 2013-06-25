@@ -8,7 +8,7 @@ _chance = random 1;
 _unit = _this select 0 select 0;
 
 if (_chance <= 0.35) then {
-	_amount = 50;
+	_amount = 75;
 	_amount = _amount + round (random 50);
     _unitPos = position _unit;
     
